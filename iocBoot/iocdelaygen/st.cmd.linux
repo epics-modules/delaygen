@@ -1,0 +1,107 @@
+#------------------------------------------------------------------------------
+# Linux startup file
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+# Register all support components
+dbLoadDatabase("../../dbd/iocdelaygenAppLinux.dbd")
+iocdelaygenAppLinux_registerRecordDeviceDriver(pdbbase)
+
+#------------------------------------------------------------------------------
+# Configure asyn
+
+#-----------------------------------------------------------
+#
+
+### CONFIGURE EITHER SERIAL OR IP ###
+# Initialize Serial Asyn support
+drvAsynSerialPortConfigure("D0", "/dev/ttyS2", 0, 0, 0)
+asynSetOption("D0", -1, "baud",    "19200")
+asynSetOption("D0", -1, "bits",    "8")
+asynSetOption("D0", -1, "parity",  "none")
+asynSetOption("D0", -1, "stop",    "1")
+asynSetOption("D0", -1, "clocal",  "Y")
+asynSetOption("D0", -1, "crtscts", "N")
+
+# Initialize IP Asyn support
+#drvAsynIPPortConfigure("D0","164.54.52.182:5024",0,0,0)
+### CONFIGURE EITHER SERIAL OR IP ###
+
+# Initialize input/output EOS
+asynOctetSetOutputEos("D0",0,"\n")
+asynOctetSetInputEos("D0",0,"\r\n")
+
+# Asyn record support
+dbLoadRecords("../../db/asynRecord.db","P=delaygen:,R=asynD0,PORT=D0,ADDR=0,OMAX=0,IMAX=0")
+
+#
+#-----------------------------------------------------------
+
+## Interpose interface for NI GPIB-RS232 converter
+#   nigpibInterfaceConfig(ioport,addr,conv,timeout)
+#       ioport  - Asyn port name (i.e. "L2")
+#       addr    - GPIB device address (valid when conv=1)
+#       bsiz    - NI GPIB-RS232 read buffer size (in bytes)
+#       timeout - Communication timeout (default 3s)
+#
+#nigpibInterposeConfig("D0",23,60,0);
+
+#------------------------------------------------------------------------------
+# Stanford Research DG645 (digital delay generator) support
+#
+#   drvAsynDG645(myport,ioport,ioaddr)
+#       myport  - Interface asyn port name (i.e. "DG0")
+#       ioport  - Comm asyn port name (i.e. "L2")
+#       ioaddr  - Comm asyn port addr
+#
+drvAsynDG645("DG0","D0",-1);
+
+# Load database
+dbLoadRecords("../../db/drvDG645.db","P=delaygen:,R=DG0:,PORT=DG0")
+
+#------------------------------------------------------------------------------
+# Configure auto save/restore
+
+#-----------------------------------------------------------
+#
+# Ok to save/restore save sets with missing values (no CA connection to PV)?
+save_restoreSet_IncompleteSetsOk(1)
+
+# Save dated backup files?
+save_restoreSet_DatedBackupFiles(1)
+
+# Number of sequenced backup files to write
+save_restoreSet_NumSeqFiles(3)
+
+# Time interval between sequenced backups
+save_restoreSet_SeqPeriodInSeconds(300)
+
+# Specify what save files should be restored
+set_pass0_restoreFile("auto_positions.sav")
+set_pass0_restoreFile("auto_settings.sav")
+set_pass1_restoreFile("auto_settings.sav")
+
+# Specify directories to search for request/save files
+set_savefile_path("","autosave")
+set_requestfile_path("","autosave")
+
+# Load database
+dbLoadRecords("../../db/save_restoreStatus.db", "P=delaygen:")
+#
+#-----------------------------------------------------------
+
+#------------------------------------------------------------------------------
+# Start IOC
+iocInit()
+
+#------------------------------------------------------------------------------
+# Start autosave
+
+# Monitor every five seconds
+#create_monitor_set("auto_positions.req",5,"P=delaygen:")
+
+# Monitor every ten seconds
+#create_monitor_set("auto_settings.req",10,"P=delaygen:")
+
+#
+#------------------------------------------------------------------------------
