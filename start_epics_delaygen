@@ -8,4 +8,4 @@ setenv DSP2 ../../support/all_adl
 setenv EPICS_DISPLAY_PATH $DSP1':'$DSP2
 
 # Launch MEDM screen
-medm -x -noMsg -macro "P=delaygen:,R=DG0:,AR=asynD0" srsDG645.adl&
+medm -x -noMsg -macro "P=delaygen:" delaygen.adl&
