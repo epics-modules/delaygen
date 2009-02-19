@@ -1,6 +1,6 @@
 
 file {
-	name="/home/epicsioc/epics/iocs/dg645/delaygenApp/op/adl/srsDG645.adl"
+	name="/home/oxygen12/DKLINE/EPICS/dev/synApps/support/delaygen/work/delaygenApp/op/adl/srsDG645.adl"
 	version=030101
 }
 display {
@@ -1326,7 +1326,7 @@ rectangle {
 }
 text {
 	object {
-		x=556
+		x=557
 		y=239
 		width=72
 		height=14
@@ -1335,7 +1335,7 @@ text {
 		clr=14
 		fill="outline"
 	}
-	textix="Standard"
+	textix="Front Panel"
 	align="horiz. centered"
 }
 text {
