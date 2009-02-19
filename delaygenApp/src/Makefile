@@ -12,19 +12,22 @@ LIBRARY_IOC += delaygen
 delaygen_SRCS_Linux += nigpibInterpose.c
 delaygen_SRCS_Linux += drvAsynDG645.cpp
 delaygen_SRCS_Linux += drvAsynColby.cpp
-delaygen_LIBS_Linux += std asyn
+delaygen_SRCS_Linux += digitalDelay.c
+delaygen_LIBS_Linux += std asyn genSub
 delaygen_LIBS_Linux += $(EPICS_BASE_IOC_LIBS)
 
 delaygen_SRCS_RTEMS += nigpibInterpose.c
 delaygen_SRCS_RTEMS += drvAsynDG645.cpp
 delaygen_SRCS_RTEMS += drvAsynColby.cpp
-delaygen_LIBS_RTEMS += std asyn
+delaygen_SRCS_RTEMS += digitalDelay.c
+delaygen_LIBS_RTEMS += std asyn genSub
 delaygen_LIBS_RTEMS += $(EPICS_BASE_IOC_LIBS)
 
 delaygen_SRCS_vxWorks += nigpibInterpose.c
 delaygen_SRCS_vxWorks += drvAsynDG645.cpp
 delaygen_SRCS_vxWorks += drvAsynColby.cpp
-delaygen_LIBS_vxWorks += std asyn TyGSOctal Ipac ip
+delaygen_SRCS_vxWorks += digitalDelay.c
+delaygen_LIBS_vxWorks += std asyn genSub TyGSOctal Ipac ip
 delaygen_LIBS_vxWorks += $(EPICS_BASE_IOC_LIBS)
 
 #=============================================================================
@@ -40,6 +43,8 @@ DBD += iocdelaygenAppRtemsInclude.dbd
 DBD += iocdelaygenAppVxWorksInclude.dbd 
 
 DBD += drvAsynDG645.dbd
+DBD += drvAsynColby.dbd
+DBD += digitalDelay.dbd
 DBD += nigpibSupport.dbd
 
 #-----------------------------------------------------------------------------
@@ -68,11 +73,11 @@ delaygenApp_SRCS_vxWorks += -nil-
 
 #-----------------------------------------------------------------------------
 # Include libraries
-delaygenApp_LIBS_Linux   += autosave std delaygen asyn
+delaygenApp_LIBS_Linux   += autosave std delaygen asyn genSub
 delaygenApp_LIBS_Linux   += $(EPICS_BASE_IOC_LIBS)
-delaygenApp_LIBS_RTEMS   += autosave std delaygen asyn
+delaygenApp_LIBS_RTEMS   += autosave std delaygen asyn genSub
 delaygenApp_LIBS_RTEMS   += $(EPICS_BASE_IOC_LIBS)
-delaygenApp_LIBS_vxWorks += autosave std delaygen asyn TyGSOctal Ipac ip
+delaygenApp_LIBS_vxWorks += autosave std delaygen asyn genSub TyGSOctal Ipac ip
 delaygenApp_LIBS_vxWorks += $(EPICS_BASE_IOC_LIBS)
 
 #

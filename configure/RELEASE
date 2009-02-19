@@ -19,6 +19,7 @@ SUPPORT=/home/oxygen/DKLINE/EPICS/dev/synApps/support
 
 # Modules required for building module
 ASYN=/home/oxygen/DKLINE/EPICS/dev/synApps/support/asyn/4-9
+GENSUB=/home/oxygen/DKLINE/EPICS/dev/synApps/support/genSub/1-6a
 STD=/home/oxygen/DKLINE/EPICS/dev/synApps/support/std/work
 IP=/home/oxygen/DKLINE/EPICS/dev/synApps/support/ip/2-7
 IPAC=/home/oxygen/DKLINE/EPICS/dev/synApps/support/ipac/2-8

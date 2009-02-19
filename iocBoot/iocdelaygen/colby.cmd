@@ -1,7 +1,7 @@
 ### Colby Instruments PDL100A - Programmable Delay Line
 
 # Initialize IP Asyn support
-#drvAsynIPPortConfigure("D0","7idcolby1.aps.anl.gov:7000",0,0,0)
+#drvAsynIPPortConfigure("D0","colby1.aps.anl.gov:7000",0,0,0)
 
 # Initialize IP input/output EOS
 #asynOctetSetInputEos("D0",-1,"\r\n")

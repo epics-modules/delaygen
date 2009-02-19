@@ -14,6 +14,7 @@ include $(TOP)/configure/RELEASE
 # databases, templates, substitutions like this
 DB += drvDG645.db
 DB += colbyPDL100A.db
+DB += digitalDelay.db
 
 DB += $(ASYN)/db/asynRecord.db
 DB += $(AUTOSAVE)/asApp/Db/save_restoreStatus.db
