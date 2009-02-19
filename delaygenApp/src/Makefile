@@ -11,16 +11,19 @@ LIBRARY_IOC += delaygen
 
 delaygen_SRCS_Linux += nigpibInterpose.c
 delaygen_SRCS_Linux += drvAsynDG645.cpp
+delaygen_SRCS_Linux += drvAsynColby.cpp
 delaygen_LIBS_Linux += std asyn
 delaygen_LIBS_Linux += $(EPICS_BASE_IOC_LIBS)
 
 delaygen_SRCS_RTEMS += nigpibInterpose.c
 delaygen_SRCS_RTEMS += drvAsynDG645.cpp
+delaygen_SRCS_RTEMS += drvAsynColby.cpp
 delaygen_LIBS_RTEMS += std asyn
 delaygen_LIBS_RTEMS += $(EPICS_BASE_IOC_LIBS)
 
 delaygen_SRCS_vxWorks += nigpibInterpose.c
 delaygen_SRCS_vxWorks += drvAsynDG645.cpp
+delaygen_SRCS_vxWorks += drvAsynColby.cpp
 delaygen_LIBS_vxWorks += std asyn TyGSOctal Ipac ip
 delaygen_LIBS_vxWorks += $(EPICS_BASE_IOC_LIBS)
 
