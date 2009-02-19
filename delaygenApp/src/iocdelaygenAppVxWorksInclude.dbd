@@ -19,6 +19,16 @@ include "asSupport.dbd"
 # Std support
 include "sseqRecord.dbd"
 
+#------------------------------------------------------------------------------
+# Ip support
+registrar(tyGSAsynInitRegister)
+variable(tyGSAsynInitBuffsize,int)
+
+#------------------------------------------------------------------------------
+# Ipac support
+include "drvIpac.dbd"
+include "tyGSOctal.dbd"
+
 #-----------------------------------------------------------------------------
 # National Instruments NI GPIB-RS232
 include "nigpibSupport.dbd"

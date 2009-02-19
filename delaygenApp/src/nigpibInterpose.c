@@ -36,8 +36,8 @@
 
  Source control info:
     Modified by:    $Author: dkline $
-                    $Date: 2009-02-17 21:18:41 $
-                    $Revision: 1.1.1.1 $
+                    $Date: 2009-02-19 15:14:37 $
+                    $Revision: 1.2 $
 
  =============================================================================
  History:
@@ -143,6 +143,9 @@ static asynOctet octet =
 /* Define macros */
 #define ASYN_OK(s)      (asynSuccess==(s))
 #define ASYN_NOTOK(s)   (!ASYN_OK(s))
+#ifndef MIN
+#define MIN(a,b)        ((a)>(b)?(b):(a))
+#endif
 
 
 /****************************************************************************
@@ -237,7 +240,7 @@ static asynStatus readIt(void *ppvt,asynUser *pasynUser,char *data,size_t maxcha
     if( ASYN_NOTOK(status) ) return( status );
 
     *strstr(pioPvt->rbuf,"\r\n")='\0';
-    pioPvt->rbuf[*nbytesTransfered=MIN(strlen(pioPvt->rbuf),maxchars)];
+    pioPvt->rbuf[*nbytesTransfered=MIN(strlen(pioPvt->rbuf),maxchars)]='\0';
     strcpy(data,pioPvt->rbuf);
 
     return( asynSuccess );

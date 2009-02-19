@@ -21,13 +21,14 @@ delaygen_LIBS_RTEMS += $(EPICS_BASE_IOC_LIBS)
 
 delaygen_SRCS_vxWorks += nigpibInterpose.c
 delaygen_SRCS_vxWorks += drvAsynDG645.cpp
-delaygen_LIBS_vxWorks += std asyn
+delaygen_LIBS_vxWorks += std asyn TyGSOctal Ipac ip
 delaygen_LIBS_vxWorks += $(EPICS_BASE_IOC_LIBS)
 
 #=============================================================================
 # Build an IOC application
-PROD_IOC_Linux = delaygenApp
-PROD_IOC_RTEMS = delaygenApp
+PROD_IOC_Linux   = delaygenApp
+PROD_IOC_RTEMS   = delaygenApp
+PROD_IOC_vxWorks = delaygenApp
 
 #-----------------------------------------------------------------------------
 # <name>.dbd will be created and installed
@@ -54,17 +55,22 @@ endif
 
 #-----------------------------------------------------------------------------
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
-delaygenApp_SRCS_Linux += iocdelaygenAppLinux_registerRecordDeviceDriver.cpp
-delaygenApp_SRCS_Linux += delaygenMain.cpp
-delaygenApp_SRCS_RTEMS += iocdelaygenAppRtems_registerRecordDeviceDriver.cpp
-delaygenApp_SRCS_RTEMS += delaygenMain.cpp
+delaygenApp_SRCS_Linux   += iocdelaygenAppLinux_registerRecordDeviceDriver.cpp
+delaygenApp_SRCS_Linux   += delaygenMain.cpp
+delaygenApp_SRCS_RTEMS   += iocdelaygenAppRtems_registerRecordDeviceDriver.cpp
+delaygenApp_SRCS_RTEMS   += delaygenMain.cpp
+delaygenApp_SRCS_vxWorks += iocdelaygenAppVxWorks_registerRecordDeviceDriver.cpp
+delaygenApp_SRCS_vxWorks += delaygenMain.cpp
+delaygenApp_SRCS_vxWorks += -nil-
 
 #-----------------------------------------------------------------------------
 # Include libraries
-delaygenApp_LIBS_Linux += autosave std delaygen asyn
-delaygenApp_LIBS_Linux += $(EPICS_BASE_IOC_LIBS)
-delaygenApp_LIBS_RTEMS += autosave std delaygen asyn
-delaygenApp_LIBS_RTEMS += $(EPICS_BASE_IOC_LIBS)
+delaygenApp_LIBS_Linux   += autosave std delaygen asyn
+delaygenApp_LIBS_Linux   += $(EPICS_BASE_IOC_LIBS)
+delaygenApp_LIBS_RTEMS   += autosave std delaygen asyn
+delaygenApp_LIBS_RTEMS   += $(EPICS_BASE_IOC_LIBS)
+delaygenApp_LIBS_vxWorks += autosave std delaygen asyn TyGSOctal Ipac ip
+delaygenApp_LIBS_vxWorks += $(EPICS_BASE_IOC_LIBS)
 
 #
 #=============================================================================
