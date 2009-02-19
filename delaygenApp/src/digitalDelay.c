@@ -6,7 +6,7 @@ Given a table of delay values (in ps) corresponding to each of twelve delay line
 the delay values of all possible combinations of those delay lines. When user requests a delay
 value, find the closest achievable delay, and output the bit pattern that achieves it.
 
-genSub fields:
+aSub fields:
   A - the desired delay
   VALA - the closest achievable delay
   VALB - the bit pattern that will produce VALA
@@ -31,7 +31,7 @@ genSub fields:
 #include <dbCommon.h>
 #include <recSup.h>
 #include <epicsVersion.h>       /* for LT_EPICSBASE macro */
-#include <genSubRecord.h>
+#include <aSubRecord.h>
 
 #define GE_EPICSBASE(v,r,l) ((EPICS_VERSION>=(v)) && (EPICS_REVISION>=(r)) && (EPICS_MODIFICATION>=(l)))
 
@@ -53,16 +53,16 @@ static double delayValue(int pattern, int nbits, double *delay_line_values)
 	return (value);
 }
 
-static void do_init(genSubRecord *pgsub)
+static void do_init(aSubRecord *psub)
 {
 	long pattern;
-	double *delay_line_values = (double *)pgsub->c;
-	double *delay_ps = (double *)pgsub->d;
-	long *bitPattern = (long *)pgsub->b;
-	long *index = (long *)pgsub->i;
-	long npatterns = pgsub->nod;
-	long nbits = pgsub->noc;
-	long *reinit = (long *)pgsub->e;
+	double *delay_line_values = (double *)psub->c;
+	double *delay_ps = (double *)psub->d;
+	long *bitPattern = (long *)psub->b;
+	long *index = (long *)psub->i;
+	long npatterns = psub->nod;
+	long nbits = psub->noc;
+	long *reinit = (long *)psub->e;
 
 	for (pattern=0; pattern<npatterns; pattern++) {
 		delay_ps[pattern] = delayValue(pattern, nbits, delay_line_values);
@@ -80,10 +80,10 @@ static void do_init(genSubRecord *pgsub)
 	return;
 }
 
-static long digitalDelay_init(genSubRecord *pgsub)
+static long digitalDelay_init(aSubRecord *psub)
 {
-	double *delay_line_values = (double *)pgsub->c;
-	long nbits = pgsub->noc;
+	double *delay_line_values = (double *)psub->c;
+	long nbits = psub->noc;
 
 	/* Initialize delay values.  User can write their own values to the C array before or after iocInit.
 	 * If C is written after iocInit, user must set E and wait for it to be reset to 0.
@@ -101,23 +101,23 @@ static long digitalDelay_init(genSubRecord *pgsub)
 	if (nbits>10) delay_line_values[10] = 5047.4;
 	if (nbits>11) delay_line_values[11] = 10088.;
 
-	do_init(pgsub);
+	do_init(psub);
 	return(0);
 }
 
-static long digitalDelay_do(genSubRecord *pgsub)
+static long digitalDelay_do(aSubRecord *psub)
 {
-	double *a = (double *)pgsub->a;
-	double *vala = (double *)pgsub->vala;
-	long *valb = (long *)pgsub->valb;
-	double *valc = (double *)pgsub->valc;
-	double *vald = (double *)pgsub->vald;
-	double *vale = (double *)pgsub->vale;
-	double *delay_ps = (double *)pgsub->d;
-	long *bitPattern = (long *)pgsub->b;
-	long *index = (long *)pgsub->i;
-	long *reinit = (long *)pgsub->e;
-	long npatterns = pgsub->nod;
+	double *a = (double *)psub->a;
+	double *vala = (double *)psub->vala;
+	long *valb = (long *)psub->valb;
+	double *valc = (double *)psub->valc;
+	double *vald = (double *)psub->vald;
+	double *vale = (double *)psub->vale;
+	double *delay_ps = (double *)psub->d;
+	long *bitPattern = (long *)psub->b;
+	long *index = (long *)psub->i;
+	long *reinit = (long *)psub->e;
+	long npatterns = psub->nod;
 	double diff;
 	long bestIx;
 	int i, ix;
@@ -125,7 +125,7 @@ static long digitalDelay_do(genSubRecord *pgsub)
 
 	if (digitalDelayDebug) printf("digitalDelay_do: a=%f\n", *a);
 
-	if (*reinit) do_init(pgsub);
+	if (*reinit) do_init(psub);
 
 	diff = 1000.;
 	bestIx = 0;

@@ -247,7 +247,7 @@ composite {
 				height=10
 			}
 			monitor {
-				chan="$(P)$(Q)genSub.VALD"
+				chan="$(P)$(Q)aSub.VALD"
 				clr=54
 				bclr=1
 			}
@@ -279,7 +279,7 @@ composite {
 		height=10
 	}
 	monitor {
-		chan="$(P)$(Q)genSub.VALE"
+		chan="$(P)$(Q)aSub.VALE"
 		clr=54
 		bclr=1
 	}
@@ -294,7 +294,7 @@ composite {
 		height=14
 	}
 	monitor {
-		chan="$(P)$(Q)genSub.VALC"
+		chan="$(P)$(Q)aSub.VALC"
 		clr=54
 		bclr=1
 	}
@@ -398,7 +398,7 @@ polyline {
 		height=14
 	}
 	control {
-		chan="$(P)$(Q)genSub.E"
+		chan="$(P)$(Q)aSub.E"
 		clr=14
 		bclr=51
 	}

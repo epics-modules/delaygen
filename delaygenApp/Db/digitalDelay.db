@@ -2,7 +2,7 @@
 # Support for GigaBaudics digital delay box
 # Tim Mooney 9/18/2008
 #
-# genSub-record fields:
+# aSub-record fields:
 # ---------------------
 # A    - the desired delay
 # VALA - the closest achievable delay
@@ -16,7 +16,7 @@
 # B    - bit patterns corresponding to delays D (array of length $(N))
 # E    - if == 1, reinitialize and set back to 0.  (Use if C overwritten.)
 
-record(genSub, "$(P)$(Q)genSub") {
+record(aSub, "$(P)$(Q)aSub") {
 	field(INAM, "digitalDelay_init")
 	field(SNAM, "digitalDelay_do")
 	field(PREC, "1")
@@ -48,7 +48,7 @@ record(genSub, "$(P)$(Q)genSub") {
 }
 
 record(ao, "$(P)$(Q)desiredDelay") {
-	field(OUT, "$(P)$(Q)genSub.A PP")
+	field(OUT, "$(P)$(Q)aSub.A PP")
 	field(PINI, "YES")
 	field(PREC, "1")
 	field(EGU, "ps")
@@ -60,7 +60,7 @@ record(ao, "$(P)$(Q)actualDelay") {
 }
 
 record(ao, "$(P)$(Q)nextHigher") {
-	field(DOL, "$(P)$(Q)genSub.VALE")
+	field(DOL, "$(P)$(Q)aSub.VALE")
 	field(OUT, "$(P)$(Q)desiredDelay.VAL PP")
 	field(OMSL, "closed_loop")
 	field(PREC, "1")
@@ -68,7 +68,7 @@ record(ao, "$(P)$(Q)nextHigher") {
 }
 
 record(ao, "$(P)$(Q)nextLower") {
-	field(DOL, "$(P)$(Q)genSub.VALD")
+	field(DOL, "$(P)$(Q)aSub.VALD")
 	field(OUT, "$(P)$(Q)desiredDelay.VAL PP")
 	field(OMSL, "closed_loop")
 	field(PREC, "1")
