@@ -1,23 +1,56 @@
 #------------------------------------------------------------------------------
-# RTEMS startup file
+# VxWorks startup file
 #------------------------------------------------------------------------------
+
+## vxWorks startup script
+sysVmeMapShow
+
+## For vxStats
+engineer="Kline 2-8639"
+location="401-B1208"
+
+cd ""
+< ../nfsCommands
+< cdCommands
+
+## How to set and get the clock rate
+#sysClkRateSet(100)
+#sysClkRateGet()
+
+##
+cd topbin
+
+# If the VxWorks kernel was built using the project facility, the following must
+# be added before any C++ code is loaded (see SPR #28980).
+sysCplusEnable=1
+
+## Load synApps EPICS software
+ld < delaygenApp.munch
+
+cd startup
 
 #------------------------------------------------------------------------------
 # Register all support components
-dbLoadDatabase("../../dbd/iocdelaygenAppLinux.dbd")
-iocdelaygenAppRtems_registerRecordDeviceDriver(pdbbase)
+dbLoadDatabase("../../dbd/iocdelaygenAppVxWorks.dbd")
+iocdelaygenAppVxWorks_registerRecordDeviceDriver(pdbbase)
 
 #------------------------------------------------------------------------------
 # Asyn support
 
 ## Serial communications
-drvAsynSerialPortConfigure ("D0", "/dev/tty01", 0, 0, 0)
-asynSetOption("D0", -1, "baud",    "9600")
-asynSetOption("D0", -1, "bits",    "8")
-asynSetOption("D0", -1, "parity",  "none")
-asynSetOption("D0", -1, "stop",    "1")
-asynSetOption("D0", -1, "clocal",  "Y")
-asynSetOption("D0", -1, "crtscts", "N")
+ipacAddVIPC616_01("0x2000,0xA0000000")
+ipacReport(2)
+
+tyGSOctalDrv(1)
+tyGSOctalModuleInit("UART_0","232",0x80,0,0)
+tyGSAsynInit("D0","UART_0",0,19200,'N',1,8,'N',"\r\n","\n")
+tyGSAsynInit("D1","UART_0",1, 9600,'N',1,8,'N',"","")
+tyGSAsynInit("D2","UART_0",2, 9600,'N',1,8,'N',"","")
+tyGSAsynInit("D3","UART_0",3, 9600,'N',1,8,'N',"","")
+tyGSAsynInit("D4","UART_0",4, 9600,'N',1,8,'N',"","")
+tyGSAsynInit("D5","UART_0",5, 9600,'N',1,8,'N',"","")
+tyGSAsynInit("D6","UART_0",6, 9600,'N',1,8,'N',"","")
+tyGSAsynInit("D7","UART_0",7, 9600,'N',1,8,'N',"","")
 
 ## Interpose interface for NI GPIB-RS232 converter
 #   nigpibInterfaceConfig(ioport,addr,conv,timeout)
