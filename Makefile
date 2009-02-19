@@ -6,6 +6,6 @@ DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *App))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *app))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocBoot))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocboot))
-ebrickApp_DEPEND_DIRS = configure
-iocBoot_DEPEND_DIRS   = ebrickApp
+delaygenApp_DEPEND_DIRS = configure
+iocBoot_DEPEND_DIRS   = delaygenApp
 include $(TOP)/configure/RULES_TOP
