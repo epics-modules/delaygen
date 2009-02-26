@@ -42,8 +42,8 @@
 
  Source control info:
     Modified by:    $Author: dkline $
-                    $Date: 2009-02-17 21:18:41 $
-                    $Revision: 1.1.1.1 $
+                    $Date: 2009-02-26 13:18:50 $
+                    $Revision: 1.2 $
 
  =============================================================================
  History:
@@ -594,8 +594,8 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     }
 
     pasynOctet->flush = flushOctet;
-    pasynOctet->readRaw = readOctet;
-    pasynOctet->writeRaw = writeOctet;
+    pasynOctet->read  = readOctet;
+    pasynOctet->write = writeOctet;
     pport->asynOctet.drvPvt = pport;
     pport->asynOctet.pinterface = pasynOctet;
     pport->asynOctet.interfaceType = asynOctetType;

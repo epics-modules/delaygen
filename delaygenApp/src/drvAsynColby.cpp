@@ -63,8 +63,8 @@
 
  Source control info:
     Modified by:    $Author: dkline $
-                    $Date: 2009-02-19 19:16:30 $
-                    $Revision: 1.1 $
+                    $Date: 2009-02-26 13:18:50 $
+                    $Revision: 1.2 $
 
  =============================================================================
  History:
@@ -328,8 +328,8 @@ int drvAsynColby(const char* myport,const char* ioport,int addr,const char* unit
     }
 
     pasynOctet->flush = flushIt;
-    pasynOctet->readRaw = readItRaw;
-    pasynOctet->writeRaw = writeItRaw;
+    pasynOctet->read  = readItRaw;
+    pasynOctet->write = writeItRaw;
     pport->asynOctet.drvPvt = pport;
     pport->asynOctet.pinterface = pasynOctet;
     pport->asynOctet.interfaceType = asynOctetType;

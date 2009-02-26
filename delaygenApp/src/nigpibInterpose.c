@@ -36,8 +36,8 @@
 
  Source control info:
     Modified by:    $Author: dkline $
-                    $Date: 2009-02-19 15:14:37 $
-                    $Revision: 1.2 $
+                    $Date: 2009-02-26 13:18:50 $
+                    $Revision: 1.3 $
 
  =============================================================================
  History:
@@ -113,9 +113,7 @@ struct ioPvt
 
 /* Forward references for asynOctet methods */
 static asynStatus writeIt(void *ppvt,asynUser *pasynUser,const char *data,size_t numchars,size_t *nbytesTransfered);
-static asynStatus writeRaw(void *ppvt,asynUser *pasynUser,const char *data,size_t numchars,size_t *nbytesTransfered);
 static asynStatus readIt(void *ppvt,asynUser *pasynUser,char *data,size_t maxchars,size_t *nbytesTransfered,int *eomReason);
-static asynStatus readRaw(void *ppvt,asynUser *pasynUser,char *data,size_t maxchars,size_t *nbytesTransfered,int *eomReason);
 static asynStatus flushIt(void *ppvt,asynUser *pasynUser);
 static asynStatus registerInterruptUser(void *ppvt,asynUser *pasynUser,interruptCallbackOctet callback, void *userPvt,void **registrarPvt);
 static asynStatus cancelInterruptUser(void *drvPvt,asynUser *pasynUser,void *registrarPvt);
@@ -127,9 +125,7 @@ static asynStatus getOutputEos(void *ppvt,asynUser *pasynUser,char *eos,int eoss
 static asynOctet octet =
 {
     writeIt,
-    writeRaw,
     readIt,
-    readRaw,
     flushIt,
     registerInterruptUser,
     cancelInterruptUser,
@@ -244,21 +240,6 @@ static asynStatus readIt(void *ppvt,asynUser *pasynUser,char *data,size_t maxcha
     strcpy(data,pioPvt->rbuf);
 
     return( asynSuccess );
-}
-
-
-static asynStatus writeRaw(void *ppvt,asynUser *pasynUser,const char *data,size_t numchars,size_t *nbytesTransfered)
-{
-    ioPvt* pioPvt=(ioPvt*)ppvt;
-
-    return( pioPvt->pasynOctet->writeRaw(pioPvt->octetPvt,pasynUser,data,numchars,nbytesTransfered) );
-}
-
-static asynStatus readRaw(void *ppvt,asynUser *pasynUser,char *data,size_t maxchars,size_t *nbytesTransfered,int *eomReason)
-{
-    ioPvt* pioPvt=(ioPvt*)ppvt;
-
-    return( pioPvt->pasynOctet->readRaw(pioPvt->octetPvt,pasynUser,data,maxchars,nbytesTransfered,eomReason) );
 }
 
 static asynStatus flushIt(void *ppvt,asynUser *pasynUser)
