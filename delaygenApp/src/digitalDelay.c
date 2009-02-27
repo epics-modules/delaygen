@@ -53,9 +53,10 @@ static double delayValue(int pattern, int nbits, double *delay_line_values)
 	return (value);
 }
 
+#define SMALL 1.e-6
 static void do_init(aSubRecord *psub)
 {
-	long pattern;
+	long pattern, s, t;
 	double *delay_line_values = (double *)psub->c;
 	double *delay_ps = (double *)psub->d;
 	long *bitPattern = (long *)psub->b;
@@ -65,12 +66,23 @@ static void do_init(aSubRecord *psub)
 	long *reinit = (long *)psub->e;
 
 	for (pattern=0; pattern<npatterns; pattern++) {
+		index[pattern] = pattern;
 		delay_ps[pattern] = delayValue(pattern, nbits, delay_line_values);
+
+		/* sort delay-table index so that delay_ps[index[s]] increases with s */
+		for (s=pattern; s>0 && (delay_ps[index[s]] <= delay_ps[index[s-1]]); s--) {
+			if (delay_ps[index[s]] == delay_ps[index[s-1]]) {
+				/* trouble: we need this to be monotonic, so we can step through it in a reproducible order; make it so */
+				delay_ps[index[s]] = delay_ps[index[s-1]] + SMALL;
+			} else {
+				if (digitalDelayDebug) printf ("swap %f for %f\n", delay_ps[index[s]], delay_ps[index[s-1]]);
+				t = index[s]; index[s] = index[s-1]; index[s-1] = t;
+			}
+		}
+
 		bitPattern[pattern] = pattern;
 		if (digitalDelayDebug) printf("0x%lx %f\n", pattern, delay_ps[pattern]);
 	}
-	/* sort delayTable so that delay values increase */
-	indexx(npatterns, delay_ps, index);
 	if (digitalDelayDebug) {
 		for (pattern=0; pattern<npatterns; pattern++) {
 			printf("%ld, 0x%lx %f\n", index[pattern], pattern, delay_ps[index[pattern]]);
@@ -119,7 +131,7 @@ static long digitalDelay_do(aSubRecord *psub)
 	long *reinit = (long *)psub->e;
 	long npatterns = psub->nod;
 	double diff;
-	long bestIx;
+	long bestIx, lowerIx, higherIx;
 	int i, ix;
 
 
@@ -129,66 +141,29 @@ static long digitalDelay_do(aSubRecord *psub)
 
 	diff = 1000.;
 	bestIx = 0;
+	lowerIx = 0;
+	higherIx = 0;
 	for (i=0; i<npatterns; i++) {
 		ix = index[i];
 		if (fabs(*a-delay_ps[ix]) < diff) {
 			diff = fabs(*a-delay_ps[ix]);
 			bestIx = ix;
+			lowerIx = index[MAX(0,i-1)];
+			higherIx = index[MIN(npatterns-1,i+1)];
 		}
 	}
 	*vala = delay_ps[bestIx];
 	*valb = bitPattern[bestIx];
 	*valc = *vala - *a;
-	*vald = delay_ps[MAX(0,bestIx-1)];
-	*vale = delay_ps[MIN(npatterns-1,bestIx+1)];
+
+	*vald = delay_ps[lowerIx];
+	*vale = delay_ps[higherIx];
 	if (digitalDelayDebug) {
-		printf("digitalDelay_do: bestIx=%ld, vala=%f, valb=0x%lx\n", bestIx, *vala, *valb);
-		printf("digitalDelay_do: bestIx=0x%lx, nextH=0x%lx, nextL=0x%lx\n", bestIx, MAX(0,bestIx-1), MIN(npatterns-1,bestIx+1));
+		printf("digitalDelay_do: bestIx=%ld, lowerVal=%f, bestVal=%f, higherVal=%f, pattern=0x%lx\n", bestIx, *vald, *vala, *vale, *valb);
 	}
 	return(0);
 }
 
-/* Fill the index array, indx, so that arrin[indx[i]] increases monotonically
- * with i.
- */
-void indexx(long n, double *arrin, long *indx)
-{
-	long l,j,ir,indxt,i;
-	double q;
-
-	/* This code thinks array indices start at 1.  Fix for arrays that start at 0 */
-	arrin--;
-	indx--;
-
-	for (j=1;j<=n;j++) indx[j]=j;
-	l=(n >> 1) + 1;
-	ir=n;
-	for (;;) {
-		if (l > 1)
-			q=arrin[(indxt=indx[--l])];
-		else {
-			q=arrin[(indxt=indx[ir])];
-			indx[ir]=indx[1];
-			if (--ir == 1) {
-				indx[1]=indxt;
-				/* This code thinks array indices start at 1.  Fix for arrays that start at 0 */
-				for (j=1;j<=n;j++) --(indx[j]);
-				return;
-			}
-		}
-		i=l;
-		j=l << 1;
-		while (j <= ir) {
-			if (j < ir && arrin[indx[j]] < arrin[indx[j+1]]) j++;
-			if (q < arrin[indx[j]]) {
-				indx[i]=indx[j];
-				j += (i=j);
-			}
-			else j=ir+1;
-		}
-		indx[i]=indxt;
-	}
-}
 #if GE_EPICSBASE(3,14,0)
 #include <registryFunction.h>
 #include <epicsExport.h>
