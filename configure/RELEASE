@@ -18,8 +18,8 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 SUPPORT=/home/oxygen/DKLINE/EPICS/dev/synApps/support
 
 # Modules required for building module
-ASYN=/home/oxygen/DKLINE/EPICS/dev/synApps/support/asyn/4-9
-STD=/home/oxygen/DKLINE/EPICS/dev/synApps/support/std/work
+ASYN=/home/oxygen/DKLINE/EPICS/dev/synApps/support/asyn/4-10
+STD=/home/oxygen/DKLINE/EPICS/dev/synApps/support/std/2-5-4
 IP=/home/oxygen/DKLINE/EPICS/dev/synApps/support/ip/2-7
 IPAC=/home/oxygen/DKLINE/EPICS/dev/synApps/support/ipac/2-8
 
@@ -27,7 +27,7 @@ IPAC=/home/oxygen/DKLINE/EPICS/dev/synApps/support/ipac/2-8
 AUTOSAVE=/home/oxygen/DKLINE/EPICS/dev/synApps/support/autosave/4-2-1
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/home/oxygen/DKLINE/EPICS/dev/base-3.14.8.2_Solaris10
+EPICS_BASE=/home/oxygen/DKLINE/EPICS/dev/base-3.14.10
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
