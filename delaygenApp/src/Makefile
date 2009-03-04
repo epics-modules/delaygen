@@ -46,6 +46,7 @@ DBD += drvAsynDG645.dbd
 DBD += drvAsynColby.dbd
 DBD += digitalDelay.dbd
 DBD += nigpibSupport.dbd
+DBD += delaygenSupport.dbd
 
 #-----------------------------------------------------------------------------
 # <name>.dbd will be created and installed
