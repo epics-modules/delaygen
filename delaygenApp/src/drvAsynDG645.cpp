@@ -42,8 +42,8 @@
 
  Source control info:
     Modified by:    $Author: dkline $
-                    $Date: 2009-02-26 13:18:50 $
-                    $Revision: 1.2 $
+                    $Date: 2009-03-11 18:43:29 $
+                    $Revision: 1.3 $
 
  =============================================================================
  History:
@@ -52,6 +52,9 @@
  2009-Jan-31  DMK  Derived support from drvAsynColby driver.
  2009-Feb-11  DMK  Initial development version V1.0 complete.
  2009-Feb-11  DMK  Development version V1.1 complete.
+ 2009-Mar-11  DMK  Removed calls to free() during initialization to eliminate
+                   a segmentation fault (on soft IOCs) when a DG645 is not
+                   connected. This was successful on an EBRICK. 
  -----------------------------------------------------------------------------
 
 */
@@ -133,6 +136,7 @@ struct Port
 
     int pvs;
     int refs;
+    int init;
     int conns;
     int error;
 
@@ -536,7 +540,6 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     if( pasynManager->registerPort(myport,ASYN_MULTIDEVICE|ASYN_CANBLOCK,1,0,0) )
     {
         printf("drvAsynDG645::init %s: failure to register port\n",myport);
-        free(pport);
 
         return( -1 );
     }
@@ -548,7 +551,6 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     if( pasynManager->registerInterface(myport,&pport->asynCommon) )
     {
         printf("drvAsynDG645::init %s: failure to register asynCommon\n",myport);
-        free(pport);
 
         return( -1 );
     }
@@ -560,7 +562,6 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     if( pasynManager->registerInterface(myport,&pport->asynDrvUser) )
     {
         printf("drvAsynDG645::init %s: failure to register asynDrvUser\n",myport);
-        free(pport);
 
         return( -1 );
     }
@@ -574,7 +575,6 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     if( pasynFloat64Base->initialize(myport,&pport->asynFloat64) )
     {
         printf("drvAsynDG645::init %s: failure to initialize asynFloat64Base\n",myport);
-        free(pport);
 
         return( -1 );
     }
@@ -588,7 +588,6 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     if( pasynUInt32DigitalBase->initialize(myport,&pport->asynUInt32) )
     {
         printf("drvAsynDG645::init %s: failure to initialize asynUInt32DigitalBase\n",myport);
-        free(pport);
 
         return( -1 );
     }
@@ -603,7 +602,6 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     if( pasynOctetBase->initialize(myport,&pport->asynOctet,0,0,0) )
     {
         printf("drvAsynDG645::init %s: failure to initialize asynOctetBase\n",myport);
-        free(pport);
 
         return( -1 );
     }
@@ -612,7 +610,6 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     if( writeRead(pport,pasynUser,"*IDN?",inpBuf,sizeof(inpBuf),&eomReason) )
     {
         printf("drvAsynDG645::init %s: failure to acquire identification\n",myport);
-        free(pport);
 
         return( -1 );
     }
@@ -623,14 +620,14 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     if( writeOnly(pport,pasynUser,"*CLS") )
     {
         printf("drvAsynDG645::init %s: failure to clear status\n",myport);
-        free(pport);
 
         return( -1 );
     }
     else
         strcpy(pport->ident,inpBuf);
 
-    /* Initialize command table */
+    /* Complete initialization */
+    pport->init=1;
     for( i=0; i<commandLen; ++i ) commandTable[i].pport=pport;
 
     pports = pport;
@@ -812,6 +809,7 @@ static void report(void* ppvt,FILE* fp,int details)
 
     fprintf(fp,"    %s\n",pport->ident);
     fprintf(fp,"    conns %d refs %d pvs %d discos %d writeReads %d writeOnlys %d\n",pport->conns,pport->refs,pport->pvs,pport->discos,pport->writeReads,pport->writeOnlys);
+    fprintf(fp,"    support %s initialized\n",(pport->init)?"IS":"IS NOT");
     fprintf(fp,"    myport \"%s\" ioport \"%s\"\n",pport->myport,pport->ioport);
     fprintf(fp,"    total # of commands %d, # of status codes %d\n",commandLen,statusLen);
     for( i=0; i<commandLen; ++i ) if( commandTable[i].refs ) fprintf(fp,"    %d refs for \"%s\" command\n",commandTable[i].refs,commandTable[i].desc);
@@ -892,6 +890,7 @@ static asynStatus writeFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64 value
     Port* pport=(Port*)ppvt;
     Command* pcommand=(Command*)pasynUser->drvUser;
 
+    if( pport->init==0 ) return( asynError );
     if( pasynManager->getAddr(pasynUser,&addr)) return( asynError );
 
     epicsMutexMustLock(pport->syncLock);
@@ -908,6 +907,7 @@ static asynStatus readFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64* value
     Port* pport=(Port*)ppvt;
     Command* pcommand=(Command*)pasynUser->drvUser;
 
+    if( pport->init==0 ) return( asynError );
     if( pasynManager->getAddr(pasynUser,&addr)) return( asynError );
 
     epicsMutexMustLock(pport->syncLock);
@@ -931,6 +931,7 @@ static asynStatus writeUInt32(void* ppvt,asynUser* pasynUser,epicsUInt32 value,e
     Port* pport=(Port*)ppvt;
     Command* pcommand=(Command*)pasynUser->drvUser;
 
+    if( pport->init==0 ) return( asynError );
     if( pasynManager->getAddr(pasynUser,&addr)) return( asynError );
 
     epicsMutexMustLock(pport->syncLock);
@@ -947,6 +948,7 @@ static asynStatus readUInt32(void* ppvt,asynUser* pasynUser,epicsUInt32* value,e
     Port* pport=(Port*)ppvt;
     Command* pcommand=(Command*)pasynUser->drvUser;
 
+    if( pport->init==0 ) return( asynError );
     if( pasynManager->getAddr(pasynUser,&addr)) return( asynError );
 
     epicsMutexMustLock(pport->syncLock);
@@ -974,6 +976,7 @@ static asynStatus writeOctet(void *ppvt,asynUser *pasynUser,const char *data,siz
     Port* pport=(Port*)ppvt;
     Command* pcommand=(Command*)pasynUser->drvUser;
 
+    if( pport->init==0 ) return( asynError );
     if( pasynManager->getAddr(pasynUser,&addr)) return( asynError );
 
     epicsMutexMustLock(pport->syncLock);
@@ -992,6 +995,7 @@ static asynStatus readOctet(void* ppvt,asynUser* pasynUser,char* data,size_t max
     Port* pport=(Port*)ppvt;
     Command* pcommand=(Command*)pasynUser->drvUser;
 
+    if( pport->init==0 ) return( asynError );
     if( pasynManager->getAddr(pasynUser,&addr)) return( asynError );
 
     epicsMutexMustLock(pport->syncLock);
