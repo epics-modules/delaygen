@@ -211,7 +211,7 @@ text {
 	display[1] {
 		label="DG535"
 		name="devDG535.adl"
-		args="P=$(P),R=DG2"
+		args="P=$(P),R=DG1:"
 	}
 	clr=14
 	bclr=4
