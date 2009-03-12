@@ -38,6 +38,10 @@ include "nigpibSupport.dbd"
 include "drvAsynDG645.dbd"
 
 #-----------------------------------------------------------------------------
+# SRS DG535 delay generator support
+include "devDG535.dbd"
+
+#-----------------------------------------------------------------------------
 # Colby Instruments PDL100A programmable delay line support
 include "drvAsynColby.dbd"
 

@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen12/DKLINE/EPICS/dev/synApps/support/delaygen/work/delaygenApp/op/adl/delaygen.adl"
+	name="/home/oxygen12/DKLINE/EPICS/dev/synApps_5_4/support/delaygen/cvs/delaygenApp/op/adl/delaygen.adl"
 	version=030101
 }
 display {
@@ -205,9 +205,17 @@ text {
 		width=180
 		height=22
 	}
+	display[0] {
+		label=" "
+	}
+	display[1] {
+		label="DG535"
+		name="devDG535.adl"
+		args="P=$(P),R=DG2"
+	}
 	clr=14
 	bclr=4
-	label="-"
+	label="-SRS DG535"
 }
 "related display" {
 	object {

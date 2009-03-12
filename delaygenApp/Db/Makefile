@@ -15,6 +15,7 @@ include $(TOP)/configure/RELEASE
 DB += drvDG645.db
 DB += colbyPDL100A.db
 DB += digitalDelay.db
+DB += devDG535.db
 
 DB += $(ASYN)/db/asynRecord.db
 DB += $(AUTOSAVE)/asApp/Db/save_restoreStatus.db

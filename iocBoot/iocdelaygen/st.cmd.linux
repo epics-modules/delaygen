@@ -33,7 +33,8 @@ dbLoadRecords("../../db/asynRecord.db","P=delaygen:,R=asynD0,PORT=D0,ADDR=0,OMAX
 
 ## Device specific configuration
 #< colby.cmd
-< dg645.cmd
+#< dg645.cmd
+#< dg535.cmd
 #< gigabaudics.cmd
 
 #------------------------------------------------------------------------------
