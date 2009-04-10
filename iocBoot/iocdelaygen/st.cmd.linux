@@ -4,8 +4,8 @@
 
 #------------------------------------------------------------------------------
 # Register all support components
-dbLoadDatabase("../../dbd/iocdelaygenAppLinux.dbd")
-iocdelaygenAppLinux_registerRecordDeviceDriver(pdbbase)
+dbLoadDatabase("../../dbd/iocdelaygenApp.dbd")
+iocdelaygenApp_registerRecordDeviceDriver(pdbbase)
 
 #------------------------------------------------------------------------------
 # Asyn support
