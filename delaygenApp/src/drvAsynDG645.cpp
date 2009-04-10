@@ -41,9 +41,9 @@
 
 
  Source control info:
-    Modified by:    $Author: dkline $
-                    $Date: 2009-03-11 18:43:29 $
-                    $Revision: 1.3 $
+    Modified by:    $Author: rivers $
+                    $Date: 2009-04-10 19:13:45 $
+                    $Revision: 1.4 $
 
  =============================================================================
  History:
@@ -75,7 +75,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
 
 /* EPICS system related include files */
@@ -1090,4 +1089,6 @@ static void drvAsynDG645Register(void)
         iocshRegister( &drvAsynDG645FuncDef,drvAsynDG645CallFunc );
     }
 }
+extern "C" {
 epicsExportRegistrar( drvAsynDG645Register );
+}
