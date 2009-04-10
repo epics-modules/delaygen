@@ -7,5 +7,8 @@ include "drvAsynColby.dbd"
 ## Standford Research DG645 support
 include "drvAsynDG645.dbd"
 
+## Standford Research DG535 support
+include "devDG535.dbd"
+
 ## National Instruments GPIB-RS232 support
 include "nigpibSupport.dbd"
