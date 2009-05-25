@@ -12,3 +12,6 @@ include "devDG535.dbd"
 
 ## National Instruments GPIB-RS232 support
 include "nigpibSupport.dbd"
+
+## Coherent SDG support
+include "drvAsynCoherentSDG.dbd"

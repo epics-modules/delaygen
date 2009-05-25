@@ -14,6 +14,8 @@ delaygen_SRCS += drvAsynDG645.cpp
 delaygen_SRCS += drvAsynColby.cpp
 delaygen_SRCS += digitalDelay.c
 delaygen_SRCS += devDG535.c
+delaygen_SRCS += drvAsynCoherentSDG.cpp
+
 delaygen_LIBS += std asyn
 delaygen_LIBS += $(EPICS_BASE_IOC_LIBS)
 

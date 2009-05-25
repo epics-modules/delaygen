@@ -18,6 +18,7 @@ DB += digitalDelay.db
 DB += devDG535.db
 DB += BNC_505.db
 DB += BNC_505_Pn.db
+DB += drvAsynCoherentSDG.db
 
 DB += $(ASYN)/db/asynRecord.db
 DB += $(AUTOSAVE)/asApp/Db/save_restoreStatus.db
