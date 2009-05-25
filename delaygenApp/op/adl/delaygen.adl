@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen12/DKLINE/EPICS/dev/synApps_5_4/support/delaygen/cvs/delaygenApp/op/adl/delaygen.adl"
-	version=030101
+	name="/home/oxygen/DKLINE/EPICS/dev/synApps_5_4/support/delaygen/cvs/delaygenApp/op/adl/delaygen.adl"
+	version=030103
 }
 display {
 	object {
-		x=81
-		y=340
+		x=174
+		y=478
 		width=203
-		height=196
+		height=243
 	}
 	clr=14
 	bclr=10
@@ -221,6 +221,36 @@ text {
 	object {
 		x=11
 		y=164
+		width=180
+		height=22
+	}
+	display[0] {
+		label=" "
+	}
+	display[1] {
+		label="Coherent SDG"
+		name="ConherentSDG.adl"
+		args="P=$(P),R=sdg:"
+	}
+	clr=14
+	bclr=4
+	label="-Coherent SDG"
+}
+"related display" {
+	object {
+		x=11
+		y=187
+		width=180
+		height=22
+	}
+	clr=14
+	bclr=4
+	label="-"
+}
+"related display" {
+	object {
+		x=11
+		y=210
 		width=180
 		height=22
 	}
