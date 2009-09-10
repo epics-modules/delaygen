@@ -41,9 +41,9 @@
 
 
  Source control info:
-    Modified by:    $Author: dkline $
-                    $Date: 2009-05-25 14:05:07 $
-                    $Revision: 1.1 $
+    Modified by:    $Author: rivers $
+                    $Date: 2009-09-10 19:08:19 $
+                    $Revision: 1.2 $
 
  =============================================================================
  History:
@@ -60,7 +60,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
 
 /* EPICS system related include files */
@@ -775,4 +774,6 @@ static void drvAsynCoherentSDGRegister(void)
         iocshRegister( &drvAsynCoherentSDGFuncDef,drvAsynCoherentSDGCallFunc );
     }
 }
+extern "C" {
 epicsExportRegistrar( drvAsynCoherentSDGRegister );
+}
