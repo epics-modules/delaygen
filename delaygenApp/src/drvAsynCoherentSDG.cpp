@@ -42,14 +42,15 @@
 
  Source control info:
     Modified by:    $Author: dkline $
-                    $Date: 2009-09-16 18:50:53 $
-                    $Revision: 1.3 $
+                    $Date: 2009-09-16 18:58:05 $
+                    $Revision: 1.4 $
 
  =============================================================================
  History:
  Author: David M. Kline
  -----------------------------------------------------------------------------
  2009-May-09  DMK  Derived support from drvAsynEPM2000 driver.
+ 2009-Sep-09  DMK  Modified to eliminate RTEMS compiler warnings.
  -----------------------------------------------------------------------------
 
 */

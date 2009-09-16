@@ -63,8 +63,8 @@
 
  Source control info:
     Modified by:    $Author: dkline $
-                    $Date: 2009-09-16 18:50:53 $
-                    $Revision: 1.5 $
+                    $Date: 2009-09-16 18:58:06 $
+                    $Revision: 1.6 $
 
  =============================================================================
  History:
@@ -76,6 +76,7 @@
  2009-Jan-09  DMK  Added 'iface' parameter to initialization for handling
                    responses from either the Ethernet or Serial.
  2009-Jan-13  DMK  Added support for serial interface.
+ 2009-Sep-09  DMK  Modified to eliminate RTEMS compiler warnings.
  -----------------------------------------------------------------------------
 
 */

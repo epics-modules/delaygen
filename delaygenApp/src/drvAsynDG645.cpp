@@ -42,8 +42,8 @@
 
  Source control info:
     Modified by:    $Author: dkline $
-                    $Date: 2009-09-16 18:50:53 $
-                    $Revision: 1.5 $
+                    $Date: 2009-09-16 18:58:06 $
+                    $Revision: 1.6 $
 
  =============================================================================
  History:
@@ -55,6 +55,7 @@
  2009-Mar-11  DMK  Removed calls to free() during initialization to eliminate
                    a segmentation fault (on soft IOCs) when a DG645 is not
                    connected. This was successful on an EBRICK. 
+ 2009-Sep-09  DMK  Modified to eliminate RTEMS compiler warnings.
  -----------------------------------------------------------------------------
 
 */
