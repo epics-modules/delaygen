@@ -41,9 +41,9 @@
 
 
  Source control info:
-    Modified by:    $Author: rivers $
-                    $Date: 2009-09-10 19:08:19 $
-                    $Revision: 1.2 $
+    Modified by:    $Author: dkline $
+                    $Date: 2009-09-16 18:50:53 $
+                    $Revision: 1.3 $
 
  =============================================================================
  History:
@@ -150,14 +150,14 @@ struct Command
     int idx;
     Port* pport;
 
-    char* readCommand;
+    const char* readCommand;
     asynStatus (*readFunc)(Command* pcommand,asynUser* pasynUser,char* inpBuf,int inputSize,int* eomReason,ifaceType asynIface);
     int (*readConv)(Command* pcommand,asynUser* pasynUser,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface);
 
-    char* writeCommand;
+    const char* writeCommand;
     asynStatus (*writeFunc)(Command* pcommand,asynUser* pasynUser,void* data,ifaceType asynIface);
 
-    char* desc;
+    const char* desc;
 };
 
 
@@ -196,7 +196,7 @@ static asynStatus readOctet(void* ppvt,asynUser* pasynUser,char* data,size_t max
 
 
 /* Forward references for external asynOctet interface */
-static asynStatus writeRead(Port* pport,asynUser* pasynUser,char* outBuf,char* inpBuf,int inputSize,int *eomReason);
+static asynStatus writeRead(Port* pport,asynUser* pasynUser,const char* outBuf,char* inpBuf,int inputSize,int *eomReason);
 
 
 /* Forward references for utility methods */
@@ -720,7 +720,7 @@ static asynStatus readOctet(void* ppvt,asynUser* pasynUser,char* data,size_t max
 /****************************************************************************
  * Define private external interface asynOctet methods
  ****************************************************************************/
-static asynStatus writeRead(Port* pport,asynUser* pasynUser,char* outBuf,char* inpBuf,int inputSize,int* eomReason)
+static asynStatus writeRead(Port* pport,asynUser* pasynUser,const char* outBuf,char* inpBuf,int inputSize,int* eomReason)
 {
     asynStatus status;
     size_t nWrite,nRead,nWriteRequested=strlen(outBuf);

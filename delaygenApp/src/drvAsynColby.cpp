@@ -62,9 +62,9 @@
 
 
  Source control info:
-    Modified by:    $Author: rivers $
-                    $Date: 2009-04-10 19:13:45 $
-                    $Revision: 1.4 $
+    Modified by:    $Author: dkline $
+                    $Date: 2009-09-16 18:50:53 $
+                    $Revision: 1.5 $
 
  =============================================================================
  History:
@@ -200,8 +200,8 @@ static asynStatus writeItRaw(void* ppvt,asynUser* pasynUser,const char *data,siz
 static asynStatus readItRaw(void* ppvt,asynUser* pasynUser,char* data,size_t maxchars,size_t *nbytes,int *eom);
 
 /* Forward references for external asynOctet interface */
-static int writeOnly(asynUser* pasynUser,char* outBuf,int iface);
-static int writeRead(asynUser* pasynUser,char* outBuf,char* inpBuf,int inputSize,int iface);
+static int writeOnly(asynUser* pasynUser,const char* outBuf,int iface);
+static int writeRead(asynUser* pasynUser,const char* outBuf,char* inpBuf,int inputSize,int iface);
 
 
 /* Forward references for utility methods */
@@ -445,8 +445,8 @@ static asynStatus destroy(void* ppvt,asynUser* pasynUser)
  ****************************************************************************/
 static asynStatus writeFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64 value)
 {
-    char* pcmd;
     int addr,status;
+    const char* pcmd;
     char outBuf[BUFFER_SIZE];
     Port* pport = (Port*)ppvt;
 
@@ -479,9 +479,9 @@ static asynStatus writeFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64 value
 
 static asynStatus readFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64* value)
 {
-    char* pcmd;
     float readback;
     int addr,status;
+    const char* pcmd;
     char inpBuf[BUFFER_SIZE];
     Port* pport = (Port*)ppvt;
 
@@ -521,8 +521,8 @@ static asynStatus readFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64* value
  ****************************************************************************/
 static asynStatus writeUInt32(void* ppvt,asynUser* pasynUser,epicsUInt32 value,epicsUInt32 mask)
 {
-    char* pcmd;
     int addr,status;
+    const char* pcmd;
     Port* pport = (Port*)ppvt;
 
     asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::writeUInt32 %s: asyn - 0x%8.8X, mask - 0x%8.8X, value - 0x%8.8X\n",pport->myport,pasynUser,(int)mask,(int)value);
@@ -610,7 +610,8 @@ static asynStatus writeItRaw(void *ppvt,asynUser *pasynUser,const char *data,siz
 static asynStatus readItRaw(void* ppvt,asynUser* pasynUser,char* data,size_t maxchars,size_t* nbytes,int* eom)
 {
     int i,addr,status;
-    char *pcmd,*token,*next;
+    const char *pcmd;
+    char *token,*next;
     Port* pport = (Port*)ppvt;
     char inpBuf[BUFFER_SIZE],strings[5][24];
 
@@ -683,7 +684,7 @@ static asynStatus readItRaw(void* ppvt,asynUser* pasynUser,char* data,size_t max
 /****************************************************************************
  * Define private Colby external interface asynOctet methods
  ****************************************************************************/
-static int writeOnly(asynUser* pasynUser,char* outBuf,int iface)
+static int writeOnly(asynUser* pasynUser,const char* outBuf,int iface)
 {
     asynStatus status;
     size_t nActual,nRequested=strlen(outBuf);
@@ -712,7 +713,7 @@ static int writeOnly(asynUser* pasynUser,char* outBuf,int iface)
 }
 
 
-static int writeRead(asynUser* pasynUser,char* outBuf,char* inpBuf,int inputSize,int iface)
+static int writeRead(asynUser* pasynUser,const char* outBuf,char* inpBuf,int inputSize,int iface)
 {
     int eomReason;
     asynStatus status;
