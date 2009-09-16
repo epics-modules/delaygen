@@ -11,4 +11,4 @@ asynOctetSetInputEos("D0",0,"\r")
 #       ioaddr  - Comm asyn port addr
 #
 drvAsynCoherentSDG("SDG","D0",-1);
-dbLoadRecords("../../db/drvAsynCoherentSDG.db","P=delaygen:,R=sdg:,PORT=SDG")
+dbLoadRecords("$(IOCDB)/drvAsynCoherentSDG.db","P=delaygen:,R=sdg:,PORT=SDG")

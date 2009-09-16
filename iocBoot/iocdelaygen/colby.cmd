@@ -21,4 +21,4 @@ asynOctetSetOutputEos("D0",-1,"\r\n")
 drvAsynColby("COL","D0",-1,"ns",1)
 
 # Load databases
-dbLoadRecords("../../db/colbyPDL100A.db","P=delaygen:,R=Colby:,PREC=3,A=Colby,PORT=COL")
+dbLoadRecords("$(IOCDB)/colbyPDL100A.db","P=delaygen:,R=Colby:,PREC=3,A=Colby,PORT=COL")

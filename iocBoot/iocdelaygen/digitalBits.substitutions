@@ -1,5 +1,5 @@
 ## Digital outputs bits
-file ../../db/digitalBits.db
+file $(IOCDB)/digitalBits.db
 {
 pattern
 {P          Q       N   R                           ON      OFF     DSC}

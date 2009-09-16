@@ -12,16 +12,6 @@ include $(TOP)/configure/RELEASE
 #----------------------------------------------------
 # Create and install (or just install)
 # databases, templates, substitutions like this
-DB += drvDG645.db
-DB += colbyPDL100A.db
-DB += digitalDelay.db
-DB += devDG535.db
-DB += BNC_505.db
-DB += BNC_505_Pn.db
-DB += drvAsynCoherentSDG.db
-
-DB += $(ASYN)/db/asynRecord.db
-DB += $(AUTOSAVE)/asApp/Db/save_restoreStatus.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
