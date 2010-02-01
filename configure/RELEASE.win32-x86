@@ -18,7 +18,7 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 SUPPORT=J:/epics/devel
 
 # Modules required for building module
-ASYN=J:/epics/devel/asyn/4-11beta
+ASYN=J:/epics/devel/asyn/4-13
 STD=J:/epics/devel/std/2-7
 IP=J:/epics/devel/ip/2-9
 STREAM=J:/epics/devel/stream/2-4
@@ -28,7 +28,7 @@ IPAC=J:/epics/devel/ipac/2-10
 AUTOSAVE=J:/epics/devel/autosave/4-5
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=H:/epics/base-3.14.10
+EPICS_BASE=H:/epics/base-3.14.11
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
