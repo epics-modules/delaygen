@@ -79,9 +79,11 @@
 
 
 /* EPICS synApps/Asyn related include files */
-#include <epicsExport.h>
 #include "asynDriver.h"
 #include "asynOctet.h"
+
+/* epicsExport.h must come last */
+#include <epicsExport.h>
 
 
 /* Define symbolic constants */

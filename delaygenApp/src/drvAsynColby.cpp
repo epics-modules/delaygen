@@ -104,7 +104,6 @@
 #include <epicsStdio.h>
 #include <cantProceed.h>
 #include <epicsString.h>
-#include <epicsExport.h>
 #include <epicsThread.h>
 
 
@@ -116,6 +115,9 @@
 #include <asynOctet.h>
 #include <asynOctetSyncIO.h>
 #include <asynUInt32Digital.h>
+
+/* epicsExport.h must come last */
+#include <epicsExport.h>
 
 
 /* Define symbolic constants */
