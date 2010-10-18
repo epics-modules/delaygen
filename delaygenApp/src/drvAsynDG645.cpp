@@ -77,7 +77,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
 
 /* EPICS system related include files */
@@ -85,7 +84,6 @@
 #include <epicsStdio.h>
 #include <cantProceed.h>
 #include <epicsString.h>
-#include <epicsExport.h>
 #include <epicsThread.h>
 
 
@@ -97,6 +95,9 @@
 #include <asynOctet.h>
 #include <asynOctetSyncIO.h>
 #include <asynUInt32Digital.h>
+
+/* epicsExport.h must come last */
+#include <epicsExport.h>
 
 
 /* Define symbolic constants */
@@ -1099,4 +1100,6 @@ static void drvAsynDG645Register(void)
         iocshRegister( &drvAsynDG645FuncDef,drvAsynDG645CallFunc );
     }
 }
+extern "C" {
 epicsExportRegistrar( drvAsynDG645Register );
+}
