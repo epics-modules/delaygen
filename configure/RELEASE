@@ -16,19 +16,21 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # synApps support modules
 SUPPORT=/corvette/home/epics/devel
+-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
 # Modules required for building module
-ASYN=/corvette/home/epics/devel/asyn/4-13
-STD=/corvette/home/epics/devel/std/2-7
-IP=/corvette/home/epics/devel/ip/2-9
-STREAM=/corvette/home/epics/devel/stream/2-4
-IPAC=/corvette/home/epics/devel/ipac/2-10
+ASYN=$(SUPPORT)/asyn-4-17
+STD=$(SUPPORT)/std-2-9
+IP=$(SUPPORT)/ip-2-10
+STREAM=$(SUPPORT)/stream-2-4-1
+IPAC=$(SUPPORT)/ipac-2-11
 
 # Modules required for building module application
-AUTOSAVE=/corvette/home/epics/devel/autosave/4-5
+AUTOSAVE=$(SUPPORT)/autosave-4-7
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/corvette/usr/local/epics/base-3.14.11
+EPICS_BASE=/corvette/usr/local/epics/base-3.14.12.1
+-include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
