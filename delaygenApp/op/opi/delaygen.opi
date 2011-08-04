@@ -57,7 +57,7 @@
     <y>50</y>
     <actions hook="false">
       <action type="OPEN_OPI_IN_VIEW">
-        <path>asynRecord.opi</path>
+        <path>../asyn/asynRecord.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <R>ttyS1</R>
@@ -66,7 +66,7 @@
         <description>ttyS1</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>asynRecord.opi</path>
+        <path>../asyn/asynRecord.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <R>ttyS2</R>
@@ -75,7 +75,7 @@
         <description>ttyS2</description>
       </action>
       <action type="OPEN_OPI_IN_VIEW">
-        <path>asynRecord.opi</path>
+        <path>../asyn/asynRecord.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <R>ttyS3</R>
@@ -191,7 +191,7 @@ $(pv_value)</tooltip>
     <y>72</y>
     <actions hook="false">
       <action type="OPEN_OPI_IN_VIEW">
-        <path>asynRecord.opi</path>
+        <path>../asyn/asynRecord.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <R>Colby</R>
