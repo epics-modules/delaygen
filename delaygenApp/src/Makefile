@@ -16,10 +16,10 @@ delaygen_SRCS += digitalDelay.c
 delaygen_SRCS += devDG535.c
 delaygen_SRCS += drvAsynCoherentSDG.cpp
 
-delaygen_LIBS += std asyn
+delaygen_LIBS += calc asyn
 delaygen_LIBS += $(EPICS_BASE_IOC_LIBS)
 
-delaygen_LIBS_vxWorks += std asyn TyGSOctal Ipac ip
+delaygen_LIBS_vxWorks += calc asyn TyGSOctal Ipac ip
 delaygen_LIBS_vxWorks += $(EPICS_BASE_IOC_LIBS)
 
 #=============================================================================
@@ -40,7 +40,7 @@ delaygenApp_SRCS_vxWorks += iocdelaygenAppVxWorks_registerRecordDeviceDriver.cpp
 
 #-----------------------------------------------------------------------------
 # Include libraries
-delaygenApp_LIBS += autosave std delaygen stream asyn
+delaygenApp_LIBS += autosave calc delaygen stream asyn
 delaygenApp_LIBS_vxWorks += TyGSOctal Ipac ip
 delaygenApp_LIBS += $(EPICS_BASE_IOC_LIBS)
 

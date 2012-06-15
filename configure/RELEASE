@@ -20,7 +20,7 @@ SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
 
 # Modules required for building module
 ASYN=$(SUPPORT)/asynSVN
-STD=$(SUPPORT)/std-3-0
+CALC=$(SUPPORT)/calc-2-9
 IP=$(SUPPORT)/ip-2-11
 STREAM=$(SUPPORT)/stream-2-4-5
 IPAC=$(SUPPORT)/ipac-2-11
