@@ -40,9 +40,14 @@ delaygenApp_SRCS_vxWorks += iocdelaygenAppVxWorks_registerRecordDeviceDriver.cpp
 
 #-----------------------------------------------------------------------------
 # Include libraries
-delaygenApp_LIBS += autosave calc delaygen stream asyn
+delaygenApp_LIBS += autosave calc delaygen asyn
+ifdef STREAM
+	delaygenApp_LIBS += stream
+endif
 delaygenApp_LIBS_vxWorks += TyGSOctal Ipac ip
 delaygenApp_LIBS += $(EPICS_BASE_IOC_LIBS)
+
+delaygenApp_SYS_LIBS_solaris += socket
 
 #
 #=============================================================================
