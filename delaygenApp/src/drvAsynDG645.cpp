@@ -158,7 +158,7 @@ struct Port
 struct Status
 {
     int code;
-    char* msg;
+    const char* msg;
 };
 
 
@@ -170,14 +170,14 @@ struct Command
     int channel;
     Port* pport;
 
-    char* readCommand;
+    const char* readCommand;
     asynStatus (*readFunc)(Command* pcommand,asynUser* pasynUser,char* inpBuf,int inputSize,int* eomReason,ifaceType asynIface);
     int (*readConv)(asynUser* pasynUser,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface);
 
-    char* writeCommand;
+    const char* writeCommand;
     asynStatus (*writeFunc)(Command* pcommand,asynUser* pasynUser,void* data,ifaceType asynIface);
 
-    char* desc;
+    const char* desc;
 };
 
 
@@ -216,12 +216,12 @@ static asynStatus readOctet(void* ppvt,asynUser* pasynUser,char* data,size_t max
 
 
 /* Forward references for external asynOctet interface */
-static asynStatus writeOnly(Port* pport,asynUser* pasynUser,char* outBuf);
-static asynStatus writeRead(Port* pport,asynUser* pasynUser,char* outBuf,char* inpBuf,int inputSize,int *eomReason);
+static asynStatus writeOnly(Port* pport,asynUser* pasynUser,const char* outBuf);
+static asynStatus writeRead(Port* pport,asynUser* pasynUser,const char* outBuf,char* inpBuf,int inputSize,int *eomReason);
 
 
 /* Forward references for utility methods */
-static char* findStatus(int code);
+static const char* findStatus(int code);
 static Command* findCommand(int command);
 
 /* Forward references for command table methods */
@@ -249,7 +249,7 @@ static asynStatus writeChannelDelay(Command* pcommand,asynUser* pasynUser,void* 
 
 /* Define local variants */
 static Port* pports[INSTANCES] = {NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL};
-static char* delayText[] = {"T0", "T1", "A", "B", "C", "D", "E", "F", "G", "H"};
+static const char* delayText[] = {"T0", "T1", "A", "B", "C", "D", "E", "F", "G", "H"};
 static Status statusMsg[] =
 {
     {  0, "STATUS OK"},
@@ -647,7 +647,7 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
 /****************************************************************************
  * Define private utility methods
  ****************************************************************************/
-static char* findStatus(int code)
+static const char* findStatus(int code)
 {
     for(int i=0; i<statusLen; ++i) if( statusMsg[i].code==code ) return( statusMsg[i].msg );
     return( NULL );
@@ -674,7 +674,7 @@ static int cvtCopyText(asynUser* pasynUser,char* inpBuf,int maxchars,void* outBu
 static int cvtErrorText(asynUser* pasynUser,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
 {
     int v=atoi(inpBuf);
-    char* m=findStatus(v);
+    const char* m=findStatus(v);
     Command* pcommand=(Command*)pasynUser->drvUser;
 
     if( m ) {strcpy((char*)outBuf,m);pcommand->pport->error=v;} else {strcpy((char*)outBuf,"*ERR*");pcommand->pport->error=0;}
@@ -1027,7 +1027,7 @@ static asynStatus readOctet(void* ppvt,asynUser* pasynUser,char* data,size_t max
 /****************************************************************************
  * Define private DG645 external interface asynOctet methods
  ****************************************************************************/
-static asynStatus writeOnly(Port* pport,asynUser* pasynUser,char* outBuf)
+static asynStatus writeOnly(Port* pport,asynUser* pasynUser,const char* outBuf)
 {
     asynStatus status;
     size_t nActual,nRequested=strlen(outBuf);
@@ -1052,7 +1052,7 @@ static asynStatus writeOnly(Port* pport,asynUser* pasynUser,char* outBuf)
 
     return( status );
 }
-static asynStatus writeRead(Port* pport,asynUser* pasynUser,char* outBuf,char* inpBuf,int inputSize,int* eomReason)
+static asynStatus writeRead(Port* pport,asynUser* pasynUser,const char* outBuf,char* inpBuf,int inputSize,int* eomReason)
 {
     asynStatus status;
     size_t nWrite,nRead,nWriteRequested=strlen(outBuf);
