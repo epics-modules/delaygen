@@ -1,12 +1,37 @@
 <html>
 <body>
 
+<P>Release 1.1.0
+
+<dl>
+
+<p><dt>Modified drvAsynDG645.cpp and drvDG645.db<br>
+<dd><br>Removed race condition when there were multiple DG645 devices,
+simplified the code a bit, and had driver use DrvInfo field.
+
+<p><dt>Moved all Gigabuadics support files (digitalDelay.*) into
+directories called "custom" for each directory where such a file was
+found.<br>
+<dd><br>This code was based on a custom hardware implementation of a
+solution for using a specific Gigabaudics delay generator.  It is
+highly unlikely that anyone has used this code, and if it was used, it
+can be moved back into position from the "custom" directories.
+
+<p><dt>Modified OPI files:<br>
+BNC_505.opi<br>
+colbyMain.opi<br>
+delaygen.opi<br>
+devDG535.opi<br>
+srsDG645.opi<br>
+<dd><br>Remove relative paths
+
+</dl>
+
 <P>Release 1.0.7
 
 <dl>
 
 <p><dt>Modified drvAsynDG645.cpp, srsDG645.adl, and drvDG645.db<br>
-
 <dd><br>Applied Eric Norum's patch to add some additional prescale PVs
 
 </dl>

@@ -198,22 +198,10 @@ QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-GigaBaudics</string>
+                <string>-</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>  ;GigaBaudics</string>
-            </property>
-            <property name="files">
-                <string>;digDelay.adl</string>
-            </property>
-            <property name="args">
-                <string>;P=$(P),Q=digDelay1:</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false</string>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_3">

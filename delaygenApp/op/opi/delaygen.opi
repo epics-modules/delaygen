@@ -238,24 +238,14 @@ $(pv_value)</tooltip>
     </font>
     <width>180</width>
     <border_style>6</border_style>
-    <label>GigaBaudics</label>
+    <label/>
     <rules/>
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255"/>
     </border_color>
     <y>95</y>
-    <actions hook="false">
-      <action type="OPEN_OPI_IN_VIEW">
-        <path>digDelay.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <Q>digDelay1:</Q>
-        </macros>
-        <Position>1</Position>
-        <description>GigaBaudics</description>
-      </action>
-    </actions>
+    <actions hook="false"/>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>11</x>

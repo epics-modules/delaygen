@@ -12,9 +12,11 @@ LIBRARY_IOC += delaygen
 delaygen_SRCS += nigpibInterpose.c
 delaygen_SRCS += drvAsynDG645.cpp
 delaygen_SRCS += drvAsynColby.cpp
-delaygen_SRCS += digitalDelay.c
 delaygen_SRCS += devDG535.c
 delaygen_SRCS += drvAsynCoherentSDG.cpp
+
+# This file was moved to custom directory
+#delaygen_SRCS += digitalDelay.c
 
 delaygen_LIBS += calc asyn
 delaygen_LIBS += $(EPICS_BASE_IOC_LIBS)
