@@ -24,8 +24,9 @@
     status of the driver.
 
  =============================================================================
- Author: David M. Kline (DMK)
-         Dohn Arms (DAA)
+ Authors: David M. Kline (DMK)
+          Eric Norum (EN)
+          Dohn Arms (DAA)
  -----------------------------------------------------------------------------
  History:
  2009-Jan-31  DMK  Derived support from drvAsynColby driver.
@@ -36,9 +37,12 @@
                    connected. This was successful on an EBRICK. 
  2009-Mar-30  DMK  Allow multiple instances of instrument.
  2010-Sep-30  DMK  Solidified multiple instance implementation.
+ 2011-Nov-21  EN   Added support for prescalers.
  2012-Sep-17  DAA  Rewrote it somewhat to fix race condition if multiple
                    devices are running at same time.  Simplified the driver, 
                    and changed from using address as record type to tag.
+ 2013-Jun-28  DAA  Add description field. Added support for prescale phases,
+                   trigger holdoff, advanced triggering switch.
  -----------------------------------------------------------------------------
 
 */
@@ -140,7 +144,7 @@ struct Command
   asynStatus (*writeFunc)(int which, Port *pport,void* data,ifaceType asynIface);
 
   char *tag;
-  char* desc;
+  //  char* desc; // not used right now, so they are commented out
 };
 
 
@@ -290,165 +294,176 @@ static Command commandTable[] =
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
   // Failure-mode -- has to be first
-  {"",         readSink,       cvtSink ,       "",             writeSink,          "NONE",             "Failure Record"},
+  {"",         readSink,       cvtSink ,       "",             writeSink,          "NONE",            }, // "Failure Record"},
 
   // Instrument management related commands
-  {"*IDN?",    readParam,      cvtIdent,       "",             writeSink,          "IDENT",            "Ident"},
-  {"LERR?",    readParam,      cvtErrorText,   "",             writeSink,          "STATUS",           "Status Text"},
-  {"",         readSink,       cvtErrorCode,   "",             writeSink,          "STATUS_CODE",      "Status Code"},
-  {"",         readSink,       cvtSink,        "*CLS",         writeCommandOnly,   "STATUS_CLEAR",     "Status Clear"},
-  {"",         readSink,       cvtSink,        "*RST",         writeCommandOnly,   "RESET",            "Reset Instrument"},
-  {"",         readSink,       cvtSink,        "LCAL",         writeCommandOnly,   "LOCAL",            "Goto Local"},
-  {"",         readSink,       cvtSink,        "REMT",         writeCommandOnly,   "REMOTE",           "Goto Remote"},
+  {"*IDN?",    readParam,      cvtIdent,       "",             writeSink,          "IDENT",           }, // "Ident"},
+  {"LERR?",    readParam,      cvtErrorText,   "",             writeSink,          "STATUS",          }, // "Status Text"},
+  {"",         readSink,       cvtErrorCode,   "",             writeSink,          "STATUS_CODE",     }, // "Status Code"},
+  {"",         readSink,       cvtSink,        "*CLS",         writeCommandOnly,   "STATUS_CLEAR",    }, // "Status Clear"},
+  {"",         readSink,       cvtSink,        "*RST",         writeCommandOnly,   "RESET",           }, // "Reset Instrument"},
+  {"",         readSink,       cvtSink,        "LCAL",         writeCommandOnly,   "LOCAL",           }, // "Goto Local"},
+  {"",         readSink,       cvtSink,        "REMT",         writeCommandOnly,   "REMOTE",          }, // "Goto Remote"},
+  {"",         readSink,       cvtSink,        "*RCL%d",       writeIntParam,      "RECALL",          }, // "Recall Settings"},
+  {"",         readSink,       cvtSink,        "*SAV%d",       writeIntParam,      "SAVE",            }, // "Save Settings"},
   
   // Trigger related commands
-  {"TLVL?",    readParam,      cvtStrFloat,    "TLVL%-.2f",    writeFloatParam,    "TRIG_LEVEL",       "Trigger Level"},
-  {"TRAT?",    readParam,      cvtStrFloat,    "TRAT%-.6f",    writeFloatParam,    "TRIG_RATE",        "Trigger Rate"},
-  {"TSRC?",    readParam,      cvtStrInt,      "TSRC%d",       writeIntParam,      "TRIG_SOURCE",      "Trigger Source"},
-  {"INHB?",    readParam,      cvtStrInt,      "INHB%d",       writeIntParam,      "TRIG_INHIBIT",     "Trigger Inhibit"},
-  {"",         readSink,       cvtSink,        "*TRG",         writeCommandOnly,   "TRIG_DELAY",       "Trigger Delay"},
-  {"PRES?0",   readParam,      cvtStrInt,      "PRES 0,%d",    writeIntParam,      "TRIG_PRESCALE",    "Trigger Prescale"},
+  {"TLVL?",    readParam,      cvtStrFloat,    "TLVL%-.2f",    writeFloatParam,    "TRIG_LEVEL",      }, // "Trigger Level"},
+  {"TRAT?",    readParam,      cvtStrFloat,    "TRAT%-.6f",    writeFloatParam,    "TRIG_RATE",       }, // "Trigger Rate"},
+  {"TSRC?",    readParam,      cvtStrInt,      "TSRC%d",       writeIntParam,      "TRIG_SOURCE",     }, // "Trigger Source"},
+  {"INHB?",    readParam,      cvtStrInt,      "INHB%d",       writeIntParam,      "TRIG_INHIBIT",    }, // "Trigger Inhibit"},
+  {"",         readSink,       cvtSink,        "*TRG",         writeCommandOnly,   "TRIG_DELAY",      }, // "Trigger Delay"},
+
+  // Advanced trigger related commands
+  {"ADVT?",    readParam,      cvtStrInt,      "ADVT%d",       writeIntParam,      "TRIG_ADV_MODE",   }, // "Advanced Trigger Mode"},
+  {"HOLD?",    readParam,      cvtStrFloat,    "HOLD%e",       writeFloatParam,    "TRIG_HOLDOFF",    }, // "Trigger Holdoff"},
+  {"PRES?0",   readParam,      cvtStrInt,      "PRES 0,%d",    writeIntParam,      "TRIG_PRESCALE",   }, // "Trigger Prescale"},
+  {"PRES?1",   readParam,      cvtStrInt,      "PRES 1,%d",    writeIntParam,      "TRIG_AB_PRESCALE",}, // "Channel AB Trigger Prescale"},
+  {"PRES?2",   readParam,      cvtStrInt,      "PRES 2,%d",    writeIntParam,      "TRIG_CD_PRESCALE",}, // "Channel CD Trigger Prescale"},
+  {"PRES?3",   readParam,      cvtStrInt,      "PRES 3,%d",    writeIntParam,      "TRIG_EF_PRESCALE",}, // "Channel EF Trigger Prescale"},
+  {"PRES?4",   readParam,      cvtStrInt,      "PRES 4,%d",    writeIntParam,      "TRIG_GH_PRESCALE",}, // "Channel GH Trigger Prescale"},
+  {"PHAS?1",   readParam,      cvtStrInt,      "PHAS 1,%d",    writeIntParam,      "TRIG_AB_PHASE",   }, // "Channel AB Trigger Phase"},
+  {"PHAS?2",   readParam,      cvtStrInt,      "PHAS 2,%d",    writeIntParam,      "TRIG_CD_PHASE",   }, // "Channel CD Trigger Phase"},
+  {"PHAS?3",   readParam,      cvtStrInt,      "PHAS 3,%d",    writeIntParam,      "TRIG_EF_PHASE",   }, // "Channel EF Trigger Phase"},
+  {"PHAS?4",   readParam,      cvtStrInt,      "PHAS 4,%d",    writeIntParam,      "TRIG_GH_PHASE",   }, // "Channel GH Trigger Phase"},
+
    // Burst mode related commands
-  {"BURM?",    readParam,      cvtStrInt,      "BURM%d",       writeIntParam,      "BURST_MODE",       "Burst Mode"},
-  {"BURC?",    readParam,      cvtStrInt,      "BURC%d",       writeIntParam,      "BURST_COUNT",      "Burst Count"},
-  {"BURT?",    readParam,      cvtStrInt,      "BURT%d",       writeIntParam,      "BURST_T0",         "Burst T0 Config"},
-  {"BURD?",    readParam,      cvtStrFloat,    "BURD%e",       writeFloatParam,    "BURST_DELAY",      "Burst Delay"},
-  {"BURP?",    readParam,      cvtStrFloat,    "BURP%e",       writeFloatParam,    "BURST_PERIOD",     "Burst Period"},
+  {"BURM?",    readParam,      cvtStrInt,      "BURM%d",       writeIntParam,      "BURST_MODE",      }, // "Burst Mode"},
+  {"BURC?",    readParam,      cvtStrInt,      "BURC%d",       writeIntParam,      "BURST_COUNT",     }, // "Burst Count"},
+  {"BURT?",    readParam,      cvtStrInt,      "BURT%d",       writeIntParam,      "BURST_T0",        }, // "Burst T0 Config"},
+  {"BURD?",    readParam,      cvtStrFloat,    "BURD%e",       writeFloatParam,    "BURST_DELAY",     }, // "Burst Delay"},
+  {"BURP?",    readParam,      cvtStrFloat,    "BURP%e",       writeFloatParam,    "BURST_PERIOD",    }, // "Burst Period"},
                                                                 
   // Interface configuration related commands
-  {"IFCF?0",   readParam,      cvtStrInt,      "IFCF 0,%d",    writeIntParam,      "RS232",            "Serial enable/disable"},
-  {"IFCF?1",   readParam,      cvtStrInt,      "IFCF 1,%d",    writeIntParam,      "RS232_BAUD",       "Serial baud rate"},
-  {"IFCF?2",   readParam,      cvtStrInt,      "IFCF 2,%d",    writeIntParam,      "GPIB",             "GPIB enable/disable"},
-  {"IFCF?3",   readParam,      cvtStrInt,      "IFCF 3,%d",    writeIntParam,      "GPIB_ADDRESS",     "GPIB address"},
-  {"IFCF?4",   readParam,      cvtStrInt,      "IFCF 4,%d",    writeIntParam,      "TCPIP",            "LAN TCP/IP enable/disable"},
-  {"IFCF?5",   readParam,      cvtStrInt,      "IFCF 5,%d",    writeIntParam,      "DHCP",             "DHCP enable/disable"},
-  {"IFCF?6",   readParam,      cvtStrInt,      "IFCF 6,%d",    writeIntParam,      "AUTO_IP",          "Auto-IP enable/disable"},
-  {"IFCF?7",   readParam,      cvtStrInt,      "IFCF 7,%d",    writeIntParam,      "STATIC_IP",        "Static-IP enable/disable"},
-  {"IFCF?8",   readParam,      cvtStrInt,      "IFCF 8,%d",    writeIntParam,      "BARE_SOCKET",      "Bare socket enable/disable"},
-  {"IFCF?9",   readParam,      cvtStrInt,      "IFCF 9,%d",    writeIntParam,      "TELNET",           "Telnet enable/disable"},
-  {"IFCF?10",  readParam,      cvtStrInt,      "IFCF 10,%d",   writeIntParam,      "VXI11",            "VXI-11 enable/disable"},
-  {"IFCF?11",  readParam,      cvtCopyText,    "IFCF 11,%s",   writeStrParam,      "IP_ADDRESS",       "Static IP address"},
-  {"IFCF?12",  readParam,      cvtCopyText,    "IFCF 12,%s",   writeStrParam,      "NET_MASK",         "Network mask"},
-  {"IFCF?13",  readParam,      cvtCopyText,    "IFCF 13,%s",   writeStrParam,      "GATEWAY",          "Gateway IP address"},
-  {"",         readSink,       cvtSink,        "IFRS 0",       writeCommandOnly,   "RS232_RESET",      "Serial reset"},
-  {"",         readSink,       cvtSink,        "IFRS 1",       writeCommandOnly,   "GPIB_RESET",       "GPIB reset"},
-  {"",         readSink,       cvtSink,        "IFRS 2",       writeCommandOnly,   "TCPIP_RESET",      "LAN reset"},
-  {"EMAC?",    readParam,      cvtCopyText,    "",             writeSink,          "MAC_ADDRESS",      "MAC Address"},
+  {"IFCF?0",   readParam,      cvtStrInt,      "IFCF 0,%d",    writeIntParam,      "RS232",           }, // "Serial enable/disable"},
+  {"IFCF?1",   readParam,      cvtStrInt,      "IFCF 1,%d",    writeIntParam,      "RS232_BAUD",      }, // "Serial baud rate"},
+  {"IFCF?2",   readParam,      cvtStrInt,      "IFCF 2,%d",    writeIntParam,      "GPIB",            }, // "GPIB enable/disable"},
+  {"IFCF?3",   readParam,      cvtStrInt,      "IFCF 3,%d",    writeIntParam,      "GPIB_ADDRESS",    }, // "GPIB address"},
+  {"IFCF?4",   readParam,      cvtStrInt,      "IFCF 4,%d",    writeIntParam,      "TCPIP",           }, // "LAN TCP/IP enable/disable"},
+  {"IFCF?5",   readParam,      cvtStrInt,      "IFCF 5,%d",    writeIntParam,      "DHCP",            }, // "DHCP enable/disable"},
+  {"IFCF?6",   readParam,      cvtStrInt,      "IFCF 6,%d",    writeIntParam,      "AUTO_IP",         }, // "Auto-IP enable/disable"},
+  {"IFCF?7",   readParam,      cvtStrInt,      "IFCF 7,%d",    writeIntParam,      "STATIC_IP",       }, // "Static-IP enable/disable"},
+  {"IFCF?8",   readParam,      cvtStrInt,      "IFCF 8,%d",    writeIntParam,      "BARE_SOCKET",     }, // "Bare socket enable/disable"},
+  {"IFCF?9",   readParam,      cvtStrInt,      "IFCF 9,%d",    writeIntParam,      "TELNET",          }, // "Telnet enable/disable"},
+  {"IFCF?10",  readParam,      cvtStrInt,      "IFCF 10,%d",   writeIntParam,      "VXI11",           }, // "VXI-11 enable/disable"},
+  {"IFCF?11",  readParam,      cvtCopyText,    "IFCF 11,%s",   writeStrParam,      "IP_ADDRESS",      }, // "Static IP address"},
+  {"IFCF?12",  readParam,      cvtCopyText,    "IFCF 12,%s",   writeStrParam,      "NET_MASK",        }, // "Network mask"},
+  {"IFCF?13",  readParam,      cvtCopyText,    "IFCF 13,%s",   writeStrParam,      "GATEWAY",         }, // "Gateway IP address"},
+  {"",         readSink,       cvtSink,        "IFRS 0",       writeCommandOnly,   "RS232_RESET",     }, // "Serial reset"},
+  {"",         readSink,       cvtSink,        "IFRS 1",       writeCommandOnly,   "GPIB_RESET",      }, // "GPIB reset"},
+  {"",         readSink,       cvtSink,        "IFRS 2",       writeCommandOnly,   "TCPIP_RESET",     }, // "LAN reset"},
+  {"EMAC?",    readParam,      cvtCopyText,    "",             writeSink,          "MAC_ADDRESS",     }, // "MAC Address"},
 
   // Delay channel A related commands
-  {"DLAY?2",   readParam,      cvtChanRef,     "DLAY 2,%d,%e", writeChannelRef,    "A_REF",            "Channel A ref"},
-  {"DLAY?2",   readParam,      cvtChanDelay,   "DLAY 2,%d,%e", writeChannelDelay,  "A_DELAY",          "Channel A delay"},
-  {"",         readSink,       cvtSink,        "SPDL 2,0",     writeCommandOnly,   "A_DELAY_STEP_NEG", "Channel A step delay minus"},
-  {"",         readSink,       cvtSink,        "SPDL 2,1",     writeCommandOnly,   "A_DELAY_STEP_POS", "Channel A step delay plus"},
-  {"SSDL?2",   readParam,      cvtStrFloat,    "SSDL 2,%e",    writeFloatParam,    "A_DELAY_STEP",     "Channel A step delay size"},
-  {"PRES?1",   readParam,      cvtStrInt,      "PRES 1,%d",    writeIntParam,      "AB_PRESCALE",      "Channel AB Prescale"},
+  {"DLAY?2",   readParam,      cvtChanRef,     "DLAY 2,%d,%e", writeChannelRef,    "A_REF",           }, // "Channel A ref"},
+  {"DLAY?2",   readParam,      cvtChanDelay,   "DLAY 2,%d,%e", writeChannelDelay,  "A_DELAY",         }, // "Channel A delay"},
+  {"",         readSink,       cvtSink,        "SPDL 2,0",     writeCommandOnly,   "A_DELAY_STEP_NEG",}, // "Channel A step delay minus"},
+  {"",         readSink,       cvtSink,        "SPDL 2,1",     writeCommandOnly,   "A_DELAY_STEP_POS",}, // "Channel A step delay plus"},
+  {"SSDL?2",   readParam,      cvtStrFloat,    "SSDL 2,%e",    writeFloatParam,    "A_DELAY_STEP",    }, // "Channel A step delay size"},
 
   // Delay channel B related commands
-  {"DLAY?3",   readParam,      cvtChanRef,     "DLAY 3,%d,%e", writeChannelRef,    "B_REF",            "Channel B ref"},
-  {"DLAY?3",   readParam,      cvtChanDelay,   "DLAY 3,%d,%e", writeChannelDelay,  "B_DELAY",          "Channel B delay"},
-  {"",         readSink,       cvtSink,        "SPDL 3,0",     writeCommandOnly,   "B_DELAY_STEP_NEG", "Channel B step delay minus"},
-  {"",         readSink,       cvtSink,        "SPDL 3,1",     writeCommandOnly,   "B_DELAY_STEP_POS", "Channel B step delay plus"},
-  {"SSDL?3",   readParam,      cvtStrFloat,    "SSDL 3,%e",    writeFloatParam,    "B_DELAY_STEP",     "Channel B step delay size"},
+  {"DLAY?3",   readParam,      cvtChanRef,     "DLAY 3,%d,%e", writeChannelRef,    "B_REF",           }, // "Channel B ref"},
+  {"DLAY?3",   readParam,      cvtChanDelay,   "DLAY 3,%d,%e", writeChannelDelay,  "B_DELAY",         }, // "Channel B delay"},
+  {"",         readSink,       cvtSink,        "SPDL 3,0",     writeCommandOnly,   "B_DELAY_STEP_NEG",}, // "Channel B step delay minus"},
+  {"",         readSink,       cvtSink,        "SPDL 3,1",     writeCommandOnly,   "B_DELAY_STEP_POS",}, // "Channel B step delay plus"},
+  {"SSDL?3",   readParam,      cvtStrFloat,    "SSDL 3,%e",    writeFloatParam,    "B_DELAY_STEP",    }, // "Channel B step delay size"},
                                                                 
   // Delay channel C related commands
-  {"DLAY?4",   readParam,      cvtChanRef,     "DLAY 4,%d,%e", writeChannelRef,    "C_REF",            "Channel C ref"},
-  {"DLAY?4",   readParam,      cvtChanDelay,   "DLAY 4,%d,%e", writeChannelDelay,  "C_DELAY",          "Channel C delay"},
-  {"",         readSink,       cvtSink,        "SPDL 4,0",     writeCommandOnly,   "C_DELAY_STEP_NEG", "Channel C step delay minus"},
-  {"",         readSink,       cvtSink,        "SPDL 4,1",     writeCommandOnly,   "C_DELAY_STEP_POS", "Channel C step delay plus"},
-  {"SSDL?4",   readParam,      cvtStrFloat,    "SSDL 4,%e",    writeFloatParam,    "C_DELAY_STEP",     "Channel C step delay size"},
-  {"PRES?2",   readParam,      cvtStrInt,      "PRES 2,%d",    writeIntParam,      "CD_PRESCALE",      "Channel CD Prescale"},
+  {"DLAY?4",   readParam,      cvtChanRef,     "DLAY 4,%d,%e", writeChannelRef,    "C_REF",           }, // "Channel C ref"},
+  {"DLAY?4",   readParam,      cvtChanDelay,   "DLAY 4,%d,%e", writeChannelDelay,  "C_DELAY",         }, // "Channel C delay"},
+  {"",         readSink,       cvtSink,        "SPDL 4,0",     writeCommandOnly,   "C_DELAY_STEP_NEG",}, // "Channel C step delay minus"},
+  {"",         readSink,       cvtSink,        "SPDL 4,1",     writeCommandOnly,   "C_DELAY_STEP_POS",}, // "Channel C step delay plus"},
+  {"SSDL?4",   readParam,      cvtStrFloat,    "SSDL 4,%e",    writeFloatParam,    "C_DELAY_STEP",    }, // "Channel C step delay size"},
 
   // Delay channel D related commands
-  {"DLAY?5",   readParam,      cvtChanRef,     "DLAY 5,%d,%e", writeChannelRef,    "D_REF",            "Channel D ref"},
-  {"DLAY?5",   readParam,      cvtChanDelay,   "DLAY 5,%d,%e", writeChannelDelay,  "D_DELAY",          "Channel D delay"},
-  {"",         readSink,       cvtSink,        "SPDL 5,0",     writeCommandOnly,   "D_DELAY_STEP_NEG", "Channel D step delay minus"},
-  {"",         readSink,       cvtSink,        "SPDL 5,1",     writeCommandOnly,   "D_DELAY_STEP_POS", "Channel D step delay plus"},
-  {"SSDL?5",   readParam,      cvtStrFloat,    "SSDL 5,%e",    writeFloatParam,    "D_DELAY_STEP",     "Channel D step delay size"},
+  {"DLAY?5",   readParam,      cvtChanRef,     "DLAY 5,%d,%e", writeChannelRef,    "D_REF",           }, // "Channel D ref"},
+  {"DLAY?5",   readParam,      cvtChanDelay,   "DLAY 5,%d,%e", writeChannelDelay,  "D_DELAY",         }, // "Channel D delay"},
+  {"",         readSink,       cvtSink,        "SPDL 5,0",     writeCommandOnly,   "D_DELAY_STEP_NEG",}, // "Channel D step delay minus"},
+  {"",         readSink,       cvtSink,        "SPDL 5,1",     writeCommandOnly,   "D_DELAY_STEP_POS",}, // "Channel D step delay plus"},
+  {"SSDL?5",   readParam,      cvtStrFloat,    "SSDL 5,%e",    writeFloatParam,    "D_DELAY_STEP",    }, // "Channel D step delay size"},
                                                                 
   // Delay channel E related commands
-  {"DLAY?6",   readParam,      cvtChanRef,     "DLAY 6,%d,%e", writeChannelRef,    "E_REF",            "Channel E ref"},
-  {"DLAY?6",   readParam,      cvtChanDelay,   "DLAY 6,%d,%e", writeChannelDelay,  "E_DELAY",          "Channel E delay"},
-  {"",         readSink,       cvtSink,        "SPDL 6,0",     writeCommandOnly,   "E_DELAY_STEP_NEG", "Channel E step delay minus"},
-  {"",         readSink,       cvtSink,        "SPDL 6,1",     writeCommandOnly,   "E_DELAY_STEP_POS", "Channel E step delay plus"},
-  {"SSDL?6",   readParam,      cvtStrFloat,    "SSDL 6,%e",    writeFloatParam,    "E_DELAY_STEP",     "Channel E step delay size"},
-  {"PRES?3",   readParam,      cvtStrInt,      "PRES 3,%d",    writeIntParam,      "EF_PRESCALE",      "Channel EF Prescale"},
+  {"DLAY?6",   readParam,      cvtChanRef,     "DLAY 6,%d,%e", writeChannelRef,    "E_REF",           }, // "Channel E ref"},
+  {"DLAY?6",   readParam,      cvtChanDelay,   "DLAY 6,%d,%e", writeChannelDelay,  "E_DELAY",         }, // "Channel E delay"},
+  {"",         readSink,       cvtSink,        "SPDL 6,0",     writeCommandOnly,   "E_DELAY_STEP_NEG",}, // "Channel E step delay minus"},
+  {"",         readSink,       cvtSink,        "SPDL 6,1",     writeCommandOnly,   "E_DELAY_STEP_POS",}, // "Channel E step delay plus"},
+  {"SSDL?6",   readParam,      cvtStrFloat,    "SSDL 6,%e",    writeFloatParam,    "E_DELAY_STEP",    }, // "Channel E step delay size"},
 
   // Delay channel F related commands
-  {"DLAY?7",   readParam,      cvtChanRef,     "DLAY 7,%d,%e", writeChannelRef,    "F_REF",            "Channel F ref"},
-  {"DLAY?7",   readParam,      cvtChanDelay,   "DLAY 7,%d,%e", writeChannelDelay,  "F_DELAY",          "Channel F delay"},
-  {"",         readSink,       cvtSink,        "SPDL 7,0",     writeCommandOnly,   "F_DELAY_STEP_NEG", "Channel F step delay minus"},
-  {"",         readSink,       cvtSink,        "SPDL 7,1",     writeCommandOnly,   "F_DELAY_STEP_POS", "Channel F step delay plus"},
-  {"SSDL?7",   readParam,      cvtStrFloat,    "SSDL 7,%e",    writeFloatParam,    "F_DELAY_STEP",     "Channel F step delay size"},
+  {"DLAY?7",   readParam,      cvtChanRef,     "DLAY 7,%d,%e", writeChannelRef,    "F_REF",           }, // "Channel F ref"},
+  {"DLAY?7",   readParam,      cvtChanDelay,   "DLAY 7,%d,%e", writeChannelDelay,  "F_DELAY",         }, // "Channel F delay"},
+  {"",         readSink,       cvtSink,        "SPDL 7,0",     writeCommandOnly,   "F_DELAY_STEP_NEG",}, // "Channel F step delay minus"},
+  {"",         readSink,       cvtSink,        "SPDL 7,1",     writeCommandOnly,   "F_DELAY_STEP_POS",}, // "Channel F step delay plus"},
+  {"SSDL?7",   readParam,      cvtStrFloat,    "SSDL 7,%e",    writeFloatParam,    "F_DELAY_STEP",    }, // "Channel F step delay size"},
   
   // Delay channel G related commands
-  {"DLAY?8",   readParam,      cvtChanRef,     "DLAY 8,%d,%e", writeChannelRef,    "G_REF",            "Channel G ref"},
-  {"DLAY?8",   readParam,      cvtChanDelay,   "DLAY 8,%d,%e", writeChannelDelay,  "G_DELAY",          "Channel G delay"},
-  {"",         readSink,       cvtSink,        "SPDL 8,0",     writeCommandOnly,   "G_DELAY_STEP_NEG", "Channel G step delay minus"},
-  {"",         readSink,       cvtSink,        "SPDL 8,1",     writeCommandOnly,   "G_DELAY_STEP_POS", "Channel G step delay plus"},
-  {"SSDL?8",   readParam,      cvtStrFloat,    "SSDL 8,%e",    writeFloatParam,    "G_DELAY_STEP",     "Channel G step delay size"},
-  {"PRES?4",   readParam,      cvtStrInt,      "PRES 4,%d",    writeIntParam,      "GH_PRESCALE",      "Channel GH Prescale"},
+  {"DLAY?8",   readParam,      cvtChanRef,     "DLAY 8,%d,%e", writeChannelRef,    "G_REF",           }, // "Channel G ref"},
+  {"DLAY?8",   readParam,      cvtChanDelay,   "DLAY 8,%d,%e", writeChannelDelay,  "G_DELAY",         }, // "Channel G delay"},
+  {"",         readSink,       cvtSink,        "SPDL 8,0",     writeCommandOnly,   "G_DELAY_STEP_NEG",}, // "Channel G step delay minus"},
+  {"",         readSink,       cvtSink,        "SPDL 8,1",     writeCommandOnly,   "G_DELAY_STEP_POS",}, // "Channel G step delay plus"},
+  {"SSDL?8",   readParam,      cvtStrFloat,    "SSDL 8,%e",    writeFloatParam,    "G_DELAY_STEP",    }, // "Channel G step delay size"},
 
   // Delay channel H related commands
-  {"DLAY?9",   readParam,      cvtChanRef,     "DLAY 9,%d,%e", writeChannelRef,    "H_REF",            "Channel H ref"},
-  {"DLAY?9",   readParam,      cvtChanDelay,   "DLAY 9,%d,%e", writeChannelDelay,  "H_DELAY",          "Channel H delay"},
-  {"",         readSink,       cvtSink,        "SPDL 9,0",     writeCommandOnly,   "H_DELAY_STEP_NEG", "Channel H step delay minus"},
-  {"",         readSink,       cvtSink,        "SPDL 9,1",     writeCommandOnly,   "H_DELAY_STEP_POS", "Channel H step delay plus"},
-  {"SSDL?9",   readParam,      cvtStrFloat,    "SSDL 9,%e",    writeFloatParam,    "H_DELAY_STEP",     "Channel H step delay size"},
+  {"DLAY?9",   readParam,      cvtChanRef,     "DLAY 9,%d,%e", writeChannelRef,    "H_REF",           }, // "Channel H ref"},
+  {"DLAY?9",   readParam,      cvtChanDelay,   "DLAY 9,%d,%e", writeChannelDelay,  "H_DELAY",         }, // "Channel H delay"},
+  {"",         readSink,       cvtSink,        "SPDL 9,0",     writeCommandOnly,   "H_DELAY_STEP_NEG",}, // "Channel H step delay minus"},
+  {"",         readSink,       cvtSink,        "SPDL 9,1",     writeCommandOnly,   "H_DELAY_STEP_POS",}, // "Channel H step delay plus"},
+  {"SSDL?9",   readParam,      cvtStrFloat,    "SSDL 9,%e",    writeFloatParam,    "H_DELAY_STEP",    }, // "Channel H step delay size"},
                                                                 
   // T0 output commands
-  {"LAMP?0",   readParam,      cvtStrFloat,    "LAMP 0,%-.2f", writeFloatParam,    "T0_AMP",             "T0 output amplitude"},
-  {"LOFF?0",   readParam,      cvtStrFloat,    "LOFF 0,%-.2f", writeFloatParam,    "T0_OFFSET",          "T0 output offset"},
-  {"LPOL?0",   readParam,      cvtStrInt,      "LPOL 0,%d",    writeIntParam,      "T0_POLARITY",        "T0 output polarity"},
-  {"",         readSink,       cvtSink,        "SPLA 0,0",     writeCommandOnly,   "T0_AMP_STEP_NEG",    "T0 step amplitude minus"},
-  {"",         readSink,       cvtSink,        "SPLA 0,1",     writeCommandOnly,   "T0_AMP_STEP_POS",    "T0 step amplitude plus"},
-  {"SSLA?0",   readParam,      cvtStrFloat,    "SSLA 0,%-.2f", writeFloatParam,    "T0_AMP_STEP",        "T0 step amplitude size"},
-  {"",         readSink,       cvtSink,        "SPLO 0,0",     writeCommandOnly,   "T0_OFFSET_STEP_NEG", "T0 step offset minus"},
-  {"",         readSink,       cvtSink,        "SPLO 0,1",     writeCommandOnly,   "T0_OFFSET_STEP_POS", "T0 step offset plus"},
-  {"SSLO?0",   readParam,      cvtStrFloat,    "SSLO 0,%-.2f", writeFloatParam,    "T0_OFSET_STEP",      "T0 step offset size"},
+  {"LAMP?0",   readParam,      cvtStrFloat,    "LAMP 0,%-.2f", writeFloatParam,    "T0_AMP",            }, // "T0 output amplitude"},
+  {"LOFF?0",   readParam,      cvtStrFloat,    "LOFF 0,%-.2f", writeFloatParam,    "T0_OFFSET",         }, // "T0 output offset"},
+  {"LPOL?0",   readParam,      cvtStrInt,      "LPOL 0,%d",    writeIntParam,      "T0_POLARITY",       }, // "T0 output polarity"},
+  {"",         readSink,       cvtSink,        "SPLA 0,0",     writeCommandOnly,   "T0_AMP_STEP_NEG",   }, // "T0 step amplitude minus"},
+  {"",         readSink,       cvtSink,        "SPLA 0,1",     writeCommandOnly,   "T0_AMP_STEP_POS",   }, // "T0 step amplitude plus"},
+  {"SSLA?0",   readParam,      cvtStrFloat,    "SSLA 0,%-.2f", writeFloatParam,    "T0_AMP_STEP",       }, // "T0 step amplitude size"},
+  {"",         readSink,       cvtSink,        "SPLO 0,0",     writeCommandOnly,   "T0_OFFSET_STEP_NEG",}, // "T0 step offset minus"},
+  {"",         readSink,       cvtSink,        "SPLO 0,1",     writeCommandOnly,   "T0_OFFSET_STEP_POS",}, // "T0 step offset plus"},
+  {"SSLO?0",   readParam,      cvtStrFloat,    "SSLO 0,%-.2f", writeFloatParam,    "T0_OFSET_STEP",     }, // "T0 step offset size"},
   
   // AB output commands
-  {"LAMP?1",   readParam,      cvtStrFloat,    "LAMP 1,%-.2f", writeFloatParam,    "AB_AMP",             "AB output amplitude"},
-  {"LOFF?1",   readParam,      cvtStrFloat,    "LOFF 1,%-.2f", writeFloatParam,    "AB_OFFSET",          "AB output offset"},
-  {"LPOL?1",   readParam,      cvtStrInt,      "LPOL 1,%d",    writeIntParam,      "AB_POLARITY",        "AB output polarity"},
-  {"",         readSink,       cvtSink,        "SPLA 1,0",     writeCommandOnly,   "AB_AMP_STEP_NEG",    "AB step amplitude minus"},
-  {"",         readSink,       cvtSink,        "SPLA 1,1",     writeCommandOnly,   "AB_AMP_STEP_POS",    "AB step amplitude plus"},
-  {"SSLA?1",   readParam,      cvtStrFloat,    "SSLA 1,%-.2f", writeFloatParam,    "AB_AMP_STEP",        "AB step amplitude size"},
-  {"",         readSink,       cvtSink,        "SPLO 1,0",     writeCommandOnly,   "AB_OFFSET_STEP_NEG", "AB step offset minus"},
-  {"",         readSink,       cvtSink,        "SPLO 1,1",     writeCommandOnly,   "AB_OFFSET_STEP_POS", "AB step offset plus"},
-  {"SSLO?1",   readParam,      cvtStrFloat,    "SSLO 1,%-.2f", writeFloatParam,    "AB_OFFSET_STEP",     "AB step offset size"},
+  {"LAMP?1",   readParam,      cvtStrFloat,    "LAMP 1,%-.2f", writeFloatParam,    "AB_AMP",            }, // "AB output amplitude"},
+  {"LOFF?1",   readParam,      cvtStrFloat,    "LOFF 1,%-.2f", writeFloatParam,    "AB_OFFSET",         }, // "AB output offset"},
+  {"LPOL?1",   readParam,      cvtStrInt,      "LPOL 1,%d",    writeIntParam,      "AB_POLARITY",       }, // "AB output polarity"},
+  {"",         readSink,       cvtSink,        "SPLA 1,0",     writeCommandOnly,   "AB_AMP_STEP_NEG",   }, // "AB step amplitude minus"},
+  {"",         readSink,       cvtSink,        "SPLA 1,1",     writeCommandOnly,   "AB_AMP_STEP_POS",   }, // "AB step amplitude plus"},
+  {"SSLA?1",   readParam,      cvtStrFloat,    "SSLA 1,%-.2f", writeFloatParam,    "AB_AMP_STEP",       }, // "AB step amplitude size"},
+  {"",         readSink,       cvtSink,        "SPLO 1,0",     writeCommandOnly,   "AB_OFFSET_STEP_NEG",}, // "AB step offset minus"},
+  {"",         readSink,       cvtSink,        "SPLO 1,1",     writeCommandOnly,   "AB_OFFSET_STEP_POS",}, // "AB step offset plus"},
+  {"SSLO?1",   readParam,      cvtStrFloat,    "SSLO 1,%-.2f", writeFloatParam,    "AB_OFFSET_STEP",    }, // "AB step offset size"},
 
   // CD output commands
-  {"LAMP?2",   readParam,      cvtStrFloat,    "LAMP 2,%-.2f", writeFloatParam,    "CD_AMP",             "CD output amplitude"},
-  {"LOFF?2",   readParam,      cvtStrFloat,    "LOFF 2,%-.2f", writeFloatParam,    "CD_OFFSET",          "CD output offset"},
-  {"LPOL?2",   readParam,      cvtStrInt,      "LPOL 2,%d",    writeIntParam,      "CD_POLARITY",        "CD output polarity"},
-  {"",         readSink,       cvtSink,        "SPLA 2,0",     writeCommandOnly,   "CD_AMP_STEP_NEG",    "CD step amplitude minus"},
-  {"",         readSink,       cvtSink,        "SPLA 2,1",     writeCommandOnly,   "CD_AMP_STEP_POS",    "CD step amplitude plus"},
-  {"SSLA?2",   readParam,      cvtStrFloat,    "SSLA 2,%-.2f", writeFloatParam,    "CD_AMP_STEP",        "CD step amplitude size"},
-  {"",         readSink,       cvtSink,        "SPLO 2,0",     writeCommandOnly,   "CD_OFFSET_STEP_NEG", "CD step offset minus"},
-  {"",         readSink,       cvtSink,        "SPLO 2,1",     writeCommandOnly,   "CD_OFFSET_STEP_POS", "CD step offset plus"},
-  {"SSLO?2",   readParam,      cvtStrFloat,    "SSLO 2,%-.2f", writeFloatParam,    "CD_OFFSET_STEP",     "CD step offset size"},
+  {"LAMP?2",   readParam,      cvtStrFloat,    "LAMP 2,%-.2f", writeFloatParam,    "CD_AMP",            }, // "CD output amplitude"},
+  {"LOFF?2",   readParam,      cvtStrFloat,    "LOFF 2,%-.2f", writeFloatParam,    "CD_OFFSET",         }, // "CD output offset"},
+  {"LPOL?2",   readParam,      cvtStrInt,      "LPOL 2,%d",    writeIntParam,      "CD_POLARITY",       }, // "CD output polarity"},
+  {"",         readSink,       cvtSink,        "SPLA 2,0",     writeCommandOnly,   "CD_AMP_STEP_NEG",   }, // "CD step amplitude minus"},
+  {"",         readSink,       cvtSink,        "SPLA 2,1",     writeCommandOnly,   "CD_AMP_STEP_POS",   }, // "CD step amplitude plus"},
+  {"SSLA?2",   readParam,      cvtStrFloat,    "SSLA 2,%-.2f", writeFloatParam,    "CD_AMP_STEP",       }, // "CD step amplitude size"},
+  {"",         readSink,       cvtSink,        "SPLO 2,0",     writeCommandOnly,   "CD_OFFSET_STEP_NEG",}, // "CD step offset minus"},
+  {"",         readSink,       cvtSink,        "SPLO 2,1",     writeCommandOnly,   "CD_OFFSET_STEP_POS",}, // "CD step offset plus"},
+  {"SSLO?2",   readParam,      cvtStrFloat,    "SSLO 2,%-.2f", writeFloatParam,    "CD_OFFSET_STEP",    }, // "CD step offset size"},
 
   // EF output commands
-  {"LAMP?3",   readParam,      cvtStrFloat,    "LAMP 3,%-.2f", writeFloatParam,    "EF_AMP",             "EF output amplitude"},
-  {"LOFF?3",   readParam,      cvtStrFloat,    "LOFF 3,%-.2f", writeFloatParam,    "EF_OFFSET",          "EF output offset"},
-  {"LPOL?3",   readParam,      cvtStrInt,      "LPOL 3,%d",    writeIntParam,      "EF_POLARITY",        "EF output polarity"},
-  {"",         readSink,       cvtSink,        "SPLA 3,0",     writeCommandOnly,   "EF_AMP_STEP_NEG",    "EF step amplitude minus"},
-  {"",         readSink,       cvtSink,        "SPLA 3,1",     writeCommandOnly,   "EF_AMP_STEP_POS",    "EF step amplitude plus"},
-  {"SSLA?3",   readParam,      cvtStrFloat,    "SSLA 3,%-.2f", writeFloatParam,    "EF_AMP_STEP",        "EF step amplitude size"},
-  {"",         readSink,       cvtSink,        "SPLO 3,0",     writeCommandOnly,   "EF_OFFSET_STEP_NEG", "EF step offset minus"},
-  {"",         readSink,       cvtSink,        "SPLO 3,1",     writeCommandOnly,   "EF_OFFSET_STEP_POS", "EF step offset plus"},
-  {"SSLO?3",   readParam,      cvtStrFloat,    "SSLO 3,%-.2f", writeFloatParam,    "EF_OFFSET_STEP",     "EF step offset size"},
+  {"LAMP?3",   readParam,      cvtStrFloat,    "LAMP 3,%-.2f", writeFloatParam,    "EF_AMP",            }, // "EF output amplitude"},
+  {"LOFF?3",   readParam,      cvtStrFloat,    "LOFF 3,%-.2f", writeFloatParam,    "EF_OFFSET",         }, // "EF output offset"},
+  {"LPOL?3",   readParam,      cvtStrInt,      "LPOL 3,%d",    writeIntParam,      "EF_POLARITY",       }, // "EF output polarity"},
+  {"",         readSink,       cvtSink,        "SPLA 3,0",     writeCommandOnly,   "EF_AMP_STEP_NEG",   }, // "EF step amplitude minus"},
+  {"",         readSink,       cvtSink,        "SPLA 3,1",     writeCommandOnly,   "EF_AMP_STEP_POS",   }, // "EF step amplitude plus"},
+  {"SSLA?3",   readParam,      cvtStrFloat,    "SSLA 3,%-.2f", writeFloatParam,    "EF_AMP_STEP",       }, // "EF step amplitude size"},
+  {"",         readSink,       cvtSink,        "SPLO 3,0",     writeCommandOnly,   "EF_OFFSET_STEP_NEG",}, // "EF step offset minus"},
+  {"",         readSink,       cvtSink,        "SPLO 3,1",     writeCommandOnly,   "EF_OFFSET_STEP_POS",}, // "EF step offset plus"},
+  {"SSLO?3",   readParam,      cvtStrFloat,    "SSLO 3,%-.2f", writeFloatParam,    "EF_OFFSET_STEP",    }, // "EF step offset size"},
 
   // GH output commands
-  {"LAMP?4",   readParam,      cvtStrFloat,    "LAMP 4,%-.2f", writeFloatParam,    "GH_AMP",             "GH output amplitude"},
-  {"LOFF?4",   readParam,      cvtStrFloat,    "LOFF 4,%-.2f", writeFloatParam,    "GH_OFFSET",          "GH output offset"},
-  {"LPOL?4",   readParam,      cvtStrInt,      "LPOL 4,%d",    writeIntParam,      "GH_POLARITY",        "GH output polarity"},
-  {"",         readSink,       cvtSink,        "SPLA 4,0",     writeCommandOnly,   "GH_AMP_STEP_POS",    "GH step amplitude minus"},
-  {"",         readSink,       cvtSink,        "SPLA 4,1",     writeCommandOnly,   "GH_AMP_STEP_NEG",    "GH step amplitude plus"},
-  {"SSLA?4",   readParam,      cvtStrFloat,    "SSLA 4,%-.2f", writeFloatParam,    "GH_AMP_STEP",        "GH step amplitude size"},
-  {"",         readSink,       cvtSink,        "SPLO 4,0",     writeCommandOnly,   "GH_OFFSET_STEP_POS", "GH step offset minus"},
-  {"",         readSink,       cvtSink,        "SPLO 4,1",     writeCommandOnly,   "GH_OFFSET_STEP_NEG", "GH step offset plus"},
-  {"SSLO?4",   readParam,      cvtStrFloat,    "SSLO 4,%-.2f", writeFloatParam,    "GH_OFFSET_STEP",     "GH step offset size"},
+  {"LAMP?4",   readParam,      cvtStrFloat,    "LAMP 4,%-.2f", writeFloatParam,    "GH_AMP",            }, // "GH output amplitude"},
+  {"LOFF?4",   readParam,      cvtStrFloat,    "LOFF 4,%-.2f", writeFloatParam,    "GH_OFFSET",         }, // "GH output offset"},
+  {"LPOL?4",   readParam,      cvtStrInt,      "LPOL 4,%d",    writeIntParam,      "GH_POLARITY",       }, // "GH output polarity"},
+  {"",         readSink,       cvtSink,        "SPLA 4,0",     writeCommandOnly,   "GH_AMP_STEP_POS",   }, // "GH step amplitude minus"},
+  {"",         readSink,       cvtSink,        "SPLA 4,1",     writeCommandOnly,   "GH_AMP_STEP_NEG",   }, // "GH step amplitude plus"},
+  {"SSLA?4",   readParam,      cvtStrFloat,    "SSLA 4,%-.2f", writeFloatParam,    "GH_AMP_STEP",       }, // "GH step amplitude size"},
+  {"",         readSink,       cvtSink,        "SPLO 4,0",     writeCommandOnly,   "GH_OFFSET_STEP_POS",}, // "GH step offset minus"},
+  {"",         readSink,       cvtSink,        "SPLO 4,1",     writeCommandOnly,   "GH_OFFSET_STEP_NEG",}, // "GH step offset plus"},
+  {"SSLO?4",   readParam,      cvtStrFloat,    "SSLO 4,%-.2f", writeFloatParam,    "GH_OFFSET_STEP",    }, // "GH step offset size"},
 };
 static int commandLen=sizeof(commandTable)/sizeof(Command);
 
@@ -960,8 +975,8 @@ static asynStatus writeRead(Port* pport,char* outBuf,char* inpBuf,int inputSize,
   size_t nWrite,nRead,nWriteRequested=strlen(outBuf);
 
   status = pasynOctetSyncIO->writeRead(pport->pasynUser,outBuf,nWriteRequested,inpBuf,inputSize,TIMEOUT,&nWrite,&nRead,eomReason);
-  //  if( nWrite!=nWriteRequested ) 
-  //    status = asynError;
+  if( nWrite!=nWriteRequested ) 
+    status = asynError;
 
   if( status!=asynSuccess )
     {
