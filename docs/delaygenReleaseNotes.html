@@ -7,15 +7,18 @@
 
 <p><dt>Modified drvAsynDG645.cpp and drvDG645.db<br>
 <dd><br>Removed race condition when there were multiple DG645 devices,
-simplified the code a bit, and had driver use DrvInfo field.
+simplified the code a bit, and had driver use DrvInfo field.  Added
+new "Advanced Triggering" fields: mode enable/disable, prescale phases
+and trigger holdoff.  Added a label for each device.  Redid the
+screens somewhat.
 
 <p><dt>Moved all Gigabuadics support files (digitalDelay.*) into
-directories called "custom" for each directory where such a file was
-found.<br>
+file called "digitalDelay.tar.gz", in the "src" directory.<br>
 <dd><br>This code was based on a custom hardware implementation of a
 solution for using a specific Gigabaudics delay generator.  It is
 highly unlikely that anyone has used this code, and if it was used, it
-can be moved back into position from the "custom" directories.
+can be moved back into position by untarring the file in the root of
+the module.
 
 <p><dt>Modified OPI files:<br>
 BNC_505.opi<br>
