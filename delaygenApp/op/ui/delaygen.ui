@@ -177,37 +177,7 @@ QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
         <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
             <property name="geometry">
                 <rect>
-                    <x>11</x>
-                    <y>95</y>
-                    <width>180</width>
-                    <height>22</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
-            <property name="geometry">
-                <rect>
-                    <x>11</x>
+                    <x>10</x>
                     <y>118</y>
                     <width>180</width>
                     <height>22</height>
@@ -246,10 +216,10 @@ QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
             <property name="geometry">
                 <rect>
-                    <x>11</x>
+                    <x>10</x>
                     <y>141</y>
                     <width>180</width>
                     <height>22</height>
@@ -288,11 +258,11 @@ QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_5">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
             <property name="geometry">
                 <rect>
-                    <x>11</x>
-                    <y>164</y>
+                    <x>10</x>
+                    <y>95</y>
                     <width>180</width>
                     <height>22</height>
                 </rect>
@@ -330,66 +300,6 @@ QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
                 <string>false;false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_6">
-            <property name="geometry">
-                <rect>
-                    <x>11</x>
-                    <y>187</y>
-                    <width>180</width>
-                    <height>22</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_7">
-            <property name="geometry">
-                <rect>
-                    <x>11</x>
-                    <y>210</y>
-                    <width>180</width>
-                    <height>22</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-        </widget>
         <zorder>caLabel_0</zorder>
         <zorder>caLabel_1</zorder>
         <zorder>caRelatedDisplay_0</zorder>
@@ -397,9 +307,6 @@ QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
         <zorder>caRelatedDisplay_2</zorder>
         <zorder>caRelatedDisplay_3</zorder>
         <zorder>caRelatedDisplay_4</zorder>
-        <zorder>caRelatedDisplay_5</zorder>
-        <zorder>caRelatedDisplay_6</zorder>
-        <zorder>caRelatedDisplay_7</zorder>
     </widget>
 </widget>
 </ui>
