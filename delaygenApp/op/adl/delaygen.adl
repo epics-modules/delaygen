@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen25/DOHNARMS/svn_pub/trunk/delaygenApp/op/adl/delaygen.adl"
+	name="/home/oxygen25/DOHNARMS/svn_pub/delaygen/delaygenApp/op/adl/delaygen.adl"
 	version=030107
 }
 display {
@@ -173,7 +173,7 @@ text {
 	display[1] {
 		label="DG645"
 		name="srsDG645.adl"
-		args="P=delaygen:,R=DG0:,AR=asynD0"
+		args="P=delaygen:,R=DG0:"
 	}
 	clr=14
 	bclr=4

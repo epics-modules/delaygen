@@ -5,12 +5,15 @@
 
 <dl>
 
-<p><dt>Modified drvAsynDG645.cpp and drvDG645.db<br>
+<p><dt>Modified drvAsynDG645.cpp, drvDG645.db, and DG645 screens.<br>
 <dd><br>Removed race condition when there were multiple DG645 devices,
 simplified the code a bit, and had driver use DrvInfo field.  Added
 new "Advanced Triggering" fields: mode enable/disable, prescale phases
-and trigger holdoff.  Added a label for each device.  Redid the
-screens somewhat.
+and trigger holdoff.  Added a label for the device.  Redid the
+screens, and removed the reference to the asyn record on the main
+screen.  As the delay PV names were changed to make it simpler to open
+the individual delay screens, the rest of the PV names were changed to
+be consistent (where the first letter is now capitalized).
 
 <p><dt>Moved all Gigabuadics support files (digitalDelay.*) into
 file called "digitalDelay.tar.gz", in the "src" directory.<br>
