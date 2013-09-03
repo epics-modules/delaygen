@@ -33,6 +33,11 @@ PROD_IOC = delaygenApp
 DBD += iocdelaygenApp.dbd
 DBD += iocdelaygenAppVxWorks.dbd 
 
+DBD += devDG535.dbd
+DBD += drvAsynDG645.dbd
+DBD += drvAsynColby.dbd
+DBD += nigpibSupport.dbd
+DBD += drvAsynCoherentSDG.dbd 
 DBD += delaygenSupport.dbd
 
 #-----------------------------------------------------------------------------
