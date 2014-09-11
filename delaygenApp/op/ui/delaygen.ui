@@ -14,6 +14,7 @@
         <string>
 
 QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
+QPushButton::menu-indicator {image: url(none.png); width: 0}
 
 </string>
     </property>
@@ -64,14 +65,6 @@ QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
-            <property name="geometry">
-                <rect>
-                    <x>3</x>
-                    <y>4</y>
-                    <width>196</width>
-                    <height>22</height>
-                </rect>
-            </property>
             <property name="foreground">
                 <color alpha="255">
                     <red>249</red>
@@ -90,23 +83,23 @@ QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
                 <string>DELAYGEN MODULE</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>3</x>
+                    <y>4</y>
+                    <width>198</width>
+                    <height>22</height>
+                </rect>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_1">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>3</x>
-                    <y>30</y>
-                    <width>196</width>
-                    <height>14</height>
-                </rect>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -126,10 +119,18 @@ QWidget#centralWidget {background: rgba(105, 105, 105, 255);}
                 <string>$(P)</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>3</x>
+                    <y>30</y>
+                    <width>196</width>
+                    <height>14</height>
+                </rect>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
