@@ -19,14 +19,14 @@ SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
 -include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
 # Modules required for building module
-ASYN=$(SUPPORT)/asyn-4-21
-CALC=$(SUPPORT)/calc-3-2
-IP=$(SUPPORT)/ip-2-14
+ASYN=$(SUPPORT)/asyn-4-23
+CALC=$(SUPPORT)/calc-3-4-1
+IP=$(SUPPORT)/ip-2-15
 STREAM=$(SUPPORT)/stream-2-6
 IPAC=$(SUPPORT)/ipac-2-12
 
 # Modules required for building module application
-AUTOSAVE=$(SUPPORT)/autosave-5-1
+AUTOSAVE=$(SUPPORT)/autosave-5-4-1
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 EPICS_BASE=/home/oxygen/MOONEY/epics/bazaar/base-3.14
