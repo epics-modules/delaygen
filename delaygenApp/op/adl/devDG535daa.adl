@@ -1,0 +1,1151 @@
+
+file {
+	name="/net/s7dserv/xorApps/adl/7id/general/devDG535daa.adl"
+	version=030102
+}
+display {
+	object {
+		x=43
+		y=207
+		width=525
+		height=370
+	}
+	clr=0
+	bclr=3
+	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=1
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+text {
+	object {
+		x=35
+		y=10
+		width=300
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+		width=7
+	}
+	textix="Stanford Research Systems DG535"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=410
+		y=345
+		width=100
+		height=22
+	}
+	"basic attribute" {
+		clr=20
+		fill="outline"
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)$(R)scanDisableCC"
+	}
+	textix="OFFLINE"
+	align="horiz. centered"
+}
+"related display" {
+	object {
+		x=415
+		y=215
+		width=90
+		height=20
+	}
+	display[0] {
+		label="Output Settings"
+		name="devDG535Outputsdaa.adl"
+		args="dg=$(P)$(R)"
+	}
+	clr=0
+	bclr=64
+	label="Outputs"
+}
+text {
+	object {
+		x=15
+		y=235
+		width=60
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Rate"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=90
+		y=235
+		width=60
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Rate"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=90
+		y=310
+		width=60
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Count"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=15
+		y=310
+		width=60
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Period"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=415
+		y=315
+		width=100
+		height=22
+	}
+	"basic attribute" {
+		clr=20
+		fill="outline"
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)$(R)errorStatusLI.SEVR"
+	}
+	textix="ERROR!!"
+	align="horiz. centered"
+}
+"text update" {
+	object {
+		x=180
+		y=235
+		width=126
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)trigModeMI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=250
+		width=60
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)trigRateAI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=89
+		y=250
+		width=60
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)trigBurstRateAI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=89
+		y=325
+		width=60
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)trigBurstCountAI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=325
+		width=60
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)trigBurstPerAI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"choice button" {
+	object {
+		x=195
+		y=260
+		width=94
+		height=100
+	}
+	control {
+		chan="$(P)$(R)trigModeSetMO"
+		clr=14
+		bclr=51
+	}
+}
+"message button" {
+	object {
+		x=289
+		y=298
+		width=80
+		height=22
+	}
+	control {
+		chan="$(P)$(R)genSingleShotTrigBO"
+		clr=0
+		bclr=20
+	}
+	label="Trigger"
+	press_msg="1"
+}
+"text entry" {
+	object {
+		x=15
+		y=265
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)trigRateSetAO"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=89
+		y=265
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)trigBurstRateSetAO"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=89
+		y=340
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)trigBurstCountSetAO"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=15
+		y=340
+		width=60
+		height=20
+	}
+	control {
+		chan="$(P)$(R)trigBurstPerSetAO"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=165
+		y=205
+		width=3
+		height=162
+	}
+	"basic attribute" {
+		clr=5
+		width=3
+	}
+}
+text {
+	object {
+		x=15
+		y=220
+		width=60
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Trigger"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=90
+		y=220
+		width=60
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Burst"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=15
+		y=295
+		width=60
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Burst"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=90
+		y=295
+		width=60
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Burst"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=10
+		y=40
+		width=22
+		height=24
+	}
+	"basic attribute" {
+		clr=14
+		width=7
+	}
+	textix="A:"
+}
+"text update" {
+	object {
+		x=78
+		y=45
+		width=170
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)aDelayAI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+menu {
+	object {
+		x=35
+		y=65
+		width=22
+		height=20
+	}
+	control {
+		chan="$(P)$(R)aDelayRefSetMO"
+		clr=14
+		bclr=51
+	}
+}
+"text entry" {
+	object {
+		x=75
+		y=65
+		width=175
+		height=20
+	}
+	control {
+		chan="$(P)$(R)aDelaySetAO"
+		clr=14
+		bclr=51
+	}
+	format="engr. notation"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=45
+		y=45
+		width=10
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)aDelayRefMI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+text {
+	object {
+		x=60
+		y=45
+		width=10
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)aDelayRefMI"
+	}
+	textix="+"
+	align="horiz. right"
+}
+"text entry" {
+	object {
+		x=105
+		y=95
+		width=75
+		height=20
+	}
+	control {
+		chan="$(P)$(R)aDelayTwk"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+menu {
+	object {
+		x=180
+		y=95
+		width=40
+		height=20
+	}
+	control {
+		chan="$(P)$(R)aDelayTwkUnits"
+		clr=14
+		bclr=51
+	}
+}
+"message button" {
+	object {
+		x=230
+		y=90
+		width=15
+		height=24
+	}
+	control {
+		chan="$(P)$(R)aDelayTwkFwd.PROC"
+		clr=14
+		bclr=51
+	}
+	label=">"
+	press_msg="1"
+}
+"message button" {
+	object {
+		x=80
+		y=90
+		width=15
+		height=24
+	}
+	control {
+		chan="$(P)$(R)aDelayTwkBkw.PROC"
+		clr=14
+		bclr=51
+	}
+	label="<"
+	press_msg="1"
+}
+text {
+	object {
+		x=10
+		y=125
+		width=22
+		height=24
+	}
+	"basic attribute" {
+		clr=14
+		width=7
+	}
+	textix="B:"
+}
+"text update" {
+	object {
+		x=78
+		y=130
+		width=170
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)bDelayAI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+menu {
+	object {
+		x=35
+		y=150
+		width=22
+		height=20
+	}
+	control {
+		chan="$(P)$(R)bDelayRefSetMO"
+		clr=14
+		bclr=51
+	}
+}
+"text entry" {
+	object {
+		x=75
+		y=150
+		width=175
+		height=20
+	}
+	control {
+		chan="$(P)$(R)bDelaySetAO"
+		clr=14
+		bclr=51
+	}
+	format="engr. notation"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=45
+		y=130
+		width=10
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)bDelayRefMI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+text {
+	object {
+		x=60
+		y=130
+		width=10
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)aDelayRefMI"
+	}
+	textix="+"
+	align="horiz. right"
+}
+"text entry" {
+	object {
+		x=105
+		y=180
+		width=75
+		height=20
+	}
+	control {
+		chan="$(P)$(R)bDelayTwk"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+menu {
+	object {
+		x=180
+		y=180
+		width=40
+		height=20
+	}
+	control {
+		chan="$(P)$(R)bDelayTwkUnits"
+		clr=14
+		bclr=51
+	}
+}
+"message button" {
+	object {
+		x=230
+		y=175
+		width=15
+		height=24
+	}
+	control {
+		chan="$(P)$(R)bDelayTwkFwd.PROC"
+		clr=14
+		bclr=51
+	}
+	label=">"
+	press_msg="1"
+}
+"message button" {
+	object {
+		x=80
+		y=175
+		width=15
+		height=24
+	}
+	control {
+		chan="$(P)$(R)bDelayTwkBkw.PROC"
+		clr=14
+		bclr=51
+	}
+	label="<"
+	press_msg="1"
+}
+text {
+	object {
+		x=270
+		y=40
+		width=22
+		height=24
+	}
+	"basic attribute" {
+		clr=14
+		width=7
+	}
+	textix="C:"
+}
+"text update" {
+	object {
+		x=338
+		y=45
+		width=170
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)cDelayAI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+menu {
+	object {
+		x=295
+		y=65
+		width=22
+		height=20
+	}
+	control {
+		chan="$(P)$(R)cDelayRefSetMO"
+		clr=14
+		bclr=51
+	}
+}
+"text entry" {
+	object {
+		x=335
+		y=65
+		width=175
+		height=20
+	}
+	control {
+		chan="$(P)$(R)cDelaySetAO"
+		clr=14
+		bclr=51
+	}
+	format="engr. notation"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=305
+		y=45
+		width=10
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)cDelayRefMI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+text {
+	object {
+		x=320
+		y=45
+		width=10
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)aDelayRefMI"
+	}
+	textix="+"
+	align="horiz. right"
+}
+"text entry" {
+	object {
+		x=365
+		y=95
+		width=75
+		height=20
+	}
+	control {
+		chan="$(P)$(R)cDelayTwk"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+menu {
+	object {
+		x=440
+		y=95
+		width=40
+		height=20
+	}
+	control {
+		chan="$(P)$(R)cDelayTwkUnits"
+		clr=14
+		bclr=51
+	}
+}
+"message button" {
+	object {
+		x=490
+		y=90
+		width=15
+		height=24
+	}
+	control {
+		chan="$(P)$(R)cDelayTwkFwd.PROC"
+		clr=14
+		bclr=51
+	}
+	label=">"
+	press_msg="1"
+}
+"message button" {
+	object {
+		x=340
+		y=90
+		width=15
+		height=24
+	}
+	control {
+		chan="$(P)$(R)cDelayTwkBkw.PROC"
+		clr=14
+		bclr=51
+	}
+	label="<"
+	press_msg="1"
+}
+text {
+	object {
+		x=270
+		y=125
+		width=22
+		height=24
+	}
+	"basic attribute" {
+		clr=14
+		width=7
+	}
+	textix="D:"
+}
+"text update" {
+	object {
+		x=338
+		y=130
+		width=170
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)dDelayAI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+menu {
+	object {
+		x=295
+		y=150
+		width=22
+		height=20
+	}
+	control {
+		chan="$(P)$(R)dDelayRefSetMO"
+		clr=14
+		bclr=51
+	}
+}
+"text entry" {
+	object {
+		x=335
+		y=150
+		width=175
+		height=20
+	}
+	control {
+		chan="$(P)$(R)dDelaySetAO"
+		clr=14
+		bclr=51
+	}
+	format="engr. notation"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=305
+		y=130
+		width=10
+		height=14
+	}
+	monitor {
+		chan="$(P)$(R)dDelayRefMI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+text {
+	object {
+		x=320
+		y=130
+		width=10
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)aDelayRefMI"
+	}
+	textix="+"
+	align="horiz. right"
+}
+"text entry" {
+	object {
+		x=365
+		y=180
+		width=75
+		height=20
+	}
+	control {
+		chan="$(P)$(R)dDelayTwk"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+menu {
+	object {
+		x=440
+		y=180
+		width=40
+		height=20
+	}
+	control {
+		chan="$(P)$(R)dDelayTwkUnits"
+		clr=14
+		bclr=51
+	}
+}
+"message button" {
+	object {
+		x=490
+		y=175
+		width=15
+		height=24
+	}
+	control {
+		chan="$(P)$(R)dDelayTwkFwd.PROC"
+		clr=14
+		bclr=51
+	}
+	label=">"
+	press_msg="1"
+}
+"message button" {
+	object {
+		x=340
+		y=175
+		width=15
+		height=24
+	}
+	control {
+		chan="$(P)$(R)dDelayTwkBkw.PROC"
+		clr=14
+		bclr=51
+	}
+	label="<"
+	press_msg="1"
+}
+rectangle {
+	object {
+		x=395
+		y=205
+		width=3
+		height=162
+	}
+	"basic attribute" {
+		clr=14
+		width=3
+	}
+}
+text {
+	object {
+		x=390
+		y=10
+		width=100
+		height=20
+	}
+	"basic attribute" {
+		clr=64
+		width=7
+	}
+	textix="$(P)$(R)"
+	align="horiz. centered"
+}
+rectangle {
+	object {
+		x=-25
+		y=120
+		width=546
+		height=3
+	}
+	"basic attribute" {
+		clr=5
+		width=3
+	}
+}
+rectangle {
+	object {
+		x=260
+		y=35
+		width=3
+		height=170
+	}
+	"basic attribute" {
+		clr=5
+		width=3
+	}
+}
+rectangle {
+	object {
+		x=0
+		y=34
+		width=546
+		height=3
+	}
+	"basic attribute" {
+		clr=14
+		width=3
+	}
+}
+rectangle {
+	object {
+		x=-25
+		y=205
+		width=546
+		height=3
+	}
+	"basic attribute" {
+		clr=14
+		width=3
+	}
+}
+"related display" {
+	object {
+		x=415
+		y=240
+		width=90
+		height=20
+	}
+	display[0] {
+		label="Settings Management"
+		name="devDG535Operationsdaa.adl"
+		args="dg=$(P)$(R)"
+	}
+	clr=0
+	bclr=64
+	label="Operations"
+}
+text {
+	object {
+		x=190
+		y=215
+		width=100
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	textix="Trigger Source"
+	align="horiz. centered"
+}
