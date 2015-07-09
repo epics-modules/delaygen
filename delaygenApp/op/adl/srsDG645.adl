@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/DOHNARMS/controls/epics/SRS_DG645/ioc/dg645App/op/adl/srsDG645.adl"
+	name="/home/oxygen25/DOHNARMS/svn_pub/delaygen/delaygenApp/op/adl/srsDG645.adl"
 	version=030107
 }
 display {
@@ -1754,7 +1754,7 @@ composite {
 composite {
 	object {
 		x=240
-		y=405
+		y=435
 		width=38
 		height=22
 	}
@@ -1763,7 +1763,7 @@ composite {
 		"message button" {
 			object {
 				x=240
-				y=405
+				y=435
 				width=38
 				height=22
 			}
