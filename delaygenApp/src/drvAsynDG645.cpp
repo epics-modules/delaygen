@@ -524,7 +524,7 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
   pInterfaces->int32.pinterface     = (void *)&ifaceInt32;
   pInterfaces->float64.pinterface   = (void *)&ifaceFloat64;
 
-  pInterfaces->int32CanInterrupt    = 1;  // for status
+  //  pInterfaces->int32CanInterrupt    = 1;  // for status
 
   status = pasynStandardInterfacesBase->initialize(myport, pInterfaces,
                                                    pport->pasynUserTrace, 
