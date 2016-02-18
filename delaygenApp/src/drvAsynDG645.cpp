@@ -43,6 +43,7 @@
                    and changed from using address as record type to tag.
  2013-Jun-28  DAA  Add description field. Added support for prescale phases,
                    trigger holdoff, advanced triggering switch.
+ 2016-Feb-18  DAA  Change Status so that int read of error sets pport->error.
  -----------------------------------------------------------------------------
 
 */
@@ -298,8 +299,8 @@ static Command commandTable[] =
 
   // Instrument management related commands
   {"*IDN?",    readParam,      cvtIdent,       "",             writeSink,          "IDENT",           }, // "Ident"},
-  {"LERR?",    readParam,      cvtErrorText,   "",             writeSink,          "STATUS",          }, // "Status Text"},
-  {"",         readSink,       cvtErrorCode,   "",             writeSink,          "STATUS_CODE",     }, // "Status Code"},
+  {"LERR?",    readParam,      cvtErrorCode,   "",             writeSink,          "STATUS_CODE",     }, // "Status Code"},
+  {"",         readSink,       cvtErrorText,   "",             writeSink,          "STATUS",          }, // "Status Text"},
   {"",         readSink,       cvtSink,        "*CLS",         writeCommandOnly,   "STATUS_CLEAR",    }, // "Status Clear"},
   {"",         readSink,       cvtSink,        "*RST",         writeCommandOnly,   "RESET",           }, // "Reset Instrument"},
   {"",         readSink,       cvtSink,        "LCAL",         writeCommandOnly,   "LOCAL",           }, // "Goto Local"},
@@ -523,6 +524,8 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
   pInterfaces->int32.pinterface     = (void *)&ifaceInt32;
   pInterfaces->float64.pinterface   = (void *)&ifaceFloat64;
 
+  pInterfaces->int32CanInterrupt    = 1;  // for status
+
   status = pasynStandardInterfacesBase->initialize(myport, pInterfaces,
                                                    pport->pasynUserTrace, 
                                                    pport);
@@ -572,6 +575,36 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
 /****************************************************************************
  * Define private convert methods
  ****************************************************************************/
+
+// static int checkError(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+// {
+//   int code;
+//   char *m = NULL;
+
+//   code=atoi(inpBuf);
+//   for(int i=0; i<statusLen; i++) 
+//     if( statusMsg[i].code == code ) 
+//       {
+//         m = statusMsg[i].msg;
+//         break;
+//       }
+
+//   if( m ) 
+//     {
+//       strcpy((char*)outBuf,m);
+//       pport->error = code;
+//     } 
+//   else 
+//     {
+//       strcpy((char*)outBuf,"Unknown Error");
+//       pport->error = -1;
+//     }
+//   return MIN((int)strlen((char*)outBuf),maxchars);
+// }
+
+
+
+
 static int cvtSink(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
 {
   return 0;
@@ -581,35 +614,31 @@ static int cvtCopyText(int which, Port *pport,char* inpBuf,int maxchars,void* ou
   strcpy((char*)outBuf,inpBuf);
   return MIN((int)strlen((char*)outBuf),maxchars);
 }
+static int cvtErrorCode(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+{
+  int code;
+
+  pport->error = atoi(inpBuf);
+  *(epicsInt32*)outBuf = pport->error;
+  return 0;
+}
 static int cvtErrorText(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
 {
   int code;
   char *m = NULL;
+  int i;
 
-  code=atoi(inpBuf);
-  for(int i=0; i<statusLen; i++) 
+  code = pport->error;
+  for( i=0; i<statusLen; i++) 
     if( statusMsg[i].code == code ) 
       {
-        m = statusMsg[i].msg;
+        strcpy((char*)outBuf,statusMsg[i].msg);
         break;
       }
+  if( i == statusLen)
+    strcpy((char*)outBuf,"Unknown Error");
 
-  if( m ) 
-    {
-      strcpy((char*)outBuf,m);
-      pport->error = code;
-    } 
-  else 
-    {
-      strcpy((char*)outBuf,"*ERR*");
-      pport->error = 0;
-    }
   return MIN((int)strlen((char*)outBuf),maxchars);
-}
-static int cvtErrorCode(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
-{
-  *(epicsInt32*)outBuf = pport->error;
-  return 0;
 }
 static int cvtStrInt(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
 {

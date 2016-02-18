@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/DOHNARMS/controls/epics/SRS_DG645/ioc/dg645App/op/adl/srsDG645Trigger.adl"
+	name="/home/oxygen/DOHNARMS/epics_modules/hardware/SRS_DG645/ioc/dg645App/op/adl/srsDG645Trigger.adl"
 	version=030107
 }
 display {
@@ -275,9 +275,9 @@ text {
 }
 text {
 	object {
-		x=30
+		x=25
 		y=60
-		width=100
+		width=80
 		height=20
 	}
 	"basic attribute" {
@@ -285,7 +285,6 @@ text {
 		fill="outline"
 	}
 	textix="Source"
-	align="horiz. centered"
 }
 text {
 	object {
@@ -312,22 +311,6 @@ rectangle {
 		width=3
 	}
 }
-"text entry" {
-	object {
-		x=160
-		y=5
-		width=200
-		height=22
-	}
-	control {
-		chan="$(P)$(R)Label"
-		clr=14
-		bclr=50
-	}
-	format="engr. notation"
-	limits {
-	}
-}
 "related display" {
 	object {
 		x=320
@@ -343,24 +326,6 @@ rectangle {
 	clr=14
 	bclr=32
 	label="-Main"
-}
-text {
-	object {
-		x=240
-		y=35
-		width=74
-		height=18
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(R)DisableScanBI"
-	}
-	textix="OFF LINE"
-	align="horiz. centered"
 }
 text {
 	object {
@@ -899,7 +864,7 @@ text {
 }
 composite {
 	object {
-		x=130
+		x=95
 		y=60
 		width=38
 		height=22
@@ -908,7 +873,7 @@ composite {
 	children {
 		"message button" {
 			object {
-				x=130
+				x=95
 				y=60
 				width=38
 				height=22
@@ -958,4 +923,38 @@ composite {
 		calc="A=3 || A=4"
 		chan="$(P)$(R)TriggerSourceMI"
 	}
+}
+"text update" {
+	object {
+		x=180
+		y=5
+		width=180
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Label"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+text {
+	object {
+		x=265
+		y=35
+		width=50
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)$(R)StatusLI"
+	}
+	textix="ERROR"
+	align="horiz. centered"
 }

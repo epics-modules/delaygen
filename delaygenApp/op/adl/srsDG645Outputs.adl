@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen/DOHNARMS/controls/epics/SRS_DG645/ioc/dg645App/op/adl/srsDG645Outputs.adl"
+	name="/home/oxygen/DOHNARMS/epics_modules/hardware/SRS_DG645/ioc/dg645App/op/adl/srsDG645Outputs.adl"
 	version=030107
 }
 display {
 	object {
-		x=26
-		y=229
+		x=804
+		y=477
 		width=650
 		height=315
 	}
@@ -666,24 +666,6 @@ menu {
 	limits {
 	}
 }
-text {
-	object {
-		x=520
-		y=10
-		width=74
-		height=18
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(R)DisableScanBI"
-	}
-	textix="OFF LINE"
-	align="horiz. centered"
-}
 "text entry" {
 	object {
 		x=110
@@ -1311,22 +1293,6 @@ text {
 	textix="$(P)$(R)"
 	align="horiz. centered"
 }
-"text entry" {
-	object {
-		x=320
-		y=5
-		width=200
-		height=22
-	}
-	control {
-		chan="$(P)$(R)Label"
-		clr=14
-		bclr=50
-	}
-	format="engr. notation"
-	limits {
-	}
-}
 "related display" {
 	object {
 		x=605
@@ -1354,5 +1320,39 @@ text {
 		clr=19
 	}
 	textix="OUTPUTS"
+	align="horiz. centered"
+}
+"text update" {
+	object {
+		x=225
+		y=5
+		width=220
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Label"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
+text {
+	object {
+		x=545
+		y=5
+		width=50
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)$(R)StatusLI"
+	}
+	textix="ERROR"
 	align="horiz. centered"
 }

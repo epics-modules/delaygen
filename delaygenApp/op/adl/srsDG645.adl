@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen25/DOHNARMS/svn_pub/delaygen/delaygenApp/op/adl/srsDG645.adl"
+	name="/home/oxygen/DOHNARMS/epics_modules/hardware/SRS_DG645/ioc/dg645App/op/adl/srsDG645.adl"
 	version=030107
 }
 display {
 	object {
-		x=22
-		y=309
+		x=776
+		y=114
 		width=660
 		height=615
 	}
@@ -86,42 +86,6 @@ display {
 		289315,
 		1a7309,
 	}
-}
-text {
-	object {
-		x=580
-		y=5
-		width=74
-		height=18
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(R)DisableScanBI"
-	}
-	textix="OFF LINE"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=582
-		y=5
-		width=74
-		height=18
-	}
-	"basic attribute" {
-		clr=62
-		fill="outline"
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(R)DisableScanBI"
-	}
-	textix="ON LINE"
-	align="horiz. centered"
 }
 rectangle {
 	object {
@@ -373,7 +337,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)EDelayTweakDecCO.PROC"
+		chan="$(P)$(R)EDelayTweakDecBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -404,7 +368,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)EDelayTweakIncCO.PROC"
+		chan="$(P)$(R)EDelayTweakIncBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -419,7 +383,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)FDelayTweakDecCO.PROC"
+		chan="$(P)$(R)FDelayTweakDecBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -450,7 +414,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)FDelayTweakIncCO.PROC"
+		chan="$(P)$(R)FDelayTweakIncBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -465,7 +429,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)GDelayTweakDecCO.PROC"
+		chan="$(P)$(R)GDelayTweakDecBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -496,7 +460,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)GDelayTweakIncCO.PROC"
+		chan="$(P)$(R)GDelayTweakIncBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -839,7 +803,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)ADelayTweakDecCO.PROC"
+		chan="$(P)$(R)ADelayTweakDecBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -854,7 +818,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)ADelayTweakIncCO.PROC"
+		chan="$(P)$(R)ADelayTweakIncBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -869,7 +833,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)BDelayTweakDecCO.PROC"
+		chan="$(P)$(R)BDelayTweakDecBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -900,7 +864,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)BDelayTweakIncCO.PROC"
+		chan="$(P)$(R)BDelayTweakIncBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -915,7 +879,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)CDelayTweakDecCO.PROC"
+		chan="$(P)$(R)CDelayTweakDecBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -946,7 +910,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)CDelayTweakIncCO.PROC"
+		chan="$(P)$(R)CDelayTweakIncBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -961,7 +925,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)DDelayTweakDecCO.PROC"
+		chan="$(P)$(R)DDelayTweakDecBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -992,7 +956,7 @@ menu {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)DDelayTweakIncCO.PROC"
+		chan="$(P)$(R)DDelayTweakIncBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -1506,7 +1470,7 @@ text {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)HDelayTweakDecCO.PROC"
+		chan="$(P)$(R)HDelayTweakDecBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -1537,7 +1501,7 @@ text {
 		height=22
 	}
 	control {
-		chan="$(P)$(R)HDelayTweakIncCO.PROC"
+		chan="$(P)$(R)HDelayTweakIncBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -1751,37 +1715,6 @@ composite {
 		chan="$(P)$(R)TriggerSourceMI"
 	}
 }
-composite {
-	object {
-		x=240
-		y=435
-		width=38
-		height=22
-	}
-	"composite name"=""
-	children {
-		"message button" {
-			object {
-				x=240
-				y=435
-				width=38
-				height=22
-			}
-			control {
-				chan="$(P)$(R)TriggerDelayBO"
-				clr=14
-				bclr=51
-			}
-			label="ARM"
-			press_msg="1"
-		}
-	}
-	"dynamic attribute" {
-		vis="calc"
-		calc="A=3 || A=4"
-		chan="$(P)$(R)TriggerSourceMI"
-	}
-}
 "related display" {
 	object {
 		x=535
@@ -1952,7 +1885,7 @@ rectangle {
 "related display" {
 	object {
 		x=535
-		y=593
+		y=5
 		width=120
 		height=20
 	}
@@ -1968,7 +1901,7 @@ rectangle {
 "message button" {
 	object {
 		x=535
-		y=570
+		y=580
 		width=120
 		height=20
 	}
@@ -2228,18 +2161,50 @@ text {
 	limits {
 	}
 }
-"text entry" {
+composite {
 	object {
-		x=220
-		y=5
-		width=200
+		x=240
+		y=435
+		width=38
 		height=22
 	}
-	control {
+	"composite name"=""
+	children {
+		"message button" {
+			object {
+				x=240
+				y=435
+				width=38
+				height=22
+			}
+			control {
+				chan="$(P)$(R)TriggerDelayBO"
+				clr=14
+				bclr=51
+			}
+			label="ARM"
+			press_msg="1"
+		}
+	}
+	"dynamic attribute" {
+		vis="calc"
+		calc="A=3 || A=4"
+		chan="$(P)$(R)TriggerSourceMI"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=5
+		width=220
+		height=20
+	}
+	monitor {
 		chan="$(P)$(R)Label"
 		clr=14
-		bclr=50
+		bclr=2
 	}
+	align="horiz. centered"
 	format="engr. notation"
 	limits {
 	}

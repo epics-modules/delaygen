@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen/DOHNARMS/controls/epics/SRS_DG645/ioc/dg645App/op/adl/srsDG645Burst.adl"
+	name="/home/oxygen/DOHNARMS/epics_modules/hardware/SRS_DG645/ioc/dg645App/op/adl/srsDG645Burst.adl"
 	version=030107
 }
 display {
 	object {
-		x=121
-		y=120
+		x=739
+		y=780
 		width=365
 		height=275
 	}
@@ -363,22 +363,6 @@ rectangle {
 		width=3
 	}
 }
-"text entry" {
-	object {
-		x=160
-		y=5
-		width=200
-		height=22
-	}
-	control {
-		chan="$(P)$(R)Label"
-		clr=14
-		bclr=50
-	}
-	format="engr. notation"
-	limits {
-	}
-}
 "related display" {
 	object {
 		x=315
@@ -395,21 +379,37 @@ rectangle {
 	bclr=32
 	label="-Main"
 }
+"text update" {
+	object {
+		x=175
+		y=5
+		width=180
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Label"
+		clr=14
+		bclr=2
+	}
+	align="horiz. centered"
+	format="engr. notation"
+	limits {
+	}
+}
 text {
 	object {
-		x=235
+		x=255
 		y=35
-		width=74
-		height=18
+		width=50
+		height=20
 	}
 	"basic attribute" {
 		clr=20
-		fill="outline"
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="$(P)$(R)DisableScanBI"
+		chan="$(P)$(R)StatusLI"
 	}
-	textix="OFF LINE"
+	textix="ERROR"
 	align="horiz. centered"
 }

@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/DOHNARMS/controls/epics/SRS_DG645/ioc/dg645App/op/adl/srsDG645Manage.adl"
+	name="/home/oxygen/DOHNARMS/epics_modules/hardware/SRS_DG645/ioc/dg645App/op/adl/srsDG645Manage.adl"
 	version=030107
 }
 display {
 	object {
-		x=95
-		y=124
+		x=757
+		y=407
 		width=510
-		height=655
+		height=630
 	}
 	clr=14
 	bclr=3
@@ -121,7 +121,7 @@ text {
 "text update" {
 	object {
 		x=200
-		y=630
+		y=610
 		width=150
 		height=16
 	}
@@ -137,7 +137,7 @@ text {
 "text entry" {
 	object {
 		x=355
-		y=625
+		y=605
 		width=150
 		height=22
 	}
@@ -153,7 +153,7 @@ text {
 text {
 	object {
 		x=10
-		y=630
+		y=610
 		width=180
 		height=20
 	}
@@ -196,7 +196,7 @@ text {
 text {
 	object {
 		x=75
-		y=150
+		y=130
 		width=200
 		height=20
 	}
@@ -209,7 +209,7 @@ text {
 "message button" {
 	object {
 		x=290
-		y=150
+		y=130
 		width=80
 		height=20
 	}
@@ -224,7 +224,7 @@ text {
 "text update" {
 	object {
 		x=200
-		y=190
+		y=170
 		width=150
 		height=16
 	}
@@ -240,7 +240,7 @@ text {
 "text update" {
 	object {
 		x=200
-		y=215
+		y=195
 		width=150
 		height=16
 	}
@@ -256,7 +256,7 @@ text {
 "choice button" {
 	object {
 		x=355
-		y=185
+		y=165
 		width=150
 		height=20
 	}
@@ -270,7 +270,7 @@ text {
 menu {
 	object {
 		x=355
-		y=210
+		y=190
 		width=80
 		height=22
 	}
@@ -283,7 +283,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=405
+		y=385
 		width=150
 		height=16
 	}
@@ -299,7 +299,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=430
+		y=410
 		width=150
 		height=16
 	}
@@ -315,7 +315,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=455
+		y=435
 		width=150
 		height=16
 	}
@@ -331,7 +331,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=480
+		y=460
 		width=150
 		height=16
 	}
@@ -347,7 +347,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=505
+		y=485
 		width=150
 		height=16
 	}
@@ -363,7 +363,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=530
+		y=510
 		width=150
 		height=16
 	}
@@ -379,7 +379,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=555
+		y=535
 		width=150
 		height=16
 	}
@@ -395,7 +395,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=580
+		y=560
 		width=150
 		height=16
 	}
@@ -411,7 +411,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=605
+		y=585
 		width=150
 		height=16
 	}
@@ -427,7 +427,7 @@ menu {
 "text update" {
 	object {
 		x=200
-		y=380
+		y=360
 		width=200
 		height=16
 	}
@@ -443,7 +443,7 @@ menu {
 "text entry" {
 	object {
 		x=355
-		y=575
+		y=555
 		width=150
 		height=22
 	}
@@ -459,7 +459,7 @@ menu {
 "text entry" {
 	object {
 		x=355
-		y=600
+		y=580
 		width=150
 		height=22
 	}
@@ -475,7 +475,7 @@ menu {
 text {
 	object {
 		x=10
-		y=505
+		y=485
 		width=180
 		height=20
 	}
@@ -488,7 +488,7 @@ text {
 text {
 	object {
 		x=10
-		y=380
+		y=360
 		width=180
 		height=20
 	}
@@ -501,7 +501,7 @@ text {
 text {
 	object {
 		x=10
-		y=405
+		y=385
 		width=180
 		height=20
 	}
@@ -514,7 +514,7 @@ text {
 text {
 	object {
 		x=10
-		y=430
+		y=410
 		width=180
 		height=20
 	}
@@ -527,7 +527,7 @@ text {
 text {
 	object {
 		x=10
-		y=455
+		y=435
 		width=180
 		height=20
 	}
@@ -540,7 +540,7 @@ text {
 text {
 	object {
 		x=10
-		y=480
+		y=460
 		width=180
 		height=20
 	}
@@ -553,7 +553,7 @@ text {
 text {
 	object {
 		x=10
-		y=530
+		y=510
 		width=180
 		height=20
 	}
@@ -566,7 +566,7 @@ text {
 text {
 	object {
 		x=10
-		y=555
+		y=535
 		width=180
 		height=20
 	}
@@ -579,7 +579,7 @@ text {
 text {
 	object {
 		x=10
-		y=580
+		y=560
 		width=180
 		height=20
 	}
@@ -592,7 +592,7 @@ text {
 text {
 	object {
 		x=10
-		y=605
+		y=585
 		width=180
 		height=20
 	}
@@ -605,7 +605,7 @@ text {
 text {
 	object {
 		x=10
-		y=190
+		y=170
 		width=180
 		height=20
 	}
@@ -618,7 +618,7 @@ text {
 text {
 	object {
 		x=10
-		y=215
+		y=195
 		width=180
 		height=20
 	}
@@ -631,7 +631,7 @@ text {
 "choice button" {
 	object {
 		x=355
-		y=400
+		y=380
 		width=150
 		height=20
 	}
@@ -645,7 +645,7 @@ text {
 "choice button" {
 	object {
 		x=355
-		y=425
+		y=405
 		width=150
 		height=20
 	}
@@ -659,7 +659,7 @@ text {
 "choice button" {
 	object {
 		x=355
-		y=450
+		y=430
 		width=150
 		height=20
 	}
@@ -673,7 +673,7 @@ text {
 "choice button" {
 	object {
 		x=355
-		y=475
+		y=455
 		width=150
 		height=20
 	}
@@ -687,7 +687,7 @@ text {
 "choice button" {
 	object {
 		x=355
-		y=500
+		y=480
 		width=150
 		height=20
 	}
@@ -701,7 +701,7 @@ text {
 "choice button" {
 	object {
 		x=355
-		y=525
+		y=505
 		width=150
 		height=20
 	}
@@ -715,7 +715,7 @@ text {
 "choice button" {
 	object {
 		x=355
-		y=550
+		y=530
 		width=150
 		height=20
 	}
@@ -729,7 +729,7 @@ text {
 text {
 	object {
 		x=75
-		y=245
+		y=225
 		width=200
 		height=20
 	}
@@ -742,7 +742,7 @@ text {
 "message button" {
 	object {
 		x=290
-		y=245
+		y=225
 		width=80
 		height=20
 	}
@@ -757,7 +757,7 @@ text {
 "message button" {
 	object {
 		x=290
-		y=345
+		y=325
 		width=80
 		height=20
 	}
@@ -772,7 +772,7 @@ text {
 text {
 	object {
 		x=75
-		y=345
+		y=325
 		width=200
 		height=20
 	}
@@ -785,7 +785,7 @@ text {
 "text update" {
 	object {
 		x=200
-		y=285
+		y=265
 		width=150
 		height=16
 	}
@@ -801,7 +801,7 @@ text {
 "text update" {
 	object {
 		x=200
-		y=310
+		y=290
 		width=150
 		height=16
 	}
@@ -817,7 +817,7 @@ text {
 "choice button" {
 	object {
 		x=355
-		y=280
+		y=260
 		width=150
 		height=20
 	}
@@ -831,7 +831,7 @@ text {
 "text entry" {
 	object {
 		x=355
-		y=305
+		y=285
 		width=75
 		height=22
 	}
@@ -846,7 +846,7 @@ text {
 text {
 	object {
 		x=10
-		y=285
+		y=265
 		width=180
 		height=20
 	}
@@ -859,7 +859,7 @@ text {
 text {
 	object {
 		x=10
-		y=310
+		y=290
 		width=180
 		height=20
 	}
@@ -884,8 +884,8 @@ text {
 }
 "message button" {
 	object {
-		x=290
-		y=115
+		x=380
+		y=95
 		width=120
 		height=20
 	}
@@ -899,23 +899,23 @@ text {
 }
 "message button" {
 	object {
-		x=15
-		y=115
-		width=120
+		x=10
+		y=95
+		width=60
 		height=20
 	}
 	control {
 		chan="$(P)$(R)ResetBO"
 		clr=14
-		bclr=51
+		bclr=20
 	}
-	label="RESET DEVICE"
+	label="RESET"
 	press_msg="1"
 }
 "message button" {
 	object {
-		x=150
-		y=90
+		x=95
+		y=95
 		width=120
 		height=20
 	}
@@ -929,8 +929,8 @@ text {
 }
 "message button" {
 	object {
-		x=150
-		y=115
+		x=220
+		y=95
 		width=120
 		height=20
 	}
@@ -942,59 +942,10 @@ text {
 	label="GOTO LOCAL"
 	press_msg="1"
 }
-"choice button" {
-	object {
-		x=425
-		y=95
-		width=80
-		height=40
-	}
-	control {
-		chan="$(P)$(R)DisableScanBI"
-		clr=14
-		bclr=51
-	}
-}
 text {
 	object {
-		x=425
-		y=75
-		width=74
-		height=18
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(R)DisableScanBI"
-	}
-	textix="OFF LINE"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=427
-		y=75
-		width=74
-		height=18
-	}
-	"basic attribute" {
-		clr=62
-		fill="outline"
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(R)DisableScanBI"
-	}
-	textix="ON LINE"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=300
-		y=90
+		x=390
+		y=70
 		width=100
 		height=20
 	}
@@ -1006,7 +957,7 @@ text {
 		vis="if not zero"
 		chan="$(P)$(R)StatusLI"
 	}
-	textix="ERROR!!"
+	textix="ERROR"
 	align="horiz. centered"
 }
 rectangle {
@@ -1024,7 +975,7 @@ rectangle {
 rectangle {
 	object {
 		x=0
-		y=140
+		y=120
 		width=510
 		height=3
 	}
@@ -1036,7 +987,7 @@ rectangle {
 rectangle {
 	object {
 		x=0
-		y=235
+		y=215
 		width=510
 		height=3
 	}
@@ -1048,7 +999,7 @@ rectangle {
 rectangle {
 	object {
 		x=0
-		y=270
+		y=250
 		width=510
 		height=3
 	}
@@ -1060,7 +1011,7 @@ rectangle {
 rectangle {
 	object {
 		x=0
-		y=175
+		y=155
 		width=510
 		height=3
 	}
@@ -1072,7 +1023,7 @@ rectangle {
 rectangle {
 	object {
 		x=0
-		y=335
+		y=315
 		width=510
 		height=3
 	}
@@ -1084,7 +1035,7 @@ rectangle {
 rectangle {
 	object {
 		x=0
-		y=370
+		y=350
 		width=510
 		height=3
 	}

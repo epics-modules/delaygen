@@ -3,83 +3,74 @@ record(stringout,"$(P)$(R)Label")
 {
     field(DESC, "Unit Label")
 }
-record(bi,"$(P)$(R)DisableScanBI")
-{
-    field(DTYP,"Soft Channel")
-    field(DISS,"INVALID")
-    field(ZNAM,"ON LINE")
-    field(ONAM,"OFF LINE")
-}
 record(stringin,"$(P)$(R)IdentSI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Ident")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn($(PORT)) IDENT")
 }
-record(stringin,"$(P)$(R)StatusSI")
-{
-    field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Status text")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT)) STATUS")
-    field(FLNK, "$(P)$(R)StatusLI")
-}
+
 record(longin,"$(P)$(R)StatusLI")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
+    field(PINI, "YES")
     field(DESC, "Status value")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) STATUS_CODE")
+    field(FLNK, "$(P)$(R)StatusSI")
 }
+record(stringin,"$(P)$(R)StatusSI")
+{
+    field(PINI, "YES")
+    field(DESC, "Status text")
+    field(DTYP, "asynOctetRead")
+    field(INP,  "@asyn($(PORT)) STATUS")
+}
+#record(calcout, "$(P)$(R)StatusCalcout")
+#{
+#    field(DESC, "Status text")
+#    field(INPA, "$(P)$(R)StatusLI")
+#    field(CALC, "A")
+#    field(OOPT, "On Change")
+#    field(OUT,  "$(P)$(R)StatusSI PP")
+#}
+
+
 record(bo,"$(P)$(R)StatusClearBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Status Clear")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) STATUS_CLEAR")
-    field(FLNK, "$(P)$(R)StatusSI")
+    field(FLNK, "$(P)$(R)StatusLI")
 }
+
+
 record(bo,"$(P)$(R)ResetBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Reset")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) RESET")
-    field(FLNK, "$(P)$(R)StatusSI")
+    field(FLNK, "$(P)$(R)StatusLI")
 }
 record(bo,"$(P)$(R)GotoLocalBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Goto Local")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) LOCAL")
-    field(FLNK, "$(P)$(R)StatusSI")
+    field(FLNK, "$(P)$(R)StatusLI")
 }
 record(bo,"$(P)$(R)GotoRemoteBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Goto Remote")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) REMOTE")
-    field(FLNK, "$(P)$(R)StatusSI")
+    field(FLNK, "$(P)$(R)StatusLI")
 }
 
 ## Input trigger related PVs
 record(ai,"$(P)$(R)TriggerRateAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Rate")
     field(SCAN, "Passive")
     field(PREC, "6")
@@ -89,8 +80,6 @@ record(ai,"$(P)$(R)TriggerRateAI")
 }
 record(ao,"$(P)$(R)TriggerRateAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Rate")
     field(PREC, "6")
     field(EGU,  "Hz")
@@ -100,16 +89,12 @@ record(ao,"$(P)$(R)TriggerRateAO")
 }
 record(fanout,"$(P)$(R)TriggerRateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)TriggerRateAI")
 }
 record(ai,"$(P)$(R)TriggerLevelAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Level")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -119,8 +104,6 @@ record(ai,"$(P)$(R)TriggerLevelAI")
 }
 record(ao,"$(P)$(R)TriggerLevelAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Level")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -130,16 +113,12 @@ record(ao,"$(P)$(R)TriggerLevelAO")
 }
 record(fanout,"$(P)$(R)TriggerLevelFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)TriggerLevelAI")
 }
 record(mbbi,"$(P)$(R)TriggerSourceMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Source")
     field(SCAN, "Passive")
     field(ZRST, "Internal")
@@ -161,8 +140,6 @@ record(mbbi,"$(P)$(R)TriggerSourceMI")
 }
 record(mbbo,"$(P)$(R)TriggerSourceMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Source")
     field(SCAN, "Passive")
     field(ZRST, "Internal")
@@ -185,16 +162,12 @@ record(mbbo,"$(P)$(R)TriggerSourceMO")
 }
 record(fanout,"$(P)$(R)TriggerSourceFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)TriggerSourceMI")
 }
 record(mbbi,"$(P)$(R)TriggerInhibitMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Inhibit")
     field(SCAN, "Passive")
     field(ZRST, "Off")
@@ -214,8 +187,6 @@ record(mbbi,"$(P)$(R)TriggerInhibitMI")
 }
 record(mbbo,"$(P)$(R)TriggerInhibitMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Inhibit")
     field(SCAN, "Passive")
     field(ZRST, "Off")
@@ -236,26 +207,20 @@ record(mbbo,"$(P)$(R)TriggerInhibitMO")
 }
 record(fanout,"$(P)$(R)TriggerInhibitFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)TriggerInhibitMI")
 }
 record(bo,"$(P)$(R)TriggerDelayBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Delay")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) TRIG_DELAY")
-    field(FLNK, "$(P)$(R)StatusSI")
+    field(FLNK, "$(P)$(R)StatusLI")
 }
 
 record(bi,"$(P)$(R)TriggerAdvancedModeBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Advanced Mode")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -265,8 +230,6 @@ record(bi,"$(P)$(R)TriggerAdvancedModeBI")
 }
 record(bo,"$(P)$(R)TriggerAdvancedModeBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Advanced Mode")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -276,16 +239,12 @@ record(bo,"$(P)$(R)TriggerAdvancedModeBO")
 }
 record(fanout,"$(P)$(R)TriggerAdvancedModeFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)TriggerAdvancedModeBI")
 }
 record(ai,"$(P)$(R)TriggerHoldoffAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
@@ -294,8 +253,6 @@ record(ai,"$(P)$(R)TriggerHoldoffAI")
 }
 record(ao,"$(P)$(R)TriggerHoldoffAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Holdoff")
     field(PREC, "12")
     field(EGU,  "Sec")
@@ -305,24 +262,18 @@ record(ao,"$(P)$(R)TriggerHoldoffAO")
 }
 record(fanout,"$(P)$(R)TriggerHoldoffFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)TriggerHoldoffAI")
 }
 record(longin,"$(P)$(R)TriggerPrescaleLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Prescale")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) TRIG_PRESCALE")
 }
 record(longout,"$(P)$(R)TriggerPrescaleLO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Trigger Prescale")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) TRIG_PRESCALE")
@@ -330,25 +281,19 @@ record(longout,"$(P)$(R)TriggerPrescaleLO")
 }
 record(fanout,"$(P)$(R)TriggerPrescaleFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)TriggerPrescaleLI")
 }
 
 record(longin,"$(P)$(R)ABTriggerPrescaleLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "AB Trigger Prescale")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) TRIG_AB_PRESCALE")
 }
 record(longout,"$(P)$(R)ABTriggerPrescaleLO")
 {
-   field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-   field(DISS, "INVALID")
    field(DESC, "AB Trigger Prescale")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT)) TRIG_AB_PRESCALE")
@@ -356,24 +301,18 @@ record(longout,"$(P)$(R)ABTriggerPrescaleLO")
 }
 record(fanout,"$(P)$(R)ABTriggerPrescaleFO")
 {
-   field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-   field(DISS, "INVALID")
-   field(LNK1, "$(P)$(R)StatusSI")
+   field(LNK1, "$(P)$(R)StatusLI")
    field(LNK2, "$(P)$(R)ABTriggerPrescaleLI")
 }
 record(longin,"$(P)$(R)CDTriggerPrescaleLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "CD Trigger Prescale")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) TRIG_CD_PRESCALE")
 }
 record(longout,"$(P)$(R)CDTriggerPrescaleLO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "CD Trigger Prescale")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) TRIG_CD_PRESCALE")
@@ -381,24 +320,18 @@ record(longout,"$(P)$(R)CDTriggerPrescaleLO")
 }
 record(fanout,"$(P)$(R)CDTriggerPrescaleFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)CDTriggerPrescaleLI")
 }
 record(longin,"$(P)$(R)EFTriggerPrescaleLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "EF Trigger Prescale")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) TRIG_EF_PRESCALE")
 }
 record(longout,"$(P)$(R)EFTriggerPrescaleLO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "EF Trigger Prescale")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) TRIG_EF_PRESCALE")
@@ -406,24 +339,18 @@ record(longout,"$(P)$(R)EFTriggerPrescaleLO")
 }
 record(fanout,"$(P)$(R)EFTriggerPrescaleFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)EFTriggerPrescaleLI")
 }
 record(longin,"$(P)$(R)GHTriggerPrescaleLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "GH Trigger Prescale")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) TRIG_GH_PRESCALE")
 }
 record(longout,"$(P)$(R)GHTriggerPrescaleLO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "GH Trigger Prescale")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) TRIG_GH_PRESCALE")
@@ -431,25 +358,19 @@ record(longout,"$(P)$(R)GHTriggerPrescaleLO")
 }
 record(fanout,"$(P)$(R)GHTriggerPrescaleFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)GHTriggerPrescaleLI")
 }
 
 record(longin,"$(P)$(R)ABTriggerPhaseLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "AB Trigger Phase")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) TRIG_AB_PHASE")
 }
 record(longout,"$(P)$(R)ABTriggerPhaseLO")
 {
-   field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-   field(DISS, "INVALID")
    field(DESC, "AB Trigger Phase")
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn($(PORT)) TRIG_AB_PHASE")
@@ -457,24 +378,18 @@ record(longout,"$(P)$(R)ABTriggerPhaseLO")
 }
 record(fanout,"$(P)$(R)ABTriggerPhaseFO")
 {
-   field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-   field(DISS, "INVALID")
-   field(LNK1, "$(P)$(R)StatusSI")
+   field(LNK1, "$(P)$(R)StatusLI")
    field(LNK2, "$(P)$(R)ABTriggerPhaseLI")
 }
 record(longin,"$(P)$(R)CDTriggerPhaseLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "CD Trigger Phase")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) TRIG_CD_PHASE")
 }
 record(longout,"$(P)$(R)CDTriggerPhaseLO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "CD Trigger Phase")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) TRIG_CD_PHASE")
@@ -482,24 +397,18 @@ record(longout,"$(P)$(R)CDTriggerPhaseLO")
 }
 record(fanout,"$(P)$(R)CDTriggerPhaseFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)CDTriggerPhaseLI")
 }
 record(longin,"$(P)$(R)EFTriggerPhaseLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "EF Trigger Phase")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) TRIG_EF_PHASE")
 }
 record(longout,"$(P)$(R)EFTriggerPhaseLO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "EF Trigger Phase")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) TRIG_EF_PHASE")
@@ -507,24 +416,18 @@ record(longout,"$(P)$(R)EFTriggerPhaseLO")
 }
 record(fanout,"$(P)$(R)EFTriggerPhaseFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)EFTriggerPhaseLI")
 }
 record(longin,"$(P)$(R)GHTriggerPhaseLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "GH Trigger Phase")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) TRIG_GH_PHASE")
 }
 record(longout,"$(P)$(R)GHTriggerPhaseLO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "GH Trigger Phase")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) TRIG_GH_PHASE")
@@ -532,9 +435,7 @@ record(longout,"$(P)$(R)GHTriggerPhaseLO")
 }
 record(fanout,"$(P)$(R)GHTriggerPhaseFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)GHTriggerPhaseLI")
 }
 
@@ -542,8 +443,6 @@ record(fanout,"$(P)$(R)GHTriggerPhaseFO")
 record(bi,"$(P)$(R)BurstModeBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst Mode")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -553,8 +452,6 @@ record(bi,"$(P)$(R)BurstModeBI")
 }
 record(bo,"$(P)$(R)BurstModeBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst Mode")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -564,24 +461,18 @@ record(bo,"$(P)$(R)BurstModeBO")
 }
 record(fanout,"$(P)$(R)BurstModeFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)BurstModeBI")
 }
 record(longin,"$(P)$(R)BurstCountLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst Count")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) BURST_COUNT")
 }
 record(longout,"$(P)$(R)BurstCountLO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst Count")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) BURST_COUNT")
@@ -589,16 +480,12 @@ record(longout,"$(P)$(R)BurstCountLO")
 }
 record(fanout,"$(P)$(R)BurstCountFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)BurstCountLI")
 }
 record(bi,"$(P)$(R)BurstConfigBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst T0 Config")
     field(SCAN, "Passive")
     field(ZNAM, "All Cycles")
@@ -608,8 +495,6 @@ record(bi,"$(P)$(R)BurstConfigBI")
 }
 record(bo,"$(P)$(R)BurstConfigBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst T0 Config")
     field(DTYP, "asynInt32")
     field(ZNAM, "All Cycles")
@@ -619,16 +504,12 @@ record(bo,"$(P)$(R)BurstConfigBO")
 }
 record(fanout,"$(P)$(R)BurstConfigFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)BurstConfigBI")
 }
 record(ai,"$(P)$(R)BurstDelayAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
@@ -637,8 +518,6 @@ record(ai,"$(P)$(R)BurstDelayAI")
 }
 record(ao,"$(P)$(R)BurstDelayAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
@@ -648,16 +527,12 @@ record(ao,"$(P)$(R)BurstDelayAO")
 }
 record(fanout,"$(P)$(R)BurstDelayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)BurstDelayAI")
 }
 record(ai,"$(P)$(R)BurstPeriodAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst Period")
     field(PREC, "8")
     field(EGU,  "Sec")
@@ -666,8 +541,6 @@ record(ai,"$(P)$(R)BurstPeriodAI")
 }
 record(ao,"$(P)$(R)BurstPeriodAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Burst Period")
     field(PREC, "8")
     field(EGU,  "Sec")
@@ -677,9 +550,7 @@ record(ao,"$(P)$(R)BurstPeriodAO")
 }
 record(fanout,"$(P)$(R)BurstPeriodFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)BurstPeriodAI")
 }
 
@@ -688,8 +559,6 @@ record(fanout,"$(P)$(R)BurstPeriodFO")
 record(bi,"$(P)$(R)IfaceSerialStateBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Serial State")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -699,8 +568,6 @@ record(bi,"$(P)$(R)IfaceSerialStateBI")
 }
 record(bo,"$(P)$(R)IfaceSerialStateBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Serial State")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -710,16 +577,12 @@ record(bo,"$(P)$(R)IfaceSerialStateBO")
 }
 record(fanout,"$(P)$(R)IfaceSerialStateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceSerialStateBI")
 }
 record(mbbi,"$(P)$(R)IfaceSerialBaudMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Serial Baud")
     field(SCAN, "Passive")
     field(ZRST, "4800")
@@ -739,8 +602,6 @@ record(mbbi,"$(P)$(R)IfaceSerialBaudMI")
 }
 record(mbbo,"$(P)$(R)IfaceSerialBaudMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Serial Baud")
     field(SCAN, "Passive")
     field(ZRST, "4800")
@@ -761,17 +622,13 @@ record(mbbo,"$(P)$(R)IfaceSerialBaudMO")
 }
 record(fanout,"$(P)$(R)IfaceSerialBaudFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceSerialBaudMI")
 }
 
 record(bi,"$(P)$(R)IfaceGpibStateBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "GPIB State")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -781,8 +638,6 @@ record(bi,"$(P)$(R)IfaceGpibStateBI")
 }
 record(bo,"$(P)$(R)IfaceGpibStateBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "GPIB State")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -792,16 +647,12 @@ record(bo,"$(P)$(R)IfaceGpibStateBO")
 }
 record(fanout,"$(P)$(R)IfaceGpibStateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceGpibStateBI")
 }
 record(longin,"$(P)$(R)IfaceGpibAddrLI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "GPIB Address")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) GPIB_ADDRESS")
@@ -809,8 +660,6 @@ record(longin,"$(P)$(R)IfaceGpibAddrLI")
 
 record(longout,"$(P)$(R)IfaceGpibAddrLO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "GPIB Address")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) GPIB_ADDRESS")
@@ -818,16 +667,12 @@ record(longout,"$(P)$(R)IfaceGpibAddrLO")
 }
 record(fanout,"$(P)$(R)IfaceGpibAddrFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceGpibAddrLI")
 }
 record(bi,"$(P)$(R)IfaceLanStateBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "LAN State")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -837,8 +682,6 @@ record(bi,"$(P)$(R)IfaceLanStateBI")
 }
 record(bo,"$(P)$(R)IfaceLanStateBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "LAN State")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -848,16 +691,12 @@ record(bo,"$(P)$(R)IfaceLanStateBO")
 }
 record(fanout,"$(P)$(R)IfaceLanStateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceLanStateBI")
 }
 record(bi,"$(P)$(R)IfaceDhcpStateBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "DHCP State")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -867,8 +706,6 @@ record(bi,"$(P)$(R)IfaceDhcpStateBI")
 }
 record(bo,"$(P)$(R)IfaceDhcpStateBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "DHCP State")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -878,16 +715,12 @@ record(bo,"$(P)$(R)IfaceDhcpStateBO")
 }
 record(fanout,"$(P)$(R)IfaceDhcpStateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceDhcpStateBI")
 }
 record(bi,"$(P)$(R)IfaceAutoIpStateBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Auto-IP State")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -897,8 +730,6 @@ record(bi,"$(P)$(R)IfaceAutoIpStateBI")
 }
 record(bo,"$(P)$(R)IfaceAutoIpStateBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Auto-IP State")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -908,16 +739,12 @@ record(bo,"$(P)$(R)IfaceAutoIpStateBO")
 }
 record(fanout,"$(P)$(R)IfaceAutoIpStateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceAutoIpStateBI")
 }
 record(bi,"$(P)$(R)IfaceStaticIpStateBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Static IP State")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -927,8 +754,6 @@ record(bi,"$(P)$(R)IfaceStaticIpStateBI")
 }
 record(bo,"$(P)$(R)IfaceStaticIpStateBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Static IP State")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -938,16 +763,12 @@ record(bo,"$(P)$(R)IfaceStaticIpStateBO")
 }
 record(fanout,"$(P)$(R)IfaceStaticIpStateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceStaticIpStateBI")
 }
 record(bi,"$(P)$(R)IfaceBareSocketStateBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Bare Socket State")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -957,8 +778,6 @@ record(bi,"$(P)$(R)IfaceBareSocketStateBI")
 }
 record(bo,"$(P)$(R)IfaceBareSocketStateBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Bare Socket State")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -968,16 +787,12 @@ record(bo,"$(P)$(R)IfaceBareSocketStateBO")
 }
 record(fanout,"$(P)$(R)IfaceBareSocketStateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceBareSocketStateBI")
 }
 record(bi,"$(P)$(R)IfaceTelnetStateBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Telnet State")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -987,8 +802,6 @@ record(bi,"$(P)$(R)IfaceTelnetStateBI")
 }
 record(bo,"$(P)$(R)IfaceTelnetStateBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Telnet State")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -998,16 +811,12 @@ record(bo,"$(P)$(R)IfaceTelnetStateBO")
 }
 record(fanout,"$(P)$(R)IfaceTelnetStateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceTelnetStateBI")
 }
 record(bi,"$(P)$(R)IfaceVxiStateBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "VXI-11 State")
     field(SCAN, "Passive")
     field(ZNAM, "Disabled")
@@ -1017,8 +826,6 @@ record(bi,"$(P)$(R)IfaceVxiStateBI")
 }
 record(bo,"$(P)$(R)IfaceVxiStateBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "VXI-11 State")
     field(DTYP, "asynInt32")
     field(ZNAM, "Disable")
@@ -1028,24 +835,18 @@ record(bo,"$(P)$(R)IfaceVxiStateBO")
 }
 record(fanout,"$(P)$(R)IfaceVxiStateFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceVxiStateBI")
 }
 record(stringin,"$(P)$(R)IfaceIpAddrSI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "IP Address")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn($(PORT)) IP_ADDRESS")
 }
 record(stringout,"$(P)$(R)IfaceIpAddrSO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "IP Address")
     field(DTYP, "asynOctetWrite")
     field(OUT,  "@asyn($(PORT)) IP_ADDRESS")
@@ -1053,24 +854,18 @@ record(stringout,"$(P)$(R)IfaceIpAddrSO")
 }
 record(fanout,"$(P)$(R)IfaceIpAddrFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceIpAddrSI")
 }
 record(stringin,"$(P)$(R)IfaceNetMaskSI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Network Mask")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn($(PORT)) NET_MASK")
 }
 record(stringout,"$(P)$(R)IfaceNetMaskSO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Network Mask")
     field(DTYP, "asynOctetWrite")
     field(OUT,  "@asyn($(PORT)) NET_MASK")
@@ -1078,24 +873,18 @@ record(stringout,"$(P)$(R)IfaceNetMaskSO")
 }
 record(fanout,"$(P)$(R)IfaceNetMaskFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceNetMaskSI")
 }
 record(stringin,"$(P)$(R)IfaceGatewaySI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Gateway Address")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn($(PORT)) GATEWAY")
 }
 record(stringout,"$(P)$(R)IfaceGatewaySO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Gateway Address")
     field(DTYP, "asynOctetWrite")
     field(OUT,  "@asyn($(PORT)) GATEWAY")
@@ -1103,43 +892,33 @@ record(stringout,"$(P)$(R)IfaceGatewaySO")
 }
 record(fanout,"$(P)$(R)IfaceGatewayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)IfaceGatewaySI")
 }
 record(bo,"$(P)$(R)IfaceSerialResetBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Serial Reset")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) RS232_RESET")
-    field(FLNK, "$(P)$(R)StatusSI")
+    field(FLNK, "$(P)$(R)StatusLI")
 }
 record(bo,"$(P)$(R)IfaceGpibResetBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "GPIB Reset")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) GPIB_RESET")
-    field(FLNK, "$(P)$(R)StatusSI")
+    field(FLNK, "$(P)$(R)StatusLI")
 }
 record(bo,"$(P)$(R)IfaceLanResetBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "LAN Reset")
     field(DTYP, "asynInt32")
     field(OUT,  "@asyn($(PORT)) TCPIP_RESET")
-    field(FLNK, "$(P)$(R)StatusSI")
+    field(FLNK, "$(P)$(R)StatusLI")
 }
 record(stringin,"$(P)$(R)IfaceMacAddrSI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "MAC Address")
     field(DTYP, "asynOctetRead")
     field(INP,  "@asyn($(PORT)) MAC_ADDRESS")
@@ -1150,8 +929,6 @@ record(stringin,"$(P)$(R)IfaceMacAddrSI")
 record(mbbi,"$(P)$(R)AReferenceMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan A Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1177,8 +954,6 @@ record(mbbi,"$(P)$(R)AReferenceMI")
 }
 record(mbbo,"$(P)$(R)AReferenceMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan A Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1205,37 +980,40 @@ record(mbbo,"$(P)$(R)AReferenceMO")
 }
 record(fanout,"$(P)$(R)AReferenceFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)AReferenceMI")
-    field(LNK3, "$(P)$(R)ADelaySI")
-}
-record(stringin,"$(P)$(R)ADelaySI")
-{
-    field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan A")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT)) A_DELAY")
+    field(LNK3, "$(P)$(R)ADelayAI")
 }
 record(ai,"$(P)$(R)ADelayAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan A Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn($(PORT)) A_DELAY")
+    field(FLNK, "$(P)$(R)ADelaySeq")
+}
+record(seq,"$(P)$(R)ADelaySeq")
+{
+    field(DOL1, "1")
+    field(LNK1, "$(P)$(R)ADelayWriteAO.DISA")
+    field(DOL2, "$(P)$(R)ADelayAI")
+    field(LNK2, "$(P)$(R)ADelayAO PP")
+    field(DOL3, "0")
+    field(LNK3, "$(P)$(R)ADelayWriteAO.DISA")
 }
 record(ao,"$(P)$(R)ADelayAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan A Delay")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(OUT,  "$(P)$(R)ADelayWriteAO PP")
+}
+record(ao,"$(P)$(R)ADelayWriteAO")
+{
+    field(DESC, "Chan A Delay Writer")
+    field(DISV, "1")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
@@ -1244,50 +1022,51 @@ record(ao,"$(P)$(R)ADelayAO")
 }
 record(fanout,"$(P)$(R)ADelayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)ADelayAI")
-    field(LNK3, "$(P)$(R)ADelaySI")
 }
-record(calcout,"$(P)$(R)ADelayTweakIncCO")
+record(ai,"$(P)$(R)ADelayTweakAI")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan A Delay Tweak Inc")
-    field(INPA, "$(P)$(R)ADelayAO NPP NMS")
-    field(INPB, "$(P)$(R)ADelayTweakAO NPP NMS")
-    field(CALC, "(A+B)<2000?(A+B):0")
-    field(OUT,  "$(P)$(R)ADelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(calcout,"$(P)$(R)ADelayTweakDecCO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan A Delay Tweak Dec")
-    field(INPA, "$(P)$(R)ADelayAO NPP NMS")
-    field(INPB, "$(P)$(R)ADelayTweakAO NPP NMS")
-    field(CALC, "(A-B)>=0?(A-B):0")
-    field(OUT,  "$(P)$(R)ADelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(ao,"$(P)$(R)ADelayTweakAO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
+    field(PINI, "YES")
     field(DESC, "Chan A Delay Tweak")
     field(PREC, "12")
     field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT)) A_DELAY_STEP")
 }
+record(ao,"$(P)$(R)ADelayTweakAO")
+{
+    field(DESC, "Chan A Delay Tweak")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT)) A_DELAY_STEP")
+    field(FLNK, "$(P)$(R)ADelayTweakFO")
+}
+record(fanout,"$(P)$(R)ADelayTweakFO")
+{
+    field(LNK1, "$(P)$(R)StatusLI")
+    field(LNK2, "$(P)$(R)ADelayTweakAI")
+}
+record(bo,"$(P)$(R)ADelayTweakIncBO")
+{
+    field(DESC, "Chan A Delay Tweak Inc")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) A_DELAY_STEP_POS")
+    field(FLNK, "$(P)$(R)ADelayFO")
+}
+record(bo,"$(P)$(R)ADelayTweakDecBO")
+{
+    field(DESC, "Chan A Delay Tweak Dec")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) A_DELAY_STEP_NEG")
+    field(FLNK, "$(P)$(R)ADelayFO")
+}
+
 ## Delay channel B related PVs
 record(mbbi,"$(P)$(R)BReferenceMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan B Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1313,8 +1092,6 @@ record(mbbi,"$(P)$(R)BReferenceMI")
 }
 record(mbbo,"$(P)$(R)BReferenceMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan B Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1341,37 +1118,40 @@ record(mbbo,"$(P)$(R)BReferenceMO")
 }
 record(fanout,"$(P)$(R)BReferenceFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)BReferenceMI")
-    field(LNK3, "$(P)$(R)BDelaySI")
-}
-record(stringin,"$(P)$(R)BDelaySI")
-{
-    field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan B")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT)) B_DELAY")
+    field(LNK3, "$(P)$(R)BDelayAI")
 }
 record(ai,"$(P)$(R)BDelayAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan B Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn($(PORT)) B_DELAY")
+    field(FLNK, "$(P)$(R)BDelaySeq")
+}
+record(seq,"$(P)$(R)BDelaySeq")
+{
+    field(DOL1, "1")
+    field(LNK1, "$(P)$(R)BDelayWriteAO.DISA")
+    field(DOL2, "$(P)$(R)BDelayAI")
+    field(LNK2, "$(P)$(R)BDelayAO PP")
+    field(DOL3, "0")
+    field(LNK3, "$(P)$(R)BDelayWriteAO.DISA")
 }
 record(ao,"$(P)$(R)BDelayAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan B Delay")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(OUT,  "$(P)$(R)BDelayWriteAO PP")
+}
+record(ao,"$(P)$(R)BDelayWriteAO")
+{
+    field(DESC, "Chan B Delay Writer")
+    field(DISV, "1")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
@@ -1380,50 +1160,51 @@ record(ao,"$(P)$(R)BDelayAO")
 }
 record(fanout,"$(P)$(R)BDelayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)BDelayAI")
-    field(LNK3, "$(P)$(R)BDelaySI")
 }
-record(calcout,"$(P)$(R)BDelayTweakIncCO")
+record(ai,"$(P)$(R)BDelayTweakAI")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan B Delay Tweak Inc")
-    field(INPA, "$(P)$(R)BDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)BDelayTweakAO NPP NMS")
-    field(CALC, "(A+B)<2000?(A+B):0")
-    field(OUT,  "$(P)$(R)BDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(calcout,"$(P)$(R)BDelayTweakDecCO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan B Delay Tweak Dec")
-    field(INPA, "$(P)$(R)BDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)BDelayTweakAO NPP NMS")
-    field(CALC, "(A-B)>=0?(A-B):0")
-    field(OUT,  "$(P)$(R)BDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(ao,"$(P)$(R)BDelayTweakAO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
+    field(PINI, "YES")
     field(DESC, "Chan B Delay Tweak")
     field(PREC, "12")
     field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT)) B_DELAY_STEP")
 }
+record(ao,"$(P)$(R)BDelayTweakAO")
+{
+    field(DESC, "Chan B Delay Tweak")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT)) B_DELAY_STEP")
+    field(FLNK, "$(P)$(R)BDelayTweakFO")
+}
+record(fanout,"$(P)$(R)BDelayTweakFO")
+{
+    field(LNK1, "$(P)$(R)StatusLI")
+    field(LNK2, "$(P)$(R)BDelayTweakAI")
+}
+record(bo,"$(P)$(R)BDelayTweakIncBO")
+{
+    field(DESC, "Chan B Delay Tweak Inc")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) B_DELAY_STEP_POS")
+    field(FLNK, "$(P)$(R)BDelayFO")
+}
+record(bo,"$(P)$(R)BDelayTweakDecBO")
+{
+    field(DESC, "Chan B Delay Tweak Dec")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) B_DELAY_STEP_NEG")
+    field(FLNK, "$(P)$(R)BDelayFO")
+}
+
 ## Delay channel C related PVs
 record(mbbi,"$(P)$(R)CReferenceMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan C Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1449,8 +1230,6 @@ record(mbbi,"$(P)$(R)CReferenceMI")
 }
 record(mbbo,"$(P)$(R)CReferenceMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan C Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1477,37 +1256,40 @@ record(mbbo,"$(P)$(R)CReferenceMO")
 }
 record(fanout,"$(P)$(R)CReferenceFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)CReferenceMI")
-    field(LNK3, "$(P)$(R)CDelaySI")
-}
-record(stringin,"$(P)$(R)CDelaySI")
-{
-    field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan C")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT)) C_DELAY")
+    field(LNK3, "$(P)$(R)CDelayAI")
 }
 record(ai,"$(P)$(R)CDelayAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan C Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn($(PORT)) C_DELAY")
+    field(FLNK, "$(P)$(R)CDelaySeq")
+}
+record(seq,"$(P)$(R)CDelaySeq")
+{
+    field(DOL1, "1")
+    field(LNK1, "$(P)$(R)CDelayWriteAO.DISA")
+    field(DOL2, "$(P)$(R)CDelayAI")
+    field(LNK2, "$(P)$(R)CDelayAO PP")
+    field(DOL3, "0")
+    field(LNK3, "$(P)$(R)CDelayWriteAO.DISA")
 }
 record(ao,"$(P)$(R)CDelayAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan C Delay")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(OUT,  "$(P)$(R)CDelayWriteAO PP")
+}
+record(ao,"$(P)$(R)CDelayWriteAO")
+{
+    field(DESC, "Chan C Delay Writer")
+    field(DISV, "1")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
@@ -1516,50 +1298,51 @@ record(ao,"$(P)$(R)CDelayAO")
 }
 record(fanout,"$(P)$(R)CDelayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)CDelayAI")
-    field(LNK3, "$(P)$(R)CDelaySI")
 }
-record(calcout,"$(P)$(R)CDelayTweakIncCO")
+record(ai,"$(P)$(R)CDelayTweakAI")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan C Delay Tweak Inc")
-    field(INPA, "$(P)$(R)CDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)CDelayTweakAO NPP NMS")
-    field(CALC, "(A+B)<2000?(A+B):0")
-    field(OUT,  "$(P)$(R)CDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(calcout,"$(P)$(R)CDelayTweakDecCO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan C Delay Tweak Dec")
-    field(INPA, "$(P)$(R)CDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)CDelayTweakAO NPP NMS")
-    field(CALC, "(A-B)>=0?(A-B):0")
-    field(OUT,  "$(P)$(R)CDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(ao,"$(P)$(R)CDelayTweakAO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
+    field(PINI, "YES")
     field(DESC, "Chan C Delay Tweak")
     field(PREC, "12")
     field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT)) C_DELAY_STEP")
 }
+record(ao,"$(P)$(R)CDelayTweakAO")
+{
+    field(DESC, "Chan C Delay Tweak")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT)) C_DELAY_STEP")
+    field(FLNK, "$(P)$(R)CDelayTweakFO")
+}
+record(fanout,"$(P)$(R)CDelayTweakFO")
+{
+    field(LNK1, "$(P)$(R)StatusLI")
+    field(LNK2, "$(P)$(R)CDelayTweakAI")
+}
+record(bo,"$(P)$(R)CDelayTweakIncBO")
+{
+    field(DESC, "Chan C Delay Tweak Inc")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) C_DELAY_STEP_POS")
+    field(FLNK, "$(P)$(R)CDelayFO")
+}
+record(bo,"$(P)$(R)CDelayTweakDecBO")
+{
+    field(DESC, "Chan C Delay Tweak Dec")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) C_DELAY_STEP_NEG")
+    field(FLNK, "$(P)$(R)CDelayFO")
+}
+
 ## Delay channel D related PVs
 record(mbbi,"$(P)$(R)DReferenceMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan D Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1585,8 +1368,6 @@ record(mbbi,"$(P)$(R)DReferenceMI")
 }
 record(mbbo,"$(P)$(R)DReferenceMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan D Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1613,37 +1394,40 @@ record(mbbo,"$(P)$(R)DReferenceMO")
 }
 record(fanout,"$(P)$(R)DReferenceFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)DReferenceMI")
-    field(LNK3, "$(P)$(R)DDelaySI")
-}
-record(stringin,"$(P)$(R)DDelaySI")
-{
-    field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan D")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT)) D_DELAY")
+    field(LNK3, "$(P)$(R)DDelayAI")
 }
 record(ai,"$(P)$(R)DDelayAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan D Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn($(PORT)) D_DELAY")
+    field(FLNK, "$(P)$(R)DDelaySeq")
+}
+record(seq,"$(P)$(R)DDelaySeq")
+{
+    field(DOL1, "1")
+    field(LNK1, "$(P)$(R)DDelayWriteAO.DISA")
+    field(DOL2, "$(P)$(R)DDelayAI")
+    field(LNK2, "$(P)$(R)DDelayAO PP")
+    field(DOL3, "0")
+    field(LNK3, "$(P)$(R)DDelayWriteAO.DISA")
 }
 record(ao,"$(P)$(R)DDelayAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan D Delay")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(OUT,  "$(P)$(R)DDelayWriteAO PP")
+}
+record(ao,"$(P)$(R)DDelayWriteAO")
+{
+    field(DESC, "Chan D Delay Writer")
+    field(DISV, "1")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
@@ -1652,50 +1436,51 @@ record(ao,"$(P)$(R)DDelayAO")
 }
 record(fanout,"$(P)$(R)DDelayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)DDelayAI")
-    field(LNK3, "$(P)$(R)DDelaySI")
 }
-record(calcout,"$(P)$(R)DDelayTweakIncCO")
+record(ai,"$(P)$(R)DDelayTweakAI")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan D Delay Tweak Inc")
-    field(INPA, "$(P)$(R)DDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)DDelayTweakAO NPP NMS")
-    field(CALC, "(A+B)<2000?(A+B):0")
-    field(OUT,  "$(P)$(R)DDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(calcout,"$(P)$(R)DDelayTweakDecCO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan D Delay Tweak Dec")
-    field(INPA, "$(P)$(R)DDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)DDelayTweakAO NPP NMS")
-    field(CALC, "(A-B)>=0?(A-B):0")
-    field(OUT,  "$(P)$(R)DDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(ao,"$(P)$(R)DDelayTweakAO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
+    field(PINI, "YES")
     field(DESC, "Chan D Delay Tweak")
     field(PREC, "12")
     field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT)) D_DELAY_STEP")
 }
+record(ao,"$(P)$(R)DDelayTweakAO")
+{
+    field(DESC, "Chan D Delay Tweak")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT)) D_DELAY_STEP")
+    field(FLNK, "$(P)$(R)DDelayTweakFO")
+}
+record(fanout,"$(P)$(R)DDelayTweakFO")
+{
+    field(LNK1, "$(P)$(R)StatusLI")
+    field(LNK2, "$(P)$(R)DDelayTweakAI")
+}
+record(bo,"$(P)$(R)DDelayTweakIncBO")
+{
+    field(DESC, "Chan D Delay Tweak Inc")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) D_DELAY_STEP_POS")
+    field(FLNK, "$(P)$(R)DDelayFO")
+}
+record(bo,"$(P)$(R)DDelayTweakDecBO")
+{
+    field(DESC, "Chan D Delay Tweak Dec")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) D_DELAY_STEP_NEG")
+    field(FLNK, "$(P)$(R)DDelayFO")
+}
+
 ## Delay channel E related PVs
 record(mbbi,"$(P)$(R)EReferenceMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan E Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1721,8 +1506,6 @@ record(mbbi,"$(P)$(R)EReferenceMI")
 }
 record(mbbo,"$(P)$(R)EReferenceMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan E Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1749,37 +1532,40 @@ record(mbbo,"$(P)$(R)EReferenceMO")
 }
 record(fanout,"$(P)$(R)EReferenceFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)EReferenceMI")
-    field(LNK3, "$(P)$(R)EDelaySI")
-}
-record(stringin,"$(P)$(R)EDelaySI")
-{
-    field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan E")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT)) E_DELAY")
+    field(LNK3, "$(P)$(R)EDelayAI")
 }
 record(ai,"$(P)$(R)EDelayAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan E Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn($(PORT)) E_DELAY")
+    field(FLNK, "$(P)$(R)EDelaySeq")
+}
+record(seq,"$(P)$(R)EDelaySeq")
+{
+    field(DOL1, "1")
+    field(LNK1, "$(P)$(R)EDelayWriteAO.DISA")
+    field(DOL2, "$(P)$(R)EDelayAI")
+    field(LNK2, "$(P)$(R)EDelayAO PP")
+    field(DOL3, "0")
+    field(LNK3, "$(P)$(R)EDelayWriteAO.DISA")
 }
 record(ao,"$(P)$(R)EDelayAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan E Delay")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(OUT,  "$(P)$(R)EDelayWriteAO PP")
+}
+record(ao,"$(P)$(R)EDelayWriteAO")
+{
+    field(DESC, "Chan E Delay Writer")
+    field(DISV, "1")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
@@ -1788,50 +1574,51 @@ record(ao,"$(P)$(R)EDelayAO")
 }
 record(fanout,"$(P)$(R)EDelayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)EDelayAI")
-    field(LNK3, "$(P)$(R)EDelaySI")
 }
-record(calcout,"$(P)$(R)EDelayTweakIncCO")
+record(ai,"$(P)$(R)EDelayTweakAI")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan E Delay Tweak Inc")
-    field(INPA, "$(P)$(R)EDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)EDelayTweakAO NPP NMS")
-    field(CALC, "(A+B)<2000?(A+B):0")
-    field(OUT,  "$(P)$(R)EDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(calcout,"$(P)$(R)EDelayTweakDecCO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan E Delay Tweak Dec")
-    field(INPA, "$(P)$(R)EDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)EDelayTweakAO NPP NMS")
-    field(CALC, "(A-B)>=0?(A-B):0")
-    field(OUT,  "$(P)$(R)EDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(ao,"$(P)$(R)EDelayTweakAO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
+    field(PINI, "YES")
     field(DESC, "Chan E Delay Tweak")
     field(PREC, "12")
     field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT)) E_DELAY_STEP")
 }
+record(ao,"$(P)$(R)EDelayTweakAO")
+{
+    field(DESC, "Chan E Delay Tweak")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT)) E_DELAY_STEP")
+    field(FLNK, "$(P)$(R)EDelayTweakFO")
+}
+record(fanout,"$(P)$(R)EDelayTweakFO")
+{
+    field(LNK1, "$(P)$(R)StatusLI")
+    field(LNK2, "$(P)$(R)EDelayTweakAI")
+}
+record(bo,"$(P)$(R)EDelayTweakIncBO")
+{
+    field(DESC, "Chan E Delay Tweak Inc")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) E_DELAY_STEP_POS")
+    field(FLNK, "$(P)$(R)EDelayFO")
+}
+record(bo,"$(P)$(R)EDelayTweakDecBO")
+{
+    field(DESC, "Chan E Delay Tweak Dec")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) E_DELAY_STEP_NEG")
+    field(FLNK, "$(P)$(R)EDelayFO")
+}
+
 ## Delay channel F related PVs
 record(mbbi,"$(P)$(R)FReferenceMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan F Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1857,8 +1644,6 @@ record(mbbi,"$(P)$(R)FReferenceMI")
 }
 record(mbbo,"$(P)$(R)FReferenceMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan F Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1885,37 +1670,40 @@ record(mbbo,"$(P)$(R)FReferenceMO")
 }
 record(fanout,"$(P)$(R)FReferenceFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)FReferenceMI")
-    field(LNK3, "$(P)$(R)FDelaySI")
-}
-record(stringin,"$(P)$(R)FDelaySI")
-{
-    field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan F")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT)) F_DELAY")
+    field(LNK3, "$(P)$(R)FDelayAI")
 }
 record(ai,"$(P)$(R)FDelayAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan F Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn($(PORT)) F_DELAY")
+    field(FLNK, "$(P)$(R)FDelaySeq")
+}
+record(seq,"$(P)$(R)FDelaySeq")
+{
+    field(DOL1, "1")
+    field(LNK1, "$(P)$(R)FDelayWriteAO.DISA")
+    field(DOL2, "$(P)$(R)FDelayAI")
+    field(LNK2, "$(P)$(R)FDelayAO PP")
+    field(DOL3, "0")
+    field(LNK3, "$(P)$(R)FDelayWriteAO.DISA")
 }
 record(ao,"$(P)$(R)FDelayAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan F Delay")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(OUT,  "$(P)$(R)FDelayWriteAO PP")
+}
+record(ao,"$(P)$(R)FDelayWriteAO")
+{
+    field(DESC, "Chan F Delay Writer")
+    field(DISV, "1")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
@@ -1924,50 +1712,51 @@ record(ao,"$(P)$(R)FDelayAO")
 }
 record(fanout,"$(P)$(R)FDelayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)FDelayAI")
-    field(LNK3, "$(P)$(R)FDelaySI")
 }
-record(calcout,"$(P)$(R)FDelayTweakIncCO")
+record(ai,"$(P)$(R)FDelayTweakAI")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan F Delay Tweak Inc")
-    field(INPA, "$(P)$(R)FDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)FDelayTweakAO NPP NMS")
-    field(CALC, "(A+B)<2000?(A+B):0")
-    field(OUT,  "$(P)$(R)FDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(calcout,"$(P)$(R)FDelayTweakDecCO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan F Delay Tweak Dec")
-    field(INPA, "$(P)$(R)FDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)FDelayTweakAO NPP NMS")
-    field(CALC, "(A-B)>=0?(A-B):0")
-    field(OUT,  "$(P)$(R)FDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(ao,"$(P)$(R)FDelayTweakAO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
+    field(PINI, "YES")
     field(DESC, "Chan F Delay Tweak")
     field(PREC, "12")
     field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT)) F_DELAY_STEP")
 }
+record(ao,"$(P)$(R)FDelayTweakAO")
+{
+    field(DESC, "Chan F Delay Tweak")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT)) F_DELAY_STEP")
+    field(FLNK, "$(P)$(R)FDelayTweakFO")
+}
+record(fanout,"$(P)$(R)FDelayTweakFO")
+{
+    field(LNK1, "$(P)$(R)StatusLI")
+    field(LNK2, "$(P)$(R)FDelayTweakAI")
+}
+record(bo,"$(P)$(R)FDelayTweakIncBO")
+{
+    field(DESC, "Chan F Delay Tweak Inc")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) F_DELAY_STEP_POS")
+    field(FLNK, "$(P)$(R)FDelayFO")
+}
+record(bo,"$(P)$(R)FDelayTweakDecBO")
+{
+    field(DESC, "Chan F Delay Tweak Dec")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) F_DELAY_STEP_NEG")
+    field(FLNK, "$(P)$(R)FDelayFO")
+}
+
 ## Delay channel G related PVs
 record(mbbi,"$(P)$(R)GReferenceMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan G Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -1993,8 +1782,6 @@ record(mbbi,"$(P)$(R)GReferenceMI")
 }
 record(mbbo,"$(P)$(R)GReferenceMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan G Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -2021,37 +1808,40 @@ record(mbbo,"$(P)$(R)GReferenceMO")
 }
 record(fanout,"$(P)$(R)GReferenceFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)GReferenceMI")
-    field(LNK3, "$(P)$(R)GDelaySI")
-}
-record(stringin,"$(P)$(R)GDelaySI")
-{
-    field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan G")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT)) G_DELAY")
+    field(LNK3, "$(P)$(R)GDelayAI")
 }
 record(ai,"$(P)$(R)GDelayAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan G Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn($(PORT)) G_DELAY")
+    field(FLNK, "$(P)$(R)GDelaySeq")
+}
+record(seq,"$(P)$(R)GDelaySeq")
+{
+    field(DOL1, "1")
+    field(LNK1, "$(P)$(R)GDelayWriteAO.DISA")
+    field(DOL2, "$(P)$(R)GDelayAI")
+    field(LNK2, "$(P)$(R)GDelayAO PP")
+    field(DOL3, "0")
+    field(LNK3, "$(P)$(R)GDelayWriteAO.DISA")
 }
 record(ao,"$(P)$(R)GDelayAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan G Delay")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(OUT,  "$(P)$(R)GDelayWriteAO PP")
+}
+record(ao,"$(P)$(R)GDelayWriteAO")
+{
+    field(DESC, "Chan G Delay Writer")
+    field(DISV, "1")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
@@ -2060,50 +1850,51 @@ record(ao,"$(P)$(R)GDelayAO")
 }
 record(fanout,"$(P)$(R)GDelayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)GDelayAI")
-    field(LNK3, "$(P)$(R)GDelaySI")
 }
-record(calcout,"$(P)$(R)GDelayTweakIncCO")
+record(ai,"$(P)$(R)GDelayTweakAI")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan G Delay Tweak Inc")
-    field(INPA, "$(P)$(R)GDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)GDelayTweakAO NPP NMS")
-    field(CALC, "(A+B)<2000?(A+B):0")
-    field(OUT,  "$(P)$(R)GDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(calcout,"$(P)$(R)GDelayTweakDecCO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan G Delay Tweak Dec")
-    field(INPA, "$(P)$(R)GDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)GDelayTweakAO NPP NMS")
-    field(CALC, "(A-B)>=0?(A-B):0")
-    field(OUT,  "$(P)$(R)GDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(ao,"$(P)$(R)GDelayTweakAO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
+    field(PINI, "YES")
     field(DESC, "Chan G Delay Tweak")
     field(PREC, "12")
     field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT)) G_DELAY_STEP")
 }
+record(ao,"$(P)$(R)GDelayTweakAO")
+{
+    field(DESC, "Chan G Delay Tweak")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT)) G_DELAY_STEP")
+    field(FLNK, "$(P)$(R)GDelayTweakFO")
+}
+record(fanout,"$(P)$(R)GDelayTweakFO")
+{
+    field(LNK1, "$(P)$(R)StatusLI")
+    field(LNK2, "$(P)$(R)GDelayTweakAI")
+}
+record(bo,"$(P)$(R)GDelayTweakIncBO")
+{
+    field(DESC, "Chan G Delay Tweak Inc")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) G_DELAY_STEP_POS")
+    field(FLNK, "$(P)$(R)GDelayFO")
+}
+record(bo,"$(P)$(R)GDelayTweakDecBO")
+{
+    field(DESC, "Chan G Delay Tweak Dec")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) G_DELAY_STEP_NEG")
+    field(FLNK, "$(P)$(R)GDelayFO")
+}
+
 ## Delay channel H related PVs
 record(mbbi,"$(P)$(R)HReferenceMI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan H Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -2129,8 +1920,6 @@ record(mbbi,"$(P)$(R)HReferenceMI")
 }
 record(mbbo,"$(P)$(R)HReferenceMO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan H Ref")
     field(SCAN, "Passive")
     field(ZRST, "T0")
@@ -2157,37 +1946,40 @@ record(mbbo,"$(P)$(R)HReferenceMO")
 }
 record(fanout,"$(P)$(R)HReferenceFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)HReferenceMI")
-    field(LNK3, "$(P)$(R)HDelaySI")
-}
-record(stringin,"$(P)$(R)HDelaySI")
-{
-    field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan H")
-    field(DTYP, "asynOctetRead")
-    field(INP,  "@asyn($(PORT)) H_DELAY")
+    field(LNK3, "$(P)$(R)HDelayAI")
 }
 record(ai,"$(P)$(R)HDelayAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan H Delay")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
     field(INP,  "@asyn($(PORT)) H_DELAY")
+    field(FLNK, "$(P)$(R)HDelaySeq")
+}
+record(seq,"$(P)$(R)HDelaySeq")
+{
+    field(DOL1, "1")
+    field(LNK1, "$(P)$(R)HDelayWriteAO.DISA")
+    field(DOL2, "$(P)$(R)HDelayAI")
+    field(LNK2, "$(P)$(R)HDelayAO PP")
+    field(DOL3, "0")
+    field(LNK3, "$(P)$(R)HDelayWriteAO.DISA")
 }
 record(ao,"$(P)$(R)HDelayAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Chan H Delay")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(OUT,  "$(P)$(R)HDelayWriteAO PP")
+}
+record(ao,"$(P)$(R)HDelayWriteAO")
+{
+    field(DESC, "Chan H Delay Writer")
+    field(DISV, "1")
     field(PREC, "12")
     field(EGU,  "Sec")
     field(DTYP, "asynFloat64")
@@ -2196,43 +1988,45 @@ record(ao,"$(P)$(R)HDelayAO")
 }
 record(fanout,"$(P)$(R)HDelayFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)HDelayAI")
-    field(LNK3, "$(P)$(R)HDelaySI")
 }
-record(calcout,"$(P)$(R)HDelayTweakIncCO")
+record(ai,"$(P)$(R)HDelayTweakAI")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan H Delay Tweak Inc")
-    field(INPA, "$(P)$(R)HDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)HDelayTweakAO NPP NMS")
-    field(CALC, "(A+B)<2000?(A+B):0")
-    field(OUT,  "$(P)$(R)HDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(calcout,"$(P)$(R)HDelayTweakDecCO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(DESC, "Chan H Delay Tweak Dec")
-    field(INPA, "$(P)$(R)HDelayAO NPP NMS")
-    field(INPB, "$(P)$(R)HDelayTweakAO NPP NMS")
-    field(CALC, "(A-B)>=0?(A-B):0")
-    field(OUT,  "$(P)$(R)HDelayAO PP NMS")
-    field(PREC, "12")
-    field(EGU,  "Sec")
-}
-record(ao,"$(P)$(R)HDelayTweakAO")
-{
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
+    field(PINI, "YES")
     field(DESC, "Chan H Delay Tweak")
     field(PREC, "12")
     field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(INP,  "@asyn($(PORT)) H_DELAY_STEP")
+}
+record(ao,"$(P)$(R)HDelayTweakAO")
+{
+    field(DESC, "Chan H Delay Tweak")
+    field(PREC, "12")
+    field(EGU,  "Sec")
+    field(DTYP, "asynFloat64")
+    field(OUT,  "@asyn($(PORT)) H_DELAY_STEP")
+    field(FLNK, "$(P)$(R)HDelayTweakFO")
+}
+record(fanout,"$(P)$(R)HDelayTweakFO")
+{
+    field(LNK1, "$(P)$(R)StatusLI")
+    field(LNK2, "$(P)$(R)HDelayTweakAI")
+}
+record(bo,"$(P)$(R)HDelayTweakIncBO")
+{
+    field(DESC, "Chan H Delay Tweak Inc")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) H_DELAY_STEP_POS")
+    field(FLNK, "$(P)$(R)HDelayFO")
+}
+record(bo,"$(P)$(R)HDelayTweakDecBO")
+{
+    field(DESC, "Chan H Delay Tweak Dec")
+    field(DTYP, "asynInt32")
+    field(OUT,  "@asyn($(PORT)) H_DELAY_STEP_NEG")
+    field(FLNK, "$(P)$(R)HDelayFO")
 }
 
 
@@ -2240,8 +2034,6 @@ record(ao,"$(P)$(R)HDelayTweakAO")
 record(ai,"$(P)$(R)T0OutputAmpAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -2251,8 +2043,6 @@ record(ai,"$(P)$(R)T0OutputAmpAI")
 }
 record(ao,"$(P)$(R)T0OutputAmpAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2262,15 +2052,11 @@ record(ao,"$(P)$(R)T0OutputAmpAO")
 }
 record(fanout,"$(P)$(R)T0OutputAmpFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)T0OutputAmpAI")
 }
 record(calcout,"$(P)$(R)T0OutputAmpTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Inc")
     field(INPA, "$(P)$(R)T0OutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)T0OutputAmpTweakAO NPP NMS")
@@ -2281,8 +2067,6 @@ record(calcout,"$(P)$(R)T0OutputAmpTweakIncCO")
 }
 record(calcout,"$(P)$(R)T0OutputAmpTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Dec")
     field(INPA, "$(P)$(R)T0OutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)T0OutputAmpTweakAO NPP NMS")
@@ -2293,8 +2077,6 @@ record(calcout,"$(P)$(R)T0OutputAmpTweakDecCO")
 }
 record(ao,"$(P)$(R)T0OutputAmpTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2302,8 +2084,6 @@ record(ao,"$(P)$(R)T0OutputAmpTweakAO")
 record(ai,"$(P)$(R)T0OutputOffsetAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -2313,8 +2093,6 @@ record(ai,"$(P)$(R)T0OutputOffsetAI")
 }
 record(ao,"$(P)$(R)T0OutputOffsetAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2324,15 +2102,11 @@ record(ao,"$(P)$(R)T0OutputOffsetAO")
 }
 record(fanout,"$(P)$(R)T0OutputOffsetFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)T0OutputOffsetAI")
 }
 record(calcout,"$(P)$(R)T0OutputOffsetTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Inc")
     field(INPA, "$(P)$(R)T0OutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)T0OutputOffsetTweakAO NPP NMS")
@@ -2343,8 +2117,6 @@ record(calcout,"$(P)$(R)T0OutputOffsetTweakIncCO")
 }
 record(calcout,"$(P)$(R)T0OutputOffsetTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Dec")
     field(INPA, "$(P)$(R)T0OutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)T0OutputOffsetTweakAO NPP NMS")
@@ -2355,8 +2127,6 @@ record(calcout,"$(P)$(R)T0OutputOffsetTweakDecCO")
 }
 record(ao,"$(P)$(R)T0OutputOffsetTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2364,8 +2134,6 @@ record(ao,"$(P)$(R)T0OutputOffsetTweakAO")
 record(bi,"$(P)$(R)T0OutputPolarityBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Polarity")
     field(SCAN, "Passive")
     field(ZNAM, "NEG")
@@ -2375,8 +2143,6 @@ record(bi,"$(P)$(R)T0OutputPolarityBI")
 }
 record(bo,"$(P)$(R)T0OutputPolarityBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Status Clear")
     field(DTYP, "asynInt32")
     field(ZNAM, "NEG")
@@ -2386,15 +2152,11 @@ record(bo,"$(P)$(R)T0OutputPolarityBO")
 }
 record(fanout,"$(P)$(R)T0OutputPolarityFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)T0OutputPolarityBI")
 }
 record(seq,"$(P)$(R)T0OutputModeTtlSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)T0OutputAmpAO PP NMS")
@@ -2406,8 +2168,6 @@ record(seq,"$(P)$(R)T0OutputModeTtlSS")
 }
 record(seq,"$(P)$(R)T0OutputModeNimSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)T0OutputAmpAO PP NMS")
@@ -2421,8 +2181,6 @@ record(seq,"$(P)$(R)T0OutputModeNimSS")
 record(ai,"$(P)$(R)ABOutputAmpAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -2432,8 +2190,6 @@ record(ai,"$(P)$(R)ABOutputAmpAI")
 }
 record(ao,"$(P)$(R)ABOutputAmpAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2443,15 +2199,11 @@ record(ao,"$(P)$(R)ABOutputAmpAO")
 }
 record(fanout,"$(P)$(R)ABOutputAmpFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)ABOutputAmpAI")
 }
 record(calcout,"$(P)$(R)ABOutputAmpTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Inc")
     field(INPA, "$(P)$(R)ABOutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)ABOutputAmpTweakAO NPP NMS")
@@ -2462,8 +2214,6 @@ record(calcout,"$(P)$(R)ABOutputAmpTweakIncCO")
 }
 record(calcout,"$(P)$(R)ABOutputAmpTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Dec")
     field(INPA, "$(P)$(R)ABOutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)ABOutputAmpTweakAO NPP NMS")
@@ -2474,8 +2224,6 @@ record(calcout,"$(P)$(R)ABOutputAmpTweakDecCO")
 }
 record(ao,"$(P)$(R)ABOutputAmpTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2483,8 +2231,6 @@ record(ao,"$(P)$(R)ABOutputAmpTweakAO")
 record(ai,"$(P)$(R)ABOutputOffsetAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -2494,8 +2240,6 @@ record(ai,"$(P)$(R)ABOutputOffsetAI")
 }
 record(ao,"$(P)$(R)ABOutputOffsetAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2505,15 +2249,11 @@ record(ao,"$(P)$(R)ABOutputOffsetAO")
 }
 record(fanout,"$(P)$(R)ABOutputOffsetFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)ABOutputOffsetAI")
 }
 record(calcout,"$(P)$(R)ABOutputOffsetTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Inc")
     field(INPA, "$(P)$(R)ABOutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)ABOutputOffsetTweakAO NPP NMS")
@@ -2524,8 +2264,6 @@ record(calcout,"$(P)$(R)ABOutputOffsetTweakIncCO")
 }
 record(calcout,"$(P)$(R)ABOutputOffsetTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Dec")
     field(INPA, "$(P)$(R)ABOutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)ABOutputOffsetTweakAO NPP NMS")
@@ -2536,8 +2274,6 @@ record(calcout,"$(P)$(R)ABOutputOffsetTweakDecCO")
 }
 record(ao,"$(P)$(R)ABOutputOffsetTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2545,8 +2281,6 @@ record(ao,"$(P)$(R)ABOutputOffsetTweakAO")
 record(bi,"$(P)$(R)ABOutputPolarityBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Polarity")
     field(SCAN, "Passive")
     field(ZNAM, "NEG")
@@ -2556,8 +2290,6 @@ record(bi,"$(P)$(R)ABOutputPolarityBI")
 }
 record(bo,"$(P)$(R)ABOutputPolarityBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Status Clear")
     field(DTYP, "asynInt32")
     field(ZNAM, "NEG")
@@ -2567,15 +2299,11 @@ record(bo,"$(P)$(R)ABOutputPolarityBO")
 }
 record(fanout,"$(P)$(R)ABOutputPolarityFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)ABOutputPolarityBI")
 }
 record(seq,"$(P)$(R)ABOutputModeTtlSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)ABOutputAmpAO PP NMS")
@@ -2587,8 +2315,6 @@ record(seq,"$(P)$(R)ABOutputModeTtlSS")
 }
 record(seq,"$(P)$(R)ABOutputModeNimSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)ABOutputAmpAO PP NMS")
@@ -2602,8 +2328,6 @@ record(seq,"$(P)$(R)ABOutputModeNimSS")
 record(ai,"$(P)$(R)CDOutputAmpAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -2613,8 +2337,6 @@ record(ai,"$(P)$(R)CDOutputAmpAI")
 }
 record(ao,"$(P)$(R)CDOutputAmpAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2624,15 +2346,11 @@ record(ao,"$(P)$(R)CDOutputAmpAO")
 }
 record(fanout,"$(P)$(R)CDOutputAmpFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)CDOutputAmpAI")
 }
 record(calcout,"$(P)$(R)CDOutputAmpTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Inc")
     field(INPA, "$(P)$(R)CDOutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)CDOutputAmpTweakAO NPP NMS")
@@ -2643,8 +2361,6 @@ record(calcout,"$(P)$(R)CDOutputAmpTweakIncCO")
 }
 record(calcout,"$(P)$(R)CDOutputAmpTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Dec")
     field(INPA, "$(P)$(R)CDOutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)CDOutputAmpTweakAO NPP NMS")
@@ -2655,8 +2371,6 @@ record(calcout,"$(P)$(R)CDOutputAmpTweakDecCO")
 }
 record(ao,"$(P)$(R)CDOutputAmpTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2664,8 +2378,6 @@ record(ao,"$(P)$(R)CDOutputAmpTweakAO")
 record(ai,"$(P)$(R)CDOutputOffsetAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -2675,8 +2387,6 @@ record(ai,"$(P)$(R)CDOutputOffsetAI")
 }
 record(ao,"$(P)$(R)CDOutputOffsetAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2686,15 +2396,11 @@ record(ao,"$(P)$(R)CDOutputOffsetAO")
 }
 record(fanout,"$(P)$(R)CDOutputOffsetFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)CDOutputOffsetAI")
 }
 record(calcout,"$(P)$(R)CDOutputOffsetTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Inc")
     field(INPA, "$(P)$(R)CDOutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)CDOutputOffsetTweakAO NPP NMS")
@@ -2705,8 +2411,6 @@ record(calcout,"$(P)$(R)CDOutputOffsetTweakIncCO")
 }
 record(calcout,"$(P)$(R)CDOutputOffsetTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Dec")
     field(INPA, "$(P)$(R)CDOutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)CDOutputOffsetTweakAO NPP NMS")
@@ -2717,8 +2421,6 @@ record(calcout,"$(P)$(R)CDOutputOffsetTweakDecCO")
 }
 record(ao,"$(P)$(R)CDOutputOffsetTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2726,8 +2428,6 @@ record(ao,"$(P)$(R)CDOutputOffsetTweakAO")
 record(bi,"$(P)$(R)CDOutputPolarityBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Polarity")
     field(SCAN, "Passive")
     field(ZNAM, "NEG")
@@ -2737,8 +2437,6 @@ record(bi,"$(P)$(R)CDOutputPolarityBI")
 }
 record(bo,"$(P)$(R)CDOutputPolarityBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Status Clear")
     field(DTYP, "asynInt32")
     field(ZNAM, "NEG")
@@ -2748,15 +2446,11 @@ record(bo,"$(P)$(R)CDOutputPolarityBO")
 }
 record(fanout,"$(P)$(R)CDOutputPolarityFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)CDOutputPolarityBI")
 }
 record(seq,"$(P)$(R)CDOutputModeTtlSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)CDOutputAmpAO PP NMS")
@@ -2768,8 +2462,6 @@ record(seq,"$(P)$(R)CDOutputModeTtlSS")
 }
 record(seq,"$(P)$(R)CDOutputModeNimSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)CDOutputAmpAO PP NMS")
@@ -2783,8 +2475,6 @@ record(seq,"$(P)$(R)CDOutputModeNimSS")
 record(ai,"$(P)$(R)EFOutputAmpAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -2794,8 +2484,6 @@ record(ai,"$(P)$(R)EFOutputAmpAI")
 }
 record(ao,"$(P)$(R)EFOutputAmpAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2805,15 +2493,11 @@ record(ao,"$(P)$(R)EFOutputAmpAO")
 }
 record(fanout,"$(P)$(R)EFOutputAmpFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)EFOutputAmpAI")
 }
 record(calcout,"$(P)$(R)EFOutputAmpTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Inc")
     field(INPA, "$(P)$(R)EFOutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)EFOutputAmpTweakAO NPP NMS")
@@ -2824,8 +2508,6 @@ record(calcout,"$(P)$(R)EFOutputAmpTweakIncCO")
 }
 record(calcout,"$(P)$(R)EFOutputAmpTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Dec")
     field(INPA, "$(P)$(R)EFOutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)EFOutputAmpTweakAO NPP NMS")
@@ -2836,8 +2518,6 @@ record(calcout,"$(P)$(R)EFOutputAmpTweakDecCO")
 }
 record(ao,"$(P)$(R)EFOutputAmpTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2845,8 +2525,6 @@ record(ao,"$(P)$(R)EFOutputAmpTweakAO")
 record(ai,"$(P)$(R)EFOutputOffsetAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -2856,8 +2534,6 @@ record(ai,"$(P)$(R)EFOutputOffsetAI")
 }
 record(ao,"$(P)$(R)EFOutputOffsetAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2867,15 +2543,11 @@ record(ao,"$(P)$(R)EFOutputOffsetAO")
 }
 record(fanout,"$(P)$(R)EFOutputOffsetFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)EFOutputOffsetAI")
 }
 record(calcout,"$(P)$(R)EFOutputOffsetTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Inc")
     field(INPA, "$(P)$(R)EFOutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)EFOutputOffsetTweakAO NPP NMS")
@@ -2886,8 +2558,6 @@ record(calcout,"$(P)$(R)EFOutputOffsetTweakIncCO")
 }
 record(calcout,"$(P)$(R)EFOutputOffsetTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Dec")
     field(INPA, "$(P)$(R)EFOutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)EFOutputOffsetTweakAO NPP NMS")
@@ -2898,8 +2568,6 @@ record(calcout,"$(P)$(R)EFOutputOffsetTweakDecCO")
 }
 record(ao,"$(P)$(R)EFOutputOffsetTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2907,8 +2575,6 @@ record(ao,"$(P)$(R)EFOutputOffsetTweakAO")
 record(bi,"$(P)$(R)EFOutputPolarityBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Polarity")
     field(SCAN, "Passive")
     field(ZNAM, "NEG")
@@ -2918,8 +2584,6 @@ record(bi,"$(P)$(R)EFOutputPolarityBI")
 }
 record(bo,"$(P)$(R)EFOutputPolarityBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Status Clear")
     field(DTYP, "asynInt32")
     field(ZNAM, "NEG")
@@ -2929,15 +2593,11 @@ record(bo,"$(P)$(R)EFOutputPolarityBO")
 }
 record(fanout,"$(P)$(R)EFOutputPolarityFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)EFOutputPolarityBI")
 }
 record(seq,"$(P)$(R)EFOutputModeTtlSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)EFOutputAmpAO PP NMS")
@@ -2949,8 +2609,6 @@ record(seq,"$(P)$(R)EFOutputModeTtlSS")
 }
 record(seq,"$(P)$(R)EFOutputModeNimSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)EFOutputAmpAO PP NMS")
@@ -2964,8 +2622,6 @@ record(seq,"$(P)$(R)EFOutputModeNimSS")
 record(ai,"$(P)$(R)GHOutputAmpAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -2975,8 +2631,6 @@ record(ai,"$(P)$(R)GHOutputAmpAI")
 }
 record(ao,"$(P)$(R)GHOutputAmpAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -2986,15 +2640,11 @@ record(ao,"$(P)$(R)GHOutputAmpAO")
 }
 record(fanout,"$(P)$(R)GHOutputAmpFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)GHOutputAmpAI")
 }
 record(calcout,"$(P)$(R)GHOutputAmpTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Inc")
     field(INPA, "$(P)$(R)GHOutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)GHOutputAmpTweakAO NPP NMS")
@@ -3005,8 +2655,6 @@ record(calcout,"$(P)$(R)GHOutputAmpTweakIncCO")
 }
 record(calcout,"$(P)$(R)GHOutputAmpTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Dec")
     field(INPA, "$(P)$(R)GHOutputAmpAO NPP NMS")
     field(INPB, "$(P)$(R)GHOutputAmpTweakAO NPP NMS")
@@ -3017,8 +2665,6 @@ record(calcout,"$(P)$(R)GHOutputAmpTweakDecCO")
 }
 record(ao,"$(P)$(R)GHOutputAmpTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Amplitude Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -3026,8 +2672,6 @@ record(ao,"$(P)$(R)GHOutputAmpTweakAO")
 record(ai,"$(P)$(R)GHOutputOffsetAI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(SCAN, "Passive")
     field(PREC, "2")
@@ -3037,8 +2681,6 @@ record(ai,"$(P)$(R)GHOutputOffsetAI")
 }
 record(ao,"$(P)$(R)GHOutputOffsetAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -3048,15 +2690,11 @@ record(ao,"$(P)$(R)GHOutputOffsetAO")
 }
 record(fanout,"$(P)$(R)GHOutputOffsetFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)GHOutputOffsetAI")
 }
 record(calcout,"$(P)$(R)GHOutputOffsetTweakIncCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Inc")
     field(INPA, "$(P)$(R)GHOutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)GHOutputOffsetTweakAO NPP NMS")
@@ -3067,8 +2705,6 @@ record(calcout,"$(P)$(R)GHOutputOffsetTweakIncCO")
 }
 record(calcout,"$(P)$(R)GHOutputOffsetTweakDecCO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Dec")
     field(INPA, "$(P)$(R)GHOutputOffsetAO NPP NMS")
     field(INPB, "$(P)$(R)GHOutputOffsetTweakAO NPP NMS")
@@ -3079,8 +2715,6 @@ record(calcout,"$(P)$(R)GHOutputOffsetTweakDecCO")
 }
 record(ao,"$(P)$(R)GHOutputOffsetTweakAO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Offset Tweak")
     field(PREC, "2")
     field(EGU,  "Volt")
@@ -3088,8 +2722,6 @@ record(ao,"$(P)$(R)GHOutputOffsetTweakAO")
 record(bi,"$(P)$(R)GHOutputPolarityBI")
 {
     field(PINI, "YES")
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Polarity")
     field(SCAN, "Passive")
     field(ZNAM, "NEG")
@@ -3099,8 +2731,6 @@ record(bi,"$(P)$(R)GHOutputPolarityBI")
 }
 record(bo,"$(P)$(R)GHOutputPolarityBO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Status Clear")
     field(DTYP, "asynInt32")
     field(ZNAM, "NEG")
@@ -3110,15 +2740,11 @@ record(bo,"$(P)$(R)GHOutputPolarityBO")
 }
 record(fanout,"$(P)$(R)GHOutputPolarityFO")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
-    field(LNK1, "$(P)$(R)StatusSI")
+    field(LNK1, "$(P)$(R)StatusLI")
     field(LNK2, "$(P)$(R)GHOutputPolarityBI")
 }
 record(seq,"$(P)$(R)GHOutputModeTtlSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)GHOutputAmpAO PP NMS")
@@ -3130,8 +2756,6 @@ record(seq,"$(P)$(R)GHOutputModeTtlSS")
 }
 record(seq,"$(P)$(R)GHOutputModeNimSS")
 {
-    field(SDIS, "$(P)$(R)DisableScanBI.VAL NPP NMS")
-    field(DISS, "INVALID")
     field(DESC, "Output Mode")
     field(SCAN, "Passive")
     field(LNK1, "$(P)$(R)GHOutputAmpAO PP NMS")

@@ -1,14 +1,5 @@
 $(P)$(R)Label
 
-$(P)$(R)ADelayTweakAO
-$(P)$(R)BDelayTweakAO
-$(P)$(R)CDelayTweakAO
-$(P)$(R)DDelayTweakAO
-$(P)$(R)EDelayTweakAO
-$(P)$(R)FDelayTweakAO
-$(P)$(R)GDelayTweakAO
-$(P)$(R)HDelayTweakAO
-
 $(P)$(R)T0OutputAmpTweakAO
 $(P)$(R)ABOutputAmpTweakAO
 $(P)$(R)CDOutputAmpTweakAO
@@ -21,6 +12,3 @@ $(P)$(R)CDOutputOffsetTweakAO
 $(P)$(R)EFOutputOffsetTweakAO
 $(P)$(R)GHOutputOffsetTweakAO
 
-$(P)$(R)IfaceIpAddrSO
-$(P)$(R)IfaceNetMaskSO
-$(P)$(R)IfaceGatewaySO

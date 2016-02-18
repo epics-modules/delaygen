@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/DOHNARMS/controls/epics/SRS_DG645/ioc/dg645App/op/adl/srsDG645Delay.adl"
+	name="/home/oxygen/DOHNARMS/epics_modules/hardware/SRS_DG645/ioc/dg645App/op/adl/srsDG645Delay.adl"
 	version=030107
 }
 display {
 	object {
-		x=112
-		y=154
+		x=1493
+		y=171
 		width=260
-		height=160
+		height=190
 	}
 	clr=14
 	bclr=3
@@ -136,7 +136,7 @@ menu {
 "text entry" {
 	object {
 		x=31
-		y=136
+		y=160
 		width=200
 		height=22
 	}
@@ -152,12 +152,12 @@ menu {
 "message button" {
 	object {
 		x=5
-		y=136
+		y=160
 		width=25
 		height=22
 	}
 	control {
-		chan="$(P)$(R)$(C)DelayTweakDecCO.PROC"
+		chan="$(P)$(R)$(C)DelayTweakDecBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -167,12 +167,12 @@ menu {
 "message button" {
 	object {
 		x=231
-		y=136
+		y=160
 		width=25
 		height=22
 	}
 	control {
-		chan="$(P)$(R)$(C)DelayTweakIncCO.PROC"
+		chan="$(P)$(R)$(C)DelayTweakIncBO.PROC"
 		clr=14
 		bclr=51
 	}
@@ -181,15 +181,15 @@ menu {
 }
 text {
 	object {
-		x=20
+		x=45
 		y=60
-		width=160
+		width=180
 		height=20
 	}
 	"basic attribute" {
 		clr=64
 	}
-	textix="Chan $(C) Delay"
+	textix="Channel $(C) Delay"
 	align="horiz. centered"
 }
 text {
@@ -250,7 +250,7 @@ text {
 }
 "related display" {
 	object {
-		x=205
+		x=215
 		y=5
 		width=40
 		height=20
@@ -264,37 +264,54 @@ text {
 	bclr=32
 	label="-Main"
 }
-text {
+"text update" {
 	object {
-		x=185
-		y=60
-		width=74
-		height=18
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(R)DisableScanBI"
-	}
-	textix="OFF LINE"
-	align="horiz. centered"
-}
-"text entry" {
-	object {
-		x=35
+		x=5
 		y=30
-		width=200
-		height=22
+		width=195
+		height=20
 	}
-	control {
+	monitor {
 		chan="$(P)$(R)Label"
 		clr=14
-		bclr=50
+		bclr=2
 	}
+	align="horiz. centered"
 	format="engr. notation"
 	limits {
 	}
+}
+"text update" {
+	object {
+		x=30
+		y=140
+		width=200
+		height=16
+	}
+	monitor {
+		chan="$(P)$(R)$(C)DelayTweakAI"
+		clr=54
+		bclr=1
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+text {
+	object {
+		x=205
+		y=30
+		width=50
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)$(R)StatusLI"
+	}
+	textix="ERROR"
+	align="horiz. centered"
 }
