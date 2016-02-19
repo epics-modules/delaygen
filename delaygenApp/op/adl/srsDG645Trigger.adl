@@ -941,20 +941,51 @@ composite {
 	limits {
 	}
 }
-text {
+composite {
 	object {
-		x=265
+		x=215
 		y=35
-		width=50
+		width=100
 		height=20
 	}
-	"basic attribute" {
-		clr=20
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=240
+				y=35
+				width=50
+				height=20
+			}
+			"basic attribute" {
+				clr=20
+			}
+			"dynamic attribute" {
+				vis="calc"
+				calc="A > 0"
+				chan="$(P)$(R)StatusLI"
+			}
+			textix="ERROR"
+			align="horiz. centered"
+		}
+		text {
+			object {
+				x=215
+				y=35
+				width=100
+				height=20
+			}
+			"basic attribute" {
+				clr=30
+				fill="outline"
+			}
+			"dynamic attribute" {
+				vis="calc"
+				calc="A < 0"
+				chan="$(P)$(R)StatusLI"
+			}
+			textix="STATUS OFF"
+			align="horiz. centered"
+		}
 	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(R)StatusLI"
-	}
-	textix="ERROR"
-	align="horiz. centered"
 }

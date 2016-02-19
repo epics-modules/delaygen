@@ -43,7 +43,8 @@
                    and changed from using address as record type to tag.
  2013-Jun-28  DAA  Add description field. Added support for prescale phases,
                    trigger holdoff, advanced triggering switch.
- 2016-Feb-18  DAA  Change Status so that int read of error sets pport->error.
+ 2016-Feb-19  DAA  Change Status so that is read after every command write,
+                   any change triggers an interrupt.
  -----------------------------------------------------------------------------
 
 */
@@ -64,6 +65,7 @@
 #include <cantProceed.h>
 #include <epicsString.h>
 #include <errlog.h>
+#include <dbAccess.h>
 
 #include <epicsThread.h>
 
@@ -74,10 +76,12 @@
 #include <asynFloat64.h>
 #include <asynOctet.h>
 #include <asynOctetSyncIO.h>
+#include <asynCommonSyncIO.h>
 #include <asynStandardInterfaces.h>
 
 /* epicsExport.h must come last */
 #include <epicsExport.h>
+
 
 
 #define LT_EPICSBASE(v,r,l) (EPICS_VERSION<(v)||(EPICS_VERSION==(v)&&(EPICS_REVISION<(r)||(EPICS_REVISION==(r)&&EPICS_MODIFICATION<(l)))))
@@ -118,6 +122,8 @@ struct Port
 
   int init;
   int error;
+
+  int check_errors;
 
   /* Asyn info */
   asynUser* pasynUser;
@@ -209,6 +215,7 @@ static asynStatus writeFloatParam(int which, Port *pport,void* data,ifaceType as
 static asynStatus writeCommandOnly(int which, Port *pport,void* data,ifaceType asynIface);
 static asynStatus writeChannelRef(int which, Port *pport,void* data,ifaceType asynIface);
 static asynStatus writeChannelDelay(int which, Port *pport,void* data,ifaceType asynIface);
+static asynStatus statusChecking(int which, Port *pport,void* data,ifaceType asynIface);
 
 
 /* Define local variants */
@@ -299,9 +306,10 @@ static Command commandTable[] =
 
   // Instrument management related commands
   {"*IDN?",    readParam,      cvtIdent,       "",             writeSink,          "IDENT",           }, // "Ident"},
-  {"LERR?",    readParam,      cvtErrorCode,   "",             writeSink,          "STATUS_CODE",     }, // "Status Code"},
+  {"",         readSink,       cvtErrorCode,   "",             writeSink,          "STATUS_CODE",     }, // "Status Code"},
   {"",         readSink,       cvtErrorText,   "",             writeSink,          "STATUS",          }, // "Status Text"},
   {"",         readSink,       cvtSink,        "*CLS",         writeCommandOnly,   "STATUS_CLEAR",    }, // "Status Clear"},
+  {"",         readSink,       cvtSink,        "",             statusChecking,     "STATUS_CHECKING", }, // "Status Checking"},
   {"",         readSink,       cvtSink,        "*RST",         writeCommandOnly,   "RESET",           }, // "Reset Instrument"},
   {"",         readSink,       cvtSink,        "LCAL",         writeCommandOnly,   "LOCAL",           }, // "Goto Local"},
   {"",         readSink,       cvtSink,        "REMT",         writeCommandOnly,   "REMOTE",          }, // "Goto Remote"},
@@ -492,6 +500,8 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
   pport->ioport = epicsStrDup(ioport);
   pport->ioaddr = ioaddr;
 
+  pport->check_errors = 1;
+
   status = pasynOctetSyncIO->connect(ioport,ioaddr,&pport->pasynUser,NULL);
   if (status != asynSuccess)
     {
@@ -524,7 +534,7 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
   pInterfaces->int32.pinterface     = (void *)&ifaceInt32;
   pInterfaces->float64.pinterface   = (void *)&ifaceFloat64;
 
-  //  pInterfaces->int32CanInterrupt    = 1;  // for status
+  pInterfaces->int32CanInterrupt    = 1;  // for status
 
   status = pasynStandardInterfacesBase->initialize(myport, pInterfaces,
                                                    pport->pasynUserTrace, 
@@ -558,6 +568,15 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
     }
   strcpy(pport->ident,inpBuf);
 
+  /* Error query */
+  if( writeRead(pport,"LERR?",inpBuf,sizeof(inpBuf),&eomReason) )
+    {
+      errlogPrintf("%s::drvAsynDG645 port %s failed to acquire error status\n",
+                   driver, myport);
+      return asynError;
+    }
+  pport->error = atoi(inpBuf);
+
   /* Clear status */
   if( writeOnly(pport,"*CLS") )
     {
@@ -576,34 +595,6 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
  * Define private convert methods
  ****************************************************************************/
 
-// static int checkError(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
-// {
-//   int code;
-//   char *m = NULL;
-
-//   code=atoi(inpBuf);
-//   for(int i=0; i<statusLen; i++) 
-//     if( statusMsg[i].code == code ) 
-//       {
-//         m = statusMsg[i].msg;
-//         break;
-//       }
-
-//   if( m ) 
-//     {
-//       strcpy((char*)outBuf,m);
-//       pport->error = code;
-//     } 
-//   else 
-//     {
-//       strcpy((char*)outBuf,"Unknown Error");
-//       pport->error = -1;
-//     }
-//   return MIN((int)strlen((char*)outBuf),maxchars);
-// }
-
-
-
 
 static int cvtSink(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
 {
@@ -616,27 +607,31 @@ static int cvtCopyText(int which, Port *pport,char* inpBuf,int maxchars,void* ou
 }
 static int cvtErrorCode(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
 {
-  int code;
+  if( !pport->check_errors)
+    *(epicsInt32*)outBuf = -1;
 
-  pport->error = atoi(inpBuf);
   *(epicsInt32*)outBuf = pport->error;
   return 0;
 }
 static int cvtErrorText(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
 {
   int code;
-  char *m = NULL;
   int i;
 
-  code = pport->error;
-  for( i=0; i<statusLen; i++) 
-    if( statusMsg[i].code == code ) 
-      {
-        strcpy((char*)outBuf,statusMsg[i].msg);
-        break;
-      }
-  if( i == statusLen)
-    strcpy((char*)outBuf,"Unknown Error");
+  if( !pport->check_errors)
+    strcpy((char*)outBuf,"Status ckecking disabled");
+  else
+    {
+      code = pport->error;
+      for( i=0; i<statusLen; i++) 
+        if( statusMsg[i].code == code ) 
+          {
+            strcpy((char*)outBuf,statusMsg[i].msg);
+            break;
+          }
+      if( i == statusLen)
+        strcpy((char*)outBuf,"Unknown Error");
+    }
 
   return MIN((int)strlen((char*)outBuf),maxchars);
 }
@@ -717,6 +712,66 @@ static asynStatus readParam(int which, Port *pport,char* inpBuf,int inputSize,in
 /****************************************************************************
  * Define private write parameter methods
  ****************************************************************************/
+
+void signalStatusUpdate(Port *pport)
+{
+ if( interruptAccept) 
+    {
+      ELLLIST *pclientList;
+      interruptNode *pnode;
+
+      asynInt32Interrupt *pInt32;
+      epicsInt32 int32Value;
+
+      pasynManager->interruptStart
+        (pport->asynStdInterfaces.int32InterruptPvt, &pclientList);
+      pnode = (interruptNode *)ellFirst(pclientList);
+      while(pnode != NULL) 
+        {
+          pInt32 = (asynInt32Interrupt *) pnode->drvPvt;
+
+          if( pInt32->pasynUser->reason == 2)
+            {
+              int32Value = pport->error;
+              pInt32->callback(pInt32->userPvt, pInt32->pasynUser,
+                               int32Value);
+              break;
+            }
+          
+          pnode = (interruptNode *)ellNext(&pnode->node);
+        }
+
+      pasynManager->interruptEnd(pport->asynStdInterfaces.int32InterruptPvt);
+    }
+}
+
+
+static asynStatus checkError(Port *pport)
+{
+  asynStatus status;
+  int eom;
+  int old_error;
+
+  char inpBuf[BUFFER_SIZE];
+  char outBuf[6] = "LERR?";
+
+  old_error = pport->error;
+
+  status = writeRead( pport, outBuf, inpBuf, sizeof(inpBuf), &eom);
+  if( ASYN_ERROR( status) )
+    return status;
+  
+  pport->error = atoi(inpBuf);
+
+  if(old_error != pport->error)
+    signalStatusUpdate(pport);
+ 
+  return status;
+}
+
+
+
+
 static asynStatus writeSink(int which, Port *pport, void* data,ifaceType asynIface)
 {
   return asynSuccess;
@@ -724,27 +779,48 @@ static asynStatus writeSink(int which, Port *pport, void* data,ifaceType asynIfa
 static asynStatus writeIntParam(int which, Port *pport,void* data,ifaceType asynIface)
 {
   char outBuf[BUFFER_SIZE];
+  asynStatus status;
 
   sprintf(outBuf,commandTable[which].writeCommand,*(epicsInt32*)data);
-  return writeOnly(pport,outBuf);
+  status = writeOnly(pport,outBuf);
+  if( ASYN_ERROR( status) || !pport->check_errors )
+    return status;
+
+  return checkError(pport);
 }
 static asynStatus writeStrParam(int which, Port *pport,void* data,ifaceType asynIface)
 {
   char outBuf[BUFFER_SIZE];
+  asynStatus status;
 
   sprintf(outBuf,commandTable[which].writeCommand,(char*)data);
-  return writeOnly(pport,outBuf);
+  status = writeOnly(pport,outBuf);
+  if( ASYN_ERROR( status) || !pport->check_errors )
+    return status;
+
+  return checkError(pport);
 }
 static asynStatus writeFloatParam(int which, Port *pport,void* data,ifaceType asynIface)
 {
   char outBuf[BUFFER_SIZE];
+  asynStatus status;
 
   sprintf(outBuf,commandTable[which].writeCommand,*(epicsFloat64*)data);
-  return writeOnly(pport,outBuf);
+  status =  writeOnly(pport,outBuf);
+  if( ASYN_ERROR( status) || !pport->check_errors )
+    return status;
+
+  return checkError(pport);
 }
 static asynStatus writeCommandOnly(int which, Port *pport,void* data,ifaceType asynIface)
 {
-  return writeOnly(pport,commandTable[which].writeCommand);
+  asynStatus status;
+
+  status = writeOnly(pport,commandTable[which].writeCommand);
+  if( ASYN_ERROR( status) || !pport->check_errors )
+    return status;
+
+  return checkError(pport);
 }
 static asynStatus writeChannelRef(int which, Port *pport,void* data,ifaceType asynIface)
 {
@@ -760,7 +836,11 @@ static asynStatus writeChannelRef(int which, Port *pport,void* data,ifaceType as
   sscanf(datBuf,"%d,%lf",&chan,&delay);
   sprintf((char*)datBuf,commandTable[which].writeCommand,*(int*)data,delay);
 
-  return writeOnly(pport,datBuf);
+  status = writeOnly(pport,datBuf);
+  if( ASYN_ERROR( status) || !pport->check_errors )
+    return status;
+
+  return checkError(pport);
 }
 static asynStatus writeChannelDelay(int which, Port *pport,void* data,ifaceType asynIface)
 {
@@ -776,7 +856,43 @@ static asynStatus writeChannelDelay(int which, Port *pport,void* data,ifaceType 
   sscanf(datBuf,"%d,%lf",&chan,&delay);
   sprintf((char*)datBuf,commandTable[which].writeCommand,chan,*(epicsFloat64*)data);
 
-  return writeOnly(pport,datBuf);
+  status = writeOnly(pport,datBuf);
+  if( ASYN_ERROR( status) || !pport->check_errors )
+    return status;
+
+  return checkError(pport);
+}
+static asynStatus statusChecking(int which, Port *pport, void* data,ifaceType asynIface)
+{
+  asynStatus status;
+  int val;
+
+  if( asynIface != Int32)
+    return asynError;
+
+  val = *((epicsInt32*) data);
+  if( (val < 0) || (val > 1) )
+    return asynError;
+
+  if( val == pport->check_errors)
+    return asynSuccess;
+    
+  status = asynSuccess;
+  if( val == 0)
+    {
+      pport->check_errors = 0;
+      pport->error = -1; // to force it to change later
+      signalStatusUpdate(pport);
+    }
+  else
+    {
+      char outBuf[5] = "*CLS";
+      writeOnly( pport, outBuf);
+      pport->check_errors = 1;
+      status = checkError( pport);
+    }
+
+  return status;
 }
 
 
