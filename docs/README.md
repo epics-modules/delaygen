@@ -1,4 +1,4 @@
-
+<pre>
                                       Argonne National Laboratory
                                    APS Engineering Support Division
                                 Beamline Controls and Data Acquisition
@@ -10,7 +10,11 @@
 3. Colby Instruments PDL100A Programmable Delay Line
 4. Coherent Synchronization Delay Generator
 5. Berkeley Nucleonics 505 Pulse/Delay Generator
+</pre>
 
+* [delaygenReleaseNotes.html](http://htmlpreview.github.com/?https://github.com/epics-modules/delaygen/blob/master/documentation/delaygenReleaseNotes.html)
+
+<pre>
 --------------------------------------------------------------------------------------------------------------
 Contact information:
 Argonne National Laboratory
@@ -19,3 +23,4 @@ Beamline Controls and Data Acquisition
 Dohn Arms
 dohnarms@anl.gov
 --------------------------------------------------------------------------------------------------------------
+</pre>
