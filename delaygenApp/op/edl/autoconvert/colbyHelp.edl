@@ -1,0 +1,206 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 141
+y 133
+w 292
+h 198
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 31
+bgColor index 10
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 20
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 0
+useDisplayBg
+value {
+ "Before rebooting the IOC, depress the"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 35
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 0
+useDisplayBg
+value {
+ "Disconnect button to orderly shutdown"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 50
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 0
+useDisplayBg
+value {
+ "the network connection to the Colby"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 65
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 0
+useDisplayBg
+value {
+ "instrument. After that, type Reboot"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 81
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 0
+useDisplayBg
+value {
+ "at the IOC console to complete the"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 96
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 0
+useDisplayBg
+value {
+ "orderly shutdown process."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 111
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ ""
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 127
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 0
+useDisplayBg
+value {
+ "If there are problems with connecting"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 140
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 0
+useDisplayBg
+value {
+ "with the instrument, try depressing the"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 153
+w 275
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 0
+useDisplayBg
+value {
+ "Connect button."
+}
+endObjectProperties
+

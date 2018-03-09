@@ -1,0 +1,218 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 174
+y 478
+w 203
+h 243
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 10
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 3
+y 4
+w 196
+h 22
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 31
+useDisplayBg
+value {
+ "DELAYGEN MODULE"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 3
+y 30
+w 196
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 50
+useDisplayBg
+value {
+ "$(P)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 11
+y 50
+w 180
+h 22
+fgColor index 14
+bgColor index 4
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Asyn Serial"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 asynRecord.adl
+  1 asynRecord.adl
+  2 asynRecord.adl
+}
+menuLabel {
+  0 ttyS1
+  1 ttyS2
+  2 ttyS3
+}
+symbols {
+  0 "P=$(P),R=ttyS1"
+  1 "P=$(P),R=ttyS2"
+  2 "P=$(P),R=ttyS3"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 11
+y 72
+w 180
+h 22
+fgColor index 14
+bgColor index 4
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Colby"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 asynRecord.adl
+  1 ../../adl/colbyMain.edl
+}
+menuLabel {
+  0 Colby Asyn record
+  1 Colby controls
+}
+symbols {
+  0 "P=$(P),R=Colby"
+  1 "P=$(P),R=Colby:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 118
+w 180
+h 22
+fgColor index 14
+bgColor index 4
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "SRS DG645"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 ../../adl/srsDG645.edl
+}
+menuLabel {
+  0 DG645
+}
+symbols {
+  0 "P=delaygen:,R=DG0:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 141
+w 180
+h 22
+fgColor index 14
+bgColor index 4
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "SRS DG535"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 ../../adl/devDG535.edl
+}
+menuLabel {
+  0 DG535
+}
+symbols {
+  0 "P=$(P),R=DG1:"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 95
+w 180
+h 22
+fgColor index 14
+bgColor index 4
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Coherent SDG"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 ConherentSDG.adl
+}
+menuLabel {
+  0 Coherent SDG
+}
+symbols {
+  0 "P=$(P),R=sdg:"
+}
+endObjectProperties
+
