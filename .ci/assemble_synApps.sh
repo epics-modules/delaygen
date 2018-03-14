@@ -140,12 +140,12 @@ cd ..
 mkdir synApps
 cd synApps
 
-get_support support $SUPPORT
+get_support support master
 cd support
 
-get_support configure      $CONFIGURE
-get_support utils          $UTILS
-get_support documentation  $DOCUMENTATION
+get_support configure master
+get_support utils     master
+get_support documentation  master
 
 SUPPORT=$(pwd)
 
