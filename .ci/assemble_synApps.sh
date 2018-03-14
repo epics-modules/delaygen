@@ -164,6 +164,7 @@ if [[ $ASYN ]];          then   get_repo epics-modules  asyn           ASYN     
 if [[ $CALC ]];          then   get_repo epics-modules  calc           CALC           $CALC          ; fi
 if [[ $IP ]];            then   get_repo epics-modules  ip             IP             $IP            ; fi
 if [[ $IPAC ]];          then   get_repo epics-modules  ipac           IPAC           $IPAC          ; fi
+if [[ $SSCAN ]];         then   get_repo epics-modules  sscan          SSCAN          $SSCAN         ; fi
 
 
 if [[ $STREAM ]]
