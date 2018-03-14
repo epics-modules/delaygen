@@ -12,10 +12,6 @@ include "drvAsynSerialPort.dbd"
 include "drvAsynIPPort.dbd"
 
 #------------------------------------------------------------------------------
-# Autosave support
-include "asSupport.dbd"
-
-#------------------------------------------------------------------------------
 # Calc support
 include "sseqRecord.dbd"
 

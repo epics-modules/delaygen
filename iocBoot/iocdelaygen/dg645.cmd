@@ -1,18 +1,20 @@
 ### Stanford Research Systems (SRS) DG645
-
-# Initialize IP Asyn support
-#drvAsynIPPortConfigure("D0","164.54.52.182:5024",0,0,0)
+# You can use the serial port or the network port, as in the main st.cmd.
 
 # Initialize input/output EOS
-asynOctetSetOutputEos("D0",0,"\n")
-asynOctetSetInputEos("D0",0,"\r\n")
+asynOctetSetInputEos("serial1",0,"\r\n")
+asynOctetSetOutputEos("serial1",0,"\n")
+
+# the device actually uses hardware handshaking
+asynSetOption(serial1, 0, "crtscts",   "Y")
 
 ## drvAsynDG645(myport,ioport,ioaddr)
 #       myport  - Interface asyn port name (i.e. "DG0")
 #       ioport  - Comm asyn port name (i.e. "L2")
 #       ioaddr  - Comm asyn port addr
 #
-drvAsynDG645("DG0","D0",-1);
+drvAsynDG645("DG1","serial1",-1);
 
 # Load database
-dbLoadRecords("$(IOCDB)/drvDG645.db","P=delaygen:,R=DG0:,PORT=DG0")
+dbLoadRecords("$(TOP)/delaygenApp/Db/drvDG645.db","P=delaygen:,R=DG1:,PORT=DG1")
+

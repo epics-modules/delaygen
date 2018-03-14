@@ -105,7 +105,7 @@
 /* Forward struct declarations */
 typedef enum {Octet,Float64,Int32} ifaceType;
 
-static char *driver = "drvAsynDG645";      /* String for asynPrint */
+const char *driver = "drvAsynDG645";      /* String for asynPrint */
 
 
 /* Declare port driver structure */
@@ -136,21 +136,21 @@ struct Port
 struct Status
 {
   int code;
-  char* msg;
+  const char* msg;
 };
 
 
 /* Declare command structure */
 struct Command
 {
-  char* readCommand;
+  const char* readCommand;
   asynStatus (*readFunc)(int which,Port *pport,char* inpBuf,int inputSize,int* eomReason,ifaceType asynIface);
   int (*readConv)(int which,Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface);
 
-  char* writeCommand;
+  const char* writeCommand;
   asynStatus (*writeFunc)(int which, Port *pport,void* data,ifaceType asynIface);
 
-  char *tag;
+  const char *tag;
   //  char* desc; // not used right now, so they are commented out
 };
 
@@ -189,8 +189,8 @@ static asynStatus readOctet(void* ppvt,asynUser* pasynUser,char* data,size_t max
 static asynOctet ifaceOctet = { writeOctet, readOctet, flushOctet};
 
 /* Forward references for external asynOctet interface */
-static asynStatus writeOnly(Port* pport,char* outBuf);
-static asynStatus writeRead(Port* pport,char* outBuf,char* inpBuf,int inputSize,int *eomReason);
+static asynStatus writeOnly(Port* pport, const char* outBuf);
+static asynStatus writeRead(Port* pport, const char* outBuf,char* inpBuf,int inputSize,int *eomReason);
 
 
 /* Forward references for command table methods */
@@ -660,7 +660,7 @@ static int cvtIdent(int which, Port *pport,char* inpBuf,int maxchars,void* outBu
     }
   return MIN((int)strlen((char*)outBuf),maxchars);
 }
-static int cvtChanRef(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+static int cvtChanRef(int which, Port *pport, char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
 {
   int chan;
   epicsFloat64 delay;
@@ -670,9 +670,9 @@ static int cvtChanRef(int which, Port *pport,char* inpBuf,int maxchars,void* out
 
   return 0;
 }
-static int cvtChanDelay(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+static int cvtChanDelay(int which, Port *pport, char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
 {
-  char* delayText[] = {"T0", "T1", "A", "B", "C", "D", "E", "F", "G", "H"};
+  const char* delayText[] = {"T0", "T1", "A", "B", "C", "D", "E", "F", "G", "H"};
 
   int chan,siz;
   epicsFloat64 delay;
@@ -1094,7 +1094,7 @@ static asynStatus readOctet(void* ppvt,asynUser* pasynUser,char* data,size_t max
 /****************************************************************************
  * Define private DG645 external interface asynOctet methods
  ****************************************************************************/
-static asynStatus writeOnly(Port* pport,char* outBuf)
+static asynStatus writeOnly(Port* pport, const char* outBuf)
 {
   asynStatus status;
   size_t nActual,nRequested=strlen(outBuf);
@@ -1114,7 +1114,7 @@ static asynStatus writeOnly(Port* pport,char* outBuf)
 
   return status;
 }
-static asynStatus writeRead(Port* pport,char* outBuf,char* inpBuf,int inputSize,int* eomReason)
+static asynStatus writeRead(Port* pport, const char* outBuf,char* inpBuf,int inputSize,int* eomReason)
 {
   asynStatus status;
   size_t nWrite,nRead,nWriteRequested=strlen(outBuf);

@@ -47,7 +47,7 @@ delaygenApp_SRCS_vxWorks += iocdelaygenAppVxWorks_registerRecordDeviceDriver.cpp
 
 #-----------------------------------------------------------------------------
 # Include libraries
-delaygenApp_LIBS += autosave calc delaygen asyn
+delaygenApp_LIBS += calc delaygen asyn
 ifdef STREAM
 	delaygenApp_LIBS += stream
 endif

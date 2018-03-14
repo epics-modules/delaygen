@@ -1,6 +1,26 @@
 <html>
 <body>
 
+<P>Release 1.2
+
+<dl>
+  <dt>DG645 support</dt>
+  <dd>Reduced the overhead for its use by removing the database status
+    checking with the device after every operation.  The status is
+    checked at the driver level, and if it changes an interrupt will
+    be generated instead to trigger reading by the database.  Also
+    removed the disable checking from all the database records.</dd>
+  <dt>devDG535daa.db</dt>
+  <dd>Added alternate database support for the DG535, named
+    devDG535daa.db, which uses the existing devDG535.c code. There is
+    a parallel set of screens: devDG535daa.adl,
+    devDG535Operationsdaa.adl, and devDG535Outputsdaa.adl.  This alternate 
+    support is meant to be friendlier for frequent usage.</dd>
+  <dt>Updated OPI, UI, and EDL screens</dt>
+  <dd>Converted all the ADL files to the three other formats, and put them
+    in each type's autoconvert directory.</dd>
+</dl>
+
 <P>Release 1.1.1
 
 <dl>
