@@ -178,6 +178,19 @@ cd ..
 
 fi
 
+if [[ $SNCSEQ ]]
+then
+
+# seq
+wget http://www-csr.bessy.de/control/SoftDist/sequencer/releases/seq-$SNCSEQ.tar.gz
+tar zxf seq-$SNCSEQ.tar.gz
+# The synApps build can't handle '.'
+mv seq-$SNCSEQ seq-${SNCSEQ//./-}
+rm -f seq-$SNCSEQ.tar.gz
+echo "SNCSEQ=\$(SUPPORT)/seq-${SNCSEQ//./-}" >> ./configure/RELEASE
+
+fi
+
 make release
 make
 
