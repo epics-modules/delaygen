@@ -19,9 +19,9 @@ iocdelaygenApp_registerRecordDeviceDriver(pdbbase)
 
 ###  OR  ####
  
-# For Linux COM2 serial
-#drvAsynSerialPortConfigure("portName","ttyName",priority,noAutoConnect,
-#                            noProcessEos)
+## For Linux COM2 serial
+## drvAsynSerialPortConfigure("portName","ttyName",priority,noAutoConnect,
+##                             noProcessEos)
 drvAsynSerialPortConfigure("serial1", "/dev/ttyS1", 0, 0, 0)
 
 ###################
@@ -51,8 +51,8 @@ dbLoadRecords("$(ASYN)/db/asynRecord.db","P=delaygen:,R=asyn_1,PORT=serial1,ADDR
 
 #< colby.cmd
 < dg645.cmd
-#< CoherentSDG.cmd
-
+#< coherentSDG.cmd
+#< bnc505.cmd
 ## this device won't use serial1 as above, uses GPIB interface, see cmd file
 #< dg535.cmd
 

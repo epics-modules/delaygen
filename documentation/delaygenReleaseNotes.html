@@ -8,8 +8,10 @@
   <dd>Reduced the overhead for its use by removing the database status
     checking with the device after every operation.  The status is
     checked at the driver level, and if it changes an interrupt will
-    be generated instead to trigger reading by the database.  Also
-    removed the disable checking from all the database records.</dd>
+    be generated instead to trigger reading by the database.  Removed
+    the disable checking from all the database records.  Implemented
+    delay tweaks using the hardware tweak functions instead of
+    incrementing using calcs.</dd>
   <dt>devDG535daa.db</dt>
   <dd>Added alternate database support for the DG535, named
     devDG535daa.db, which uses the existing devDG535.c code. There is

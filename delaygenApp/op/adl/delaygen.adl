@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen25/DOHNARMS/svn_pub/delaygen/delaygenApp/op/adl/delaygen.adl"
-	version=030107
+	name="/local/github-repos/delaygen/delaygenApp/op/adl/delaygen.adl"
+	version=030111
 }
 display {
 	object {
-		x=174
-		y=478
+		x=2787
+		y=359
 		width=203
 		height=243
 	}
@@ -94,20 +94,13 @@ display {
 		width=180
 		height=22
 	}
+	display[0] {
+		label=" "
+	}
 	display[1] {
-		label="ttyS1"
+		label="serial1"
 		name="asynRecord.adl"
-		args="P=$(P),R=ttyS1"
-	}
-	display[2] {
-		label="ttyS2"
-		name="asynRecord.adl"
-		args="P=$(P),R=ttyS2"
-	}
-	display[3] {
-		label="ttyS3"
-		name="asynRecord.adl"
-		args="P=$(P),R=ttyS3"
+		args="P=$(P),R=asyn_1"
 	}
 	clr=14
 	bclr=4
@@ -142,7 +135,7 @@ text {
 "related display" {
 	object {
 		x=11
-		y=72
+		y=77
 		width=180
 		height=22
 	}
@@ -163,17 +156,17 @@ text {
 "related display" {
 	object {
 		x=10
-		y=118
+		y=131
 		width=180
 		height=22
 	}
 	display[0] {
-		label="  "
+		label=" "
 	}
 	display[1] {
 		label="DG645"
 		name="srsDG645.adl"
-		args="P=delaygen:,R=DG0:"
+		args="P=delaygen:,R=DG1:"
 	}
 	clr=14
 	bclr=4
@@ -182,17 +175,19 @@ text {
 "related display" {
 	object {
 		x=10
-		y=141
+		y=158
 		width=180
 		height=22
 	}
-	display[0] {
-		label=" "
-	}
 	display[1] {
-		label="DG535"
+		label="DG535 (original)"
 		name="devDG535.adl"
-		args="P=$(P),R=DG1:"
+		args="P=$(P),R=DG2:"
+	}
+	display[2] {
+		label="DG535 (modified)"
+		name="devDG535daa.adl"
+		args="P=$(P),R=DG2:"
 	}
 	clr=14
 	bclr=4
@@ -201,7 +196,7 @@ text {
 "related display" {
 	object {
 		x=10
-		y=95
+		y=104
 		width=180
 		height=22
 	}
@@ -210,10 +205,29 @@ text {
 	}
 	display[1] {
 		label="Coherent SDG"
-		name="ConherentSDG.adl"
+		name="CoherentSDG.adl"
 		args="P=$(P),R=sdg:"
 	}
 	clr=14
 	bclr=4
 	label="-Coherent SDG"
+}
+"related display" {
+	object {
+		x=10
+		y=185
+		width=180
+		height=22
+	}
+	display[0] {
+		label=" "
+	}
+	display[1] {
+		label="BNC 505"
+		name="BNC_505.adl"
+		args="P=$(P),R=BNC:"
+	}
+	clr=14
+	bclr=4
+	label="-BNC 505"
 }

@@ -596,16 +596,21 @@ int drvAsynDG645(const char* myport,const char* ioport,int ioaddr)
  ****************************************************************************/
 
 
-static int cvtSink(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+static int cvtSink(int which, Port *pport, char* inpBuf, int maxchars, 
+                   void* outBuf, ifaceType asynIface)
 {
   return 0;
 }
-static int cvtCopyText(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+
+static int cvtCopyText(int which, Port *pport, char* inpBuf, int maxchars,
+                       void* outBuf, ifaceType asynIface)
 {
   strcpy((char*)outBuf,inpBuf);
   return MIN((int)strlen((char*)outBuf),maxchars);
 }
-static int cvtErrorCode(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+
+static int cvtErrorCode(int which, Port *pport, char* inpBuf, int maxchars,
+                        void* outBuf, ifaceType asynIface)
 {
   if( !pport->check_errors)
     *(epicsInt32*)outBuf = -1;
@@ -613,7 +618,9 @@ static int cvtErrorCode(int which, Port *pport,char* inpBuf,int maxchars,void* o
   *(epicsInt32*)outBuf = pport->error;
   return 0;
 }
-static int cvtErrorText(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+
+static int cvtErrorText(int which, Port *pport, char* inpBuf, int maxchars,
+                        void* outBuf, ifaceType asynIface)
 {
   int code;
   int i;
@@ -635,17 +642,23 @@ static int cvtErrorText(int which, Port *pport,char* inpBuf,int maxchars,void* o
 
   return MIN((int)strlen((char*)outBuf),maxchars);
 }
-static int cvtStrInt(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+
+static int cvtStrInt(int which, Port *pport, char* inpBuf, int maxchars,
+                     void* outBuf, ifaceType asynIface)
 {
   *(epicsInt32*)outBuf = atoi(inpBuf);
   return 0;
 }
-static int cvtStrFloat(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+
+static int cvtStrFloat(int which, Port *pport, char* inpBuf, int maxchars,
+                       void* outBuf, ifaceType asynIface)
 {
   *(epicsFloat64*)outBuf = atof(inpBuf);
   return 0;
 }
-static int cvtIdent(int which, Port *pport,char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+
+static int cvtIdent(int which, Port *pport, char* inpBuf, int maxchars,
+                    void* outBuf, ifaceType asynIface)
 {
   // this routine just chops the Ident string down to under 40 characters
   char *p;
@@ -660,7 +673,9 @@ static int cvtIdent(int which, Port *pport,char* inpBuf,int maxchars,void* outBu
     }
   return MIN((int)strlen((char*)outBuf),maxchars);
 }
-static int cvtChanRef(int which, Port *pport, char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+
+static int cvtChanRef(int which, Port *pport, char* inpBuf, int maxchars,
+                      void* outBuf, ifaceType asynIface)
 {
   int chan;
   epicsFloat64 delay;
@@ -670,9 +685,12 @@ static int cvtChanRef(int which, Port *pport, char* inpBuf,int maxchars,void* ou
 
   return 0;
 }
-static int cvtChanDelay(int which, Port *pport, char* inpBuf,int maxchars,void* outBuf,ifaceType asynIface)
+
+static int cvtChanDelay(int which, Port *pport, char* inpBuf, int maxchars,
+                        void* outBuf, ifaceType asynIface)
 {
-  const char* delayText[] = {"T0", "T1", "A", "B", "C", "D", "E", "F", "G", "H"};
+  const char* delayText[] = 
+    { "T0", "T1", "A", "B", "C", "D", "E", "F", "G", "H"};
 
   int chan,siz;
   epicsFloat64 delay;
@@ -699,13 +717,16 @@ static int cvtChanDelay(int which, Port *pport, char* inpBuf,int maxchars,void* 
 /****************************************************************************
  * Define private read parameter methods
  ****************************************************************************/
-static asynStatus readSink(int which, Port *pport,char* inpBuf,int inputSize,int *eomReason,ifaceType asynIface)
+static asynStatus readSink(int which, Port *pport, char* inpBuf, int inputSize,
+                           int *eomReason, ifaceType asynIface)
 {
   return asynSuccess;
 }
-static asynStatus readParam(int which, Port *pport,char* inpBuf,int inputSize,int* eomReason,ifaceType asynIface)
+static asynStatus readParam(int which, Port *pport, char* inpBuf, int inputSize,
+                            int* eomReason,ifaceType asynIface)
 {
-  return writeRead(pport,commandTable[which].readCommand,inpBuf,inputSize,eomReason);
+  return writeRead(pport, commandTable[which].readCommand, inpBuf, inputSize, 
+                   eomReason);
 }
 
 
@@ -772,11 +793,14 @@ static asynStatus checkError(Port *pport)
 
 
 
-static asynStatus writeSink(int which, Port *pport, void* data,ifaceType asynIface)
+static asynStatus writeSink(int which, Port *pport, void* data, 
+                            ifaceType asynIface)
 {
   return asynSuccess;
 }
-static asynStatus writeIntParam(int which, Port *pport,void* data,ifaceType asynIface)
+
+static asynStatus writeIntParam(int which, Port *pport, void* data,
+                                ifaceType asynIface)
 {
   char outBuf[BUFFER_SIZE];
   asynStatus status;
@@ -788,7 +812,9 @@ static asynStatus writeIntParam(int which, Port *pport,void* data,ifaceType asyn
 
   return checkError(pport);
 }
-static asynStatus writeStrParam(int which, Port *pport,void* data,ifaceType asynIface)
+
+static asynStatus writeStrParam(int which, Port *pport, void* data, 
+                                ifaceType asynIface)
 {
   char outBuf[BUFFER_SIZE];
   asynStatus status;
@@ -800,7 +826,9 @@ static asynStatus writeStrParam(int which, Port *pport,void* data,ifaceType asyn
 
   return checkError(pport);
 }
-static asynStatus writeFloatParam(int which, Port *pport,void* data,ifaceType asynIface)
+
+static asynStatus writeFloatParam(int which, Port *pport, void* data,
+                                  ifaceType asynIface)
 {
   char outBuf[BUFFER_SIZE];
   asynStatus status;
@@ -812,7 +840,9 @@ static asynStatus writeFloatParam(int which, Port *pport,void* data,ifaceType as
 
   return checkError(pport);
 }
-static asynStatus writeCommandOnly(int which, Port *pport,void* data,ifaceType asynIface)
+
+static asynStatus writeCommandOnly(int which, Port *pport, void* data,
+                                   ifaceType asynIface)
 {
   asynStatus status;
 
@@ -822,14 +852,17 @@ static asynStatus writeCommandOnly(int which, Port *pport,void* data,ifaceType a
 
   return checkError(pport);
 }
-static asynStatus writeChannelRef(int which, Port *pport,void* data,ifaceType asynIface)
+
+static asynStatus writeChannelRef(int which, Port *pport, void* data,
+                                  ifaceType asynIface)
 {
   asynStatus status;
   int chan,eomReason;
   epicsFloat64 delay;
   char datBuf[BUFFER_SIZE];
 
-  status = writeRead(pport,commandTable[which].readCommand,datBuf,sizeof(datBuf),&eomReason);
+  status = writeRead(pport, commandTable[which].readCommand, datBuf,
+                     sizeof(datBuf), &eomReason);
   if( ASYN_ERROR(status) ) 
     return status;
 
@@ -842,19 +875,23 @@ static asynStatus writeChannelRef(int which, Port *pport,void* data,ifaceType as
 
   return checkError(pport);
 }
-static asynStatus writeChannelDelay(int which, Port *pport,void* data,ifaceType asynIface)
+
+static asynStatus writeChannelDelay(int which, Port *pport, void* data,
+                                    ifaceType asynIface)
 {
   asynStatus status;
   int chan,eomReason;
   epicsFloat64 delay;
   char datBuf[BUFFER_SIZE];
 
-  status = writeRead(pport,commandTable[which].readCommand,datBuf,sizeof(datBuf),&eomReason);
+  status = writeRead(pport, commandTable[which].readCommand, datBuf,
+                     sizeof(datBuf), &eomReason);
   if( ASYN_ERROR(status) ) 
     return status;
 
   sscanf(datBuf,"%d,%lf",&chan,&delay);
-  sprintf((char*)datBuf,commandTable[which].writeCommand,chan,*(epicsFloat64*)data);
+  sprintf((char*)datBuf, commandTable[which].writeCommand, chan, 
+          *(epicsFloat64*)data);
 
   status = writeOnly(pport,datBuf);
   if( ASYN_ERROR( status) || !pport->check_errors )
@@ -862,7 +899,8 @@ static asynStatus writeChannelDelay(int which, Port *pport,void* data,ifaceType 
 
   return checkError(pport);
 }
-static asynStatus statusChecking(int which, Port *pport, void* data,ifaceType asynIface)
+static asynStatus statusChecking(int which, Port *pport, void* data,
+                                 ifaceType asynIface)
 {
   asynStatus status;
   int val;
@@ -935,7 +973,8 @@ static asynStatus disconnect(void* ppvt,asynUser* pasynUser)
 /****************************************************************************
  * Define private interface asynDrvUser methods
  ****************************************************************************/
-static asynStatus create(void* ppvt,asynUser* pasynUser,const char* drvInfo, const char** pptypeName,size_t* psize)
+static asynStatus create(void* ppvt, asynUser* pasynUser, const char* drvInfo, 
+                         const char** pptypeName,size_t* psize)
 {
   Port* pport = (Port*)ppvt;
   int i;
@@ -957,7 +996,8 @@ static asynStatus create(void* ppvt,asynUser* pasynUser,const char* drvInfo, con
   return asynSuccess;
 }
 
-static asynStatus gettype(void* ppvt,asynUser* pasynUser,const char** pptypeName,size_t* psize)
+static asynStatus gettype(void* ppvt, asynUser* pasynUser,
+                          const char** pptypeName,size_t* psize)
 {
   if( pptypeName ) 
     *pptypeName = NULL;
@@ -966,6 +1006,7 @@ static asynStatus gettype(void* ppvt,asynUser* pasynUser,const char** pptypeName
 
   return asynSuccess;
 }
+
 static asynStatus destroy(void* ppvt,asynUser* pasynUser)
 {
   return asynSuccess;
@@ -975,7 +1016,8 @@ static asynStatus destroy(void* ppvt,asynUser* pasynUser)
 /****************************************************************************
  * Define private interface asynFloat64 methods
  ****************************************************************************/
-static asynStatus writeFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64 value)
+static asynStatus writeFloat64(void* ppvt, asynUser* pasynUser,
+                               epicsFloat64 value)
 {
   asynStatus status;
   Port* pport=(Port*)ppvt;
@@ -988,7 +1030,9 @@ static asynStatus writeFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64 value
 
   return status;
 }
-static asynStatus readFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64* value)
+
+static asynStatus readFloat64(void* ppvt, asynUser* pasynUser,
+                              epicsFloat64* value)
 {
   int eom;
   asynStatus status;
@@ -999,11 +1043,13 @@ static asynStatus readFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64* value
   if( pport->init==0 ) 
     return asynError;
 
-  status = commandTable[which].readFunc(which, pport, inpBuf,sizeof(inpBuf), &eom,Float64);
+  status = commandTable[which].readFunc(which, pport, inpBuf,sizeof(inpBuf), 
+                                        &eom, Float64);
 
   if( ASYN_ERROR(status) )
     return status;
-  commandTable[which].readConv(which, pport, inpBuf,sizeof(epicsFloat64),value,Float64);
+  commandTable[which].readConv(which, pport, inpBuf, sizeof(epicsFloat64),
+                               value, Float64);
   return status;
 }
 
@@ -1011,7 +1057,7 @@ static asynStatus readFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64* value
 /****************************************************************************
  * Define private interface asynInt32 methods
  ****************************************************************************/
-static asynStatus writeInt32(void* ppvt,asynUser* pasynUser,epicsInt32 value)
+static asynStatus writeInt32(void* ppvt, asynUser* pasynUser, epicsInt32 value)
 {
   asynStatus status;
   Port* pport=(Port*)ppvt;
@@ -1024,6 +1070,7 @@ static asynStatus writeInt32(void* ppvt,asynUser* pasynUser,epicsInt32 value)
 
   return status;
 }
+
 static asynStatus readInt32(void* ppvt,asynUser* pasynUser,epicsInt32* value)
 {
   int eom;
@@ -1035,11 +1082,13 @@ static asynStatus readInt32(void* ppvt,asynUser* pasynUser,epicsInt32* value)
   if( pport->init==0 ) 
     return asynError;
 
-  status = commandTable[which].readFunc(which, pport, inpBuf,sizeof(inpBuf), &eom,Int32);
+  status = commandTable[which].readFunc(which, pport, inpBuf,sizeof(inpBuf), 
+                                        &eom, Int32);
 
   if( ASYN_ERROR(status) ) 
     return status;
-  commandTable[which].readConv(which,pport, inpBuf,sizeof(epicsInt32),value, Int32);
+  commandTable[which].readConv(which,pport, inpBuf,sizeof(epicsInt32),
+                               value, Int32);
 
   return status;
 }
@@ -1052,7 +1101,9 @@ static asynStatus flushOctet(void *ppvt,asynUser* pasynUser)
 {
   return asynSuccess;
 }
-static asynStatus writeOctet(void *ppvt,asynUser *pasynUser,const char *data,size_t numchars,size_t *nbytes)
+
+static asynStatus writeOctet(void *ppvt, asynUser *pasynUser, const char *data,
+                             size_t numchars, size_t *nbytes)
 {
   asynStatus status;
   Port* pport=(Port*)ppvt;
@@ -1070,7 +1121,9 @@ static asynStatus writeOctet(void *ppvt,asynUser *pasynUser,const char *data,siz
 
   return status;
 }
-static asynStatus readOctet(void* ppvt,asynUser* pasynUser,char* data,size_t maxchars,size_t* nbytes,int* eom)
+
+static asynStatus readOctet(void* ppvt, asynUser* pasynUser, char* data,
+                            size_t maxchars, size_t* nbytes, int* eom)
 {
   asynStatus status;
   char inpBuf[BUFFER_SIZE];
@@ -1080,12 +1133,14 @@ static asynStatus readOctet(void* ppvt,asynUser* pasynUser,char* data,size_t max
   if( pport->init==0 ) 
     return asynError;
 
-  status = commandTable[which].readFunc(which,pport,inpBuf,sizeof(inpBuf), eom,Octet);
+  status = commandTable[which].readFunc(which, pport, inpBuf, sizeof(inpBuf), 
+                                        eom, Octet);
 
   if( ASYN_ERROR(status) ) 
     *nbytes=0;
   else
-    *nbytes=commandTable[which].readConv(which,pport, inpBuf,maxchars,data, Octet);
+    *nbytes=commandTable[which].readConv(which, pport, inpBuf, maxchars, data,
+                                         Octet);
 
   return status;
 }
@@ -1099,34 +1154,43 @@ static asynStatus writeOnly(Port* pport, const char* outBuf)
   asynStatus status;
   size_t nActual,nRequested=strlen(outBuf);
 
-  status = pasynOctetSyncIO->write(pport->pasynUser,outBuf,nRequested,TIMEOUT,&nActual);
+  status = pasynOctetSyncIO->write(pport->pasynUser, outBuf, nRequested, 
+                                   TIMEOUT, &nActual);
   if( nActual!=nRequested ) 
     status = asynError;
   if( status!=asynSuccess )
     {
       ++pport->discos;
-      asynPrint(pport->pasynUserTrace,ASYN_TRACE_ERROR,"%s writeOnly: error %d wrote \"%s\"\n",pport->myport,status,outBuf);
+      asynPrint(pport->pasynUserTrace, ASYN_TRACE_ERROR,
+                "%s writeOnly: error %d wrote \"%s\"\n",
+                pport->myport, status, outBuf);
     }
   
   if( status==asynSuccess ) 
     ++pport->writeOnlys;
-  asynPrint(pport->pasynUserTrace,ASYN_TRACEIO_FILTER,"%s writeOnly: wrote \"%s\"\n",pport->myport,outBuf);
+  asynPrint(pport->pasynUserTrace, ASYN_TRACEIO_FILTER,
+            "%s writeOnly: wrote \"%s\"\n", pport->myport, outBuf);
 
   return status;
 }
-static asynStatus writeRead(Port* pport, const char* outBuf,char* inpBuf,int inputSize,int* eomReason)
+static asynStatus writeRead(Port* pport, const char* outBuf, char* inpBuf,
+                            int inputSize, int* eomReason)
 {
   asynStatus status;
   size_t nWrite,nRead,nWriteRequested=strlen(outBuf);
 
-  status = pasynOctetSyncIO->writeRead(pport->pasynUser,outBuf,nWriteRequested,inpBuf,inputSize,TIMEOUT,&nWrite,&nRead,eomReason);
+  status = pasynOctetSyncIO->writeRead(pport->pasynUser, outBuf, 
+                                       nWriteRequested, inpBuf, inputSize,
+                                       TIMEOUT, &nWrite, &nRead, eomReason);
   if( nWrite!=nWriteRequested ) 
     status = asynError;
 
   if( status!=asynSuccess )
     {
       ++pport->discos;
-      asynPrint(pport->pasynUserTrace,ASYN_TRACE_ERROR,"%s writeRead: error %d wrote \"%s\"\n",pport->myport,status,outBuf);
+      asynPrint(pport->pasynUserTrace,ASYN_TRACE_ERROR,
+                "%s writeRead: error %d wrote \"%s\"\n",
+                pport->myport, status, outBuf);
     }
   else
     {
@@ -1134,7 +1198,9 @@ static asynStatus writeRead(Port* pport, const char* outBuf,char* inpBuf,int inp
       ++pport->writeReads;
     }
 
-  asynPrint(pport->pasynUserTrace,ASYN_TRACEIO_FILTER,"%s writeRead: wrote \"%s\" read \"%s\"\n",pport->myport,outBuf,inpBuf);
+  asynPrint(pport->pasynUserTrace, ASYN_TRACEIO_FILTER,
+            "%s writeRead: wrote \"%s\" read \"%s\"\n",
+            pport->myport, outBuf, inpBuf);
 
   return status;
 }

@@ -44,6 +44,6 @@ nigpibInterposeConfig("L1",23,60,0);
 ## Load database
 
 ## Original database
-dbLoadRecords("$(TOP)/delaygenApp/Db/devDG535.db","P=delaygen:,R=DG1:,L=1,A=15")
+dbLoadRecords("$(TOP)/delaygenApp/Db/devDG535.db","P=delaygen:,R=DG2:,L=1,A=15")
 ## Database modified by DAA
-#dbLoadRecords("$(TOP)/delaygenApp/Db/devDG535daa.db","P=delaygen:,R=DG1:,L=1,A=15")
+#dbLoadRecords("$(TOP)/delaygenApp/Db/devDG535daa.db","P=delaygen:,R=DG2:,L=1,A=15")

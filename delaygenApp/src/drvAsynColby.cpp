@@ -373,7 +373,7 @@ static asynStatus connect(void* ppvt,asynUser* pasynUser)
 
     if( pasynManager->getAddr(pasynUser,&addr)) return( asynError );
 
-    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::connect %s: asyn - 0x%8.8X, addr - %d\n",pport->myport,pasynUser,(int)addr);
+    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::connect %s: addr - %d\n",pport->myport,(int)addr);
 
     ++pport->conn;
 
@@ -391,7 +391,7 @@ static asynStatus disconnect(void* ppvt,asynUser* pasynUser)
 
     if( pasynManager->getAddr(pasynUser,&addr)) return( asynError );
 
-    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::disconnect %s: asyn - 0x%8.8X, addr - %d\n",pport->myport,pasynUser,(int)addr);
+    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::disconnect %s: addr - %d\n",pport->myport,(int)addr);
 
     --pport->conn;
 
@@ -474,7 +474,7 @@ static asynStatus writeFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64 value
     status = writeOnly(pport->pasynUser,outBuf,pport->iface);
     epicsMutexUnlock(pport->syncLock);
 
-    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::writeFloat64 %s: asyn - 0x%8.8X, addr - %d, value - %-.3f\n",pport->myport,pasynUser,addr,value);
+    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::writeFloat64 %s: addr - %d, value - %-.3f\n",pport->myport,addr,value);
 
     if( status ) return( asynError ); else return( asynSuccess );
 }
@@ -514,7 +514,7 @@ static asynStatus readFloat64(void* ppvt,asynUser* pasynUser,epicsFloat64* value
     sscanf(inpBuf,"%e",&readback);
     if( epicsStrCaseCmp(pport->units,"ns")==0 ) *value=(epicsFloat64)readback/1.0E-9; else *value=(epicsFloat64)readback/1.0E-12;
 
-    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::readFloat64 %s: asyn - 0x%8.8X, addr - %d, value - %f\n",pport->myport,pasynUser,addr,*value);
+    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::readFloat64 %s: addr - %d, value - %f\n",pport->myport,addr,*value);
     return( asynSuccess );
 }
 
@@ -528,7 +528,7 @@ static asynStatus writeUInt32(void* ppvt,asynUser* pasynUser,epicsUInt32 value,e
     const char* pcmd;
     Port* pport = (Port*)ppvt;
 
-    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::writeUInt32 %s: asyn - 0x%8.8X, mask - 0x%8.8X, value - 0x%8.8X\n",pport->myport,pasynUser,(int)mask,(int)value);
+    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::writeUInt32 %s: mask - 0x%8.8X, value - 0x%8.8X\n",pport->myport,(int)mask,(int)value);
     if( pasynManager->getAddr(pasynUser,&addr)) return( asynError );
 
     switch( addr )
@@ -581,7 +581,7 @@ static asynStatus readUInt32(void* ppvt,asynUser* pasynUser,epicsUInt32* value,e
         return( asynError );
     }
 
-    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::readUInt32 %s: asyn - 0x%8.8X, mask - 0x%8.8X, value - 0x%8.8X\n",pport->myport,pasynUser,(int)mask,(int)*value);
+    asynPrint(pasynUser,ASYN_TRACEIO_FILTER,"drvAsynColby::readUInt32 %s: mask - 0x%8.8X, value - 0x%8.8X\n",pport->myport,(int)mask,(int)*value);
     return( asynSuccess );
 }
 
@@ -604,7 +604,7 @@ static asynStatus writeItRaw(void *ppvt,asynUser *pasynUser,const char *data,siz
     asynPrint(pasynUser,ASYN_TRACE_FLOW,"drvAsynColby::writeItRaw %s: write\n",pport->myport);
 
     *nbytes = 0;
-    asynPrint(pasynUser,ASYN_TRACEIO_DRIVER,"drvAsynColby::writeItRaw %s: wrote %.*s to %s\n",pport->myport,*nbytes,data,pport->ioport);
+    asynPrint(pasynUser,ASYN_TRACEIO_DRIVER,"drvAsynColby::writeItRaw %s: wrote %.*s to %s\n",pport->myport,(int) *nbytes,data,pport->ioport);
 
     return( asynSuccess );
 }
@@ -678,7 +678,7 @@ static asynStatus readItRaw(void* ppvt,asynUser* pasynUser,char* data,size_t max
         *nbytes=strlen(inpBuf);
         break;
     }
-    asynPrint(pasynUser,ASYN_TRACEIO_DRIVER,"drvAsynColby::readItRaw %s: read %.*s from %s\n",pport->myport,*nbytes,data,pport->ioport);
+    asynPrint(pasynUser,ASYN_TRACEIO_DRIVER,"drvAsynColby::readItRaw %s: read %.*s from %s\n",pport->myport,(int) *nbytes,data,pport->ioport);
 
     return( asynSuccess );
 }
@@ -702,7 +702,7 @@ static int writeOnly(asynUser* pasynUser,const char* outBuf,int iface)
         pioPvt->pasynCommon->connect(pioPvt->pcommonPvt,pasynUser);
         pasynManager->unlockPort(pasynUser);
 
-        asynPrint(pasynUser,ASYN_TRACE_ERROR,"writeOnly: error sending %s,sent=%d,err=%d\n",outBuf,nActual,status); 
+        asynPrint(pasynUser,ASYN_TRACE_ERROR,"writeOnly: error sending %s,sent=%d,err=%d\n",outBuf,(int) nActual,status); 
     }
     if( iface==IFACE_SERIAL )
     {
@@ -732,7 +732,7 @@ static int writeRead(asynUser* pasynUser,const char* outBuf,char* inpBuf,int inp
         pioPvt->pasynCommon->connect(pioPvt->pcommonPvt,pasynUser);
         pasynManager->unlockPort(pasynUser);
 
-        asynPrint(pasynUser,ASYN_TRACE_ERROR,"writeRead: error sending %s,sent=%d,recv=%d,err=%d\n",outBuf,nWrite,nRead,status);
+        asynPrint(pasynUser,ASYN_TRACE_ERROR,"writeRead: error sending %s,sent=%d,recv=%d,err=%d\n",outBuf,(int) nWrite, (int) nRead,status);
     }
     if( iface==IFACE_SERIAL )
     {
