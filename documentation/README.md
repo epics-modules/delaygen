@@ -1,6 +1,6 @@
 <pre>
                                       Argonne National Laboratory
-                                   APS Engineering Support Division
+                                        X-ray Science Division
                                 Beamline Controls and Data Acquisition
 
                                      Delay Generators (DELAYGEN)
@@ -18,7 +18,7 @@
 --------------------------------------------------------------------------------------------------------------
 Contact information:
 Argonne National Laboratory
-APS Engineering Support Division
+X-ray Science Division
 Beamline Controls and Data Acquisition
 Dohn Arms
 dohnarms@anl.gov

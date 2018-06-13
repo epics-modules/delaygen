@@ -3,11 +3,12 @@
 ## Define environment variables
 < envPaths
 
-cd ${TOP}
+#cd ${TOP}
+cd ${TOP}/iocBoot/${IOC}
 
 ## Register all support components
-dbLoadDatabase("../../dbd/iocdelaygenApp.dbd")
-iocdelaygenApp_registerRecordDeviceDriver(pdbbase)
+dbLoadDatabase("../../dbd/delaygenApp.dbd")
+delaygenApp_registerRecordDeviceDriver(pdbbase)
 
 ###################
 
@@ -22,7 +23,7 @@ iocdelaygenApp_registerRecordDeviceDriver(pdbbase)
 ## For Linux COM2 serial
 ## drvAsynSerialPortConfigure("portName","ttyName",priority,noAutoConnect,
 ##                             noProcessEos)
-drvAsynSerialPortConfigure("serial1", "/dev/ttyS1", 0, 0, 0)
+drvAsynSerialPortConfigure("serial1", "/dev/ttyS0", 0, 0, 0)
 
 ###################
 

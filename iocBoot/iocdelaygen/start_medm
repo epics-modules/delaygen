@@ -1,0 +1,7 @@
+#!/bin/bash
+# EPICS startup script for MEDM (shell application)
+
+export EPICS_DISPLAY_PATH=../../delaygenApp/op/adl
+
+# Launch MEDM screen
+medm -x -noMsg -macro "P=delaygen:" delaygen.adl&

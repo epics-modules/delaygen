@@ -12,7 +12,3 @@ include "nigpibSupport.dbd"
 
 ## Coherent SDG support
 include "drvAsynCoherentSDG.dbd"
-
-## Gigabaudics support
-# This file was moved to the custom directory
-#include "digitalDelay.dbd"

@@ -8,6 +8,7 @@ include "base.dbd"
 
 #------------------------------------------------------------------------------
 # Asyn support
+include "asyn.dbd"
 include "drvAsynSerialPort.dbd"
 include "drvAsynIPPort.dbd"
 

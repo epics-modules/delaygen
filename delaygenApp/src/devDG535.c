@@ -693,7 +693,7 @@ static int setDelay(struct gpibDpvt *pgpibDpvt, int P1, int P2, char **P3)
   /* go read the current delay & channel reference setting */
   /* Due to a fluke in the DG535, read twice to insure accurate data */
   ntimes=2;
-  for(itime=0; itime<2; itime++) {
+  for(itime=0; itime<ntimes; itime++) {
     size_t nout,nin;
 
     asynPrint(pasynUser,ASYN_TRACE_FLOW," write %s\n",pgpibCmd->cmd);
