@@ -161,10 +161,20 @@ echo "" >> configure/RELEASE
 
 #                               get_repo Git Project    Git Repo       RELEASE Name   Tag
 if [[ $ASYN ]];          then   get_repo epics-modules  asyn           ASYN           $ASYN          ; fi
-if [[ $CALC ]];          then   get_repo epics-modules  calc           CALC           $CALC          ; fi
 if [[ $IP ]];            then   get_repo epics-modules  ip             IP             $IP            ; fi
 if [[ $IPAC ]];          then   get_repo epics-modules  ipac           IPAC           $IPAC          ; fi
 if [[ $SSCAN ]];         then   get_repo epics-modules  sscan          SSCAN          $SSCAN         ; fi
+
+if [[ $CALC ]];          
+then   
+
+get_repo epics-modules  calc           CALC           $CALC          ; 
+
+#enable SEQ in calc
+sed -i 's/#SNCSEQ=/SNCSEQ=/g' calc-$CALC/configure/RELEASE
+
+fi
+
 
 
 if [[ $STREAM ]]
