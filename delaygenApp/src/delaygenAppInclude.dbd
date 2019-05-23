@@ -12,9 +12,11 @@ include "asyn.dbd"
 include "drvAsynSerialPort.dbd"
 include "drvAsynIPPort.dbd"
 
-#------------------------------------------------------------------------------
-# Calc support
+
+# Colby needs sseq from CALC
 include "sseqRecord.dbd"
+# BNC 505 needs stream
+include "stream.dbd"
 
 #-----------------------------------------------------------------------------
 # Support from this module
@@ -22,3 +24,4 @@ include "delaygenSupport.dbd"
 
 #
 #==============================================================================
+

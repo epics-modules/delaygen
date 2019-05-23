@@ -6,7 +6,8 @@
 
 ###################################
 
-## From a VME crate, one would use:
+## From a VME crate (which this example IOC is not set up to utilize),
+## one would use:
 
 ## SBS IP488 GPIB
 ## gsIP488Configure(char *portName, int carrier, int module, int vector,
@@ -43,8 +44,8 @@ nigpibInterposeConfig("L1",23,60,0);
 
 ## Load database
 
-## Original database
+## Original database by ANL Controls
 dbLoadRecords("$(TOP)/delaygenApp/Db/devDG535.db","P=delaygen:,R=DG2:,L=1,A=15")
-## Database modified by DAA
+## Database modified by DAA for user operations
 #dbLoadRecords("$(TOP)/delaygenApp/Db/devDG535daa.db","P=delaygen:,R=DG2:,L=1,A=15")
 
