@@ -16,7 +16,6 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # synApps support modules
 SUPPORT=/APSshare/epics/synApps_5_8/support
--include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
 # Modules required for building module
 ASYN=$(SUPPORT)/asyn-4-26
@@ -31,7 +30,6 @@ STREAM=$(SUPPORT)/stream-2-6a
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 EPICS_BASE=/APSshare/epics/base-3.14.12.5
--include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
