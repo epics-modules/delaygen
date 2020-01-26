@@ -1,0 +1,2664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>srsDG645</name>
+  <x>49</x>
+  <y>293</y>
+  <width>660</width>
+  <height>615</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #6</name>
+    <x>5</x>
+    <y>574</y>
+    <width>520</width>
+    <height>35</height>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0 &gt; 0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)StatusLI</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #10</name>
+    <x>5</x>
+    <y>574</y>
+    <width>520</width>
+    <height>35</height>
+    <line_color>
+      <color red="82" green="218" blue="59">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="82" green="218" blue="59">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)StatusLI</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #14</name>
+    <x>5</x>
+    <y>574</y>
+    <width>520</width>
+    <height>35</height>
+    <line_color>
+      <color red="251" green="243" blue="74">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="251" green="243" blue="74">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0 &lt; 0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)StatusLI</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #18</name>
+    <y>212</y>
+    <width>670</width>
+    <height>3</height>
+    <line_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #21</name>
+    <x>-15</x>
+    <y>30</y>
+    <width>675</width>
+    <height>3</height>
+    <line_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #24</name>
+    <text>CHANNEL DELAYS</text>
+    <x>185</x>
+    <y>35</y>
+    <width>300</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="33" green="108" blue="0">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #27</name>
+    <text>$(P)$(R)</text>
+    <x>10</x>
+    <y>5</y>
+    <width>200</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #30</name>
+    <x>-40</x>
+    <y>565</y>
+    <width>700</width>
+    <height>3</height>
+    <line_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #33</name>
+    <pv_name>$(P)$(R)EDelayAI</pv_name>
+    <x>455</x>
+    <y>60</y>
+    <width>200</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #37</name>
+    <pv_name>$(P)$(R)EReferenceMO</pv_name>
+    <x>410</x>
+    <y>80</y>
+    <width>40</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #40</name>
+    <pv_name>$(P)$(R)EDelayAO</pv_name>
+    <x>455</x>
+    <y>80</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #44</name>
+    <pv_name>$(P)$(R)FDelayAI</pv_name>
+    <x>455</x>
+    <y>140</y>
+    <width>200</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #48</name>
+    <pv_name>$(P)$(R)FReferenceMO</pv_name>
+    <x>410</x>
+    <y>160</y>
+    <width>40</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #51</name>
+    <pv_name>$(P)$(R)FDelayAO</pv_name>
+    <x>455</x>
+    <y>160</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #55</name>
+    <pv_name>$(P)$(R)GDelayAI</pv_name>
+    <x>455</x>
+    <y>220</y>
+    <width>200</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #59</name>
+    <pv_name>$(P)$(R)GReferenceMO</pv_name>
+    <x>410</x>
+    <y>240</y>
+    <width>40</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #62</name>
+    <pv_name>$(P)$(R)GDelayAO</pv_name>
+    <x>455</x>
+    <y>240</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #66</name>
+    <pv_name>$(P)$(R)HDelayAI</pv_name>
+    <x>455</x>
+    <y>300</y>
+    <width>200</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #70</name>
+    <pv_name>$(P)$(R)HReferenceMO</pv_name>
+    <x>410</x>
+    <y>320</y>
+    <width>40</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #73</name>
+    <pv_name>$(P)$(R)HDelayAO</pv_name>
+    <x>455</x>
+    <y>320</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #77</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)EDelayTweakDecBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)EDelayTweakDecBO.PROC</pv_name>
+    <text>&lt;</text>
+    <x>405</x>
+    <y>105</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #80</name>
+    <pv_name>$(P)$(R)EDelayTweakAO</pv_name>
+    <x>430</x>
+    <y>105</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #84</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)EDelayTweakIncBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)EDelayTweakIncBO.PROC</pv_name>
+    <text>&gt;</text>
+    <x>630</x>
+    <y>105</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #87</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)FDelayTweakDecBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)FDelayTweakDecBO.PROC</pv_name>
+    <text>&lt;</text>
+    <x>405</x>
+    <y>185</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #90</name>
+    <pv_name>$(P)$(R)FDelayTweakAO</pv_name>
+    <x>430</x>
+    <y>185</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #94</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)FDelayTweakIncBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)FDelayTweakIncBO.PROC</pv_name>
+    <text>&gt;</text>
+    <x>630</x>
+    <y>185</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #97</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)GDelayTweakDecBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)GDelayTweakDecBO.PROC</pv_name>
+    <text>&lt;</text>
+    <x>405</x>
+    <y>265</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #100</name>
+    <pv_name>$(P)$(R)GDelayTweakAO</pv_name>
+    <x>430</x>
+    <y>265</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #104</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)GDelayTweakIncBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)GDelayTweakIncBO.PROC</pv_name>
+    <text>&gt;</text>
+    <x>630</x>
+    <y>265</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #107</name>
+    <text>Chan E</text>
+    <x>340</x>
+    <y>60</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #110</name>
+    <text>Chan F</text>
+    <x>340</x>
+    <y>140</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #113</name>
+    <text>Chan G</text>
+    <x>340</x>
+    <y>220</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #116</name>
+    <text>Chan H</text>
+    <x>340</x>
+    <y>300</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #119</name>
+    <y>132</y>
+    <width>670</width>
+    <height>3</height>
+    <line_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #122</name>
+    <text>+</text>
+    <x>110</x>
+    <y>60</y>
+    <width>10</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #125</name>
+    <pv_name>$(P)$(R)ADelayAI</pv_name>
+    <x>125</x>
+    <y>60</y>
+    <width>200</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #129</name>
+    <pv_name>$(P)$(R)AReferenceMO</pv_name>
+    <x>80</x>
+    <y>80</y>
+    <width>40</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #132</name>
+    <pv_name>$(P)$(R)ADelayAO</pv_name>
+    <x>125</x>
+    <y>80</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #136</name>
+    <text>+</text>
+    <x>110</x>
+    <y>140</y>
+    <width>10</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #139</name>
+    <pv_name>$(P)$(R)BDelayAI</pv_name>
+    <x>125</x>
+    <y>140</y>
+    <width>200</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #143</name>
+    <pv_name>$(P)$(R)BReferenceMO</pv_name>
+    <x>80</x>
+    <y>160</y>
+    <width>40</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #146</name>
+    <pv_name>$(P)$(R)BDelayAO</pv_name>
+    <x>125</x>
+    <y>160</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #150</name>
+    <text>+</text>
+    <x>110</x>
+    <y>220</y>
+    <width>10</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #153</name>
+    <pv_name>$(P)$(R)CDelayAI</pv_name>
+    <x>125</x>
+    <y>220</y>
+    <width>200</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #157</name>
+    <pv_name>$(P)$(R)CReferenceMO</pv_name>
+    <x>80</x>
+    <y>240</y>
+    <width>40</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #160</name>
+    <pv_name>$(P)$(R)CDelayAO</pv_name>
+    <x>125</x>
+    <y>240</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #164</name>
+    <y>292</y>
+    <width>670</width>
+    <height>3</height>
+    <line_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #167</name>
+    <text>+</text>
+    <x>110</x>
+    <y>300</y>
+    <width>10</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #170</name>
+    <pv_name>$(P)$(R)DDelayAI</pv_name>
+    <x>125</x>
+    <y>300</y>
+    <width>200</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #174</name>
+    <pv_name>$(P)$(R)DReferenceMO</pv_name>
+    <x>80</x>
+    <y>320</y>
+    <width>40</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #177</name>
+    <pv_name>$(P)$(R)DDelayAO</pv_name>
+    <x>125</x>
+    <y>320</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #181</name>
+    <pv_name>$(P)$(R)ADelayTweakAO</pv_name>
+    <x>100</x>
+    <y>105</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #185</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)ADelayTweakDecBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)ADelayTweakDecBO.PROC</pv_name>
+    <text>&lt;</text>
+    <x>75</x>
+    <y>105</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #188</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)ADelayTweakIncBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)ADelayTweakIncBO.PROC</pv_name>
+    <text>&gt;</text>
+    <x>300</x>
+    <y>105</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #191</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)BDelayTweakDecBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)BDelayTweakDecBO.PROC</pv_name>
+    <text>&lt;</text>
+    <x>75</x>
+    <y>185</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #194</name>
+    <pv_name>$(P)$(R)BDelayTweakAO</pv_name>
+    <x>100</x>
+    <y>185</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #198</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)BDelayTweakIncBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)BDelayTweakIncBO.PROC</pv_name>
+    <text>&gt;</text>
+    <x>300</x>
+    <y>185</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #201</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)CDelayTweakDecBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)CDelayTweakDecBO.PROC</pv_name>
+    <text>&lt;</text>
+    <x>75</x>
+    <y>265</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #204</name>
+    <pv_name>$(P)$(R)CDelayTweakAO</pv_name>
+    <x>100</x>
+    <y>265</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #208</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)CDelayTweakIncBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)CDelayTweakIncBO.PROC</pv_name>
+    <text>&gt;</text>
+    <x>300</x>
+    <y>265</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #211</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)DDelayTweakDecBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)DDelayTweakDecBO.PROC</pv_name>
+    <text>&lt;</text>
+    <x>75</x>
+    <y>345</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #214</name>
+    <pv_name>$(P)$(R)DDelayTweakAO</pv_name>
+    <x>100</x>
+    <y>345</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #218</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)DDelayTweakIncBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)DDelayTweakIncBO.PROC</pv_name>
+    <text>&gt;</text>
+    <x>300</x>
+    <y>345</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #221</name>
+    <text>Chan A</text>
+    <x>10</x>
+    <y>60</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #224</name>
+    <text>Chan B</text>
+    <x>10</x>
+    <y>140</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #227</name>
+    <text>Chan C</text>
+    <x>10</x>
+    <y>220</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #230</name>
+    <text>Chan D</text>
+    <x>10</x>
+    <y>300</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #233</name>
+    <x>330</x>
+    <y>55</y>
+    <width>3</width>
+    <height>320</height>
+    <line_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #236</name>
+    <text>TRIGGER SETTINGS</text>
+    <x>30</x>
+    <y>380</y>
+    <width>200</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="33" green="108" blue="0">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #239</name>
+    <pv_name>$(P)$(R)TriggerSourceMI</pv_name>
+    <x>75</x>
+    <y>405</y>
+    <width>150</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #243</name>
+    <text>Source</text>
+    <x>5</x>
+    <y>405</y>
+    <width>60</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #246</name>
+    <pv_name>$(P)$(R)TriggerInhibitMI</pv_name>
+    <x>75</x>
+    <y>425</y>
+    <width>150</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #250</name>
+    <text>Inhibit</text>
+    <x>5</x>
+    <y>425</y>
+    <width>60</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #253</name>
+    <pv_name>$(P)$(R)TriggerRateAI</pv_name>
+    <x>75</x>
+    <y>445</y>
+    <width>150</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #257</name>
+    <pv_name>$(P)$(R)TriggerLevelAI</pv_name>
+    <x>75</x>
+    <y>465</y>
+    <width>150</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #261</name>
+    <text>Rate</text>
+    <x>5</x>
+    <y>445</y>
+    <width>60</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #264</name>
+    <text>Level</text>
+    <x>10</x>
+    <y>465</y>
+    <width>60</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #267</name>
+    <text>Prescale</text>
+    <x>295</x>
+    <y>445</y>
+    <width>80</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #270</name>
+    <text>N</text>
+    <x>395</x>
+    <y>425</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #273</name>
+    <text>AB</text>
+    <x>450</x>
+    <y>425</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #276</name>
+    <text>CD</text>
+    <x>505</x>
+    <y>425</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #279</name>
+    <text>EF</text>
+    <x>560</x>
+    <y>425</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #282</name>
+    <text>GH</text>
+    <x>615</x>
+    <y>425</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #285</name>
+    <pv_name>$(P)$(R)ABTriggerPrescaleLI</pv_name>
+    <x>435</x>
+    <y>445</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #289</name>
+    <pv_name>$(P)$(R)CDTriggerPrescaleLI</pv_name>
+    <x>490</x>
+    <y>445</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #293</name>
+    <pv_name>$(P)$(R)TriggerPrescaleLI</pv_name>
+    <x>380</x>
+    <y>445</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #297</name>
+    <pv_name>$(P)$(R)EFTriggerPrescaleLI</pv_name>
+    <x>545</x>
+    <y>445</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #301</name>
+    <pv_name>$(P)$(R)GHTriggerPrescaleLI</pv_name>
+    <x>600</x>
+    <y>445</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #305</name>
+    <pv_name>$(P)$(R)ABTriggerPhaseLI</pv_name>
+    <x>435</x>
+    <y>465</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #309</name>
+    <pv_name>$(P)$(R)CDTriggerPhaseLI</pv_name>
+    <x>490</x>
+    <y>465</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #313</name>
+    <pv_name>$(P)$(R)EFTriggerPhaseLI</pv_name>
+    <x>545</x>
+    <y>465</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #317</name>
+    <pv_name>$(P)$(R)GHTriggerPhaseLI</pv_name>
+    <x>600</x>
+    <y>465</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #321</name>
+    <text>Phase</text>
+    <x>295</x>
+    <y>465</y>
+    <width>80</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #324</name>
+    <pv_name>$(P)$(R)TriggerAdvancedModeBI</pv_name>
+    <x>380</x>
+    <y>385</y>
+    <width>160</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #328</name>
+    <text>Advanced</text>
+    <x>295</x>
+    <y>385</y>
+    <width>80</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #331</name>
+    <pv_name>$(P)$(R)TriggerHoldoffAI</pv_name>
+    <x>380</x>
+    <y>405</y>
+    <width>160</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #335</name>
+    <text>Holdoff</text>
+    <x>295</x>
+    <y>405</y>
+    <width>80</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #338</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)HDelayTweakDecBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)HDelayTweakDecBO.PROC</pv_name>
+    <text>&lt;</text>
+    <x>405</x>
+    <y>345</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #341</name>
+    <pv_name>$(P)$(R)HDelayTweakAO</pv_name>
+    <x>430</x>
+    <y>345</y>
+    <width>200</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #345</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)HDelayTweakIncBO.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)HDelayTweakIncBO.PROC</pv_name>
+    <text>&gt;</text>
+    <x>630</x>
+    <y>345</y>
+    <width>25</width>
+    <height>22</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #348</name>
+    <text>BURST SETTINGS</text>
+    <x>30</x>
+    <y>495</y>
+    <width>200</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="33" green="108" blue="0">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #351</name>
+    <pv_name>$(P)$(R)BurstModeBI</pv_name>
+    <x>65</x>
+    <y>520</y>
+    <width>160</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #355</name>
+    <text>Mode</text>
+    <x>10</x>
+    <y>520</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #358</name>
+    <pv_name>$(P)$(R)BurstDelayAI</pv_name>
+    <x>65</x>
+    <y>540</y>
+    <width>160</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #362</name>
+    <text>Delay</text>
+    <x>10</x>
+    <y>540</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #365</name>
+    <pv_name>$(P)$(R)BurstPeriodAI</pv_name>
+    <x>370</x>
+    <y>500</y>
+    <width>150</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #369</name>
+    <text>Period</text>
+    <x>285</x>
+    <y>500</y>
+    <width>80</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #372</name>
+    <pv_name>$(P)$(R)BurstCountLI</pv_name>
+    <x>370</x>
+    <y>520</y>
+    <width>150</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #376</name>
+    <pv_name>$(P)$(R)BurstConfigBI</pv_name>
+    <x>370</x>
+    <y>540</y>
+    <width>150</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #380</name>
+    <text>Count</text>
+    <x>285</x>
+    <y>520</y>
+    <width>80</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #383</name>
+    <text>T0 Config</text>
+    <x>285</x>
+    <y>540</y>
+    <width>80</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #386</name>
+    <x>-10</x>
+    <y>490</y>
+    <width>670</width>
+    <height>3</height>
+    <line_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #389</name>
+    <x>240</x>
+    <y>405</y>
+    <width>38</width>
+    <height>22</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==5)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)TriggerSourceMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #392</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)$(R)TriggerDelayBO</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)$(R)TriggerDelayBO</pv_name>
+      <text>TRG</text>
+      <width>38</width>
+      <height>22</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #396</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Outputs.opi</file>
+        <target>tab</target>
+        <description>Output Settings</description>
+      </action>
+    </actions>
+    <text>Output Settings</text>
+    <x>535</x>
+    <y>35</y>
+    <width>120</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #399</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Burst.opi</file>
+        <target>tab</target>
+        <description>Trigger and Burst Control</description>
+      </action>
+    </actions>
+    <text>Settings</text>
+    <x>570</x>
+    <y>500</y>
+    <width>80</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #402</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Trigger.opi</file>
+        <target>tab</target>
+        <description>Trigger and Burst Control</description>
+      </action>
+    </actions>
+    <text>Settings</text>
+    <x>570</x>
+    <y>385</y>
+    <width>80</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #405</name>
+    <x>-10</x>
+    <y>375</y>
+    <width>670</width>
+    <height>3</height>
+    <line_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #408</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Delay.opi</file>
+        <macros>
+          <C>A</C>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>15</x>
+    <y>105</y>
+    <width>20</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #411</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Delay.opi</file>
+        <macros>
+          <C>B</C>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>15</x>
+    <y>185</y>
+    <width>20</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #414</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Delay.opi</file>
+        <macros>
+          <C>C</C>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>15</x>
+    <y>265</y>
+    <width>20</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #417</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Delay.opi</file>
+        <macros>
+          <C>D</C>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>15</x>
+    <y>345</y>
+    <width>20</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #420</name>
+    <pv_name>$(P)$(R)StatusSI</pv_name>
+    <x>13</x>
+    <y>582</y>
+    <width>500</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #424</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Manage.opi</file>
+        <target>tab</target>
+        <description>Device Management</description>
+      </action>
+    </actions>
+    <text>Manage Device</text>
+    <x>535</x>
+    <y>5</y>
+    <width>120</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #427</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)StatusClearBO</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)StatusClearBO</pv_name>
+    <text>CLEAR ERROR</text>
+    <x>540</x>
+    <y>580</y>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #430</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Delay.opi</file>
+        <macros>
+          <C>E</C>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>345</x>
+    <y>105</y>
+    <width>20</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #433</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Delay.opi</file>
+        <macros>
+          <C>F</C>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>345</x>
+    <y>185</y>
+    <width>20</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #436</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Delay.opi</file>
+        <macros>
+          <C>G</C>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>345</x>
+    <y>265</y>
+    <width>20</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #439</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645Delay.opi</file>
+        <macros>
+          <C>H</C>
+        </macros>
+        <target>tab</target>
+      </action>
+    </actions>
+    <text></text>
+    <x>345</x>
+    <y>345</y>
+    <width>20</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #442</name>
+    <pv_name>$(P)$(R)AReferenceMI</pv_name>
+    <x>85</x>
+    <y>60</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #446</name>
+    <pv_name>$(P)$(R)BReferenceMI</pv_name>
+    <x>85</x>
+    <y>140</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #450</name>
+    <pv_name>$(P)$(R)CReferenceMI</pv_name>
+    <x>85</x>
+    <y>220</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #454</name>
+    <pv_name>$(P)$(R)DReferenceMI</pv_name>
+    <x>85</x>
+    <y>300</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #458</name>
+    <text>+</text>
+    <x>440</x>
+    <y>60</y>
+    <width>10</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #461</name>
+    <pv_name>$(P)$(R)EReferenceMI</pv_name>
+    <x>415</x>
+    <y>60</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #465</name>
+    <text>+</text>
+    <x>440</x>
+    <y>140</y>
+    <width>10</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #468</name>
+    <pv_name>$(P)$(R)FReferenceMI</pv_name>
+    <x>415</x>
+    <y>140</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #472</name>
+    <pv_name>$(P)$(R)GReferenceMI</pv_name>
+    <x>415</x>
+    <y>220</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #476</name>
+    <text>+</text>
+    <x>440</x>
+    <y>220</y>
+    <width>10</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #479</name>
+    <text>+</text>
+    <x>440</x>
+    <y>300</y>
+    <width>10</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #482</name>
+    <pv_name>$(P)$(R)HReferenceMI</pv_name>
+    <x>415</x>
+    <y>300</y>
+    <width>20</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #486</name>
+    <x>240</x>
+    <y>435</y>
+    <width>38</width>
+    <height>22</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==3 || pv0==4)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)TriggerSourceMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="action_button" version="3.0.0">
+      <name>message button #489</name>
+      <actions>
+        <action type="write_pv">
+          <pv_name>$(P)$(R)TriggerDelayBO</pv_name>
+          <value>1</value>
+          <description>Write</description>
+        </action>
+      </actions>
+      <pv_name>$(P)$(R)TriggerDelayBO</pv_name>
+      <text>ARM</text>
+      <width>38</width>
+      <height>22</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #493</name>
+    <pv_name>$(P)$(R)Label</pv_name>
+    <x>245</x>
+    <y>5</y>
+    <width>220</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="218" green="218" blue="218">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+</display>

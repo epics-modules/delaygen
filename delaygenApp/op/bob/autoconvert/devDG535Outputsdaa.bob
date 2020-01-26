@@ -1,0 +1,1899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>devDG535Outputsdaa</name>
+  <x>34</x>
+  <y>755</y>
+  <width>700</width>
+  <height>350</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #6</name>
+    <x>4</x>
+    <y>30</y>
+    <width>691</width>
+    <height>3</height>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>Mode</text>
+    <x>100</x>
+    <y>146</y>
+    <width>95</width>
+    <height>18</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #12</name>
+    <pv_name>$(dg)tOutputModeSetMO</pv_name>
+    <x>208</x>
+    <y>155</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #15</name>
+    <text>To</text>
+    <x>205</x>
+    <y>40</y>
+    <width>60</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #18</name>
+    <pv_name>$(dg)aOutputModeSetMO</pv_name>
+    <x>278</x>
+    <y>155</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #21</name>
+    <text>A</text>
+    <x>275</x>
+    <y>40</y>
+    <width>60</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #24</name>
+    <pv_name>$(dg)bOutputModeSetMO</pv_name>
+    <x>348</x>
+    <y>155</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #27</name>
+    <text>B</text>
+    <x>345</x>
+    <y>40</y>
+    <width>60</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #30</name>
+    <pv_name>$(dg)abOutputModeSetMO</pv_name>
+    <x>418</x>
+    <y>155</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #33</name>
+    <text>AB</text>
+    <x>415</x>
+    <y>40</y>
+    <width>60</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #36</name>
+    <pv_name>$(dg)cOutputModeSetMO</pv_name>
+    <x>488</x>
+    <y>155</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #39</name>
+    <text>C</text>
+    <x>485</x>
+    <y>40</y>
+    <width>60</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #42</name>
+    <pv_name>$(dg)dOutputModeSetMO</pv_name>
+    <x>558</x>
+    <y>155</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #45</name>
+    <text>D</text>
+    <x>555</x>
+    <y>40</y>
+    <width>60</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #48</name>
+    <pv_name>$(dg)cdOutputModeSetMO</pv_name>
+    <x>628</x>
+    <y>155</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #51</name>
+    <text>CD</text>
+    <x>625</x>
+    <y>40</y>
+    <width>60</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #54</name>
+    <text>ERROR!!</text>
+    <x>575</x>
+    <y>5</y>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <rules>
+      <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0!=0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)errorStatusLI.SEVR</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #58</name>
+    <text>Stanford Research Systems DG535</text>
+    <x>95</x>
+    <y>7</y>
+    <width>300</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #61</name>
+    <text>$(dg)</text>
+    <x>450</x>
+    <y>7</y>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="26" green="115" blue="9">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #64</name>
+    <text>Polarity</text>
+    <x>100</x>
+    <y>202</y>
+    <width>95</width>
+    <height>18</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #67</name>
+    <pv_name>$(dg)tOutputModeMI</pv_name>
+    <x>208</x>
+    <y>135</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #71</name>
+    <pv_name>$(dg)aOutputModeMI</pv_name>
+    <x>278</x>
+    <y>135</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #75</name>
+    <pv_name>$(dg)bOutputModeMI</pv_name>
+    <x>348</x>
+    <y>135</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #79</name>
+    <pv_name>$(dg)abOutputModeMI</pv_name>
+    <x>418</x>
+    <y>135</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #83</name>
+    <pv_name>$(dg)cOutputModeMI</pv_name>
+    <x>488</x>
+    <y>135</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #87</name>
+    <pv_name>$(dg)dOutputModeMI</pv_name>
+    <x>558</x>
+    <y>135</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #91</name>
+    <pv_name>$(dg)cdOutputModeMI</pv_name>
+    <x>628</x>
+    <y>135</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #95</name>
+    <text>Amplitude</text>
+    <x>100</x>
+    <y>257</y>
+    <width>95</width>
+    <height>18</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #98</name>
+    <text>Offset</text>
+    <x>100</x>
+    <y>312</y>
+    <width>95</width>
+    <height>18</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #101</name>
+    <x>213</x>
+    <y>245</y>
+    <width>50</width>
+    <height>97</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(!(pv0-3))">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)tOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #104</name>
+      <pv_name>$(dg)tOutputOffsetSetAO</pv_name>
+      <y>75</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #108</name>
+      <pv_name>$(dg)tOutputAmpSetAO</pv_name>
+      <y>20</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #112</name>
+      <pv_name>$(dg)tOutputAmpAI</pv_name>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #116</name>
+      <pv_name>$(dg)tOutputOffsetAI</pv_name>
+      <y>55</y>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #121</name>
+    <x>208</x>
+    <y>190</y>
+    <width>65</width>
+    <height>40</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0-3)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)tOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="combo" version="2.0.0">
+      <name>menu #124</name>
+      <pv_name>$(dg)tOutputPolSetBO</pv_name>
+      <y>20</y>
+      <width>65</width>
+      <height>20</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #127</name>
+      <pv_name>$(dg)tOutputPolBI</pv_name>
+      <width>65</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #132</name>
+    <pv_name>$(dg)tOutputZBI</pv_name>
+    <x>208</x>
+    <y>78</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #136</name>
+    <pv_name>$(dg)aOutputZBI</pv_name>
+    <x>278</x>
+    <y>78</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #140</name>
+    <pv_name>$(dg)bOutputZBI</pv_name>
+    <x>348</x>
+    <y>78</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #144</name>
+    <pv_name>$(dg)abOutputZBI</pv_name>
+    <x>418</x>
+    <y>78</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #148</name>
+    <pv_name>$(dg)cOutputZBI</pv_name>
+    <x>488</x>
+    <y>78</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #152</name>
+    <pv_name>$(dg)dOutputZBI</pv_name>
+    <x>558</x>
+    <y>78</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #156</name>
+    <pv_name>$(dg)cdOutputZBI</pv_name>
+    <x>628</x>
+    <y>78</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #160</name>
+    <pv_name>$(dg)tOutputZSetBO</pv_name>
+    <x>208</x>
+    <y>98</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #163</name>
+    <pv_name>$(dg)aOutputZSetBO</pv_name>
+    <x>278</x>
+    <y>98</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #166</name>
+    <pv_name>$(dg)bOutputZSetBO</pv_name>
+    <x>348</x>
+    <y>98</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #169</name>
+    <pv_name>$(dg)abOutputZSetBO</pv_name>
+    <x>418</x>
+    <y>98</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #172</name>
+    <pv_name>$(dg)cOutputZSetBO</pv_name>
+    <x>488</x>
+    <y>98</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #175</name>
+    <pv_name>$(dg)dOutputZSetBO</pv_name>
+    <x>558</x>
+    <y>98</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #178</name>
+    <pv_name>$(dg)cdOutputZSetBO</pv_name>
+    <x>628</x>
+    <y>98</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #181</name>
+    <text>Termination</text>
+    <x>100</x>
+    <y>90</y>
+    <width>95</width>
+    <height>18</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #184</name>
+    <x>278</x>
+    <y>190</y>
+    <width>65</width>
+    <height>40</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0-3)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)aOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="combo" version="2.0.0">
+      <name>menu #187</name>
+      <pv_name>$(dg)aOutputPolSetBO</pv_name>
+      <y>20</y>
+      <width>65</width>
+      <height>20</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #190</name>
+      <pv_name>$(dg)aOutputPolBI</pv_name>
+      <width>65</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #195</name>
+    <x>348</x>
+    <y>190</y>
+    <width>65</width>
+    <height>40</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0-3)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)bOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="combo" version="2.0.0">
+      <name>menu #198</name>
+      <pv_name>$(dg)bOutputPolSetBO</pv_name>
+      <y>20</y>
+      <width>65</width>
+      <height>20</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #201</name>
+      <pv_name>$(dg)bOutputPolBI</pv_name>
+      <width>65</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #206</name>
+    <x>488</x>
+    <y>190</y>
+    <width>65</width>
+    <height>40</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0-3)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)cOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="combo" version="2.0.0">
+      <name>menu #209</name>
+      <pv_name>$(dg)cOutputPolSetBO</pv_name>
+      <y>20</y>
+      <width>65</width>
+      <height>20</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #212</name>
+      <pv_name>$(dg)cOutputPolBI</pv_name>
+      <width>65</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #217</name>
+    <x>558</x>
+    <y>190</y>
+    <width>65</width>
+    <height>40</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0-3)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)dOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="combo" version="2.0.0">
+      <name>menu #220</name>
+      <pv_name>$(dg)dOutputPolSetBO</pv_name>
+      <y>20</y>
+      <width>65</width>
+      <height>20</height>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #223</name>
+      <pv_name>$(dg)dOutputPolBI</pv_name>
+      <width>65</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #228</name>
+    <x>283</x>
+    <y>245</y>
+    <width>50</width>
+    <height>97</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(!(pv0-3))">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)aOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #231</name>
+      <pv_name>$(dg)aOutputOffsetSetAO</pv_name>
+      <y>75</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #235</name>
+      <pv_name>$(dg)aOutputAmpSetAO</pv_name>
+      <y>20</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #239</name>
+      <pv_name>$(dg)aOutputAmpAI</pv_name>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #243</name>
+      <pv_name>$(dg)aOutputOffsetAI</pv_name>
+      <y>55</y>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #248</name>
+    <x>353</x>
+    <y>245</y>
+    <width>50</width>
+    <height>97</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(!(pv0-3))">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)bOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #251</name>
+      <pv_name>$(dg)bOutputOffsetSetAO</pv_name>
+      <y>75</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #255</name>
+      <pv_name>$(dg)bOutputAmpSetAO</pv_name>
+      <y>20</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #259</name>
+      <pv_name>$(dg)bOutputAmpAI</pv_name>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #263</name>
+      <pv_name>$(dg)bOutputOffsetAI</pv_name>
+      <y>55</y>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #268</name>
+    <x>423</x>
+    <y>245</y>
+    <width>50</width>
+    <height>97</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(!(pv0-3))">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)abOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #271</name>
+      <pv_name>$(dg)abOutputOffsetSetAO</pv_name>
+      <y>75</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #275</name>
+      <pv_name>$(dg)abOutputAmpSetAO</pv_name>
+      <y>20</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #279</name>
+      <pv_name>$(dg)abOutputAmpAI</pv_name>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #283</name>
+      <pv_name>$(dg)abOutputOffsetAI</pv_name>
+      <y>55</y>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #288</name>
+    <x>493</x>
+    <y>245</y>
+    <width>50</width>
+    <height>97</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(!(pv0-3))">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)cOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #291</name>
+      <pv_name>$(dg)cOutputOffsetSetAO</pv_name>
+      <y>75</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #295</name>
+      <pv_name>$(dg)cOutputAmpSetAO</pv_name>
+      <y>20</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #299</name>
+      <pv_name>$(dg)cOutputAmpAI</pv_name>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #303</name>
+      <pv_name>$(dg)cOutputOffsetAI</pv_name>
+      <y>55</y>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #308</name>
+    <x>563</x>
+    <y>245</y>
+    <width>50</width>
+    <height>97</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(!(pv0-3))">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)dOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #311</name>
+      <pv_name>$(dg)dOutputOffsetSetAO</pv_name>
+      <y>75</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #315</name>
+      <pv_name>$(dg)dOutputAmpSetAO</pv_name>
+      <y>20</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #319</name>
+      <pv_name>$(dg)dOutputAmpAI</pv_name>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #323</name>
+      <pv_name>$(dg)dOutputOffsetAI</pv_name>
+      <y>55</y>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #328</name>
+    <x>633</x>
+    <y>245</y>
+    <width>50</width>
+    <height>97</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(!(pv0-3))">
+          <value>false</value>
+        </exp>
+        <pv_name>$(dg)cdOutputModeMI</pv_name>
+      </rule>
+    </rules>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #331</name>
+      <pv_name>$(dg)cdOutputOffsetSetAO</pv_name>
+      <y>75</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #335</name>
+      <pv_name>$(dg)cdOutputAmpSetAO</pv_name>
+      <y>20</y>
+      <width>50</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #339</name>
+      <pv_name>$(dg)cdOutputAmpAI</pv_name>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #343</name>
+      <pv_name>$(dg)cdOutputOffsetAI</pv_name>
+      <y>55</y>
+      <width>50</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #348</name>
+    <text>ExtTrig</text>
+    <x>18</x>
+    <y>40</y>
+    <width>60</width>
+    <height>24</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #351</name>
+    <pv_name>$(dg)trigInputPolSetBO</pv_name>
+    <x>15</x>
+    <y>210</y>
+    <width>80</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #354</name>
+    <pv_name>$(dg)trigInputPolBI</pv_name>
+    <x>15</x>
+    <y>190</y>
+    <width>80</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #358</name>
+    <pv_name>$(dg)trigInputAmpSetAO</pv_name>
+    <x>30</x>
+    <y>265</y>
+    <width>50</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #362</name>
+    <pv_name>$(dg)trigInputAmpAI</pv_name>
+    <x>30</x>
+    <y>245</y>
+    <width>50</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #366</name>
+    <pv_name>$(dg)trigInputZBI</pv_name>
+    <x>21</x>
+    <y>78</y>
+    <width>65</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>menu #370</name>
+    <pv_name>$(dg)trigInputZSetBO</pv_name>
+    <x>21</x>
+    <y>98</y>
+    <width>65</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #373</name>
+    <y>125</y>
+    <width>691</width>
+    <height>2</height>
+    <line_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #376</name>
+    <x>5</x>
+    <y>182</y>
+    <width>691</width>
+    <height>2</height>
+    <line_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #379</name>
+    <x>5</x>
+    <y>237</y>
+    <width>691</width>
+    <height>2</height>
+    <line_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #382</name>
+    <x>5</x>
+    <y>292</y>
+    <width>691</width>
+    <height>2</height>
+    <line_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #385</name>
+    <x>5</x>
+    <y>70</y>
+    <width>691</width>
+    <height>2</height>
+    <line_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="174" green="174" blue="174">
+      </color>
+    </background_color>
+  </widget>
+</display>
