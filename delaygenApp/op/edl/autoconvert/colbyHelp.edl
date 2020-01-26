@@ -1,44 +1,45 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 141
 y 133
 w 292
 h 198
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 31
-bgColor index 10
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 63744 55808 15360
+bgColor rgb 26880 26880 26880
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 20
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 0
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "Before rebooting the IOC, depress the"
+  "Before rebooting the IOC, depress the"
 }
 endObjectProperties
 
@@ -46,17 +47,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 35
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 0
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "Disconnect button to orderly shutdown"
+  "Disconnect button to orderly shutdown"
 }
 endObjectProperties
 
@@ -64,17 +66,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 50
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 0
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "the network connection to the Colby"
+  "the network connection to the Colby"
 }
 endObjectProperties
 
@@ -82,17 +85,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 65
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 0
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "instrument. After that, type Reboot"
+  "instrument. After that, type Reboot"
 }
 endObjectProperties
 
@@ -100,17 +104,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 81
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 0
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "at the IOC console to complete the"
+  "at the IOC console to complete the"
 }
 endObjectProperties
 
@@ -118,17 +123,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 96
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 0
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "orderly shutdown process."
+  "orderly shutdown process."
 }
 endObjectProperties
 
@@ -136,17 +142,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 111
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- ""
+  ""
 }
 endObjectProperties
 
@@ -154,17 +161,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 127
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 0
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "If there are problems with connecting"
+  "If there are problems with connecting"
 }
 endObjectProperties
 
@@ -172,17 +180,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 140
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 0
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "with the instrument, try depressing the"
+  "with the instrument, try depressing the"
 }
 endObjectProperties
 
@@ -190,17 +199,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 153
 w 275
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 0
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "Connect button."
+  "Connect button."
 }
 endObjectProperties
 

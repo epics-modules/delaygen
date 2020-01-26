@@ -1,45 +1,46 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 189
 y 137
 w 205
 h 327
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 10
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 26880 26880 26880
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 0
 y 8
 w 200
 h 26
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-18.0"
 fontAlign "center"
-fgColor index 31
+fgColor rgb 63744 55808 15360
+bgColor index 3
 useDisplayBg
 value {
- "Colby PDL-100A"
+  "Colby PDL-100A"
 }
 endObjectProperties
 
@@ -53,8 +54,8 @@ x 8
 y 50
 w 186
 h 0
-lineColor index 0
-fillColor index 0
+lineColor rgb 65280 65280 65280
+fillColor rgb 65280 65280 65280
 lineWidth 0
 numPoints 2 {
 xPoints  {
@@ -77,8 +78,8 @@ x 8
 y 51
 w 0
 h 260
-lineColor index 0
-fillColor index 0
+lineColor rgb 65280 65280 65280
+fillColor rgb 65280 65280 65280
 lineWidth 0
 numPoints 2 {
 xPoints  {
@@ -101,8 +102,8 @@ x 194
 y 51
 w 0
 h 260
-lineColor index 0
-fillColor index 0
+lineColor rgb 65280 65280 65280
+fillColor rgb 65280 65280 65280
 lineWidth 0
 numPoints 2 {
 xPoints  {
@@ -125,8 +126,8 @@ x 9
 y 311
 w 185
 h 0
-lineColor index 0
-fillColor index 0
+lineColor rgb 65280 65280 65280
+fillColor rgb 65280 65280 65280
 lineWidth 0
 numPoints 2 {
 xPoints  {
@@ -143,43 +144,44 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 0
 y 34
 w 200
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 50
+fgColor rgb 39168 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "$(P)$(R)"
+  "$(P)$(R)"
 }
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 42
 y 66
 w 116
 h 20
 controlPv "$(P)$(R)delay.DESC"
-font "helvetica-medium-r-8.0"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 65280 65280 65280
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 54
-bgColor index 0
-autoHeight
-format decimal
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Rectangle)
@@ -192,9 +194,9 @@ x 39
 y 164
 w 120
 h 50
-lineColor index 14
+lineColor rgb 0 0 0
 fill
-fillColor index 14
+fillColor rgb 0 0 0
 lineWidth 3
 endObjectProperties
 
@@ -202,50 +204,50 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 42
 y 108
 w 116
 h 26
 controlPv "$(P)$(R)delay"
-font "helvetica-medium-r-8.0"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 51
-editable
-autoHeight
-format decimal
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 42
 y 87
 w 116
 h 18
 controlPv "$(P)$(R)delay_rbk"
-font "helvetica-medium-r-8.0"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 51200 51200 51200
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 54
-bgColor index 3
-autoHeight
-format decimal
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Lines)
@@ -258,8 +260,8 @@ x 38
 y 62
 w 4
 h 157
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 4
 numPoints 2 {
 xPoints  {
@@ -276,26 +278,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 70
 y 163
 w 60
 h 20
 controlPv "$(P)$(R)step"
-font "helvetica-medium-r-8.0"
+format "decimal"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 51
-editable
-autoHeight
-format decimal
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Lines)
@@ -308,8 +310,8 @@ x 36
 y 60
 w 128
 h 4
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 4
 numPoints 2 {
 xPoints  {
@@ -332,8 +334,8 @@ x 158
 y 62
 w 4
 h 157
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 4
 numPoints 2 {
 xPoints  {
@@ -350,18 +352,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 69
 y 187
 w 60
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 30
+fgColor rgb 64256 62208 18944
+bgColor index 3
 useDisplayBg
 value {
- "Step"
+  "Step"
 }
 endObjectProperties
 
@@ -369,18 +372,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 43
 y 201
 w 25
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 30
+fgColor rgb 64256 62208 18944
+bgColor index 3
 useDisplayBg
 value {
- "-"
+  "-"
 }
 endObjectProperties
 
@@ -388,18 +392,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 130
 y 201
 w 25
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 30
+fgColor rgb 64256 62208 18944
+bgColor index 3
 useDisplayBg
 value {
- "+"
+  "+"
 }
 endObjectProperties
 
@@ -413,22 +418,25 @@ x 38
 y 217
 w 124
 h 22
-fgColor index 14
-bgColor index 51
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "Config"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 ../../adl/colbyConfig.edl
+  0 colbyConfig.edl
 }
 menuLabel {
   0 Constants
 }
 symbols {
   0 "P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
 }
 endObjectProperties
 
@@ -442,11 +450,11 @@ x 42
 y 163
 w 25
 h 36
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(R)dec.PROC"
 pressValue "1"
 releaseValue 
@@ -454,7 +462,7 @@ onLabel "<"
 offLabel "<"
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-18.0"
 endObjectProperties
 
 # (Message Button)
@@ -467,11 +475,11 @@ x 133
 y 163
 w 25
 h 36
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(R)inc.PROC"
 pressValue "1"
 releaseValue 
@@ -479,7 +487,7 @@ onLabel ">"
 offLabel ">"
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-18.0"
 endObjectProperties
 
 # (Choice Button)
@@ -492,12 +500,12 @@ x 42
 y 135
 w 116
 h 28
-fgColor index 14
-bgColor index 51
-selectColor index 51
-inconsistentColor index 14
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+selectColor rgb 29440 57088 65280
+inconsistentColor rgb 0 0 0
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(R)units"
 font "helvetica-medium-r-10.0"
 orientation "horizontal"
@@ -513,11 +521,11 @@ x 38
 y 261
 w 124
 h 22
-fgColor index 0
-onColor index 21
-offColor index 21
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 65280 65280 65280
+onColor rgb 56832 4864 2304
+offColor rgb 56832 4864 2304
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(R)disconnect.PROC"
 pressValue "1"
 releaseValue 
@@ -525,7 +533,7 @@ onLabel "Disconnect"
 offLabel "Disconnect"
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 # (Message Button)
@@ -538,11 +546,11 @@ x 38
 y 284
 w 124
 h 22
-fgColor index 0
-onColor index 62
-offColor index 62
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 65280 65280 65280
+onColor rgb 15360 46080 8192
+offColor rgb 15360 46080 8192
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(R)connect.PROC"
 pressValue "1"
 releaseValue 
@@ -550,7 +558,7 @@ onLabel "Connect"
 offLabel "Connect"
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 # (Related Display)
@@ -563,22 +571,25 @@ x 167
 y 270
 w 22
 h 24
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
 buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 ../../adl/colbyHelp.edl
+  0 colbyHelp.edl
 }
 menuLabel {
   0 annotated display
 }
 symbols {
   0 
+}
+replaceSymbols {
+  0 1
 }
 endObjectProperties
 
