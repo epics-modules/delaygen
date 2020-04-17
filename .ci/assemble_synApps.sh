@@ -157,6 +157,18 @@ if [[ $IP ]];            then   get_repo epics-modules  ip             IP       
 if [[ $IPAC ]];          then   get_repo epics-modules  ipac           IPAC           $IPAC          ; fi
 if [[ $SSCAN ]];         then   get_repo epics-modules  sscan          SSCAN          $SSCAN         ; fi
 
+if [[ $ASYN ]];
+then
+
+cd asyn-$ASYN
+
+sed -i 's/#SNCSEQ=/SNCSEQ=/g'./configure/RELEASE
+sed -i 's/#CALC=/CALC=/g' ./configure/RELEASE
+
+cd ..
+
+fi
+
 if [[ $CALC ]];          
 then   
 
