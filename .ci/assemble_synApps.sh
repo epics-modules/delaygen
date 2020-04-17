@@ -141,10 +141,10 @@ fi
 alias get_support='shallow_support'
 alias get_repo='shallow_repo'
 
-get_support support synApps_5_8
+get_support support R6-1
 cd support
 
-get_support configure        synApps_5_8
+get_support configure        R6-1
 
 echo "SUPPORT=$HOME/.cache/support" > configure/RELEASE
 echo "EPICS_BASE=$EPICS_BASE" >> configure/RELEASE
