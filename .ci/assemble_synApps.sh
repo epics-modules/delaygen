@@ -145,6 +145,7 @@ get_support support R6-1
 cd support
 
 get_support configure        R6-1
+get_support utils            R6-1
 
 echo "SUPPORT=$HOME/.cache/support" > configure/RELEASE
 echo "EPICS_BASE=$EPICS_BASE" >> configure/RELEASE
@@ -162,7 +163,7 @@ then
 
 cd asyn-$ASYN
 
-sed -i 's/#SNCSEQ=/SNCSEQ=/g' ./configure/RELEASE
+sed -i 's/#SSCAN=/SSCAN=/g' ./configure/RELEASE
 sed -i 's/#CALC=/CALC=/g' ./configure/RELEASE
 
 cd ..
