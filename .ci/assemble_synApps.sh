@@ -170,11 +170,28 @@ fi
 if [[ $STREAM ]]
 then
 
-get_repo  epics-modules  stream  STREAM  $STREAM
+get_repo paulscherrerinstitute  StreamDevice   STREAM         $STREAM  ;
 
-cd stream-$STREAM
-git submodule init
-git submodule update
+cd StreamDevice-${STREAM//./-}
+	
+# Use the EPICS makefile, rather than PSI's
+rm GNUmakefile
+
+# Don't install to synApps/support
+sed -i 's/TOP = ../TOP = ./g' ./Makefile
+sed -i 's/TOP = ..\/../TOP = ../g' ./streamApp/Makefile
+sed -i 's/TOP = ..\/../TOP = ../g' ./src/Makefile
+
+# Comment out PCRE
+sed -i 's/PCRE=/#PCRE=/g' ./configure/RELEASE
+
+echo "SSCAN=" >> ./configure/RELEASE
+echo "STREAM=" >> ./configure/RELEASE
+echo "-include \$(TOP)/../RELEASE.local" >> ./configure/RELEASE
+echo "-include \$(TOP)/../RELEASE.\$(EPICS_HOST_ARCH).local" >> ./configure/RELEASE
+echo "-include \$(TOP)/configure/RELEASE.local" >> ./configure/RELEASE
+sed -i 's/#PROD_LIBS += sscan/PROD_LIBS += sscan/g' ./streamApp/Makefile
+
 cd ..
 
 fi
