@@ -162,7 +162,7 @@ then
 
 cd asyn-$ASYN
 
-sed -i 's/#SNCSEQ=/SNCSEQ=/g'./configure/RELEASE
+sed -i 's/#SNCSEQ=/SNCSEQ=/g' ./configure/RELEASE
 sed -i 's/#CALC=/CALC=/g' ./configure/RELEASE
 
 cd ..
