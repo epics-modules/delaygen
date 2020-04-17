@@ -141,11 +141,10 @@ fi
 alias get_support='shallow_support'
 alias get_repo='shallow_repo'
 
+rm -rf support
+
 get_support support R6-1
 cd support
-
-rm -rf configure
-rm -rf utils
 
 get_support configure        R6-1
 get_support utils            R6-1
