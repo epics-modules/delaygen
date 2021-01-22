@@ -16,6 +16,24 @@ record(bo, "$(P)$(R)Run") {
     field(ONAM, "Run")
 }
 
+record(bi, "$(P)$(R)Running") {
+    field(DTYP, "stream")
+    field(INP,  "@BNC_505.protocol getRun $(PORT)")
+    field(ZNAM, "Stop")
+    field(ONAM, "Run")
+	field(SDIS, "$(P)$(R)Run")
+	field(DISV, "0")
+	field(FLNK, "$(P)$(R)SetStopped")
+	field(SCAN, ".1 second")
+}
+
+record(calcout, "$(P)$(R)SetStopped") {
+    field(INPA, "$(P)$(R)Running")
+	field(CALC, "A")
+	field(OOPT, "Transition To Zero")
+	field(OUT,  "$(P)$(R)Run PP MS")
+}
+
 record(ao, "$(P)$(R)Period") {
     field(DTYP, "stream")
     field(OUT,  "@BNC_505.protocol setPeriod $(PORT)")
