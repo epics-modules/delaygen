@@ -1,6 +1,7 @@
 
 file {
-	name="/home/opiinj2/injsys/linac/linacApp/op/adl/devdg535Outputs.adl"
+	name="/home/epics/devel/delaygen-1-2-1/delaygenApp/op/adl/devDG535Outputs.adl"
+	version=030109
 }
 display {
 	object {
@@ -12,406 +13,78 @@ display {
 	clr=14
 	bclr=3
 	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
 }
 "color map" {
 	ncolors=65
-	dl_color {
-		r=255
-		g=255
-		b=255
-		inten=255
-	}
-	dl_color {
-		r=236
-		g=236
-		b=236
-		inten=0
-	}
-	dl_color {
-		r=218
-		g=218
-		b=218
-		inten=0
-	}
-	dl_color {
-		r=200
-		g=200
-		b=200
-		inten=0
-	}
-	dl_color {
-		r=187
-		g=187
-		b=187
-		inten=0
-	}
-	dl_color {
-		r=174
-		g=174
-		b=174
-		inten=0
-	}
-	dl_color {
-		r=158
-		g=158
-		b=158
-		inten=0
-	}
-	dl_color {
-		r=145
-		g=145
-		b=145
-		inten=0
-	}
-	dl_color {
-		r=133
-		g=133
-		b=133
-		inten=0
-	}
-	dl_color {
-		r=120
-		g=120
-		b=120
-		inten=0
-	}
-	dl_color {
-		r=105
-		g=105
-		b=105
-		inten=0
-	}
-	dl_color {
-		r=90
-		g=90
-		b=90
-		inten=0
-	}
-	dl_color {
-		r=70
-		g=70
-		b=70
-		inten=0
-	}
-	dl_color {
-		r=45
-		g=45
-		b=45
-		inten=0
-	}
-	dl_color {
-		r=0
-		g=0
-		b=0
-		inten=0
-	}
-	dl_color {
-		r=0
-		g=216
-		b=0
-		inten=0
-	}
-	dl_color {
-		r=30
-		g=187
-		b=0
-		inten=0
-	}
-	dl_color {
-		r=51
-		g=153
-		b=0
-		inten=0
-	}
-	dl_color {
-		r=45
-		g=127
-		b=0
-		inten=0
-	}
-	dl_color {
-		r=33
-		g=108
-		b=0
-		inten=0
-	}
-	dl_color {
-		r=253
-		g=0
-		b=0
-		inten=0
-	}
-	dl_color {
-		r=222
-		g=19
-		b=9
-		inten=0
-	}
-	dl_color {
-		r=190
-		g=25
-		b=11
-		inten=0
-	}
-	dl_color {
-		r=160
-		g=18
-		b=7
-		inten=0
-	}
-	dl_color {
-		r=130
-		g=4
-		b=0
-		inten=0
-	}
-	dl_color {
-		r=88
-		g=147
-		b=255
-		inten=0
-	}
-	dl_color {
-		r=89
-		g=126
-		b=225
-		inten=0
-	}
-	dl_color {
-		r=75
-		g=110
-		b=199
-		inten=0
-	}
-	dl_color {
-		r=58
-		g=94
-		b=171
-		inten=0
-	}
-	dl_color {
-		r=39
-		g=84
-		b=141
-		inten=0
-	}
-	dl_color {
-		r=251
-		g=243
-		b=74
-		inten=0
-	}
-	dl_color {
-		r=249
-		g=218
-		b=60
-		inten=0
-	}
-	dl_color {
-		r=238
-		g=182
-		b=43
-		inten=0
-	}
-	dl_color {
-		r=225
-		g=144
-		b=21
-		inten=0
-	}
-	dl_color {
-		r=205
-		g=97
-		b=0
-		inten=0
-	}
-	dl_color {
-		r=255
-		g=176
-		b=255
-		inten=0
-	}
-	dl_color {
-		r=214
-		g=127
-		b=226
-		inten=0
-	}
-	dl_color {
-		r=174
-		g=78
-		b=188
-		inten=0
-	}
-	dl_color {
-		r=139
-		g=26
-		b=150
-		inten=0
-	}
-	dl_color {
-		r=97
-		g=10
-		b=117
-		inten=0
-	}
-	dl_color {
-		r=164
-		g=170
-		b=255
-		inten=0
-	}
-	dl_color {
-		r=135
-		g=147
-		b=226
-		inten=0
-	}
-	dl_color {
-		r=106
-		g=115
-		b=193
-		inten=0
-	}
-	dl_color {
-		r=77
-		g=82
-		b=164
-		inten=0
-	}
-	dl_color {
-		r=52
-		g=51
-		b=134
-		inten=0
-	}
-	dl_color {
-		r=199
-		g=187
-		b=109
-		inten=0
-	}
-	dl_color {
-		r=183
-		g=157
-		b=92
-		inten=0
-	}
-	dl_color {
-		r=164
-		g=126
-		b=60
-		inten=0
-	}
-	dl_color {
-		r=125
-		g=86
-		b=39
-		inten=0
-	}
-	dl_color {
-		r=88
-		g=52
-		b=15
-		inten=0
-	}
-	dl_color {
-		r=153
-		g=255
-		b=255
-		inten=0
-	}
-	dl_color {
-		r=115
-		g=223
-		b=255
-		inten=0
-	}
-	dl_color {
-		r=78
-		g=165
-		b=249
-		inten=0
-	}
-	dl_color {
-		r=42
-		g=99
-		b=228
-		inten=0
-	}
-	dl_color {
-		r=10
-		g=0
-		b=184
-		inten=0
-	}
-	dl_color {
-		r=235
-		g=241
-		b=181
-		inten=0
-	}
-	dl_color {
-		r=212
-		g=219
-		b=157
-		inten=0
-	}
-	dl_color {
-		r=187
-		g=193
-		b=135
-		inten=0
-	}
-	dl_color {
-		r=166
-		g=164
-		b=98
-		inten=0
-	}
-	dl_color {
-		r=139
-		g=130
-		b=57
-		inten=0
-	}
-	dl_color {
-		r=115
-		g=255
-		b=107
-		inten=0
-	}
-	dl_color {
-		r=82
-		g=218
-		b=59
-		inten=0
-	}
-	dl_color {
-		r=60
-		g=180
-		b=32
-		inten=0
-	}
-	dl_color {
-		r=40
-		g=147
-		b=21
-		inten=0
-	}
-	dl_color {
-		r=26
-		g=115
-		b=9
-		inten=0
-	}
-}
-"basic attribute" {
-	attr {
-		clr=6
-		style="solid"
-		fill="solid"
-		width=3
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
 	}
 }
 rectangle {
@@ -421,13 +94,9 @@ rectangle {
 		width=691
 		height=4
 	}
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
+	"basic attribute" {
+		clr=6
+		width=3
 	}
 }
 text {
@@ -437,16 +106,12 @@ text {
 		width=60
 		height=18
 	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
 	textix="Amplitude"
 	align="horiz. centered"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="solid"
-		width=7
-	}
 }
 text {
 	object {
@@ -455,16 +120,12 @@ text {
 		width=300
 		height=20
 	}
+	"basic attribute" {
+		clr=14
+		width=7
+	}
 	textix="Stanford Research Systems"
 	align="horiz. centered"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
-	}
 }
 "text update" {
 	object {
@@ -474,20 +135,13 @@ text {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)tOutputModeMI"
+		chan="$(dg)tOutputModeMI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text update" {
@@ -498,20 +152,13 @@ text {
 		height=20
 	}
 	monitor {
-		rdbk="$(dg)trigModeMI.DESC"
+		chan="$(dg)trigModeMI.DESC"
 		clr=14
 		bclr=2
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=3
+	limits {
 	}
 }
 rectangle {
@@ -521,13 +168,10 @@ rectangle {
 		width=697
 		height=283
 	}
-}
-"basic attribute" {
-	attr {
+	"basic attribute" {
 		clr=14
-		style="solid"
 		fill="outline"
-		width=0
+		width=3
 	}
 }
 text {
@@ -537,16 +181,12 @@ text {
 		width=60
 		height=18
 	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
 	textix="Mode"
 	align="horiz. centered"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
-	}
 }
 menu {
 	object {
@@ -556,18 +196,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)tOutputModeSetMO"
+		chan="$(dg)tOutputModeSetMO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 text {
@@ -577,16 +208,12 @@ text {
 		width=60
 		height=18
 	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
 	textix="Offset"
 	align="horiz. centered"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
-	}
 }
 text {
 	object {
@@ -595,16 +222,12 @@ text {
 		width=60
 		height=18
 	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
 	textix="Termination"
 	align="horiz. centered"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
-	}
 }
 text {
 	object {
@@ -613,16 +236,12 @@ text {
 		width=60
 		height=18
 	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
 	textix="Polarity"
 	align="horiz. centered"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
-	}
 }
 "text update" {
 	object {
@@ -632,20 +251,13 @@ text {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)tOutputPolBI"
+		chan="$(dg)tOutputPolBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -656,18 +268,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)tOutputPolSetBO"
+		chan="$(dg)tOutputPolSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -678,20 +281,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)tOutputZBI"
+		chan="$(dg)tOutputZBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -702,18 +298,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)tOutputZSetBO"
+		chan="$(dg)tOutputZSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -724,20 +311,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)tOutputAmpAI"
+		chan="$(dg)tOutputAmpAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -748,19 +328,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)tOutputAmpSetAO"
+		chan="$(dg)tOutputAmpSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text update" {
@@ -771,20 +343,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)tOutputOffsetAI"
+		chan="$(dg)tOutputOffsetAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -795,19 +360,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)tOutputOffsetSetAO"
+		chan="$(dg)tOutputOffsetSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 text {
@@ -817,16 +374,12 @@ text {
 		width=60
 		height=24
 	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
 	textix="To"
 	align="horiz. centered"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
-	}
 }
 menu {
 	object {
@@ -836,18 +389,9 @@ menu {
 		height=14
 	}
 	control {
-		ctrl="$(dg)readParamsFO.SCAN"
+		chan="$(dg)readParamsFO.SCAN"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -858,20 +402,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)aOutputModeMI"
+		chan="$(dg)aOutputModeMI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -882,18 +419,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)aOutputModeSetMO"
+		chan="$(dg)aOutputModeSetMO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -904,20 +432,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)aOutputPolBI"
+		chan="$(dg)aOutputPolBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -928,18 +449,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)aOutputPolSetBO"
+		chan="$(dg)aOutputPolSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -950,20 +462,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)aOutputZBI"
+		chan="$(dg)aOutputZBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -974,18 +479,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)aOutputZSetBO"
+		chan="$(dg)aOutputZSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -996,20 +492,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)aOutputAmpAI"
+		chan="$(dg)aOutputAmpAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -1020,19 +509,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)aOutputAmpSetAO"
+		chan="$(dg)aOutputAmpSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text update" {
@@ -1043,20 +524,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)aOutputOffsetAI"
+		chan="$(dg)aOutputOffsetAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -1067,19 +541,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)aOutputOffsetSetAO"
+		chan="$(dg)aOutputOffsetSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 text {
@@ -1088,18 +554,14 @@ text {
 		y=42
 		width=60
 		height=24
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
 	}
 	textix="A"
 	align="horiz. centered"
 }
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
-	}
-}
 "text update" {
 	object {
 		x=244
@@ -1108,20 +570,13 @@ text {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)bOutputModeMI"
+		chan="$(dg)bOutputModeMI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1132,18 +587,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)bOutputModeSetMO"
+		chan="$(dg)bOutputModeSetMO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1154,20 +600,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)bOutputPolBI"
+		chan="$(dg)bOutputPolBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1178,18 +617,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)bOutputPolSetBO"
+		chan="$(dg)bOutputPolSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1200,20 +630,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)bOutputZBI"
+		chan="$(dg)bOutputZBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1224,18 +647,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)bOutputZSetBO"
+		chan="$(dg)bOutputZSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1246,20 +660,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)bOutputAmpAI"
+		chan="$(dg)bOutputAmpAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -1270,19 +677,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)bOutputAmpSetAO"
+		chan="$(dg)bOutputAmpSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text update" {
@@ -1293,20 +692,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)bOutputOffsetAI"
+		chan="$(dg)bOutputOffsetAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -1317,19 +709,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)bOutputOffsetSetAO"
+		chan="$(dg)bOutputOffsetSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 text {
@@ -1338,18 +722,14 @@ text {
 		y=42
 		width=60
 		height=24
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
 	}
 	textix="B"
 	align="horiz. centered"
 }
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
-	}
-}
 "text update" {
 	object {
 		x=314
@@ -1358,20 +738,13 @@ text {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)abOutputModeMI"
+		chan="$(dg)abOutputModeMI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1382,18 +755,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)abOutputModeSetMO"
+		chan="$(dg)abOutputModeSetMO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1404,20 +768,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)abOutputZBI"
+		chan="$(dg)abOutputZBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1428,18 +785,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)abOutputZSetBO"
+		chan="$(dg)abOutputZSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1450,20 +798,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)abOutputAmpAI"
+		chan="$(dg)abOutputAmpAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -1474,19 +815,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)abOutputAmpSetAO"
+		chan="$(dg)abOutputAmpSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text update" {
@@ -1497,20 +830,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)abOutputOffsetAI"
+		chan="$(dg)abOutputOffsetAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -1521,19 +847,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)abOutputOffsetSetAO"
+		chan="$(dg)abOutputOffsetSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 text {
@@ -1542,18 +860,14 @@ text {
 		y=42
 		width=60
 		height=24
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
 	}
 	textix="AB"
 	align="horiz. centered"
 }
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
-	}
-}
 "text update" {
 	object {
 		x=384
@@ -1562,20 +876,13 @@ text {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)cOutputModeMI"
+		chan="$(dg)cOutputModeMI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1586,18 +893,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)cOutputModeSetMO"
+		chan="$(dg)cOutputModeSetMO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1608,20 +906,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)cOutputPolBI"
+		chan="$(dg)cOutputPolBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1632,18 +923,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)cOutputPolSetBO"
+		chan="$(dg)cOutputPolSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1654,20 +936,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)cOutputZBI"
+		chan="$(dg)cOutputZBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1678,18 +953,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)cOutputZSetBO"
+		chan="$(dg)cOutputZSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1700,20 +966,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)cOutputAmpAI"
+		chan="$(dg)cOutputAmpAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -1724,19 +983,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)cOutputAmpSetAO"
+		chan="$(dg)cOutputAmpSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text update" {
@@ -1747,20 +998,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)cOutputOffsetAI"
+		chan="$(dg)cOutputOffsetAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -1771,19 +1015,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)cOutputOffsetSetAO"
+		chan="$(dg)cOutputOffsetSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 text {
@@ -1792,18 +1028,14 @@ text {
 		y=42
 		width=60
 		height=24
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
 	}
 	textix="C"
 	align="horiz. centered"
 }
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
-	}
-}
 "text update" {
 	object {
 		x=454
@@ -1812,20 +1044,13 @@ text {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)dOutputModeMI"
+		chan="$(dg)dOutputModeMI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1836,18 +1061,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)dOutputModeSetMO"
+		chan="$(dg)dOutputModeSetMO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1858,20 +1074,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)dOutputPolBI"
+		chan="$(dg)dOutputPolBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1882,18 +1091,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)dOutputPolSetBO"
+		chan="$(dg)dOutputPolSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1904,20 +1104,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)dOutputZBI"
+		chan="$(dg)dOutputZBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -1928,18 +1121,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)dOutputZSetBO"
+		chan="$(dg)dOutputZSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -1950,20 +1134,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)dOutputAmpAI"
+		chan="$(dg)dOutputAmpAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -1974,19 +1151,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)dOutputAmpSetAO"
+		chan="$(dg)dOutputAmpSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text update" {
@@ -1997,20 +1166,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)dOutputOffsetAI"
+		chan="$(dg)dOutputOffsetAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -2021,19 +1183,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)dOutputOffsetSetAO"
+		chan="$(dg)dOutputOffsetSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 text {
@@ -2042,18 +1196,14 @@ text {
 		y=42
 		width=60
 		height=24
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
 	}
 	textix="D"
 	align="horiz. centered"
 }
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
-	}
-}
 "text update" {
 	object {
 		x=524
@@ -2062,20 +1212,13 @@ text {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)cdOutputModeMI"
+		chan="$(dg)cdOutputModeMI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -2086,18 +1229,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)cdOutputModeSetMO"
+		chan="$(dg)cdOutputModeSetMO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -2108,20 +1242,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)cdOutputZBI"
+		chan="$(dg)cdOutputZBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -2132,18 +1259,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)cdOutputZSetBO"
+		chan="$(dg)cdOutputZSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -2154,20 +1272,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)cdOutputAmpAI"
+		chan="$(dg)cdOutputAmpAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -2178,19 +1289,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)cdOutputAmpSetAO"
+		chan="$(dg)cdOutputAmpSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text update" {
@@ -2201,20 +1304,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)cdOutputOffsetAI"
+		chan="$(dg)cdOutputOffsetAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -2225,19 +1321,11 @@ menu {
 		height=22
 	}
 	control {
-		ctrl="$(dg)cdOutputOffsetSetAO"
+		chan="$(dg)cdOutputOffsetSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 text {
@@ -2247,16 +1335,12 @@ text {
 		width=60
 		height=24
 	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
 	textix="CD"
 	align="horiz. centered"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
-	}
 }
 "text update" {
 	object {
@@ -2266,20 +1350,13 @@ text {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)trigInputAmpAI"
+		chan="$(dg)trigInputAmpAI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text entry" {
@@ -2290,19 +1367,11 @@ text {
 		height=22
 	}
 	control {
-		ctrl="$(dg)trigInputAmpSetAO"
+		chan="$(dg)trigInputAmpSetAO"
 		clr=14
 		bclr=51
 	}
-	clrmod="static"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
+	limits {
 	}
 }
 "text update" {
@@ -2313,20 +1382,13 @@ text {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)trigInputZBI"
+		chan="$(dg)trigInputZBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -2337,18 +1399,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)trigInputZSetBO"
+		chan="$(dg)trigInputZSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 "text update" {
@@ -2359,20 +1412,13 @@ menu {
 		height=16
 	}
 	monitor {
-		rdbk="$(dg)trigInputPolBI"
+		chan="$(dg)trigInputPolBI"
 		clr=14
 		bclr=1
 	}
 	clrmod="alarm"
 	align="horiz. centered"
-	format="decimal"
-}
-"basic attribute" {
-	attr {
-		clr=63
-		style="solid"
-		fill="solid"
-		width=7
+	limits {
 	}
 }
 menu {
@@ -2383,18 +1429,9 @@ menu {
 		height=16
 	}
 	control {
-		ctrl="$(dg)trigInputPolSetBO"
+		chan="$(dg)trigInputPolSetBO"
 		clr=14
 		bclr=51
-	}
-	clrmod="static"
-}
-"basic attribute" {
-	attr {
-		clr=14
-		style="solid"
-		fill="outline"
-		width=0
 	}
 }
 text {
@@ -2404,27 +1441,12 @@ text {
 		width=60
 		height=24
 	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
 	textix="ExtTrig"
 	align="horiz. centered"
-}
-"basic attribute" {
-	attr {
-		clr=20
-		style="solid"
-		fill="outline"
-		width=0
-	}
-}
-"dynamic attribute" {
-	attr {
-		mod {
-			clr="static"
-			vis="if not zero"
-		}
-		param {
-			chan="$(dg)errorStatusLI.SEVR"
-		}
-	}
 }
 text {
 	object {
@@ -2432,6 +1454,14 @@ text {
 		y=6
 		width=100
 		height=22
+	}
+	"basic attribute" {
+		clr=20
+		fill="outline"
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(dg)errorStatusLI.SEVR"
 	}
 	textix="ERROR!!"
 	align="horiz. centered"

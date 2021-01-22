@@ -141,10 +141,11 @@ fi
 alias get_support='shallow_support'
 alias get_repo='shallow_repo'
 
-get_support support synApps_5_8
+get_support support R6-1
 cd support
 
-get_support configure        synApps_5_8
+get_support configure        R6-1
+get_support utils            R6-1
 
 echo "SUPPORT=$HOME/.cache/support" > configure/RELEASE
 echo "EPICS_BASE=$EPICS_BASE" >> configure/RELEASE
@@ -156,6 +157,18 @@ if [[ $ASYN ]];          then   get_repo epics-modules  asyn           ASYN     
 if [[ $IP ]];            then   get_repo epics-modules  ip             IP             $IP            ; fi
 if [[ $IPAC ]];          then   get_repo epics-modules  ipac           IPAC           $IPAC          ; fi
 if [[ $SSCAN ]];         then   get_repo epics-modules  sscan          SSCAN          $SSCAN         ; fi
+
+if [[ $ASYN ]];
+then
+
+cd asyn-$ASYN
+
+sed -i 's/#SSCAN=/SSCAN=/g' ./configure/RELEASE
+sed -i 's/#CALC=/CALC=/g' ./configure/RELEASE
+
+cd ..
+
+fi
 
 if [[ $CALC ]];          
 then   
@@ -170,11 +183,28 @@ fi
 if [[ $STREAM ]]
 then
 
-get_repo  epics-modules  stream  STREAM  $STREAM
+get_repo paulscherrerinstitute  StreamDevice   STREAM         $STREAM  ;
 
-cd stream-$STREAM
-git submodule init
-git submodule update
+cd StreamDevice-${STREAM//./-}
+	
+# Use the EPICS makefile, rather than PSI's
+rm GNUmakefile
+
+# Don't install to synApps/support
+sed -i 's/TOP = ../TOP = ./g' ./Makefile
+sed -i 's/TOP = ..\/../TOP = ../g' ./streamApp/Makefile
+sed -i 's/TOP = ..\/../TOP = ../g' ./src/Makefile
+
+# Comment out PCRE
+sed -i 's/PCRE=/#PCRE=/g' ./configure/RELEASE
+
+echo "SSCAN=" >> ./configure/RELEASE
+echo "STREAM=" >> ./configure/RELEASE
+echo "-include \$(TOP)/../RELEASE.local" >> ./configure/RELEASE
+echo "-include \$(TOP)/../RELEASE.\$(EPICS_HOST_ARCH).local" >> ./configure/RELEASE
+echo "-include \$(TOP)/configure/RELEASE.local" >> ./configure/RELEASE
+sed -i 's/#PROD_LIBS += sscan/PROD_LIBS += sscan/g' ./streamApp/Makefile
+
 cd ..
 
 fi

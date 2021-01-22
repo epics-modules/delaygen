@@ -1,45 +1,46 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
-x 174
-y 478
+release 1
+x 2787
+y 359
 w 203
 h 243
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 10
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 26880 26880 26880
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 3
 y 4
 w 196
 h 22
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-18.0"
 fontAlign "center"
-fgColor index 31
+fgColor rgb 63744 55808 15360
+bgColor index 3
 useDisplayBg
 value {
- "DELAYGEN MODULE"
+  "DELAYGEN MODULE"
 }
 endObjectProperties
 
@@ -47,18 +48,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 3
 y 30
 w 196
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 50
+fgColor rgb 39168 65280 65280
+bgColor index 3
 useDisplayBg
 value {
- "$(P)"
+  "$(P)"
 }
 endObjectProperties
 
@@ -72,28 +74,25 @@ x 11
 y 50
 w 180
 h 22
-fgColor index 14
-bgColor index 4
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "Asyn Serial"
-numPvs 6
-numDsps 3
+numPvs 2
+numDsps 1
 displayFileName {
-  0 asynRecord.adl
-  1 asynRecord.adl
-  2 asynRecord.adl
+  0 asynRecord.edl
 }
 menuLabel {
-  0 ttyS1
-  1 ttyS2
-  2 ttyS3
+  0 serial1
 }
 symbols {
-  0 "P=$(P),R=ttyS1"
-  1 "P=$(P),R=ttyS2"
-  2 "P=$(P),R=ttyS3"
+  0 "P=$(P),R=asyn_1"
+}
+replaceSymbols {
+  0 1
 }
 endObjectProperties
 
@@ -104,20 +103,20 @@ major 4
 minor 0
 release 0
 x 11
-y 72
+y 77
 w 180
 h 22
-fgColor index 14
-bgColor index 4
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "Colby"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 asynRecord.adl
-  1 ../../adl/colbyMain.edl
+  0 asynRecord.edl
+  1 colbyMain.edl
 }
 menuLabel {
   0 Colby Asyn record
@@ -127,6 +126,10 @@ symbols {
   0 "P=$(P),R=Colby"
   1 "P=$(P),R=Colby:"
 }
+replaceSymbols {
+  0 1
+  1 1
+}
 endObjectProperties
 
 # (Related Display)
@@ -136,25 +139,28 @@ major 4
 minor 0
 release 0
 x 10
-y 118
+y 131
 w 180
 h 22
-fgColor index 14
-bgColor index 4
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "SRS DG645"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 ../../adl/srsDG645.edl
+  0 srsDG645.edl
 }
 menuLabel {
   0 DG645
 }
 symbols {
-  0 "P=delaygen:,R=DG0:"
+  0 "P=delaygen:,R=DG1:"
+}
+replaceSymbols {
+  0 1
 }
 endObjectProperties
 
@@ -165,25 +171,32 @@ major 4
 minor 0
 release 0
 x 10
-y 141
+y 158
 w 180
 h 22
-fgColor index 14
-bgColor index 4
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "SRS DG535"
-numPvs 2
-numDsps 1
+numPvs 4
+numDsps 2
 displayFileName {
-  0 ../../adl/devDG535.edl
+  0 devDG535.edl
+  1 devDG535daa.edl
 }
 menuLabel {
-  0 DG535
+  0 DG535 (original)
+  1 DG535 (modified)
 }
 symbols {
-  0 "P=$(P),R=DG1:"
+  0 "P=$(P),R=DG2:"
+  1 "P=$(P),R=DG2:"
+}
+replaceSymbols {
+  0 1
+  1 1
 }
 endObjectProperties
 
@@ -194,25 +207,60 @@ major 4
 minor 0
 release 0
 x 10
-y 95
+y 104
 w 180
 h 22
-fgColor index 14
-bgColor index 4
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "Coherent SDG"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 ConherentSDG.adl
+  0 CoherentSDG.edl
 }
 menuLabel {
   0 Coherent SDG
 }
 symbols {
   0 "P=$(P),R=sdg:"
+}
+replaceSymbols {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 185
+w 180
+h 22
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
+buttonLabel "BNC 505"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 BNC_505.edl
+}
+menuLabel {
+  0 BNC 505
+}
+symbols {
+  0 "P=$(P),R=BNC:"
+}
+replaceSymbols {
+  0 1
 }
 endObjectProperties
 

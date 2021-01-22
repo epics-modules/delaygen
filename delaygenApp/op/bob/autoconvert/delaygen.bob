@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>delaygen</name>
+  <x>2787</x>
+  <y>359</y>
+  <width>203</width>
+  <height>243</height>
+  <background_color>
+    <color red="105" green="105" blue="105">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #6</name>
+    <actions>
+      <action type="open_display">
+        <file>asynRecord.opi</file>
+        <macros>
+          <R>asyn_1</R>
+        </macros>
+        <target>tab</target>
+        <description>serial1</description>
+      </action>
+    </actions>
+    <text>Asyn Serial</text>
+    <x>11</x>
+    <y>50</y>
+    <width>180</width>
+    <height>22</height>
+    <background_color>
+      <color red="187" green="187" blue="187">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #10</name>
+    <text>DELAYGEN MODULE</text>
+    <x>3</x>
+    <y>4</y>
+    <width>196</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="249" green="218" blue="60">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #13</name>
+    <text>$(P)</text>
+    <x>3</x>
+    <y>30</y>
+    <width>196</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="153" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #16</name>
+    <actions>
+      <action type="open_display">
+        <file>asynRecord.opi</file>
+        <macros>
+          <R>Colby</R>
+        </macros>
+        <target>tab</target>
+        <description>Colby Asyn record</description>
+      </action>
+      <action type="open_display">
+        <file>colbyMain.opi</file>
+        <macros>
+          <R>Colby:</R>
+        </macros>
+        <target>tab</target>
+        <description>Colby controls</description>
+      </action>
+    </actions>
+    <text>Colby</text>
+    <x>11</x>
+    <y>77</y>
+    <width>180</width>
+    <height>22</height>
+    <background_color>
+      <color red="187" green="187" blue="187">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #20</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645.opi</file>
+        <macros>
+          <P>delaygen:</P>
+          <R>DG1:</R>
+        </macros>
+        <target>tab</target>
+        <description>DG645</description>
+      </action>
+    </actions>
+    <text>SRS DG645</text>
+    <x>10</x>
+    <y>131</y>
+    <width>180</width>
+    <height>22</height>
+    <background_color>
+      <color red="187" green="187" blue="187">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #24</name>
+    <actions>
+      <action type="open_display">
+        <file>devDG535.opi</file>
+        <macros>
+          <R>DG2:</R>
+        </macros>
+        <target>tab</target>
+        <description>DG535 (original)</description>
+      </action>
+      <action type="open_display">
+        <file>devDG535daa.opi</file>
+        <macros>
+          <R>DG2:</R>
+        </macros>
+        <target>tab</target>
+        <description>DG535 (modified)</description>
+      </action>
+    </actions>
+    <text>SRS DG535</text>
+    <x>10</x>
+    <y>158</y>
+    <width>180</width>
+    <height>22</height>
+    <background_color>
+      <color red="187" green="187" blue="187">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #28</name>
+    <actions>
+      <action type="open_display">
+        <file>CoherentSDG.opi</file>
+        <macros>
+          <R>sdg:</R>
+        </macros>
+        <target>tab</target>
+        <description>Coherent SDG</description>
+      </action>
+    </actions>
+    <text>Coherent SDG</text>
+    <x>10</x>
+    <y>104</y>
+    <width>180</width>
+    <height>22</height>
+    <background_color>
+      <color red="187" green="187" blue="187">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #32</name>
+    <actions>
+      <action type="open_display">
+        <file>BNC_505.opi</file>
+        <macros>
+          <R>BNC:</R>
+        </macros>
+        <target>tab</target>
+        <description>BNC 505</description>
+      </action>
+    </actions>
+    <text>BNC 505</text>
+    <x>10</x>
+    <y>185</y>
+    <width>180</width>
+    <height>22</height>
+    <background_color>
+      <color red="187" green="187" blue="187">
+      </color>
+    </background_color>
+  </widget>
+</display>

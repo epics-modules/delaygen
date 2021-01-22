@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>colbyHelp</name>
+  <x>141</x>
+  <y>133</y>
+  <width>292</width>
+  <height>198</height>
+  <background_color>
+    <color red="105" green="105" blue="105">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="label" version="2.0.0">
+    <name>text #6</name>
+    <text>Before rebooting the IOC, depress the</text>
+    <x>10</x>
+    <y>20</y>
+    <width>275</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>Disconnect button to orderly shutdown</text>
+    <x>10</x>
+    <y>35</y>
+    <width>275</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #12</name>
+    <text>the network connection to the Colby</text>
+    <x>10</x>
+    <y>50</y>
+    <width>275</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #15</name>
+    <text>instrument. After that, type Reboot</text>
+    <x>10</x>
+    <y>65</y>
+    <width>275</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #18</name>
+    <text>at the IOC console to complete the</text>
+    <x>10</x>
+    <y>81</y>
+    <width>275</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #21</name>
+    <text>orderly shutdown process.</text>
+    <x>10</x>
+    <y>96</y>
+    <width>275</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #24</name>
+    <text></text>
+    <x>10</x>
+    <y>111</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #27</name>
+    <text>If there are problems with connecting</text>
+    <x>10</x>
+    <y>127</y>
+    <width>275</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #30</name>
+    <text>with the instrument, try depressing the</text>
+    <x>10</x>
+    <y>140</y>
+    <width>275</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #33</name>
+    <text>Connect button.</text>
+    <x>10</x>
+    <y>153</y>
+    <width>275</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+</display>
