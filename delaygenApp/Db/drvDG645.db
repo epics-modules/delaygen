@@ -63,6 +63,15 @@ record(bo,"$(P)$(R)GotoRemoteBO")
     field(OUT,  "@asyn($(PORT)) REMOTE")
 }
 
+## Instrument event status related PVs
+record(longin,"$(P)$(R)EventStatus")
+{
+    field(DESC, "Event Status")
+    field(DTYP, "asynInt32")
+    field(INP,  "@asyn($(PORT)) EVENT_STATUS")
+    field(SCAN, "Passive")
+}
+
 ## Input trigger related PVs
 record(ai,"$(P)$(R)TriggerRateAI")
 {
