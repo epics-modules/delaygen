@@ -27,8 +27,10 @@
  Authors: David M. Kline (DMK)
           Eric Norum (EN)
           Dohn Arms (DAA)
+          John Runchey (JQR)
  -----------------------------------------------------------------------------
  History:
+ 2020-Aug-03  JQR  Add support for INSR command.
  2009-Jan-31  DMK  Derived support from drvAsynColby driver.
  2009-Feb-11  DMK  Initial development version V1.0 complete.
  2009-Feb-11  DMK  Development version V1.1 complete.
@@ -316,6 +318,9 @@ static Command commandTable[] =
   {"",         readSink,       cvtSink,        "*RCL%d",       writeIntParam,      "RECALL",          }, // "Recall Settings"},
   {"",         readSink,       cvtSink,        "*SAV%d",       writeIntParam,      "SAVE",            }, // "Save Settings"},
   
+  // Instrument event status related commands
+  {"INSR?",    readParam,      cvtStrInt,      "",             writeSink,          "EVENT_STATUS",    }, // "Instrument Event Status"},
+
   // Trigger related commands
   {"TLVL?",    readParam,      cvtStrFloat,    "TLVL%-.2f",    writeFloatParam,    "TRIG_LEVEL",      }, // "Trigger Level"},
   {"TRAT?",    readParam,      cvtStrFloat,    "TRAT%-.6f",    writeFloatParam,    "TRIG_RATE",       }, // "Trigger Rate"},
