@@ -14,7 +14,7 @@ delaygenApp_registerRecordDeviceDriver(pdbbase)
 
 ## For IP Asyn support
 ## DG645
-#drvAsynIPPortConfigure("serial1","x.x.x.x:5024",0,0,0)
+#drvAsynIPPortConfigure("serial1","x.x.x.x:5025",0,0,0)
 ## Colby
 #drvAsynIPPortConfigure("serial1","x.x.x.x:7000",0,0,0)
 

@@ -31,22 +31,22 @@
  -----------------------------------------------------------------------------
  History:
  2020-Aug-03  JQR  Add support for INSR command.
- 2009-Jan-31  DMK  Derived support from drvAsynColby driver.
- 2009-Feb-11  DMK  Initial development version V1.0 complete.
- 2009-Feb-11  DMK  Development version V1.1 complete.
- 2009-Mar-11  DMK  Removed calls to free() during initialization to eliminate
-                   a segmentation fault (on soft IOCs) when a DG645 is not
-                   connected. This was successful on an EBRICK. 
- 2009-Mar-30  DMK  Allow multiple instances of instrument.
- 2010-Sep-30  DMK  Solidified multiple instance implementation.
- 2011-Nov-21  EN   Added support for prescalers.
+ 2016-Feb-19  DAA  Change Status so that is read after every command write,
+                   any change triggers an interrupt.
+ 2013-Jun-28  DAA  Add description field. Added support for prescale phases,
+                   trigger holdoff, advanced triggering switch.
  2012-Sep-17  DAA  Rewrote it somewhat to fix race condition if multiple
                    devices are running at same time.  Simplified the driver, 
                    and changed from using address as record type to tag.
- 2013-Jun-28  DAA  Add description field. Added support for prescale phases,
-                   trigger holdoff, advanced triggering switch.
- 2016-Feb-19  DAA  Change Status so that is read after every command write,
-                   any change triggers an interrupt.
+ 2011-Nov-21  EN   Added support for prescalers.
+ 2010-Sep-30  DMK  Solidified multiple instance implementation.
+ 2009-Mar-30  DMK  Allow multiple instances of instrument.
+ 2009-Mar-11  DMK  Removed calls to free() during initialization to eliminate
+                   a segmentation fault (on soft IOCs) when a DG645 is not
+                   connected. This was successful on an EBRICK. 
+ 2009-Feb-11  DMK  Development version V1.1 complete.
+ 2009-Feb-11  DMK  Initial development version V1.0 complete.
+ 2009-Jan-31  DMK  Derived support from drvAsynColby driver.
  -----------------------------------------------------------------------------
 
 */

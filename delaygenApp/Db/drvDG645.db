@@ -64,7 +64,7 @@ record(bo,"$(P)$(R)GotoRemoteBO")
 }
 
 ## Instrument event status related PVs
-record(longin,"$(P)$(R)EventStatus")
+record(longin,"$(P)$(R)EventStatusLI")
 {
     field(DESC, "Event Status")
     field(DTYP, "asynInt32")
