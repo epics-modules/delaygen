@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/DOHNARMS/epics_modules/hardware/SRS_DG645/ioc/dg645App/op/adl/srsDG645.adl"
-	version=030107
+	name="/local/github/delaygen/delaygenApp/op/adl/srsDG645.adl"
+	version=030111
 }
 display {
 	object {
@@ -1919,8 +1919,8 @@ rectangle {
 }
 "message button" {
 	object {
-		x=540
-		y=580
+		x=560
+		y=595
 		width=100
 		height=20
 	}
@@ -2227,4 +2227,20 @@ composite {
 	format="engr. notation"
 	limits {
 	}
+}
+"related display" {
+	object {
+		x=540
+		y=570
+		width=120
+		height=20
+	}
+	display[0] {
+		label="Trigger and Burst Control"
+		name="srsDG645StatusRegister.adl"
+		args="P=$(P),R=$(R)"
+	}
+	clr=14
+	bclr=32
+	label="-Status Register"
 }
