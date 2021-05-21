@@ -70,13 +70,13 @@ record(longin,"$(P)$(R)EventStatusLI")
     field(DTYP, "asynInt32")
     field(INP,  "@asyn($(PORT)) EVENT_STATUS")
     field(SCAN, "Passive")
+    field(FLNK, "$(P)$(R)EventStatusMBBID")
 }
 record(mbbiDirect,"$(P)$(R)EventStatusMBBID")
 {
     field(DESC, "Event Status Bits")
-    field(DTYP, "asynInt32")
-    field(INP,  "@asyn($(PORT)) EVENT_STATUS")
-    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+    field(INP,  "$(P)$(R)EventStatusLI")
 }
 
 ## Input trigger related PVs

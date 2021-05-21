@@ -1,0 +1,910 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 881
+y 147
+w 500
+h 230
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 6
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 211
+w 13
+h 13
+lineColor index 11
+fill
+fillColor index 11
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B7)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 211
+w 13
+h 13
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B7)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 191
+w 13
+h 13
+lineColor index 11
+fill
+fillColor index 11
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B6)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 191
+w 13
+h 13
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B6)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 171
+w 13
+h 13
+lineColor index 11
+fill
+fillColor index 11
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B5)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 171
+w 13
+h 13
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B5)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 151
+w 13
+h 13
+lineColor index 11
+fill
+fillColor index 11
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B4)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 151
+w 13
+h 13
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B4)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 131
+w 13
+h 13
+lineColor index 11
+fill
+fillColor index 11
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B3)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 131
+w 13
+h 13
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B3)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 111
+w 13
+h 13
+lineColor index 11
+fill
+fillColor index 11
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B2)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 111
+w 13
+h 13
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B2)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 91
+w 13
+h 13
+lineColor index 11
+fill
+fillColor index 11
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B1)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 91
+w 13
+h 13
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B1)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 71
+w 13
+h 13
+lineColor index 11
+fill
+fillColor index 11
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B0)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 51
+y 71
+w 13
+h 13
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 0
+visPv "CALC\\\{(A)\}($(P)$(R)EventStatusMBBID.B0)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 30
+y 35
+w 160
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 19
+useDisplayBg
+value {
+ "STATUS REGISTER"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 385
+y 38
+w 60
+h 16
+controlPv "$(P)$(R)EventStatusLI"
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 1
+autoHeight
+format "string"
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 320
+y 35
+w 50
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "Value"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 5
+w 150
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 54
+useDisplayBg
+value {
+ "$(P)$(R)"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1
+y 31
+w 496
+h -1
+lineColor index 10
+fill
+fillColor index 10
+lineWidth 3
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1
+y 61
+w 496
+h -1
+lineColor index 6
+fill
+fillColor index 6
+lineWidth 3
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 165
+y 5
+w 180
+h 20
+controlPv "$(P)$(R)Label"
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 2
+autoHeight
+format "engr.
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 5
+w 100
+h 20
+
+beginGroup
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 375
+y 5
+w 50
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 20
+useDisplayBg
+value {
+ "ERROR"
+}
+visPv "CALC\\\{(A)\}($(P)$(R)StatusLI)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 5
+w 100
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 30
+useDisplayBg
+value {
+ "STATUS OFF"
+}
+visPv "CALC\\\{(A)\}($(P)$(R)StatusLI)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 75
+y 70
+w 420
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "TRIG: Got a trigger."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 75
+y 90
+w 420
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "RATE: Got a trigger while a delay or burst was in progress."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 75
+y 110
+w 420
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "END_OF_DELAY: A delay cycle has completed."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 75
+y 130
+w 420
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "END_OF_BURST: A burst cycle has completed."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 75
+y 150
+w 420
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "INHIBIT: A trigger or output delay cycle was inhibited."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 75
+y 170
+w 420
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "ABORT_DELAY: A delay cycle was aborted early."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 75
+y 190
+w 420
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "PLL_UNLOCK: The 100 MHz PLL came unlocked."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 75
+y 210
+w 420
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "RB_UNLOCK: The installed Rb oscillator is unlocked."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 70
+w 40
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "Bit 0"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 90
+w 40
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 110
+w 40
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "2"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 130
+w 40
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "3"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 150
+w 40
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "4"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 170
+w 40
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "5"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 190
+w 40
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "6"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 210
+w 40
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "7"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 455
+y 5
+w 40
+h 20
+fgColor index 14
+bgColor index 32
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Main"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 ../adl/srsDG645.edl
+}
+menuLabel {
+  0 Main Screen
+}
+symbols {
+  0 "P=$(P),R=$(R)"
+}
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 350
+y 5
+w 100
+h 20
+
+beginGroup
+
+
+endGroup
+
+endObjectProperties
+
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 230
+y 35
+w 40
+h 20
+fgColor index 14
+onColor index 51
+offColor index 51
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)$(R)EventStatusLI.PROC"
+pressValue "1"
+releaseValue 
+onLabel "Read"
+offLabel "Read"
+3d
+useEnumNumeric
+font "helvetica-medium-r-10.0"
+endObjectProperties
+

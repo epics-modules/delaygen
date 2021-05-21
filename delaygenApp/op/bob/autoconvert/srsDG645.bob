@@ -2271,8 +2271,8 @@
     </actions>
     <pv_name>$(P)$(R)StatusClearBO</pv_name>
     <text>CLEAR ERROR</text>
-    <x>540</x>
-    <y>580</y>
+    <x>560</x>
+    <y>595</y>
     <height>20</height>
     <background_color>
       <color red="115" green="223" blue="255">
@@ -2660,5 +2660,24 @@
     <show_units>false</show_units>
     <horizontal_alignment>1</horizontal_alignment>
     <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #497</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645StatusRegister.opi</file>
+        <target>tab</target>
+        <description>Trigger and Burst Control</description>
+      </action>
+    </actions>
+    <text>Status Register</text>
+    <x>540</x>
+    <y>570</y>
+    <width>120</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
   </widget>
 </display>

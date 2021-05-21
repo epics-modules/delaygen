@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>srsDG645StatusRegister</name>
+  <x>881</x>
+  <y>147</y>
+  <width>500</width>
+  <height>230</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #6</name>
+    <x>50</x>
+    <y>210</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B7</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #10</name>
+    <x>50</x>
+    <y>210</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0!=0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B7</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #14</name>
+    <x>50</x>
+    <y>190</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B6</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #18</name>
+    <x>50</x>
+    <y>190</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0!=0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B6</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #22</name>
+    <x>50</x>
+    <y>170</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B5</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #26</name>
+    <x>50</x>
+    <y>170</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0!=0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B5</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #30</name>
+    <x>50</x>
+    <y>150</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B4</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #34</name>
+    <x>50</x>
+    <y>150</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0!=0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B4</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #38</name>
+    <x>50</x>
+    <y>130</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B3</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #42</name>
+    <x>50</x>
+    <y>130</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0!=0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B3</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #46</name>
+    <x>50</x>
+    <y>110</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B2</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #50</name>
+    <x>50</x>
+    <y>110</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0!=0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B2</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #54</name>
+    <x>50</x>
+    <y>90</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B1</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #58</name>
+    <x>50</x>
+    <y>90</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0!=0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B1</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #62</name>
+    <x>50</x>
+    <y>70</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="90" green="90" blue="90">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B0</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #66</name>
+    <x>50</x>
+    <y>70</y>
+    <width>15</width>
+    <height>15</height>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_if_not_zero" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(pv0!=0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)$(R)EventStatusMBBID.B0</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #70</name>
+    <text>STATUS REGISTER</text>
+    <x>30</x>
+    <y>35</y>
+    <width>160</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="33" green="108" blue="0">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #73</name>
+    <pv_name>$(P)$(R)EventStatusLI</pv_name>
+    <x>385</x>
+    <y>38</y>
+    <width>60</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #77</name>
+    <text>Value</text>
+    <x>320</x>
+    <y>35</y>
+    <width>50</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #80</name>
+    <text>$(P)$(R)</text>
+    <x>5</x>
+    <y>5</y>
+    <width>150</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #83</name>
+    <y>30</y>
+    <width>500</width>
+    <height>3</height>
+    <line_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #86</name>
+    <y>60</y>
+    <width>500</width>
+    <height>3</height>
+    <line_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="158" green="158" blue="158">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #89</name>
+    <actions>
+      <action type="open_display">
+        <file>srsDG645.opi</file>
+        <target>tab</target>
+        <description>Main Screen</description>
+      </action>
+    </actions>
+    <text>Main</text>
+    <x>455</x>
+    <y>5</y>
+    <width>40</width>
+    <height>20</height>
+    <background_color>
+      <color red="238" green="182" blue="43">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>text update #92</name>
+    <pv_name>$(P)$(R)Label</pv_name>
+    <x>165</x>
+    <y>5</y>
+    <width>180</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="218" green="218" blue="218">
+      </color>
+    </background_color>
+    <format>3</format>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #96</name>
+    <x>350</x>
+    <y>5</y>
+    <width>100</width>
+    <height>20</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #99</name>
+      <text>ERROR</text>
+      <x>25</x>
+      <width>50</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="253" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <rules>
+        <rule name="vis_calc" prop_id="visible" out_exp="false">
+          <exp bool_exp="!(pv0 &gt; 0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(R)StatusLI</pv_name>
+        </rule>
+      </rules>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #103</name>
+      <text>STATUS OFF</text>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="251" green="243" blue="74">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <rules>
+        <rule name="vis_calc" prop_id="visible" out_exp="false">
+          <exp bool_exp="!(pv0 &lt; 0)">
+            <value>false</value>
+          </exp>
+          <pv_name>$(P)$(R)StatusLI</pv_name>
+        </rule>
+      </rules>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>message button #107</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(P)$(R)EventStatusLI.PROC</pv_name>
+        <value>1</value>
+        <description>Write</description>
+      </action>
+    </actions>
+    <pv_name>$(P)$(R)EventStatusLI.PROC</pv_name>
+    <text>Read</text>
+    <x>230</x>
+    <y>35</y>
+    <width>40</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #110</name>
+    <text>TRIG: Got a trigger.</text>
+    <x>75</x>
+    <y>70</y>
+    <width>420</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #113</name>
+    <text>RATE: Got a trigger while a delay or burst was in progress.</text>
+    <x>75</x>
+    <y>90</y>
+    <width>420</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #116</name>
+    <text>END_OF_DELAY: A delay cycle has completed.</text>
+    <x>75</x>
+    <y>110</y>
+    <width>420</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #119</name>
+    <text>END_OF_BURST: A burst cycle has completed.</text>
+    <x>75</x>
+    <y>130</y>
+    <width>420</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #122</name>
+    <text>INHIBIT: A trigger or output delay cycle was inhibited.</text>
+    <x>75</x>
+    <y>150</y>
+    <width>420</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #125</name>
+    <text>ABORT_DELAY: A delay cycle was aborted early.</text>
+    <x>75</x>
+    <y>170</y>
+    <width>420</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #128</name>
+    <text>PLL_UNLOCK: The 100 MHz PLL came unlocked.</text>
+    <x>75</x>
+    <y>190</y>
+    <width>420</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #131</name>
+    <text>RB_UNLOCK: The installed Rb oscillator is unlocked.</text>
+    <x>75</x>
+    <y>210</y>
+    <width>420</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #134</name>
+    <text>Bit 0</text>
+    <x>5</x>
+    <y>70</y>
+    <width>40</width>
+    <height>14</height>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #137</name>
+    <text>1</text>
+    <x>5</x>
+    <y>90</y>
+    <width>40</width>
+    <height>14</height>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #140</name>
+    <text>2</text>
+    <x>5</x>
+    <y>110</y>
+    <width>40</width>
+    <height>14</height>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #143</name>
+    <text>3</text>
+    <x>5</x>
+    <y>130</y>
+    <width>40</width>
+    <height>14</height>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #146</name>
+    <text>4</text>
+    <x>5</x>
+    <y>150</y>
+    <width>40</width>
+    <height>14</height>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #149</name>
+    <text>5</text>
+    <x>5</x>
+    <y>170</y>
+    <width>40</width>
+    <height>14</height>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #152</name>
+    <text>6</text>
+    <x>5</x>
+    <y>190</y>
+    <width>40</width>
+    <height>14</height>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #155</name>
+    <text>7</text>
+    <x>5</x>
+    <y>210</y>
+    <width>40</width>
+    <height>14</height>
+    <horizontal_alignment>2</horizontal_alignment>
+  </widget>
+</display>
