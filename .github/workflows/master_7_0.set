@@ -1,9 +1,9 @@
 BASE="7.0"
 
-MODULES="ipac calc ip asyn stream"
+MODULES="ipac calc asyn ip stream"
 
 STREAM="master"
-ASYN="master"
 IP="master"
+ASYN="master"
 CALC="master"
 IPAC="master"

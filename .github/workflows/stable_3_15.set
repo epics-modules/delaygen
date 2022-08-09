@@ -1,6 +1,6 @@
 BASE="3.15"
 
-MODULES="ipac calc ip asyn stream"
+MODULES="ipac calc asyn ip stream"
 
 STREAM="2.8.16"
 ASYN="R4-42"
