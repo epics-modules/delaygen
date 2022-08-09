@@ -38,7 +38,7 @@ jobs:
       RTEMS_TARGET: ${{ matrix.rtems_target }}
       EXTRA: ${{ matrix.extra }}
       TEST: ${{ matrix.test }}
-      SET: ${{ matrix.test }}
+      SET: ${{ matrix.set }}
     strategy:
       fail-fast: false
       matrix:
