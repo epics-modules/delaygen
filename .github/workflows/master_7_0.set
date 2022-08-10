@@ -1,9 +1,10 @@
 BASE="7.0"
 
-MODULES="ipac calc asyn ip stream"
+MODULES="sncseq ipac calc asyn ip stream"
 
 STREAM="master"
 IP="master"
 ASYN="master"
 CALC="master"
 IPAC="master"
+SNCSEQ="R2-2-9"
