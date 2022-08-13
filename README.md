@@ -1,3 +1,5 @@
+[![DELAYGEN](https://github.com/epics-modules/delaygen/actions/workflows/ci-scripts-build.yml/badge.svg)](https://github.com/epics-modules/delaygen/actions/workflows/ci-scripts-build.yml)
+
 # delaygen
 APS BCDA synApps module: delaygen
 
