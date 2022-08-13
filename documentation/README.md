@@ -12,7 +12,7 @@
 5. Berkeley Nucleonics 505 Pulse/Delay Generator
 </pre>
 
-* [delaygenReleaseNotes.html](http://htmlpreview.github.com/?https://github.com/epics-modules/delaygen/blob/master/documentation/delaygenReleaseNotes.html)
+* [delaygenReleaseNotes.html](https://htmlpreview.github.io/?https://github.com/epics-modules/delaygen/blob/master/documentation/delaygenReleaseNotes.html)
 
 <pre>
 --------------------------------------------------------------------------------------------------------------
