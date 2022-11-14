@@ -12,15 +12,11 @@
 5. Berkeley Nucleonics 505 Pulse/Delay Generator
 </pre>
 
-* [delaygenReleaseNotes.html](https://htmlpreview.github.io/?https://github.com/epics-modules/delaygen/blob/master/documentation/delaygenReleaseNotes.html)
+* [delaygenReleaseNotes](delaygenReleaseNotes.md)
 
-<pre>
---------------------------------------------------------------------------------------------------------------
 Contact information:
 Argonne National Laboratory
 X-ray Science Division
 Beamline Controls and Data Acquisition
 Dohn Arms
 dohnarms@anl.gov
---------------------------------------------------------------------------------------------------------------
-</pre>
