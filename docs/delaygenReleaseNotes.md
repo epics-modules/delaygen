@@ -8,7 +8,15 @@ nav_order: 2
 delaygenReleaseNotes
 ====================
 
+Release 1.2.4
+-------------
+
+Adjusted to build against new Scalar module
+
+Documentation moved to github pages
+
 Release 1.2.3
+-------------
 
 BNC 505 support
 
@@ -19,18 +27,21 @@ DG645 support
 Added event status register support
 
 Release 1.2.2
+-------------
 
 delaygenApp/op
 
 Added bob files, updated ui and edl files
 
 Release 1.2.1
+-------------
 
 delaygenApp/Db
 
 req files now installed to top-level db folder
 
 Release 1.2
+-----------
 
 DG645 support
 
@@ -49,6 +60,7 @@ Updated example IOC directory
 The broken example IOC directory has been redone and tested (with a Linux IOC).
 
 Release 1.1.1
+-------------
 
 delaygenApp/src/Makefile
 
@@ -59,6 +71,7 @@ delaygenApp/op/ui/\*
 fixed menus
 
 Release 1.1.0
+-------------
 
 Modified drvAsynDG645.cpp, drvDG645.db, and DG645 screens.  
 
@@ -81,6 +94,7 @@ srsDG645.opi
 Remove relative paths
 
 Release 1.0.7
+-------------
 
 Modified drvAsynDG645.cpp, srsDG645.adl, and drvDG645.db  
 
@@ -88,6 +102,7 @@ Modified drvAsynDG645.cpp, srsDG645.adl, and drvDG645.db
 Applied Eric Norum's patch to add some additional prescale PVs
 
 Release 1.0.6
+-------------
 
 Added opi  
 Added BNC\_505.opi  
