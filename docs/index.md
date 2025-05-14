@@ -21,9 +21,9 @@ nav_order: 1
 
 * [delaygenReleaseNotes](delaygenReleaseNotes.md)
 
-Contact information:
-Argonne National Laboratory
-X-ray Science Division
-Beamline Controls and Data Acquisition
-Dohn Arms
-dohnarms@anl.gov
+Contact information:  
+Argonne National Laboratory  
+X-ray Science Division  
+Beamline Controls and Data Acquisition  
+Keenan Lang  
+klang@anl.gov
