@@ -1,5 +1,3 @@
-BASE="R7.0.4.1"
-
 MODULES="sncseq ipac calc asyn ip stream"
 
 STREAM="2.8.16"
