@@ -31,33 +31,6 @@ DBD += delaygenSupport.dbd
 CFG += DELAYGEN_DEPS
 
 #=============================================================================
-# Build an IOC application
-ifeq ($(OS_CLASS),Linux)
-PROD_IOC = delaygenApp
-endif
-
-#-----------------------------------------------------------------------------
-# <name>.dbd will be created and installed
-DBD += delaygenApp.dbd
-
-#-----------------------------------------------------------------------------
-# <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
-# mw100_registerRecordDeviceDriver.cpp derives from mw100ex.dbd
-delaygenApp_SRCS += delaygenApp_registerRecordDeviceDriver.cpp
-
-# Build the main IOC entry point where needed
-delaygenApp_SRCS_DEFAULT += delaygenMain.cpp
-
-#-----------------------------------------------------------------------------
-# Include libraries
-delaygenApp_LIBS += delaygen
-delaygenApp_LIBS += asyn
-delaygenApp_LIBS += calc
-delaygenApp_LIBS += stream
-delaygenApp_LIBS += $(EPICS_BASE_IOC_LIBS)
-
-#
-#=============================================================================
 
 include $(TOP)/configure/RULES
 #-----------------------------------------------------------------------------

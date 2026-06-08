@@ -45,7 +45,7 @@ nigpibInterposeConfig("L1",23,60,0);
 ## Load database
 
 ## Original database by ANL Controls
-dbLoadRecords("$(TOP)/delaygenApp/Db/devDG535.db","P=delaygen:,R=DG2:,L=1,A=15")
+dbLoadRecords("$(DELAYGEN)/db/devDG535.db","P=delaygen:,R=DG2:,L=1,A=15")
 ## Database modified by DAA for user operations
-#dbLoadRecords("$(TOP)/delaygenApp/Db/devDG535daa.db","P=delaygen:,R=DG2:,L=1,A=15")
+#dbLoadRecords("$(DELAYGEN)/db/devDG535daa.db","P=delaygen:,R=DG2:,L=1,A=15")
 

@@ -11,4 +11,4 @@ asynOctetSetInputEos("serial1",0,"\r")
 #       ioaddr  - Comm asyn port addr
 #
 drvAsynCoherentSDG("SDG","serial1",-1);
-dbLoadRecords("$(TOP)/delaygenApp/Db/drvAsynCoherentSDG.db","P=delaygen:,R=sdg:,PORT=SDG")
+dbLoadRecords("$(DELAYGEN)/db/drvAsynCoherentSDG.db","P=delaygen:,R=sdg:,PORT=SDG")

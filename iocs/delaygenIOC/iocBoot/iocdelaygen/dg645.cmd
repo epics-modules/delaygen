@@ -16,5 +16,5 @@ asynSetOption(serial1, 0, "crtscts",   "Y")
 drvAsynDG645("DG1","serial1",-1);
 
 # Load database
-dbLoadRecords("$(TOP)/delaygenApp/Db/drvDG645.db","P=delaygen:,R=DG1:,PORT=DG1")
+dbLoadRecords("$(DELAYGEN)/db/drvDG645.db","P=delaygen:,R=DG1:,PORT=DG1")
 

@@ -15,4 +15,4 @@ asynOctetSetOutputEos("serial1",-1,"\r\n")
 drvAsynColby("COL","serial1",-1,"ns",1)
 
 # Load databases
-dbLoadRecords("$(TOP)/delaygenApp/Db/colbyPDL100A.db","P=delaygen:,R=Colby:,PREC=3,A=Colby,PORT=COL")
+dbLoadRecords("$(DELAYGEN)/db/colbyPDL100A.db","P=delaygen:,R=Colby:,PREC=3,A=Colby,PORT=COL")

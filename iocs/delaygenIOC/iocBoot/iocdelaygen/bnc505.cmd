@@ -6,7 +6,7 @@ asynOctetSetInputEos("serial1",-1,"\r\n")
 asynOctetSetOutputEos("serial1",-1,"\r\n")
 
 # set the protocol path for streamDevice
-epicsEnvSet("STREAM_PROTOCOL_PATH", "$(TOP)/delaygenApp/Db")
+epicsEnvSet("STREAM_PROTOCOL_PATH", "$(DELAYGEN)/db")
 
 # Load database
-dbLoadRecords("$(TOP)/delaygenApp/Db/BNC_505.db","P=delaygen:,R=BNC:,PORT=serial1")
+dbLoadRecords("$(DELAYGEN)/db/BNC_505.db","P=delaygen:,R=BNC:,PORT=serial1")
