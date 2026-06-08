@@ -1,0 +1,2 @@
+DELAYGEN_IOC_DBDS = delaygenSupport.dbd
+DELAYGEN_IOC_LIBS = delaygen

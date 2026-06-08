@@ -28,6 +28,8 @@ DBD += nigpibSupport.dbd
 DBD += drvAsynCoherentSDG.dbd 
 DBD += delaygenSupport.dbd
 
+CFG += DELAYGEN_DEPS
+
 #=============================================================================
 # Build an IOC application
 ifeq ($(OS_CLASS),Linux)
