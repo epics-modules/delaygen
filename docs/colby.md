@@ -24,13 +24,23 @@ communicates with the instrument over serial or Ethernet.
 
 ### Serial
 
+Requires a null-modem cable.
+
 | Setting | Value |
 | - | - |
+| Baud rate | 9600 |
+| Data bits | 8 |
+| Parity | None |
+| Stop bits | 2 |
 | Input EOS | `:` |
 | Output EOS | `\r\n` |
 
 ```
 drvAsynSerialPortConfigure("serial1", "/dev/ttyS0", 0, 0, 0)
+asynSetOption(serial1, 0, "baud", "9600")
+asynSetOption(serial1, 0, "bits", "8")
+asynSetOption(serial1, 0, "parity", "none")
+asynSetOption(serial1, 0, "stop", "2")
 asynOctetSetInputEos("serial1", -1, ":")
 asynOctetSetOutputEos("serial1", -1, "\r\n")
 ```
