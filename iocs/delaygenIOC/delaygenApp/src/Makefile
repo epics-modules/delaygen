@@ -30,6 +30,9 @@ $(PROD_NAME)_LIBS += $(DELAYGEN_IOC_LIBS)
 $(PROD_NAME)_LIBS += $(CALC_IOC_LIBS)
 $(PROD_NAME)_LIBS += stream
 $(PROD_NAME)_LIBS += asyn
+ifdef SNCSEQ
+$(PROD_NAME)_LIBS += seq pv
+endif
 $(PROD_NAME)_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 include $(TOP)/configure/RULES
