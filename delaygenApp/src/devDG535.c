@@ -93,8 +93,8 @@ char  *pchanName[8] = {" ", "T + ", "A + ", "B + ", " ", "C + ", "D + ", " "};
  ******************************************************************************/
 
 /* forward declarations of some custom convert routines */
-static int setDelay();
-static int rdDelay();
+static int setDelay(struct gpibDpvt *pgpibDpvt, int P1, int P2, char **P3);
+static int rdDelay(struct gpibDpvt *pgpibDpvt, int P1, int P2, char **P3);
 
 static struct gpibCmd gpibCmds[] =
 {
